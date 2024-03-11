@@ -125,7 +125,7 @@ export default function Home() {
     }
 
     useEffect(()=>{
-      // PayedCheck()
+      PayedCheck()
       const security = window.localStorage.getItem('Id')
       if(security){
         setLink(security)
