@@ -30,64 +30,64 @@ export default function Home() {
       window.localStorage.setItem('uid', '')
     }
 
-    // async function getCheckoutUrl(){
-    //   const app = initFirebase()
-    //   const userId = window.localStorage.getItem('uid');
+    async function getCheckoutUrl(){
+      const app = initFirebase()
+      const userId = window.localStorage.getItem('uid');
     
-    //   const db = getFirestore(app);
-    //   const checkoutSessionRef = collection(
-    //     db,
-    //     "customers",
-    //     userId,
-    //     "checkout_sessions"
-    //   );
+      const db = getFirestore(app);
+      const checkoutSessionRef = collection(
+        db,
+        "customers",
+        userId,
+        "checkout_sessions"
+      );
     
-    //   const docRef = await addDoc(checkoutSessionRef, {
-    //     price: 'price_1OqoPfIZAnJ0s9ybKIwjY1VR',
-    //     success_url: window.location.origin,
-    //     cancel_url: window.location.origin,
-    //   });
-    //   const promise = new Promise((resolve, reject) => {
-    //     const unsubscribe = onSnapshot(docRef, (snap) => {
-    //       const { error, url } = snap.data() || {};
-    //       if (error) {
-    //         unsubscribe(); 
-    //         reject(new Error(`An error occurred: ${error.message}`));
-    //       }
-    //       if (url) {
-    //         unsubscribe(); 
-    //         router.push(url);
-    //       }
-    //     });
-    //   });
-    // };
+      const docRef = await addDoc(checkoutSessionRef, {
+        price: 'price_1OqoPfIZAnJ0s9ybKIwjY1VR',
+        success_url: window.location.origin,
+        cancel_url: window.location.origin,
+      });
+      const promise = new Promise((resolve, reject) => {
+        const unsubscribe = onSnapshot(docRef, (snap) => {
+          const { error, url } = snap.data() || {};
+          if (error) {
+            unsubscribe(); 
+            reject(new Error(`An error occurred: ${error.message}`));
+          }
+          if (url) {
+            unsubscribe(); 
+            router.push(url);
+          }
+        });
+      });
+    };
 
-    // async function PayedCheck() {
-    //   const app = initFirebase()
-    //     const userId = window.localStorage.getItem('uid')
-    //   const db = getFirestore(app);
-    //   const subscriptionsRef = collection(db, "customers", userId, "subscriptions");
-    //   const q = query(
-    //     subscriptionsRef,
-    //     where("status", "in", ["trialing", "active"])
-    //   );
+    async function PayedCheck() {
+      const app = initFirebase()
+        const userId = window.localStorage.getItem('uid')
+      const db = getFirestore(app);
+      const subscriptionsRef = collection(db, "customers", userId, "subscriptions");
+      const q = query(
+        subscriptionsRef,
+        where("status", "in", ["trialing", "active"])
+      );
     
-    //   const promise = new Promise((resolve, reject) => {
-    //     const unsubscribe = onSnapshot(
-    //       q,
-    //       (snapshot) => {
+      const promise = new Promise((resolve, reject) => {
+        const unsubscribe = onSnapshot(
+          q,
+          (snapshot) => {
     
-    //         if (snapshot.docs.length === 0) {
-    //           Payed(false);
-    //         } else {
-    //           Payed(true);
-    //         }
-    //         unsubscribe();
-    //       },
-    //       reject
-    //     );
-    //   });
-    // };
+            if (snapshot.docs.length === 0) {
+              Payed(false);
+            } else {
+              Payed(true);
+            }
+            unsubscribe();
+          },
+          reject
+        );
+      });
+    };
 
     async function getPortalUrl(){
   
