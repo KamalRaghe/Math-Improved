@@ -210,7 +210,7 @@ export default function Home() {
             </div>
         })}</h1>}
 
-        {payed && (Account.length === 1 || Account.length === 0) && <div className="center">
+        {payed && (Account.length === 1) && <div className="center">
             <input placeholder="Create account" value={account.title} type='text' onChange = {(e) => setAccount({...account, title: e.target.value})}></input>
             <button onClick={() => handleSubmit()}>Enter</button>
            
