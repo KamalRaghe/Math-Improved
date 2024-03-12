@@ -93,7 +93,6 @@ export default function Home() {
     async function getPortalUrl(){
       const app = initFirebase()
       const userId = window.localStorage.getItem('uid');
-        let dataWithUrl;
         try {
           const functions = getFunctions(app, "us-central1");
           const functionRef = httpsCallable(
