@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react"
 import Step from "./step"
 import HelpMinus from "./HelpMinus"
-import ExtraMinus from "./ExtraMinus"
 
-function StepMinus({close, num1 , num2}){
+function ExtraMinus({close, num1 , num2}){
     const [extra, setExtra] = useState(false)
     const [step1, setStep1] = useState(true)
     const [step2, setStep2] = useState(false)
@@ -68,9 +67,8 @@ function StepMinus({close, num1 , num2}){
     mix()
    },[])
         return(
-           <div className="Help" style={{zIndex:'20',border:'10px solid orange'}}>
-                {extra && (number1 > 9 || number2 > 9) && <ExtraMinus close={Extra} num1 ={number1} num2 = {number2}/>}
-                {extra && (number1 < 10 && number2 < 10)  &&<HelpMinus close={Extra} num1 ={(ten+number1[count])%20} num2 = {number2[count]%10} />}
+           <div className="Help" style={{zIndex:'20',border:'10px solid yellow'}}>
+                {extra && <HelpMinus close={Extra} num1 ={(ten+number1[count])%20} num2 = {number2[count]%10} />}
                <div className='cancel'><button className='cancel-btn hide' >X</button></div>
                <span className='center'>{num1%10 + ten< num2%10 && !step2 && <button className='carry  absolute Red' style={{left:'168px'}} onClick={click}>{'-'}</button>}</span>
                <span className='center'>{slice && <button className=' back2Step2 absolute Red' style={{left: redNum}} onClick={click}>{Math.floor(num1/10)-1}</button>}</span>
@@ -95,4 +93,4 @@ function StepMinus({close, num1 , num2}){
                </div>}
            </div>
         )}
-export default StepMinus
+export default ExtraMinus

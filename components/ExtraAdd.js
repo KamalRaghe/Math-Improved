@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react"
 import Step from "./step"
 import HelpAdd from "./HelpAdd"
-import ExtraAdd from "./ExtraAdd"
 
-function StepAdd({close, num1 , num2}){
+function ExtraAdd({close, num1 , num2}){
     const [extra, setExtra] = useState(false)
     const [step1, setStep1] = useState(true)
     const [step2, setStep2] = useState(false)
@@ -72,9 +71,8 @@ function StepAdd({close, num1 , num2}){
     mix()
    },[])
         return(
-           <div className="Help" style={{zIndex:'20', border:'10px solid orange'}}>
-               {extra && (number1 > 9 || number2 > 9) && <ExtraAdd close={Extra} num1 ={number1} num2 = {number2}/>}
-               {extra && (number1 < 10 && number2 < 10) && <HelpAdd close={Extra} num1 ={number1[count]%10} num2 = {number2[count]%10} num3={num4} />}
+           <div className="Help" style={{zIndex:'20', border:'10px solid yellow'}}>
+               {extra && <HelpAdd close={Extra} num1 ={number1[count]%10} num2 = {number2[count]%10} num3={num4} />}
                <div className='cancel'><button className='cancel-btn hide'>X</button></div>
                <span className='center'>{carry && done && <button className='carry  absolute Green' style={{left:'162px'}} onClick={click}>{sign}</button>}</span>
                <span className='center'>{carry && !done && <button className=' back2Step2 absolute Green' style={{left:'165px'}} onClick={click}>{sign}</button>}</span>
@@ -103,4 +101,4 @@ function StepAdd({close, num1 , num2}){
                </div>}
            </div>
         )}
-export default StepAdd
+export default ExtraAdd
