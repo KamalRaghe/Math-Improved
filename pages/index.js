@@ -78,20 +78,21 @@ export default function Home() {
       <div className="center column" style={{alignItems:"start"}}>
         <div className="relative" style={{fontSize:"70px",top:"20px",color:'navy',padding:"0px"}} >Math</div>
         <div className="relative" style={{fontSize:"70px",color:'purple',paddingBottom:"20px"}} >Improved</div>
-        {!user && !create && loaded && <button className="relative center" onClick={Password} style={{padding:"0px",top:"125px",left:move,backgroundColor:"white",border:"none"}} >
+        <div className="relative">
+        {!user && !create && loaded && <button className="absolute center" onClick={Password} style={{padding:"0px",top:"110px",left:move,backgroundColor:"white",border:"none"}} >
             <span className="hide" ></span><div className="relative">{password === 'password' ? 'show' : 'hide'}</div></button>}
         {!user && !create && loaded && <div>
           <div style={{paddingBottom:'10px',fontSize:"50px"}} >Sign In <button style={{background:'none',fontSize:"30px",border:'none',color:"blue"}} onClick={()=>{setCreate(true)}} >Sign up</button></div>  
         <form className="center sb column" style={{alignItems:'start'}} onSubmit={(e)=> signIn(e)}>
           <input className="relative" style={{borderColor: red,width:'190px'}} name='email' type='email' placeholder="Email" ></input><br></br>
           <div className="center" style={{width:"200px",backgroundColor:"transparent",border:'none'}} >
-            <input style={{borderColor: red,width:'200px'}} name='password' type={password} placeholder="password" ></input>
-        </div>
+            <input style={{borderColor: red,width:'200px'}} name='password' type={password} placeholder="password" ></input> </div>
         <div className="center" >
           <button style={{marginTop:'10px'}}>Enter</button>   
         </div>
         </form>
         </div>}
+        </div>
       </div>
       {(create || user) && <div className="box" ></div>}
       {create && <div className="box" ></div>}

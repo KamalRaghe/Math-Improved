@@ -45,7 +45,7 @@ export default function Home() {
       );
     
       const docRef = await addDoc(checkoutSessionRef, {
-        price: 'price_1OtaTaIZAnJ0s9ybnO45fZJ6',
+        price: 'price_1Otf57DlcBixp6qNfkttgsHI',
         success_url: window.location.origin,
         cancel_url: window.location.origin,
       });
@@ -99,7 +99,7 @@ export default function Home() {
           const functions = getFunctions(app, "us-central1");
           const functionRef = httpsCallable(
             functions,
-            "ext-firestore-stripe-payments-bmui-createPortalLink"
+            "ext-firestore-stripe-payments-7lag-createPortalLink"
           );
           const { data } = await functionRef({
             customerId: userId,
