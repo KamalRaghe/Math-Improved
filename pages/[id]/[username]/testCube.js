@@ -129,7 +129,7 @@ export default function DoubleAdd(){
             </div>
             { time - Date.now() < 0 && <Timeout again ={Again}/>}
             {mistake === 3 && <Mistake again={Again}></Mistake>}
-            {count === 25 && <Pass time ={600000 -(time-Date.now())}/>}
+            {count === 25 && <Pass time ={300000 -(time-Date.now())}/>}
             <div className="box column">
                 <div className="row ">
                     { loaded && <Choice value ={num1*num1*num1+num3[0]} answer ={num1*num1*num1} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}

@@ -159,30 +159,21 @@ export default function DoubleAdd(){
             <div className="double center" style={{width:'100%'}}>{loaded && num1} {loaded && num2} {loaded && num3} {loaded && num4} {loaded && num8 > 4 && num5}</div>
             </div>
             <div className="box">
-                {correct && <span className="double Green" >{answer+"."+R}</span>}
-                {wrong && <span className="double Red" >{answer+"."+R}</span>}
+                {correct && <span className="double Green" >{answer}</span>}
+                {wrong && <span className="double Red" >{answer}</span>}
             </div>
             { time - Date.now() < 0 && <Timeout again ={Again}/>}
             {mistake === 3 && <Mistake again={Again}></Mistake>}
             {count === 25 && <Pass time ={600000 -(time-Date.now())}/>}
             <div className="box column">
                <div className="row ">
-                    { loaded && R > 0 && <Choice value ={answer - num9[0]+'.'+ R} answer ={answer+'.'+ R} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-                    { loaded && R > 0 && <Choice value ={answer - num9[1]+'.'+ R} answer ={answer+'.'+ R} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-                    { loaded && R > 0 && <Choice value ={answer - num9[2]+'.'+ R} answer ={answer+'.'+ R} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && <Choice value ={answer - num9[0]} answer ={answer} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && <Choice value ={answer - num9[1]} answer ={answer} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && <Choice value ={answer - num9[2]} answer ={answer} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
                </div>
                <div className="row">
-                    { loaded && R > 0 && <Choice value ={answer - num9[3]+'.'+ R} answer ={answer+'.'+ R} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-                    { loaded && R > 0 && <Choice value ={answer - num9[4] +'.'+ R} answer ={answer+'.'+ R} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-               </div>
-               <div className="row ">
-                    { loaded && R === 0 && <Choice value ={answer - num9[0]} answer ={answer} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-                    { loaded && R === 0 && <Choice value ={answer - num9[1]} answer ={answer} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-                    { loaded && R === 0 && <Choice value ={answer - num9[2]} answer ={answer} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-               </div>
-               <div className="row">
-                    { loaded && R === 0 && <Choice value ={answer - num9[3]} answer ={answer} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-                    { loaded && R === 0 && <Choice value ={answer - num9[4] } answer ={answer} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && <Choice value ={answer - num9[3]} answer ={answer} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && <Choice value ={answer - num9[4] } answer ={answer} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
                </div>
             </div>
         </div>

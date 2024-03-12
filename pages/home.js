@@ -19,6 +19,7 @@ export default function Home() {
   const [free, setFree] = useState(false)
   const router = useRouter()
   const [payed, Payed] = useState(false)
+  const [Data, setData] = useState(false)
   const [Account, SetAccounts] = useState([])
     const [account, setAccount] = useState({
     title:""
@@ -43,7 +44,7 @@ export default function Home() {
       );
     
       const docRef = await addDoc(checkoutSessionRef, {
-        price: 'price_1OqoPfIZAnJ0s9ybKIwjY1VR',
+        price: 'price_1OtaTaIZAnJ0s9ybnO45fZJ6',
         success_url: window.location.origin,
         cancel_url: window.location.origin,
       });
@@ -90,8 +91,35 @@ export default function Home() {
     };
 
     async function getPortalUrl(){
-  
-    }
+      const app = initFirebase()
+      const userId = window.localStorage.getItem('uid');
+        let dataWithUrl;
+        try {
+          const functions = getFunctions(app, "us-central1");
+          const functionRef = httpsCallable(
+            functions,
+            "ext-firestore-stripe-payments-bmui-createPortalLink"
+          );
+          const { data } = await functionRef({
+            customerId: userId,
+            returnUrl: window.location.origin,
+          });
+          setData(data)
+          console.log(Data.url)
+        } catch (error) {
+          console.error(error);
+        }
+      
+        return new Promise((resolve, reject) => {
+          if (Data.url) {
+            router.push(Data.url);
+            resolve(Data.url)
+          } else {
+            reject(new Error("No url returned"));
+          }
+        });
+      };
+    
 
     async function handleSubmit(){
       const user = window.localStorage.getItem('User')  

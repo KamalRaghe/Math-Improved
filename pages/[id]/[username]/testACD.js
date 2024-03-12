@@ -8,6 +8,7 @@ import Heart2 from "@/components/heart2";
 import Heart3 from "@/components/heart3";
 import Mistake from "@/components/mistake";
 import Pass from "@/components/pass";
+import { useRouter } from "next/router";
 
 export async function getServerSideProps(context){
     return{
@@ -26,6 +27,9 @@ export default function testDoubleMinus(){
     const [again, setAgain] = useState(false)
     const [count, setCount] = useState(0)
     const [mistake, setMistake] = useState(0)
+    const router = useRouter()
+    const {username} = router.query 
+    const {id} = router.query
     const [num, setNum] = useState(1)
     const [num1, setNum1] = useState(Math.ceil(Math.random()*9));
     const [num2, setNum2] = useState(Math.ceil(Math.random()*9));
