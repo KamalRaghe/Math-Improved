@@ -99,7 +99,7 @@ export default function DoubleMinus(){
             <div className="Test sb"><div className="double" >
                 <div>Score: {loaded && score}</div>
                 <div className="font" >Double digit Subtraction: {loaded && count} </div>
-            </div><Link href={`/${id}/${username}/testDoubleMinus`}><button className="green test-btn">Test</button></Link></div>
+            </div><Link href={`/${id}/enter/testDoubleMinus`}><button className="green test-btn">Test</button></Link></div>
             <div className="box column">
                 <div className="double top-number">{loaded && num1}</div>
                 <div className="double bottom-number">-<span className="hide">.</span>{loaded && num2}</div>

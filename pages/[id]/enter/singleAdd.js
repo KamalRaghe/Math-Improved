@@ -111,11 +111,10 @@ export default function DoubleAdd({Count}){
     return(
         <div className="beige container column">
             <div className="Test sb"><div className="double" >
-                <div className="font" >{username}</div>
                 <div>Score: {loaded && score}</div>
                 <div className="font" >Single digit Addition: {loaded && count} </div>
             </div>
-                <Link href={`/${id}/${username}/testSingleAdd`}>
+                <Link href={`/${id}/enter/testSingleAdd`}>
                     <button className="green test-btn">Test</button>
                 </Link>
             </div>

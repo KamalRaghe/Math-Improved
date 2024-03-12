@@ -116,7 +116,7 @@ export default function DoubleAdd({Count}){
              <div className="Test sb"><div className="double" >
                  <div>Score: {loaded && score}</div>
                  <div className="font" >Factor Area: {loaded && count} </div>
-             </div><Link href={`/${id}/${username}/AreaTest`}><button className="green test-btn">Test</button></Link></div>
+             </div><Link href={`/${id}/enter/AreaTest`}><button className="green test-btn">Test</button></Link></div>
             <div className="box column center">
                 {loaded && num4 === 0 && <div className="double relative" style={{top:'70px',color:'white'}} >A =</div>}
                 {loaded && num4 === 0 && <div className="double" style={{width:'100px', height:"100px",border:"3px solid black",backgroundColor:'black'}}>

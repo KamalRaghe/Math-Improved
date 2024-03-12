@@ -117,7 +117,7 @@ export default function DoubleAdd({Count}){
                 <div className="font" >{username}</div>
                 <div>Score: {loaded && score}</div>
                 <div className="font" >Addition Common Denominator: {loaded && count} </div>
-            </div><Link href={`/${id}/${username}/testACD`}><button className="green test-btn">Test</button></Link></div>
+            </div><Link href={`/${id}/enter/testACD`}><button className="green test-btn">Test</button></Link></div>
             <div className="box">
                 <span className="hide">00000</span>
                 {loaded && <div className=" double center">

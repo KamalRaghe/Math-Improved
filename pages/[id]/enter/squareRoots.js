@@ -105,7 +105,7 @@ export default function DoubleAdd({Count}){
             <div className="Test sb"><div className="double" >
                 <div>Score: {loaded && score}</div>
                 <div className="font" >Square Root: {loaded && count} </div>
-            </div><Link href={`/${id}/${username}/testSquareRoots`}><button className="green test-btn">Test</button></Link></div>
+            </div><Link href={`/${id}/enter/testSquareRoots`}><button className="green test-btn">Test</button></Link></div>
             <div className="box">
                 <div className="double center root-top"><span className="root-tip" style={{left:'-16px'}}></span><span className="root-right" style={{left:'-6px'}} ></span><span className="root-left" style={{left:'-14px'}}></span>{loaded && num1*num1}</div>
             </div>

@@ -100,7 +100,7 @@ export default function DoubleAdd({Count}){
             <div className="Test sb"><div className="double" >
                 <div>Score: {loaded && score}</div>
                 <div className="font" >Long Division: {loaded && count} </div>
-            </div><Link href={`/${id}/${username}/testLongDivision`}><button className="green test-btn">Test</button></Link></div>
+            </div><Link href={`/${id}/enter/testLongDivision`}><button className="green test-btn">Test</button></Link></div>
             <div className="box">
                 <div className="double center">{loaded && num1}<div style={{borderLeft: '3px solid black', borderTop: '3px solid black', marginLeft:'5px', paddingRight:'10px'}}><span className="hide">.</span>{loaded && num2}</div> </div>
             </div>

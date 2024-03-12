@@ -136,7 +136,7 @@ export default function DoubleAdd({Count}){
              <div className="Test sb"><div className="double" >
                  <div>Score: {loaded && score}</div>
                  <div className="font" >Mean: {loaded && count} </div>
-             </div><Link href={`/${id}/${username}/TestMean`}><button className="green test-btn">Test</button></Link></div>
+             </div><Link href={`/${id}/enter/TestMean`}><button className="green test-btn">Test</button></Link></div>
             <div className="column">
                 <div className="double center" style={{width:'100%'}}>{loaded && num1} {loaded && num2} {loaded && num3} {loaded && num4} {loaded && num8 > 4 && num5}</div>
             </div>

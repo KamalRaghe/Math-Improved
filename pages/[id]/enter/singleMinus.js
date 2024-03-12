@@ -113,7 +113,7 @@ export default function DoubleAdd({Count}){
                 <div>Score: {loaded && score}</div>
                 <div className="font" >Single digit Subtraction: {loaded && count} </div>
             </div>
-            <Link href={`/${id}/${username}/testSingleMinus`}>
+            <Link href={`/${id}/enter/testSingleMinus`}>
                 <button className="green test-btn">Test</button>
             </Link></div>
             <div className="box column">

@@ -99,7 +99,7 @@ function Hcf(){
          <div className="Test sb"><div className="double" >
              <div>Score: {loaded && score}</div>
              <div className="font" >Hcf: {loaded && count} </div>
-         </div><Link href={`/${id}/${username}/testHcf`}><button className="green test-btn">Test</button></Link></div> 
+         </div><Link href={`/${id}/enter/testHcf`}><button className="green test-btn">Test</button></Link></div> 
         <div className='double center'>Highest Common</div>
         <div className='double center'>Factor</div>
         <div className='double center'>of</div>

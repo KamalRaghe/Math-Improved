@@ -104,7 +104,7 @@ export default function DoubleAdd({Count}){
             <div className="Test sb"><div className="double" >
                 <div>Score: {loaded && score}</div>
                 <div className="font" >Mixed to Improper: {loaded && count} </div>
-            </div><Link href={`/${id}/${username}/MixedTest`}><button className="green test-btn">Test</button></Link></div>
+            </div><Link href={`/${id}/enter/MixedTest`}><button className="green test-btn">Test</button></Link></div>
             <div className="box column">
                 {loaded && <div className=" double center">
                     <div style={{padding:'5px'}} >{num2}</div>

@@ -96,8 +96,8 @@ export default function Math(Count){
             { count === 'angle' &&<Link href= {`/${id}/enter/Circumference`}><button className="sub-topic zoom">Circumference</button></Link>}
             { count === 'angle' &&<Link href= {`/${id}/enter/Area`}><button className="sub-topic zoom">Area</button></Link>}
 
-            { loaded && <button onClick={() => {setCount('log')}}  className="topic Faded">Logarithm</button >}
-            { count === 'log' &&<Link href= {`/${id}/enter/Logarithm`}><button className="sub-topic zoom">Logarithm</button></Link>}
+            { loaded && <button onClick={() => {setCount('log')}}  className="topic Faded">Logarithms</button >}
+            { count === 'log' &&<Link href= {`/${id}/enter/Logarithm`}><button className="sub-topic zoom">Logarithms</button></Link>}
         </div>     
     )
 } 

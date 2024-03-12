@@ -102,7 +102,7 @@ export default function DoubleAdd({Count}){
             <div className="Test sb"><div className="double" >
                 <div>Score: {loaded && score}</div>
                 <div className="font" >Type of Angle: {loaded && count} </div>
-            </div><Link href={`/${id}/${username}/TypeAngleTest`}><button className="green test-btn">Test</button></Link></div>
+            </div><Link href={`/${id}/enter/TypeAngleTest`}><button className="green test-btn">Test</button></Link></div>
             <div className=" relative column" style={{top:"70px"}}>
                 <div className="box" >
                       {num1 === 1 && <div className="relative"  

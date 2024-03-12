@@ -115,7 +115,7 @@ export default function DoubleAdd({Count}){
              <div className="Test sb"><div className="double" >
                  <div>Score: {loaded && score}</div>
                  <div className="font" >Two Variable: {loaded && count} </div>
-             </div><Link href={`/${id}/${username}/Algebra2Test`}><button className="green test-btn">Test</button></Link></div>
+             </div><Link href={`/${id}/enter/Algebra2Test`}><button className="green test-btn">Test</button></Link></div>
             <div className="column ">
                 { loaded && <div className="double"> {num2}𝑥 + {num1}y = {loaded && (num2*num6)+(num1*num7)}</div>}
                 { loaded && <div className="double"> {num4}𝑥 + {num5}y = {loaded && (num4*num6)+(num5*num7)}</div>}

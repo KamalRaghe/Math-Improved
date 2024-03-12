@@ -111,7 +111,7 @@ function Lcm(){
          <div className="Test sb"><div className="double" >
              <div>Score: {loaded && score}</div>
              <div className="font" >Lcm: {loaded && count} </div>
-         </div><Link href={`/${id}/${username}/testLcm`}><button className="green test-btn">Test</button></Link></div> 
+         </div><Link href={`/${id}/enter/testLcm`}><button className="green test-btn">Test</button></Link></div> 
         <div className='center column'>
             <div className='double'>Lowest Common</div>
             <div className='double'>Multiple</div>

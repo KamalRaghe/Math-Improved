@@ -57,7 +57,8 @@ export default function Home() {
                 return{
                     id: doc.id,
                     title: doc.data().title,
-                    count: doc.data().count 
+                    count: doc.data().count,
+                    time: doc.data().time
                 }
             }))
         })
@@ -70,7 +71,7 @@ export default function Home() {
         {add && <div>Adding Account...</div>}
         {!add && <h1 className="center column">{Account.map(acc => {
             return <div className="center sb" key = {acc.id}>
-              {acc.count > Date.now() && <Link className="center sb" style={{width:"250px",textDecoration:'none'}} href={`/${acc.id}/${acc.title}/stats`}>
+              {(acc.time > Date.now() || acc.count) && <Link className="center sb" style={{width:"250px",textDecoration:'none'}} href={`/${acc.id}/enter/stats`}>
                 <span style={{margin:"5px"}} >
                   <button onClick={()=>{security(acc.id)}} 
                   style={{fontSize:"30px",border:"none",backgroundColor:"beige",color:"blue",textDecoration:'underline'}}>
@@ -78,7 +79,7 @@ export default function Home() {
                   </button>
                 </span>
               </Link>}
-              {acc.count > Date.now() && <button className="relative center" style={{border:"none",fontSize:"30px",backgroundColor:"beige",color:"black",textDecoration:'none'}} >Score: {window.localStorage.getItem(`${acc.id+acc.title} score`) || 0}</button>}
+              {(acc.time > Date.now() || acc.count) && <button className="relative center" style={{border:"none",fontSize:"30px",backgroundColor:"beige",color:"black",textDecoration:'none'}} >Score: {window.localStorage.getItem(`${acc.id+acc.title} score`) || 0}</button>}
             </div>
         })}</h1>}
     </div>

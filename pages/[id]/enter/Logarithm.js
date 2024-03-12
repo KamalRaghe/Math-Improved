@@ -105,7 +105,7 @@ export default function DoubleAdd({Count}){
              <div className="Test sb"><div className="double" >
                  <div>Score: {loaded && score}</div>
                  <div className="font" >Logarithm: {loaded && count} </div>
-             </div><Link href={`/${id}/${username}/LogarithmTest`}><button className="green test-btn">Test</button></Link></div>
+             </div><Link href={`/${id}/enter/LogarithmTest`}><button className="green test-btn">Test</button></Link></div>
             <div className=" column">
             <div className="double">log<span style={{fontSize:'20px',padding:'1px',position:'relative', top:"13px"}}>{loaded && num1[num]}</span>{loaded && num2[num]} =</div>
             </div>
