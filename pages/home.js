@@ -126,6 +126,7 @@ export default function Home() {
 
     useEffect(()=>{
       PayedCheck()
+      update()
       const security = window.localStorage.getItem('Id')
       if(security){
         setLink(security)
@@ -143,7 +144,8 @@ export default function Home() {
             return{
                 id: doc.id,
                 title: doc.data().title, 
-                count: doc.data().count 
+                count: doc.data().count,
+                time: doc.data().time 
             }
         }))
     })
@@ -152,8 +154,8 @@ export default function Home() {
 
 
     useEffect(()=>{
-      console.log(payed)
-    },[payed])
+      console.log(Account)
+    },[Account])
 
     useEffect(()=>{
       if(add === true){
@@ -183,7 +185,7 @@ export default function Home() {
         {add && <div>Adding Account...</div>}
           {<h1 className="center column">{Account.map(acc => {
             return <div className="center sb" style={{width:"340px"}} key = {acc.id}>
-              {acc.count - Date.now() > 0 && acc.title === 'Free trial' && <Link className="center sb" style={{textDecoration:'none'}} href={`/${acc.id}/${acc.title}/math`}>
+              {acc.time - Date.now() > 0 && acc.title === 'Free trial' && <Link className="center sb" style={{textDecoration:'none'}} href={`/${acc.id}/${acc.title}/math`}>
                 <span >
                   <button onClick={()=>{security(acc.id)}} 
                   style={{fontSize:"30px",border:"none",backgroundColor:"beige",color:'blue',textDecoration:'underline'}}>
@@ -191,8 +193,8 @@ export default function Home() {
                   </button>
                 </span>
               </Link>}
-              { acc.count - Date.now() > 0 && acc.title === 'Free trial' && <div className="font">{Math.floor(((acc.count - Date.now())%(1000*60*60*24*7))/1000/60/60/24)}d {""}{Math.floor(((acc.count - Date.now())%(1000*60*60*24))/1000/60/60)}h {""}{Math.floor(((acc.count - Date.now())%(1000*60*60))/1000/60)}m {""}
-                {Math.floor(((acc.count - Date.now())%(1000*60))/1000)}s</div>}
+              { acc.time - Date.now() > 0 && acc.title === 'Free trial' && <div className="font">{Math.floor(((acc.time - Date.now())%(1000*60*60*24*7))/1000/60/60/24)}d {""}{Math.floor(((acc.time - Date.now())%(1000*60*60*24))/1000/60/60)}h {""}{Math.floor(((acc.time - Date.now())%(1000*60*60))/1000/60)}m {""}
+                {Math.floor(((acc.time - Date.now())%(1000*60))/1000)}s</div>}
             </div>
         })}</h1>}
       
@@ -206,7 +208,16 @@ export default function Home() {
                   </button>
                 </span>
               </Link>}
-              { acc.count === link && <button className="relative center" style={{border:"none",fontSize:"30px",backgroundColor:"lightblue",padding:'2px 10px',borderRadius:"15px",color:"black",textDecoration:'none'}} >edit</button>}
+              {acc.count && acc.count !== link && <Link className="center sb" style={{width:"250px",textDecoration:'none'}} href={`/home`}>
+              <span>
+                <button onClick={()=>{security(acc.id)}} 
+                style={{fontSize:"30px",border:"none",backgroundColor:"beige",color:'grey',textDecoration:'underline'}}>
+                  {acc.title} 
+                </button>
+              </span>
+            </Link>}
+              { acc.count === link && <button className="relative fonts center" style={{backgroundColor:"cyan",padding:'2px 10px',borderRadius:"15px",color:"black",textDecoration:'none'}} >edit</button>}
+              {acc.count && acc.count !== link && <button className="relative center" style={{border:"none",fontSize:"30px",backgroundColor:"lightgrey",padding:'2px 10px',borderRadius:"15px",color:"Grey",textDecoration:'none'}} >Link</button>}
             </div>
         })}</h1>}
 
