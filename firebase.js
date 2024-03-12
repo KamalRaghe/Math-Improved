@@ -15,9 +15,10 @@ const firebaseConfig = {
   messagingSenderId: "62392934107",
   appId: "1:62392934107:web:1bfa5a1959ba9cf500f6fe",
   measurementId: "G-NH3TK3G12C"
-  //  Disable two step verification strip backup code: ewho-vbrr-evmd-sime-hkzv
+ 
 };
 
+ //  Disable two step verification strip backup code: gvpv-rehn-nuoj-qnoi-bxam
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
