@@ -212,7 +212,7 @@ export default function Home() {
         {add && <div>Adding Account...</div>}
           {<h1 className="center column">{Account.map(acc => {
             return <div className="center sb" style={{width:"340px"}} key = {acc.id}>
-              {acc.time - Date.now() > 0 && acc.title === 'Free trial' && <Link className="center sb" style={{textDecoration:'none'}} href={`/${acc.id}/${acc.title}/math`}>
+              {acc.time - Date.now() > 0 && acc.title === 'Free trial' && <Link className="center sb" style={{textDecoration:'none'}} href={`/${acc.id}/enter/math`}>
                 <span >
                   <button onClick={()=>{security(acc.id)}} 
                   style={{fontSize:"30px",border:"none",backgroundColor:"beige",color:'blue',textDecoration:'underline'}}>
@@ -227,7 +227,7 @@ export default function Home() {
       
         {!add && payed && <h1 className="center column">{Account.map(acc => {
             return <div className="center sb" key = {acc.id}>
-              { acc.count === link && <Link className="center sb" style={{width:"250px",textDecoration:'none'}} href={`/${acc.id}/${acc.title}/math`}>
+              { acc.count === link && <Link className="center sb" style={{width:"250px",textDecoration:'none'}} href={`/${acc.id}/enter/math`}>
                 <span>
                   <button onClick={()=>{security(acc.id)}} 
                   style={{fontSize:"30px",border:"none",backgroundColor:"beige",color: color,textDecoration:'underline'}}>
