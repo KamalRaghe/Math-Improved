@@ -1,6 +1,4 @@
 import { useState ,useEffect, use } from "react";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
