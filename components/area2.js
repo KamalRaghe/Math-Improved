@@ -1,0 +1,76 @@
+import { useEffect, useState } from "react"
+import Step from "./step"
+import HelpDiv from "@/components/PerfectDivision"
+import HelpAdd from "@/components/HelpAdd"
+import HelpTimes from "@/components/HelpTimes"
+import StepTimes from "@/components/stepTimes"
+import HelpMinus from "@/components/HelpMinus"
+import StepAdd from "@/components/StepAdd"
+import StepMinus from "@/components/StepMinus"
+
+export default function Area2({num1,num2,close}){
+    const [done, setDone] = useState(false)
+    const [extra, setExtra] = useState(false)
+    const [Q1, setQ1] = useState(num2*2)
+    const [Q2, setQ2] = useState(2)
+    const [sign ,setSign] = useState('÷')
+    const [answer, setAnswer] = useState(num2)
+    const [arr, setArr]=useState([0,Math.floor(Math.random()*1+2)+1,1,Math.floor(Math.random()*3)-4])
+    const [step1, setStep1] = useState(true)
+
+    function Extra(){
+        setExtra(false)
+   }
+
+    useEffect(() => {
+        setArr(prevChange => prevChange.sort((a,b)=>Math.random()-0.5)) 
+    },[])
+
+    function Count(){
+        if(step1 === true){
+            setQ1(num2)
+            setQ2(num1)
+            setSign('x')
+            setAnswer(num1*num2)
+            setStep1(false)
+        }else{
+            close()
+        }   
+    }
+
+    function Nothing(){}
+
+    return (
+        <div className="Help center column" style={{zIndex:'50'}}>
+            {extra && sign === '+' && Q1 < 10 && Q2 < 10 && <HelpAdd close={Extra} num1 ={Q1} num2 = {Q2}/>}
+            {extra && sign === '+' && (Q1 >= 10 || Q2 >= 10) && <StepAdd close={Extra} num1 ={Q1} num2 = {Q2}/>}
+            {extra && sign === 'x' && Q1 < 10 && Q2 < 10 && <HelpTimes close={Extra} num1 ={Q1} num2 = {Q2}/>}
+            {extra && sign === 'x' && (Q1 >= 10 || Q2 >= 10) && <StepTimes close={Extra} num1 ={Q1} num2 = {Q2}/>}
+            {extra && sign === '-' && Q1 < 10 && Q2 < 10 && <HelpMinus close={Extra} num1 ={Q1} num2 = {Q2}/>}
+            {extra && sign === '-' && (Q1 >= 10 || Q2 >= 10) && <StepMinus close={Extra} num1 ={Q1} num2 = {Q2}/>}
+            {extra && sign === '÷' && <HelpDiv close={Extra} num1 ={Q1} num2 = {Q2}/>}
+               <div> 
+                    <div className="double relative" style={{top:'100px',left:"20px",color:'white',zIndex:'0'}} >A =</div>
+                    <div><div><div className="double" style={{borderBottom:"100px solid black",borderRight:'100px solid transparent'}}></div>
+                    <div className="relative center" style={{fontSize:'20px'}} >{num2*2}</div>
+                    <div className="relative center" style={{top:"-80px",left:"-60px",fontSize:'20px'}} >{num1}</div>
+                </div>
+                </div>
+                </div>
+               <div className="double center relative" style={{padding:'60px',top:'-20px'}} >A = <span className="column" ><span className="relative" style={{borderBottom:"2px solid black", width:'30px',top:"-20px",left:'10px'}}>1</span><span className="relative" style={{top:'25px',left:"-10px"}} >2</span></span>bh</div>
+               <div className="box"></div>
+               {!done && <div className=" double center Green absolute StepQuestion">{Q1} {sign} {Q2} = </div>}  
+               {!done &&<div className='center wrap absolute StepAnswer'>
+                   <Step value = {((answer))+arr[1]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
+                   <Step value = {((answer))+arr[3]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
+                   <Step value = {((answer))+arr[0]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
+                   <button className="choice" style={{backgroundColor:'yellow',color:'black'}} onClick={()=>{setExtra(true);console.log(extra)}} >help</button>
+                   <Step value = {((answer))+arr[2]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
+                   <button className="choice red" onClick={close} >Close</button>
+               </div>}
+
+           
+           
+        </div>
+    )
+}
