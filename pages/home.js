@@ -20,6 +20,7 @@ export default function Home() {
   const router = useRouter()
   const [payed, Payed] = useState(false)
   const [Data, setData] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [Account, SetAccounts] = useState([])
     const [account, setAccount] = useState({
     title:""
@@ -58,6 +59,7 @@ export default function Home() {
           if (url) {
             unsubscribe(); 
             router.push(url);
+            setLoading(true)
           }
         });
       });
@@ -104,17 +106,15 @@ export default function Home() {
             returnUrl: window.location.origin,
           });
           setData(data)
-          console.log(Data.url)
         } catch (error) {
-          console.error(error);
+          console.log(error)
         }
       
         return new Promise((resolve, reject) => {
           if (Data.url) {
             router.push(Data.url);
+            setLoading(true)
             resolve(Data.url)
-          } else {
-            reject(new Error("No url returned"));
           }
         });
       };
@@ -154,10 +154,10 @@ export default function Home() {
     useEffect(()=>{
       PayedCheck()
       update()
+      setLoading(false)
       const security = window.localStorage.getItem('Id')
       if(security){
         setLink(security)
-        console.log(security)
       }else{
         const num = Math.ceil(Math.random()*100000000000000000000)
         window.localStorage.setItem('Id' , num)
@@ -179,11 +179,6 @@ export default function Home() {
     return unsubscribe
     },[])
 
-
-    useEffect(()=>{
-      console.log(Account)
-    },[Account])
-
     useEffect(()=>{
       if(add === true){
         router.push('/home')
@@ -196,19 +191,10 @@ export default function Home() {
     function security(id){
       window.localStorage.setItem('ID' , id)
     }
-
-    useEffect(()=>{
-      console.log(cancel)
-      if(cancel === true){
-      setColor('red')
-    }else{
-      setColor('blue')
-    }
-    },[cancel])
  
   return (
-  <div className="center beige column">
-      <div className="center column">
+ <div className="center beige column">
+      { !loading ?  <div className="center column">
         {add && <div>Adding Account...</div>}
           {<h1 className="center column">{Account.map(acc => {
             return <div className="center sb" style={{width:"340px"}} key = {acc.id}>
@@ -257,7 +243,7 @@ export default function Home() {
         {!(Account.length === 0 && !free) && !payed && <button style={{backgroundColor:"orange",color: 'white',width:"100px",height:'40px',margin:'15px',borderRadius:"20px"}} onClick={getCheckoutUrl} >CA$3.99</button>} 
         {payed && <button className="topic" style={{backgroundColor:"red",width:"100px"}} onClick={getPortalUrl} >Cancel</button>}
         {!add && <button onClick={SignOut} >SignOut</button>}
-      </div>
+      </div> : null }
   </div>
   )
 }
