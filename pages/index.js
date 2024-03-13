@@ -27,7 +27,7 @@ export default function Home() {
     }).catch(err =>{
       setRed('red')
       alert(err)
-      console.log(err)
+  
       setTimeout(() => {
         setRed(false)
       }, 1000);

@@ -45,7 +45,7 @@ export default function Home() {
       );
     
       const docRef = await addDoc(checkoutSessionRef, {
-        price: 'price_1Otf57DlcBixp6qNfkttgsHI',
+        price: 'price_1OtfM3DlcBixp6qNRoKw4xAD',
         success_url: window.location.origin,
         cancel_url: window.location.origin,
       });
@@ -99,13 +99,14 @@ export default function Home() {
           const functions = getFunctions(app, "us-central1");
           const functionRef = httpsCallable(
             functions,
-            "ext-firestore-stripe-payments-7lag-createPortalLink"
+            "ext-firestore-stripe-payments-jw7p-createPortalLink"
           );
           const { data } = await functionRef({
             customerId: userId,
             returnUrl: window.location.origin,
           });
           setData(data)
+          console.log(data);
         } catch (error) {
           console.log(error)
         }
@@ -140,7 +141,7 @@ export default function Home() {
       const user = window.localStorage.getItem('User')  
       const docRef = await addDoc(collection(db, user), {
             title: 'Free trial',
-            count: 7*24*60*60*1000+Date.now()  
+            time: 7*24*60*60*1000+Date.now()  
         })
         
       
