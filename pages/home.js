@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
-import { addDoc, collection, onSnapshot, query, where, getDoc } from "firebase/firestore"
+import { addDoc, collection, onSnapshot, query, where, getDoc, updateDoc, doc } from "firebase/firestore"
 import Link from "next/link"
 import { initFirebase } from "@/firebase"
 import { getFirestore } from "firebase/firestore"
@@ -21,6 +21,8 @@ export default function Home() {
   const [payed, Payed] = useState(false)
   const [Data, setData] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [edit, setEdit] = useState(false)
+  const [loaded, setLoaded] = useState(false)
   const [Account, SetAccounts] = useState([])
     const [account, setAccount] = useState({
     title:""
@@ -128,6 +130,7 @@ export default function Home() {
         })
         setAccount({title:""})
         setAdd(true)
+        window.localStorage.setItem('user', true)
       }
         
     }
@@ -150,10 +153,21 @@ export default function Home() {
       setDate(requestAnimationFrame(update))
     }
 
+    async function Edit(id){
+      setEdit(false)
+      const user = window.localStorage.getItem('User')  
+        const docRef = await updateDoc(doc(db, user, id), {
+              title: account.title,
+              edit: 24*60*60*1000+Date.now()
+          })
+          setAccount({title:""})
+  }
+
     useEffect(()=>{
       PayedCheck()
       update()
       setLoading(false)
+      setLoaded(true)
       const security = window.localStorage.getItem('Id')
       if(security){
         setLink(security)
@@ -171,7 +185,9 @@ export default function Home() {
                 id: doc.id,
                 title: doc.data().title, 
                 count: doc.data().count,
-                time: doc.data().time 
+                time: doc.data().time,
+                edit: doc.data().edit,
+                link: doc.data().link, 
             }
         }))
     })
@@ -229,20 +245,30 @@ export default function Home() {
                 </button>
               </span>
             </Link>}
-              { acc.count === link && <button className="relative fonts center" style={{backgroundColor:"cyan",padding:'2px 10px',borderRadius:"15px",color:"black",textDecoration:'none'}} >edit</button>}
+              { acc.count === link && <button className="relative fonts center" onClick={()=>setEdit(true)} style={{backgroundColor:"cyan",padding:'2px 10px',borderRadius:"15px",color:"black",textDecoration:'none'}} >edit</button>}
               {acc.count && acc.count !== link && <button className="relative center" style={{border:"none",fontSize:"30px",backgroundColor:"lightgrey",padding:'2px 10px',borderRadius:"15px",color:"Grey",textDecoration:'none'}} >Link</button>}
+              { acc.count && edit && Date.now() < acc.edit && <div className="timeout column center absolute" style={{border:'10px solid blue',backgroundColor:'silver',top:'120px',right:'140px'}}>
+              <div className="relative center" ><button className="absolute" style={{top:'-85px',left:'130px',background:'none',border:'none',color:"black",fontSize:"50px"}} onClick={()=>{setEdit(false)}} >X</button></div>
+               <div className="font">Wait: {Math.floor(((acc.edit - Date.now())%(1000*60*60*24))/1000/60/60)}h {""}{Math.floor(((acc.edit - Date.now())%(1000*60*60))/1000/60)}m {""}
+                {Math.floor(((acc.edit - Date.now())%(1000*60))/1000)}s</div>
+                </div>}
+                { acc.count && edit && (Date.now() > acc.edit || !(acc.edit)) && <div className="timeout center absolute" style={{border:'10px solid blue',backgroundColor:'silver',top:'120px',right:'140px'}}>
+              <div className="relative" ><button className="absolute" style={{top:'-95px',left:'240px',background:'none',border:'none',color:"black",fontSize:"50px"}} onClick={()=>{setEdit(false)}} >X</button></div> 
+              <input placeholder={acc.title}  value={account.title} type='text' onChange = {(e) => setAccount({...account, title: e.target.value})}></input>
+            <button onClick={() => Edit(acc.id)}>Enter</button>
+                </div>}
             </div>
         })}</h1>}
-
-        {payed && (Account.length === 1) && <div className="center">
+        
+        {payed && !(window.localStorage.getItem('user')) && <div className="center">
             <input placeholder="Create account" value={account.title} type='text' onChange = {(e) => setAccount({...account, title: e.target.value})}></input>
             <button onClick={() => handleSubmit()}>Enter</button>
            
         </div>
-        }{Account.length === 0 && !free && <button style={{backgroundColor:"yellow",color:'black',width:"100px",height:'25px',borderRadius:"20px",margin:'10px'}} onClick={Free} >Free trial</button>}
+        }{Account.length === 0 && !free && <button style={{backgroundColor:"yellow",color:'black',width:"100px",height:'25px',borderRadius:"20px",margin:'10px'}} onClick={Free} >Start free trial</button>}
         {!(Account.length === 0 && !free) && !payed && <button style={{backgroundColor:"orange",color: 'white',width:"100px",height:'40px',margin:'15px',borderRadius:"20px"}} onClick={getCheckoutUrl} >CA$3.99</button>} 
         {payed && <button className="topic" style={{backgroundColor:"red",width:"100px"}} onClick={getPortalUrl} >Cancel</button>}
-        {!add && <button onClick={SignOut} >SignOut</button>}
+        {!add && loaded && <button onClick={SignOut} >SignOut</button>}
       </div> : null }
   </div>
   )
