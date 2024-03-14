@@ -106,9 +106,7 @@ export default function Home() {
             returnUrl: window.location.origin,
           });
           setData(data)
-          console.log(data);
         } catch (error) {
-          console.log(error)
         }
       
         return new Promise((resolve, reject) => {
@@ -213,6 +211,7 @@ export default function Home() {
         })}</h1>}
       
         {!add && payed && <h1 className="center column">{Account.map(acc => {
+          { acc.count === link && window.localStorage.setItem('name', acc.title)}
             return <div className="center sb" key = {acc.id}>
               { acc.count === link && <Link className="center sb" style={{width:"250px",textDecoration:'none'}} href={`/${acc.id}/enter/math`}>
                 <span>
