@@ -181,7 +181,7 @@ export default function Home() {
         <div className="relative" style={{fontSize:"70px",color:'purple',paddingBottom:"20px"}} >Improved</div>
       </div>
       <div className="box column" >   
-        {time - Date.now() > 0 && <div className="font center" style={{fontWeight:"bold",width:"300px"}} >Free Trial: {Math.floor(((time - Date.now())%(1000*60*60*24*7))/1000/60/60/24)}d {""}{Math.floor(((time - Date.now())%(1000*60*60*24))/1000/60/60)}h {""}{Math.floor(((time - Date.now())%(1000*60*60))/1000/60)}m {""}
+        {!payed && time - Date.now() > 0 && <div className="font center" style={{fontWeight:"bold",width:"300px"}} >Free Trial: {Math.floor(((time - Date.now())%(1000*60*60*24*7))/1000/60/60/24)}d {""}{Math.floor(((time - Date.now())%(1000*60*60*24))/1000/60/60)}h {""}{Math.floor(((time - Date.now())%(1000*60*60))/1000/60)}m {""}
             {Math.floor(((time - Date.now())%(1000*60))/1000)}s
         </div>}
         {payed && <div className="center sb" style={{fontSize:"30px",width:"330px"}} ><div>{name}</div><div>Score: {score}</div></div>}
