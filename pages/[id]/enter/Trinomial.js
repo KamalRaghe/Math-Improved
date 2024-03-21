@@ -11,15 +11,6 @@ import Tri1 from "@/Trinomail/Tri1";
 import Tri2 from "@/Trinomail/Tri2";
 import Tri3 from "@/Trinomail/Tri3";
 
-
-export async function getServerSideProps(context){
-    return{
-        props: {
-        }
-    }
-}
-
-
 export default function DoubleAdd({Count}){
     const [help, setHelp] = useState(false)
     const [loaded, setLoaded] = useState(false)

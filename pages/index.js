@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import { auth } from "@/firebase"
+import { db } from "@/firebase"
+import { addDoc, collection, onSnapshot, query, where, getDoc, updateDoc, doc } from "firebase/firestore"
 import { createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth"
 
 export default function Home() {
@@ -13,6 +15,7 @@ export default function Home() {
   const [password, setPassword] = useState('password')
   const [move, setMove] = useState('165px')
   const [id, setId] = useState('id')
+  const [link, setLink] = useState(false)
 
   const router = useRouter()
 
@@ -24,32 +27,45 @@ export default function Home() {
     const password = e.target.password.value
     signInWithEmailAndPassword(auth,email,password).then((result)=>{
       setUser(true)
+      router.push('/login')
     }).catch(err =>{
-      setRed('red')
       alert(err)
-  
-      setTimeout(() => {
-        setRed(false)
-      }, 1000);
     })
   }
   
   function CreateUser(e){
     e.preventDefault()
 
+    async function handleSubmit(){  
+      if(name){
+      const docRef = await addDoc(collection(db, email), {
+            count: link,
+            device: 0
+        }) 
+        window.localStorage.setItem(`${docRef.id} username` , name);
+      }
+        
+    }
+
+    const name = e.target.name.value
     const email = e.target.email.value
     const password = e.target.password.value
     
+    if(name){
+    handleSubmit()
     createUserWithEmailAndPassword(auth,email,password).then(()=>{
       setUser(true)
+      router.push('/login')
     }).catch(err =>{
       alert(err)
-      setRed('red')
-      setTimeout(() => {
-        setRed(false)
-      }, 1000);
     })
-  }
+  }else(
+    setRed('red'),
+    setTimeout(() => {
+      setRed('')
+    }, 2000)
+  )
+}
 
   function Password(){
     if(password === 'password'){
@@ -65,12 +81,21 @@ export default function Home() {
     const SignInUser = window.localStorage.getItem('User')
     setUser((SignInUser))
     setLoaded(true)
+    const security = window.localStorage.getItem('Id')
+    if(security){
+      setLink(security)
+    }else{
+      const num = Math.ceil(Math.random()*100000000000000000000)
+      window.localStorage.setItem('Id' , num)
+      setLink(num)
+    }
   },[])
 
   useEffect(()=>{
     if(user === true){
     window.localStorage.setItem('User', `${auth.currentUser?.email}`)
     window.localStorage.setItem('uid', `${auth.currentUser?.uid}`)
+    router.push('/login')
 }},[user])
 
   return (
@@ -101,12 +126,13 @@ export default function Home() {
       {(create || user) && <div className="box" ></div>}
       {create && <div className="box" ></div>}
       
-        {!user && create && <div className="timeout center" style={{border:'10px solid navy',width:"280px",backgroundColor:"silver"}} >
-        <button className="relative" style={{top:'-65px',left:'200px',background:'none',border:'none',color:"black",fontSize:"50px"}} onClick={()=>{setCreate(false)}} >X</button> 
-        <div><br></br><br></br>
+        {!user && create && <div className="timeout center" style={{paddingBottom:"15px",border:'10px solid navy',width:"280px",backgroundColor:"silver"}} >
+        <button className="relative" style={{top:'-70px',left:'210px',background:'none',border:'none',color:"black",fontSize:"50px",zIndex:"10"}} onClick={()=>{setCreate(false)}} >X</button> 
+        <div className="relative" ><br></br><br></br>
           <form className="center column relative" style={{right:"20px"}} onSubmit={(e)=> CreateUser(e)}>
             <div style={{padding:'10px',fontSize:"40px"}} >Sign Up</div>
-            <input style={{borderColor: red, width:'180px'}} name='email' type='email' placeholder="Email" ></input><br></br>
+            <input style={{borderColor: red, width:'180px'}} name='name' placeholder="name" ></input><br></br>
+            <input style={{borderColor: red, width:'180px'}} name='email' type='email' placeholder="email" ></input><br></br>
             <div className="center" style={{backgroundColor:"transparent",border:'none'}} >
               <input style={{borderColor: red, width:'180px'}} name='password' type={password} placeholder="password" ></input>
           </div><br></br>
@@ -114,7 +140,7 @@ export default function Home() {
           </form>
           <div className="relative" style={{display:'flex',justifyContent:'end',top:'-50px',right:'20px'}} >
             <button onClick={Password}><div className="relative">{password === 'password' ? 'show password' : 'hide password'}</div></button>
-        </div>
+          </div>
         </div>
         </div>}
       <div className="box" ></div>
@@ -129,7 +155,7 @@ export default function Home() {
           </div>
           Stats
         </button>
-        <button className="topic column" onClick={()=>{router.push('/home')}} style={{width: '150px', height:"90px"}} >
+        <button className="topic column" onClick={router.push('/login')} style={{width: '150px', height:"90px"}} >
           <div className="center" style={{padding:'0 20px'}}>
             <div className="relative" style={{rotate:"90deg",borderBottom:"50px solid white",borderRight:'25px solid transparent',borderLeft:'25px solid transparent'}} ></div>
           </div>

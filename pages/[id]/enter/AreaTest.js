@@ -11,14 +11,6 @@ import Wrong from "@/components/wrong";
 import Pass from "@/components/pass";
 import Mistake from "@/components/mistake";
 
-export async function getServerSideProps(context){
-    return{
-        props: {
-           
-        }
-    }
-}
-
 export default function DoubleAdd(){
     const [again, setAgain] = useState(false)
     const [loaded, setLoaded] = useState(false)

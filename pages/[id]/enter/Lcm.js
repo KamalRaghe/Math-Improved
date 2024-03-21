@@ -8,12 +8,6 @@ import { useRouter } from 'next/router';
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "@/firebase";
 
-export async function getServerSideProps(context){
-    return{
-        props: {   
-        }
-    }
-}
 
 function Lcm(){
     const [num1, setNum1] = useState(Math.floor(Math.random()*8+2));

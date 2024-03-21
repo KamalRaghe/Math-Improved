@@ -9,15 +9,8 @@ import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "@/firebase";
 import axios from "axios";
 
-export async function getServerSideProps(context){
-    return{
-        props: {
-           
-        }
-    }
-}
+export default function DoubleAdd(){
 
-export default function DoubleAdd({Count}){
     const [help, setHelp] = useState(false)
     const [loaded, setLoaded] = useState(false)
     const [correct, setCorrect] = useState(false)

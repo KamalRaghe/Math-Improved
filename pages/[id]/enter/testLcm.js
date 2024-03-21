@@ -12,12 +12,7 @@ import Heart3 from "@/components/heart3";
 import Mistake from "@/components/mistake";
 import Pass from "@/components/pass";
 
-export async function getServerSideProps(context){
-  return{
-      props: {
-      }
-  }
-}
+
 
 function Lcm(){
     const [count, setCount] = useState(0)

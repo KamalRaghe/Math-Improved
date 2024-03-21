@@ -6,14 +6,6 @@ import Link from "next/link";
 import HelpHcf from '@/components/HelpHcf';
 import { useRouter } from 'next/router';
 
-export async function getServerSideProps(context){
-
-  return{
-      props: {
-          
-      }
-  }
-}
 
 function Hcf(){
     const [num4, setNum4] = useState(Math.floor(Math.random()*8+2))

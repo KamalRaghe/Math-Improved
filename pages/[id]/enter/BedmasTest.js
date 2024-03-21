@@ -18,14 +18,6 @@ import Question8 from "@/Bedmas/Question8";
 import Pass from "@/components/pass";
 import Mistake from "@/components/mistake";
 
-export async function getServerSideProps(context){
-    return{
-        props: {
-           
-        }
-    }
-}
-
 export default function DoubleAdd(){
     const [again, setAgain] = useState(false)
     const [loaded, setLoaded] = useState(false)

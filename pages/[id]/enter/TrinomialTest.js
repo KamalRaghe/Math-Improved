@@ -13,13 +13,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 
-export async function getServerSideProps(context){
-    return{
-        props: {
-        }
-    }
-}
-
 export default function DoubleAdd(){
     const [sign1,setSign1] = useState(['+',"-","+","-"])
     const [sign2,setSign2] = useState(['+',"-","-","+"])

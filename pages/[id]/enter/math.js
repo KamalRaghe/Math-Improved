@@ -4,15 +4,8 @@ import { useRouter } from "next/router";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "@/firebase";
 
-export async function getServerSideProps(context) {
-  
-    return{
-        props: {
-        }
-    }
-}
 
-export default function Math(Count){
+export default function Math(){
     const [count, setCount] = useState(0)
     const [loaded, setLoaded] = useState(true)
     const router = useRouter() 

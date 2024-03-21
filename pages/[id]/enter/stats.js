@@ -2,14 +2,8 @@ import { useEffect} from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-export async function getServerSideProps(context){
-    return{
-        props: {
-        }
-    }
-}
 
-export default function DoubleAdd({Count}){
+export default function DoubleAdd(){
     const router = useRouter() 
     const {id} = router.query 
 

@@ -9,16 +9,8 @@ import Timeout from "@/components/timeout";
 import Pass from "@/components/pass";
 import Mistake from "@/components/mistake";
 import Correct from "@/components/correct";
-import Wrong from "@/components/wrong"; 
-
-export async function getServerSideProps(context){
-    return{
-        props: {
-           
-        }
-    }
-}
-
+import Wrong from "@/components/wrong";
+ 
 export default function DoubleAdd(){
     const [again, setAgain] = useState(false)
     const [loaded, setLoaded] = useState(false)

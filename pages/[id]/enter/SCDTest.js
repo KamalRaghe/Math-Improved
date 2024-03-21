@@ -10,13 +10,7 @@ import Mistake from "@/components/mistake";
 import Pass from "@/components/pass";
 import { useRouter } from "next/router";
 
-export async function getServerSideProps(context){
-    return{
-        props: {
-           
-        }
-    }
-}
+
 
 export default function testDoubleMinus(){
     const [help, setHelp] = useState(false)

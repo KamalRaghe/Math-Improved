@@ -14,14 +14,6 @@ import Algebra3 from "@/Algebra/Algebra3";
 import Algebra4 from "@/Algebra/Algebra4";
 import Mistake from "@/components/mistake";
 
-export async function getServerSideProps(context){
-    return{
-        props: {
-           
-        }
-    }
-}
-
 export default function DoubleAdd(){
     const [again, setAgain] = useState(false)
     const [loaded, setLoaded] = useState(false)

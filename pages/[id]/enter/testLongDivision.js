@@ -10,12 +10,7 @@ import Pass from "@/components/pass";
 import Mistake from "@/components/mistake";
 import LongDivisionHelp from "@/components/longDivisionHelp";
 
-export async function getServerSideProps(context){
-    return{
-        props: {
-        }
-    }
-}
+
 
 export default function DoubleAdd(){
     const [again, setAgain] = useState(false)

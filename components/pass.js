@@ -16,7 +16,7 @@ function Pass({time}){
             <h1>Congratulation</h1>
             <h2>You passed </h2>
             <p className="absolute" style={{top:'55px'}} >Time: {Math.floor(((minus)%(1000*60*60))/1000/60)}m {Math.floor(((minus)%(1000*60))/1000)}s</p>
-            <Link href={`/${id}/${username}/math`}><button className="choice-stretch Purple ">Menu</button></Link>
+            <Link href={`/${id}/enter/math`}><button className="choice-stretch Purple ">Menu</button></Link>
         </div>
     )
 }

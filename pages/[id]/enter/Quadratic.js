@@ -11,15 +11,8 @@ import Quad1 from "@/ATopic/Quad/Quad1";
 import Quad2 from "@/ATopic/Quad/Quad2";
 import Quad3 from "@/ATopic/Quad/Quad3";
 
-export async function getServerSideProps(context){
-    return{
-        props: {
-           
-        }
-    }
-}
+export default function DoubleAdd(){
 
-export default function DoubleAdd({Count}){
     const [help, setHelp] = useState(false)
     const [loaded, setLoaded] = useState(false)
     const [correct, setCorrect] = useState(false)

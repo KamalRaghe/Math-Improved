@@ -11,15 +11,8 @@ import Foil1 from "@/ATopic/Foil/foil1";
 import Foil2 from "@/ATopic/Foil/foil2"
 import Foil3 from "@/ATopic/Foil/foil3";
 
-export async function getServerSideProps(context){
-    return{
-        props: {
-           
-        }
-    }
-}
 
-export default function DoubleAdd({Count}){
+export default function DoubleAdd(){
     const [help, setHelp] = useState(false)
     const [loaded, setLoaded] = useState(false)
     const [correct, setCorrect] = useState(false)
