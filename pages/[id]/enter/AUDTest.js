@@ -33,14 +33,6 @@ export default function DoubleAdd(){
     const {username} = router.query 
     const {id} = router.query
     
-    function open(){
-        setHelp(true)
-        console.log(help)
-      }
-      function close(){
-        setHelp(false)
-      }
-
     function Again(){
         setAgain(true)
         setCount(0)

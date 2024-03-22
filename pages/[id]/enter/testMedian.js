@@ -95,7 +95,6 @@ export default function DoubleAdd(){
         if(mistake >= 3 || time - Date.now() < 0 || count >= 50){
             setLoaded(false)
             setTime(time)
-            console.log(time)
             cancel()
         }
     })
@@ -110,18 +109,15 @@ export default function DoubleAdd(){
         setNum2(prev =>prev.sort((a,b) => a-b))
         setNum1(prev => prev.sort((a,b) => Math.random()-0.5))
         setAnswer1(answer1+1)
-        console.log(num1,num2)
      },[num2])
     
      useEffect(() =>{
         mix()
         setAnswer((num1[2]+num1[3])/2)
-        console.log(num1[2],num1[3])
      },[answer1])
      
      useEffect(() =>{
         mix()
-        console.log(answer)
      },[answer])
 
      useEffect(()=>{

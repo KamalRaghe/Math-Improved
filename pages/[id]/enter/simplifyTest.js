@@ -59,7 +59,6 @@ export default function testDoubleMinus(){
   
       function WrongA(){
         setMistake(mistake + 1)
-        console.log(mistake)
         setWrong(true)
         setTimeout(() => {
             setWrong(false) 
@@ -116,7 +115,6 @@ export default function testDoubleMinus(){
             setLoaded(false)
             setTime(time)
             cancel()
-            console.log(time)
         }
     })
 

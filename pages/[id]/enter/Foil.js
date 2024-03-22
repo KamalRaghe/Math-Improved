@@ -34,7 +34,6 @@ export default function DoubleAdd(){
 
     function open(){
         setHelp(true)
-        console.log(help)
       }
       function close(){
         setHelp(false)

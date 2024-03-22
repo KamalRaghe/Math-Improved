@@ -127,7 +127,7 @@ export default function DoubleAdd(){
                         <Link className="font sb " style ={{color: 'blue',textDecoration:'underline'}} href= {`/${id}/enter/Area`}>Area: { localStorageAvailable && parseInt(window.localStorage.getItem(`${id} Area`)) ? parseInt(window.localStorage.getItem(`${id} Area`)): 0}</Link>
                    </div>
                    <br></br>
-        
+                       
                     <div className=" column" style ={{fontSize:"30px"}}>
                         <div>Logarithms</div>
                         <Link className="font sb" style ={{color: 'blue',textDecoration:'underline'}} href= {`/${id}/enter/Logarithm`}>Logarithms: { localStorageAvailable && parseInt(window.localStorage.getItem(`${id} Logarithm`)) ? parseInt(window.localStorage.getItem(`${id} Logarithm`)): 0}</Link><br></br>

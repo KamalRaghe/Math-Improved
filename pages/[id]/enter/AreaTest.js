@@ -61,7 +61,6 @@ export default function DoubleAdd(){
   
       function WrongA(){ 
         setMistake( mistake + 1)
-        console.log(mistake)
         setWrong(true)
         setTimeout(() => {
             setWrong(false) 

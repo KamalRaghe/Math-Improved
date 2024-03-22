@@ -86,7 +86,6 @@ export default function DoubleAdd(){
         if(mistake >= 3 || time - Date.now() < 0 || count >= 25){
             setLoaded(false)
             setTime(time)
-            console.log(time)
             cancel()
         }
     })

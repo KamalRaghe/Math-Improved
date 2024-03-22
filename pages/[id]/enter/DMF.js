@@ -32,7 +32,6 @@ export default function DoubleAdd(){
 
     function open(){
         setHelp(true)
-        console.log(help)
       }
       function close(){
         setHelp(false)
@@ -76,10 +75,6 @@ export default function DoubleAdd(){
         }
     }
     },[num8,num5,num6])
-
-    useEffect(()=>{
-        console.log(((num1*num4))%(num5*num2),(num5*num2),num3)
-    },[num7])
 
     useEffect(() =>{
         setLoaded(true)

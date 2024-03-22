@@ -25,7 +25,6 @@ export default function DoubleAdd(){
 
     function open(){
         setHelp(true)
-        console.log(help)
       }
       function close(){
         setHelp(false)
@@ -62,7 +61,6 @@ export default function DoubleAdd(){
 
     useEffect(() =>{
         setLoaded(true)
-        console.log(help)
     },[])
 
     const [score, setScore] =useState(0)

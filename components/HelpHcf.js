@@ -39,7 +39,6 @@ export default function HelpHcf({num1,num2,close}){
   },[loaded])
 
   useEffect(() => {
-    console.log(count2[Math.floor(count2.length/2)] )
     if(count2[Math.floor(count2.length/2)] === 1){
       for(let i = 0; i < count2.length/2; i++){
         setCount4(prev => [...prev, count2[i]])

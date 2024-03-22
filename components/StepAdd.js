@@ -41,7 +41,6 @@ function StepAdd({close, num1 , num2}){
    
    function Count(){
        setArr(prevChange => prevChange.sort((a,b)=>Math.random()-0.5)) 
-       console.log(count)
        setCount(count+1)
        
        if(count === 2){

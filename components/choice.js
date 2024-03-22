@@ -3,11 +3,9 @@ function Choice({value, answer, doSomething, Correct, Wrong,big, size ,title}){
 
     function Do(){
         if(answer === value){
-            console.log('correct')
             Correct() 
         }
         else{
-            console.log('wrong')
             Wrong()
         }
     }

@@ -28,7 +28,6 @@ export default function DoubleAdd(){
 
     function open(){
         setHelp(true)
-        console.log(help)
       }
       function close(){
         setHelp(false)
@@ -46,12 +45,7 @@ export default function DoubleAdd(){
             setCorrect(false) 
         }, 1900);
       }
-
-      async function Update(){
-        const x = await axios.get('https://1f08-142-126-98-26.ngrok-free.app/counter')
-        console.log(x)
-      }
-  
+      
       function WrongA(){ 
         setWrong(true)
         setTimeout(() => {

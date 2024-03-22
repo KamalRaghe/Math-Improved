@@ -60,7 +60,6 @@ function LongDivisionHelp({close, num1 , num2}){
         setNumber6(number4*num1)
         setStep1(false)
         setStep2(true)
-        console.log(step2)
     }else if(step2 === true && num1 > (number1 - number4*num1) && number1 >= 10){
         setAnswer1(number5-number6)
         setRight1(true)

@@ -104,7 +104,6 @@ function Lcm(){
         if(mistake >= 3 || time - Date.now() < 0 || count >= 50){
             setLoaded(false)
             setTime(time)
-            console.log(time)
             cancel()
         }
     })

@@ -19,13 +19,7 @@ export default function HelpMode({num1,num8,close}){
     function order(num){
         setCount(num)
     }
-    useEffect(()=>{
-       console.log(array)
-    },[])
 
-    useEffect(()=>{
-        console.log(count)
-    },[count])
     return (
         <div className="Help">
             <div className='cancel'><button className='cancel-btn' onClick = {close}>X</button></div>

@@ -59,7 +59,6 @@ export default function DoubleAdd(){
   
       function WrongA(){ 
         setMistake( mistake + 1)
-        console.log(mistake)
         setWrong(true)
         setTimeout(() => {
             setWrong(false) 
@@ -105,7 +104,6 @@ export default function DoubleAdd(){
     useEffect(()=>{
         for(let i= (num2*num7/num1)+(num4*num7/num5)  ; i > 0 ;i--){
             if (((num2*num7/num1)+(num4*num7/num5)) % i === 0 && num7 % i === 0){
-                console.log(i,'worked')
                 setNum(i)
                 break
             }
@@ -134,7 +132,6 @@ export default function DoubleAdd(){
         if(mistake >= 3 || time - Date.now() < 0 || count >= 20){
             setLoaded(false)
             setTime(time)
-            console.log(time)
             cancel()
         }
     })

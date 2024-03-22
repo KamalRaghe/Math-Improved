@@ -53,7 +53,6 @@ export default function DoubleAdd(){
   
       function WrongA(){ 
         setMistake( mistake + 1)
-        console.log(mistake)
         setWrong(true)
         setTimeout(() => {
             setWrong(false) 
@@ -94,7 +93,6 @@ export default function DoubleAdd(){
         if(mistake >= 3 || time - Date.now() < 0 || count >= 25){
             setLoaded(false)
             setTime(time)
-            console.log(time)
             cancel()
         }
     })

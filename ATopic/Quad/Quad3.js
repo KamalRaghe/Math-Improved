@@ -185,7 +185,6 @@ export default function Quad3({num1,num2,close}){
      },[])
 
      useEffect(()=>{
-        console.log(count)
         setExtra(false)
      },[Q2])
 

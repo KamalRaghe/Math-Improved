@@ -43,7 +43,6 @@ export default function HelpMedian({num1,close}){
     }
     useEffect(()=>{
        setArray(prev =>prev.sort((a,b) => a-b))
-       console.log(array)
        setLoaded(true)
     },[])
 

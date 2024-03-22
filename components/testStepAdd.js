@@ -31,8 +31,7 @@ function TestStepAdd({close, num1 , num2, mistake}){
    }
    
    function Count(){
-       setArr(prevChange => prevChange.sort((a,b)=>Math.random()-0.5)) 
-       console.log(count)
+       setArr(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
        setCount(count+1)
        
        if(count === 2){

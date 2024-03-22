@@ -35,7 +35,6 @@ export default function DoubleAdd(){
     
     function open(){
         setHelp(true)
-        console.log(help)
       }
       function close(){
         setHelp(false)
@@ -67,7 +66,6 @@ export default function DoubleAdd(){
   
       function WrongA(){ 
         setMistake( mistake + 1)
-        console.log(mistake)
         setWrong(true)
         setTimeout(() => {
             setWrong(false) 
@@ -111,7 +109,6 @@ export default function DoubleAdd(){
         setNum7(Math.floor((num4*num1)/(num5*num2)))
         for(let i= (num1*num5)  ; i > 0 ;i--){
             if ( (num5*num2) % i === 0 && (num1*num4) % i === 0){
-                console.log(i,'worked')
                 setNum(i)
                 break
             }
@@ -134,7 +131,6 @@ export default function DoubleAdd(){
         if(mistake >= 3 || time - Date.now() < 0 || count >= 20){
             setLoaded(false)
             setTime(time)
-            console.log(time)
             cancel()
         }
     })

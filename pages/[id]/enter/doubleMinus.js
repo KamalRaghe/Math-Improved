@@ -67,7 +67,6 @@ export default function DoubleAdd(){
          setLoaded(true)
          const count = parseInt(window.localStorage.getItem(`${id} DoubleMinus`))
          setCount(count ? count : 0)
-         console.log(count)
          const score = parseInt(window.localStorage.getItem(`${id} score`))
          setScore(score ? score : 0)
          const ID = window.localStorage.getItem('ID')
