@@ -27,7 +27,8 @@ export default function Home() {
 
     async function handleSubmit(){
         const user = window.localStorage.getItem('User') 
-        setEdit(false) 
+        setEdit(false)
+        setName(account.title) 
         if(account.title){
           window.localStorage.setItem(`${id} username` , account.title )
         }
@@ -67,12 +68,17 @@ export default function Home() {
 
   return (
 <div className="center column beige">
+{!name && <div className="center" style={{width:"300px"}}>
+  <input placeholder = 'Enter Name' value={account.title} type='text' onChange = {(e) => setAccount({...account, title: e.target.value})}>
+  </input><button onClick={handleSubmit} >Enter</button> </div>}
 {name && <div className="center">
-  {edit || !(name) ? <div className="center" style={{width:"300px"}}>
-  <input placeholder= {name && name} value={account.title} type='text' onChange = {(e) => setAccount({...account, title: e.target.value})}></input><button onClick={handleSubmit} >Enter</button> </div>:
+  {edit? <div className="center" style={{width:"300px"}}>
+  <input placeholder= {name && name} value={account.title} type='text' onChange = {(e) => setAccount({...account, title: e.target.value})}>
+  </input><button onClick={handleSubmit} >Enter</button> </div>:
   <div className="center sb" style={{fontSize:"30px",width:"300px"}}>{name && name} 
   <button className="help" style={{backgroundColor:"cyan",fontWeight:"bold"}} onClick={()=>setEdit(true)} >Change</button> </div>}
   </div>}
+  
   <button className="topic relative" style={{top:'20px',backgroundColor:"red",width:"100px"}} onClick={getPortalUrl} >Cancel</button> 
   <button  style={{margin:"20px"}}  onClick={SignOut} >SignOut</button>
   </div>
