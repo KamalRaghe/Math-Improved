@@ -68,7 +68,7 @@ export default function Home() {
   return (
 <div className="center column beige">
 {name && <div className="center">
-  {edit ? <div className="center" style={{width:"300px"}}>
+  {edit || !(name) ? <div className="center" style={{width:"300px"}}>
   <input placeholder= {name && name} value={account.title} type='text' onChange = {(e) => setAccount({...account, title: e.target.value})}></input><button onClick={handleSubmit} >Enter</button> </div>:
   <div className="center sb" style={{fontSize:"30px",width:"300px"}}>{name && name} 
   <button className="help" style={{backgroundColor:"cyan",fontWeight:"bold"}} onClick={()=>setEdit(true)} >Change</button> </div>}

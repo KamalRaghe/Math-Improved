@@ -174,6 +174,10 @@ export default function Home() {
         }
       },[Account])
 
+      useEffect(()=>{
+        console.log(link , count)
+      },[count])
+
   return (
     <div className="center beige column">
       <div className="center column" style={{alignItems:"start"}}>
@@ -184,12 +188,12 @@ export default function Home() {
         {!payed && time - Date.now() > 0 && <div className="font center" style={{fontWeight:"bold",width:"300px"}} >Free Trial: {Math.floor(((time - Date.now())%(1000*60*60*24*7))/1000/60/60/24)}d {""}{Math.floor(((time - Date.now())%(1000*60*60*24))/1000/60/60)}h {""}{Math.floor(((time - Date.now())%(1000*60*60))/1000/60)}m {""}
             {Math.floor(((time - Date.now())%(1000*60))/1000)}s
         </div>}
-        {payed && name && <div className="center sb" style={{fontSize:"30px",width:"330px"}} ><div>{name}</div><div>Score: {score}</div></div>}
       </div>
         <br></br>
         <br></br>
         <br></br>
-        <br></br>
+        {payed && score && <div className="center" style={{fontSize:"30px",width:"330px"}} >{name && 
+        name} Score: {score}</div>}
         {count !== link  && linking && !(devices > Date.now()) &&<div className="timeout center column" style={{justifyContent:"start",backgroundColor:"lightgrey",border:"10px solid navy"}} >
             <h1>Are you sure</h1>
             <div className="font" >Do you want to link account to this device</div>
@@ -207,7 +211,7 @@ export default function Home() {
          <div>Full Access: CA$3.99</div> 
         </button>
       </div>}
-      {(payed || time - Date.now() > 0) && count === link &&
+      {((payed && count === link) || time - Date.now()) > 0 &&
         <div className="box center" style={{width:'340px'}}>
         
         <button className="topic column" onClick={()=>{router.push(`/${id}/enter/stats`)}} style={{width:'150px', height:"90px"}} >

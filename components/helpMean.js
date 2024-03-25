@@ -2,6 +2,7 @@ import { use, useEffect, useState } from "react"
 import Step from "./step"
 import HelpAdd from "./HelpAdd"
 import StepAdd from "./StepAdd"
+import HelpDiv from "./PerfectDivision"
 
 export default function HelpMean({num1,num2,num3,num4,num5,num8,close}){
     const [done,setDone] = useState(false)
@@ -74,6 +75,7 @@ export default function HelpMean({num1,num2,num3,num4,num5,num8,close}){
         <div className="Help">
             {extra && sign == '+' && number1 <= 9 && <HelpAdd close={Extra} num1 ={number1} num2 = {number2}/>}
             {extra && sign == '+' && number1 > 9 && <StepAdd close={Extra} num1 ={number1} num2 = {number2} />}
+            {extra && sign === '÷' && <HelpDiv close={Extra} num1 ={number1} num2 = {number2}/>}
             <div className='cancel'><button className='cancel-btn' onClick = {close}>X</button></div>
             <div className="double center">
                 {<span className="Green">{num1}<span className="hide" >.</span></span>}  

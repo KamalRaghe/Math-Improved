@@ -159,7 +159,7 @@ function LongDivisionHelp({close, num1 , num2}){
              {extra && minus && number5 < 10 && <HelpMinus close={Extra} num1 ={number5} num2 = {number6}/>}
             <div className='cancel'><button className='cancel-btn' onClick={close} >X</button></div>
             {(!remainder || num2%num1 === 0)  && <span className="center absolute"  style={{fontSize: '30px',width:'106%',top:'65px'}}>{digit && 0}{main}</span>}
-            { remainder && num2%num1 != 0 && <span className="center absolute"  style={{fontSize: '30px',width:'120%',top:'65px'}}>{digit && 0}{main} R {num2%num1}</span>}
+            { remainder && num2%num1 != 0 && <span className="center absolute Green"  style={{fontSize:'30px',width:'120%',top:'65px'}}>{digit && 0}{main} R {num2%num1}</span>}
             <div className="center" style={{fontSize: '30px'}}>
                 {num1}<div style={{borderLeft: '3px solid black', borderTop: '3px solid black', marginLeft:'5px', paddingRight:'10px'}}>
                     <span className="hide">.</span>
@@ -169,42 +169,42 @@ function LongDivisionHelp({close, num1 , num2}){
                     {answer1 < num1 && right2 && <button className="carry Green"  style={{fontSize:'30px'}} onClick={() => {setMain(main*10);setAnswer1(answer1*10+number3);setNumber1(number1*10+number2);setNumber2(number3);setNumber3()}}>{number3}</button>}
                 </div> 
             </div>
-            {number1 < 10 && Minus1 &&<div className="center absolute" style={{fontSize: '30px',width:'94%'}}><span style={{borderBottom:'2px solid black'}}>-{minus1}</span></div>}
+            {number1 < 10 && Minus1 &&<div className="center absolute" style={{fontSize: '30px',width:'95%'}}><span style={{borderBottom:'2px solid black'}}>-{minus1}</span></div>}
             {number1 >= 10 && Minus1 &&<div className="center absolute" style={{fontSize: '30px',width:'97.5%'}}><span style={{borderBottom:'2px solid black'}}>-{minus1}</span></div>}
 
             {number1 < 10 && right1 && <div className="center absolute " style={{fontSize: '30px',width:'96%',top:'170px'}}><span>{answer1}</span></div>}
             {number1 >= 10 && right1 && <div className="center absolute" style={{fontSize: '30px',width:'103.5%',top:'170px'}}><span>{answer1}</span></div>}
 
-            {number1 < 10 && number1 === minus1  && right2 && <div className="center absolute" style={{fontSize: '30px',width:'100%',top:'170px'}}><span>0{answer1}</span></div>}
-            {number1 >= 10 && number1 === minus1 && answer1 >= num1 && right2 && <div className="center absolute" style={{fontSize: '30px',width:'109%',top:'170px'}}><span>0{answer1}</span></div>}
-            {!remainder && number1 >= 10 && number1 === minus1 && answer1 < num1 && right2 && <div className="center absolute" style={{fontSize: '30px',width:'109%',top:'170px'}}><button className="carry Green" onClick={()=>{setRemainder(true);setMain(main*10)}} style={{fontSize:'30px'}}>0{answer1}</button></div>}
-            {remainder && number1 >= 10 && number1 === minus1 && answer1 < num1 && right2 && <div className="center absolute" style={{fontSize: '30px',width:'109%',top:'170px'}}><span>0{answer1}</span></div>}            
+            {number1 < 10 && number1 === minus1  && right2 && <div className="center absolute" style={{fontSize: '30px',width:'100%',top:'170px'}}><span>{answer1}</span></div>}
+            {number1 >= 10 && number1 === minus1 && answer1 >= num1 && right2 && <div className="center absolute" style={{fontSize: '30px',width:'109%',top:'170px'}}><span>{answer1}</span></div>}
+            {!remainder && number1 >= 10 && number1 === minus1 && answer1 < num1 && right2 && <div className="center absolute" style={{fontSize: '30px',width:'109%',top:'170px'}}><button className="carry Green" onClick={()=>{setRemainder(true);setDone(true);setMain(main*10)}} style={{fontSize:'30px'}}>0{answer1}</button></div>}
+            {remainder && number1 >= 10 && number1 === minus1 && answer1 < num1 && right2 && <div className="center absolute" style={{fontSize: '30px',width:'109%',top:'170px'}}><span>{answer1}</span></div>}            
 
             {number1 < 10 && !(number1 === minus1) && right2 && <div className="center absolute" style={{fontSize: '30px',width:'100%',top:'170px'}}><span>{answer1}</span></div>}
             {number1 >= 10 && !(number1 === minus1) && answer1 >= num1 && right2 && <div className="center absolute" style={{fontSize: '30px',width:'109%',top:'170px'}}><span>{answer1}</span></div>}
-            {!remainder && number1 >= 10 && !(number1 === minus1) && answer1 < num1 && right2 && <div className="center absolute" style={{fontSize: '30px',width:'109%',top:'170px'}}><button className="carry Green" onClick={()=>{setRemainder(true);setMain(main*10)}} style={{fontSize:'30px'}}>0{answer1}</button></div>} 
+            {!remainder && number1 >= 10 && !(number1 === minus1) && answer1 < num1 && right2 && <div className="center absolute" style={{fontSize: '30px',width:'109%',top:'170px'}}><button className="carry Green" onClick={()=>{setRemainder(true);setDone(true);setMain(main*10)}} style={{fontSize:'30px'}}>0{answer1}</button></div>} 
             {remainder && number1 >= 10 && !(number1 === minus1) && answer1 < num1 && right2 && <div className="center absolute" style={{fontSize: '30px',width:'109%',top:'170px'}}><span>{answer1}</span></div>}          
             
-            {number1 < 10 && Minus2 &&<div className="center absolute" style={{fontSize: '30px',width:'97%',top:'200px'}}><span style={{borderBottom:'2px solid black'}}>-{minus2}</span></div>}
-            {number1 >= 10 && Minus2 &&<div className="center absolute" style={{fontSize: '30px',width:'106%',top:'200px'}}><span style={{borderBottom:'2px solid black'}}>-{minus2}</span></div>}
+            {number1 < 10 && Minus2 &&<div className="center absolute" style={{fontSize: '30px',width:'97%',top:'200px'}}><span style={{borderBottom:'2px solid black'}}>{minus2 && <span className="hide" >0</span>}-{minus2}</span></div>}
+            {number1 >= 10 && Minus2 &&<div className="center absolute" style={{fontSize: '30px',width:'106%',top:'200px'}}><span style={{borderBottom:'2px solid black'}}>-{minus2 && <span className="hide" >0</span>}{minus2}</span></div>}
 
-            {number1 < 10 && right3 && <div className="center absolute" style={{fontSize: '30px',width:'105%',top:'235px'}}><span>{answer2}</span></div>}
-            {!remainder && number1 >= 10 && right3 && <div className="center absolute" style={{fontSize: '30px',width:'114%',top:'235px'}}><button className="Green carry" style={{fontSize:'30px'}} onClick={() => {setRemainder(true)} }>{answer2}</button></div>}
-            {remainder && number1 >= 10 && right3 && <div className="center absolute" style={{fontSize: '30px',width:'114%',top:'235px'}}><span style={{fontSize:'30px'}}>{answer2}</span></div>}
+            {(number1 < 10 || num1 > 9) && right3 && <div className="center absolute" style={{fontSize: '30px',width:'105%',top:'235px'}}><span>{num1>9 && <span className="hide" >0.</span>}{answer2}</span></div>}
+            {!remainder && number1 >= 10 && num1 <= 9  && right3 && <div className="center absolute" style={{fontSize: '30px',width:'114%',top:'235px'}}><button className="Green carry" style={{fontSize:'30px'}} onClick={() => {setRemainder(true);setDone(true)} }>{answer2}</button></div>}
+            {remainder && number1 >= 10 && num1 <= 9 && right3 && <div className="center absolute" style={{fontSize: '30px',width:'114%',top:'235px'}}><span style={{fontSize:'30px'}}>{answer2}</span></div>}
 
             {number1 < 10 && Minus3 &&<div className="center absolute" style={{fontSize: '30px',width:'102%',top:'265px'}}><span style={{borderBottom:'2px solid black'}}>-{minus3}</span></div>}
-            {!remainder && number1 < 10 && step8 && <div className="center absolute" style={{fontSize: '30px',width:'109%',top:'300px'}}><button className="Green carry" style={{fontSize:'30px'}} onClick={() => {setRemainder(true)} }>{answer3}</button></div>}
+            {!remainder && number1 < 10 && step8 && <div className="center absolute" style={{fontSize: '30px',width:'109%',top:'300px'}}><button className="Green carry" style={{fontSize:'30px'}} onClick={() => {setRemainder(true);setDone(true)} }>{answer3}</button></div>}
             {remainder && number1 < 10 && step8 && <div className="center absolute" style={{fontSize: '30px',width:'109%',top:'300px'}}><span style={{fontSize:'30px'}}>{answer3}</span></div>}
                    
-                   {done && <div style={{display:'flex', justifyContent:'center', alignItems:'end', height:'250px'  }}>
+                   {done && !remainder && <div style={{display:'flex', justifyContent:'center', alignItems:'end', height:'250px'  }}>
                         <button className="choice-stretch" onClick = {() => {setDone(false);setNumber4(1) }}>{1}</button>
                         <button className="choice-stretch" onClick = {() => {setDone(false);setNumber4(2) }}>{2}</button>
                         <button className="choice-stretch" onClick = {() => {setDone(false);setNumber4(3) }}>{3}</button>
-                   </div>} {done && <div style={{display:'flex', justifyContent:'center', alignItems:'end'}}>
+                   </div>} {done && !remainder && <div style={{display:'flex', justifyContent:'center', alignItems:'end'}}>
                         <button className="choice-stretch" onClick = {() => {setDone(false);setNumber4(4) }}>{4}</button>
                         <button className="choice-stretch" onClick = {() => {setDone(false);setNumber4(5) }}>{5}</button>
                         <button className="choice-stretch" onClick = {() => {setDone(false);setNumber4(6) }}>{6}</button>
-                   </div>}{done && <div style={{display:'flex', justifyContent:'center', alignItems:'end'}}>
+                   </div>}{done && !remainder && <div style={{display:'flex', justifyContent:'center', alignItems:'end'}}>
                         <button className="choice-stretch" onClick = {() => {setDone(false);setNumber4(7) }}>{7}</button>
                         <button className="choice-stretch" onClick = {() => {setDone(false);setNumber4(8) }}>{8}</button>
                         <button className="choice-stretch" onClick = {() => {setDone(false);setNumber4(9) }}>{9}</button>
