@@ -69,7 +69,7 @@ function ExtraMinus({close, num1 , num2}){
         return(
            <div className="Help" style={{zIndex:'20',border:'10px solid yellow'}}>
                 {extra && <HelpMinus close={Extra} num1 ={(ten+number1[count])%20} num2 = {number2[count]%10} />}
-               <div className='cancel'><button className='cancel-btn hide' >X</button></div>
+                <div className='cancel' style={{width:"100%"}} ><button className='cancel-btn' onClick = {close}>X</button></div>
                <span className='center'>{num1%10 + ten< num2%10 && !step2 && <button className='carry  absolute Red' style={{left:'168px'}} onClick={click}>{'-'}</button>}</span>
                <span className='center'>{slice && <button className=' back2Step2 absolute Red' style={{left: redNum}} onClick={click}>{Math.floor(num1/10)-1}</button>}</span>
                <div className='double top-number center'>

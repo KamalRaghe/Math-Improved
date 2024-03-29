@@ -21,7 +21,7 @@ export default function DoubleAdd(){
     const [num3, setNum3] = useState([0,num1+num1,num2,-1*num1,num2+num2+num2])
     const [mistake, setMistake] = useState(0)
     const [count, setCount] = useState(0)
-    const [time, setTime] = useState( 600000 + Date.now())
+    const [time, setTime] = useState( 300000 + Date.now())
     const [date, setDate] = useState(Date.now()) 
     const router = useRouter()
     const {username} = router.query 
@@ -31,7 +31,7 @@ export default function DoubleAdd(){
         setAgain(true)
         setCount(0)
         setMistake(0)
-        setTime(600000 + Date.now())
+        setTime(300000 + Date.now())
         setLoaded(true)
     }
 
@@ -52,7 +52,7 @@ export default function DoubleAdd(){
         setCorrect(true)
         setTimeout(() => {
             setCorrect(false) 
-        }, 1500);
+        }, 1510);
         setCount(count+1)
       }
   
@@ -61,7 +61,7 @@ export default function DoubleAdd(){
         setWrong(true)
         setTimeout(() => {
             setWrong(false) 
-        }, 1500);
+        }, 1510);
       } 
     function Add(){
         setTimeout(() => {
@@ -69,7 +69,7 @@ export default function DoubleAdd(){
             setNum2(Math.ceil(Math.random()*9))
             mix()
             setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5)) 
-        }, 1500)
+        }, 1510)
     }
 
 
@@ -89,7 +89,7 @@ export default function DoubleAdd(){
     },[again])
 
     useEffect(() =>{
-        if(mistake >= 3 || time - Date.now() < 0 || count >= 50){
+        if(mistake >= 3 || time - Date.now() < 0 || count >= 25){
             setLoaded(false)
             setTime(time)
             cancel()
@@ -105,7 +105,7 @@ export default function DoubleAdd(){
 
     return(
         <div className="beige container column">
-           <div className="double">Question left : {50 - count}</div>
+           <div className="double">Question left : {25 - count}</div>
            <div className="inTest">
             
                 <div className="Red relative" > 
@@ -114,7 +114,7 @@ export default function DoubleAdd(){
                     {mistake === 2 && <Heart2/>}
                     {mistake === 3 && <Heart3/>}
                 </div>
-                {loaded && time - Date.now() > 0 && count < 50 && <div>{Math.floor(((time - Date.now())%(1000*60*60))/1000/60)}m {""}
+                {loaded && time - Date.now() > 0 && count < 25 && <div>{Math.floor(((time - Date.now())%(1000*60*60))/1000/60)}m {""}
                 {Math.floor(((time - Date.now())%(1000*60))/1000)}s</div>}
             </div>
 
@@ -125,7 +125,7 @@ export default function DoubleAdd(){
             </div>
             { time - Date.now() < 0 && <Timeout again ={Again}/>}
             {mistake === 3 && <Mistake again={Again}></Mistake>}
-            {count === 50 && <Pass time ={600000 -(time-Date.now())}/>}
+            {count === 25 && <Pass time ={300000 -(time-Date.now())}/>}
             <div className="box column">
                <div className="row ">
                     { loaded && <Choice value ={num1*num2+num3[0]} answer ={num1*num2} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}

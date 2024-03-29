@@ -48,49 +48,10 @@ export default function Home() {
       function update(){
         setDate(requestAnimationFrame(update))
       }
-      async function handleSubmit(){
-        const user = window.localStorage.getItem('User')  
-        if(account.title){
-        const docRef = await addDoc(collection(db, user), {
-              count: link,
-              device: 0
-          })
-          setAccount({title:""})      
-          window.localStorage.setItem(`${docRef.id} username` , account.title);
-        }
-          
-      }
+
 
     async function getCheckoutUrl(){
-        const app = initFirebase()
-        const userId = window.localStorage.getItem('uid');
-      
-        const db = getFirestore(app);
-        const checkoutSessionRef = collection(
-          db,
-          "customers",
-          userId,
-          "checkout_sessions"
-        );
-      
-        const docRef = await addDoc(checkoutSessionRef, {
-          price: 'price_1OtfM3DlcBixp6qNRoKw4xAD',
-          success_url: window.location.origin,
-          cancel_url: window.location.origin,
-        });
-        const promise = new Promise((resolve, reject) => {
-          const unsubscribe = onSnapshot(docRef, (snap) => {
-            const { error, url } = snap.data() || {};
-            if (error) {
-              unsubscribe(); 
-              reject(new Error(`An error occurred: ${error.message}`));
-            }
-            if (url) {
-              unsubscribe(); 
-              router.push(url);
-            }
-          });
-        });
+        router.push('/paying');
       };
   
       async function Linked(id){
@@ -164,6 +125,7 @@ export default function Home() {
       },[])
 
       useEffect(()=>{
+        console.log(Account)
         if(Account[0]){
             setId(Account[0].id)
             window.localStorage.setItem( 'ID', Account[0].id)
@@ -173,10 +135,6 @@ export default function Home() {
 
         }
       },[Account])
-
-      useEffect(()=>{
-        console.log(link , count)
-      },[count])
 
   return (
     <div className="center beige column">
@@ -230,14 +188,14 @@ export default function Home() {
         </button>
       </div>
       }
-       {payed && count !== link &&
+       {payed && count !== link && time < Date.now &&
         <div className="box center" style={{width:'340px'}}>
-        {!linking && <button className="topic column" onClick={()=>{setLinking(true)}} style={{color:"black",backgroundColor:"lightgrey",fontSize:"30px",width: '150px', height:"90px"}} >
+        {!linking  && <button className="topic column" onClick={()=>{setLinking(true)}} style={{color:"black",backgroundColor:"lightgrey",fontSize:"30px",width: '150px', height:"90px"}} >
             Link
         </button>}
       </div>
       }
-      {(!payed || count !== link) ? <button className="font" style={{color:'white',fontWeight:"bolder",borderRadius:"20px",width:'150px', height:"40px",margin:"10px",backgroundColor:"grey"}}  onClick={SignOut} >SignOut</button>:
+      {(!payed && count !== link) ? <button className="font" style={{color:'white',fontWeight:"bolder",borderRadius:"20px",width:'150px', height:"40px",margin:"10px",backgroundColor:"grey"}}  onClick={SignOut} >SignOut</button>:
       <button className="font" style={{color:'white',fontWeight:"bolder",borderRadius:"20px",width:'150px', height:"40px",backgroundColor:"grey"}}  onClick={()=>router.push('settings')} >Settings</button>}
     </div>
   )

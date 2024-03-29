@@ -54,13 +54,11 @@ export default function DoubleAdd(){
         }, 1900);
       } 
     function Add(){
-        setTimeout(() => {
             setNum1(Math.ceil(Math.random()*7+2))
             setNum6(Math.ceil(Math.random()*7+2))
             setNum8(Math.ceil(Math.random()*7+2))
             mix()
             setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
-        }, 1500)
     }
 
     useEffect(()=>{

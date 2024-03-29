@@ -63,7 +63,7 @@ export default function Log({num1,num2,Answer,close}){
                <div className="double center" style={{padding:'40px 19px'}}>
                     {num1}<div style={{fontSize:'20px',position:'relative', top:"-13px",paddingRight:'2px'}}>𝑥 </div> = {num2} 
                 </div>
-                {!((count-1) >= Answer) ? <div className="double Red center" >𝑥  {'>'}  {count}</div> : <div className="double Green center" >𝑥  {'='}  {Answer}</div> } 
+                {!((count-1) >= Answer) ? <div className="double Red center" >𝑥  {'?'}  {count}</div> : <div className="double Green center" >𝑥  {'='}  {Answer}</div> } 
                <div className="box "></div>
                <br></br>
                {!((count-1) >= Answer) && <div className=" double center Green absolute StepQuestion">{Q1} {sign} {Q2} = </div>}  

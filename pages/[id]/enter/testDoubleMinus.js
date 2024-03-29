@@ -52,7 +52,7 @@ export default function testDoubleMinus(){
         setCorrect(true)
         setTimeout(() => {
             setCorrect(false) 
-        }, 1500);
+        }, 1510);
       }
   
       function WrongA(){
@@ -60,7 +60,7 @@ export default function testDoubleMinus(){
         setWrong(true)
         setTimeout(() => {
             setWrong(false) 
-        }, 1500);
+        }, 1510);
       } 
     function Add(){
         setTimeout(() => {
@@ -68,7 +68,7 @@ export default function testDoubleMinus(){
             setNum2(Math.floor(Math.random()*40+10))
             mix()
             setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5)) 
-        }, 1500)
+        }, 1510)
     }
 
     function update(){

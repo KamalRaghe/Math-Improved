@@ -72,8 +72,9 @@ function StepAdd({close, num1 , num2}){
    },[])
         return(
            <div className="Help" style={{zIndex:'20', border:'10px solid orange'}}>
-               {extra && (number1 > 9 || number2 > 9) && <ExtraAdd close={Extra} num1 ={number1} num2 = {number2}/>}
-               {extra && (number1 < 10 && number2 < 10) && <HelpAdd close={Extra} num1 ={number1[count]%10} num2 = {number2[count]%10} num3={num4} />}
+               {extra && (number1[count] >= 10 || number2[count] >= 10) && <ExtraAdd close={Extra} num1 ={number1[count]} num2 = {number2[count]}/>}
+               {extra && number2[count] < 10 && number1[count] < 10 && <HelpAdd close={Extra} num1 ={number1[count]%10} num2 = {number2[count]%10} num3={num4} />}
+               <div className='cancel absolute' style={{width:"100%"}} ><button className='cancel-btn' onClick = {close}>X</button></div>
                <div className='cancel'><button className='cancel-btn hide'>X</button></div>
                <span className='center'>{carry && done && <button className='carry  absolute Green' style={{left:'162px'}} onClick={click}>{sign}</button>}</span>
                <span className='center'>{carry && !done && <button className=' back2Step2 absolute Green' style={{left:'165px'}} onClick={click}>{sign}</button>}</span>

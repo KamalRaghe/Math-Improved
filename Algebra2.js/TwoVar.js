@@ -9,6 +9,8 @@ import StepAdd from "@/components/StepAdd"
 import StepMinus from "@/components/StepMinus"
 import Algebra from "@/Algebra/Algebra"
 import AlgebraY from "@/Algebra/AlgebraY"
+import Algebra2y from "@/Algebra/Algebra2y"
+import Algebra4 from "@/Algebra/Algebra4"
 
 export default function TwoVar({num1,num2,num4,num5,num6,num7,close}){  
     const [done,setDone] = useState(true)
@@ -216,6 +218,8 @@ export default function TwoVar({num1,num2,num4,num5,num6,num7,close}){
             {extra && sign === '-' && (Q1 >= 10 || Q2 >= 10) && <StepMinus close={Extra} num1 ={Q1} num2 = {Q2}/>}
             {extra && !count3 && sign === '='  && <Algebra close={Extra} num1 ={help1 > 0 ? help1:-1*help1} num2 = {help2 >= 0 ? help2/help1:-1*help2/help1}/>}
             {extra && count3 && sign === '=' && <AlgebraY close={Extra} num1 ={help1 > 0 ? help1:-1*help1} num2 = {help2 >= 0 ? help2/help1:-1*help2/help1}/>}
+            {extra && !count3 && sign === '1' && <Algebra2y close={Extra} num1 ={num2*num6} num2 = {num1} num5={num1}/>}
+            {extra && count3 && sign === '1' && <Algebra4 close={Extra} num1 ={num1*num7} num2 = {num2} num5={num2}/>}
             {extra && sign === '÷' && <HelpDiv close={Extra} num1 ={Q1} num2 = {Q2}/>}
             <div className='cancel'><button className='cancel-btn' onClick = {close}>X</button></div>
                 {step1 && <div className="double center">

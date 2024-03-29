@@ -83,6 +83,17 @@
   }
 }
 
+.rotate{
+  animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate{
+  
+  100%{
+    rotate: 360deg;
+  }
+}
+
 .help{
   background-color: yellow;
   border-radius: 20px;

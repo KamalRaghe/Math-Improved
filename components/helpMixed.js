@@ -29,7 +29,7 @@ export default function Question1({num1,num2,whole,close}){
    }
 
     function Count(){
-        setArr(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
+        c
         if(step1 === true){
            setStep1(false)
            setStep2(true)

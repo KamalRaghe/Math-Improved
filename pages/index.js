@@ -40,7 +40,7 @@ export default function Home() {
       if(name){
       const docRef = await addDoc(collection(db, email), {
             count: link,
-            device: 0
+            device: 0,
         }) 
         window.localStorage.setItem(`${docRef.id} username` , name);
       }

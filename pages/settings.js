@@ -79,7 +79,7 @@ export default function Home() {
   <button className="help" style={{backgroundColor:"cyan",fontWeight:"bold"}} onClick={()=>setEdit(true)} >Change</button> </div>}
   </div>}
   
-  <button className="topic relative" style={{top:'20px',backgroundColor:"red",width:"100px"}} onClick={getPortalUrl} >Cancel</button> 
+  <button className="topic relative" style={{top:'20px',backgroundColor:"red",marginBottom:"30px",width:"100px"}} onClick={getPortalUrl} >Cancel</button> 
   <button  style={{margin:"20px"}}  onClick={SignOut} >SignOut</button>
   </div>
   )

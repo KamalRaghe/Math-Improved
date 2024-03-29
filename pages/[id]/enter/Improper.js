@@ -49,12 +49,11 @@ export default function DoubleAdd(){
         }, 1900);
       } 
     function Add(){
-        setTimeout(() => {
+
             setNum1(Math.ceil(Math.random()*7+2))
             setNum2(Math.ceil(Math.random()*7))
             mix()
             setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
-        }, 1500)
     }
 
 

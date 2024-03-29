@@ -183,7 +183,7 @@ function Extra(){
             {extra && !(step1||step2||step3||step4||step7) && <HelpAdd close={Extra} num1 ={number1[count]} num2 = {number2[count]} num3={num8} />}
             {extra && step7 && number2[count] <= 9 && <HelpAdd close={Extra} num1 ={number1[count]} num2 = {number2[count]} num3={num8} />}
             {extra && step7 && number2[count] > 9 && <StepAdd close={Extra} num1 ={number1[count]+num8} num2 = {number2[count]} />}
-            <div className='cancel' style={{paddingBottom:'0px'}}><button className='cancel-btn hide' style={{paddingBottom:'0px'}}>X</button></div>
+            <div className='cancel' style={{width:"100%"}} ><button className='cancel-btn' onClick = {close}>X</button></div>
             <div className='center absolute' style={{left:'155px', top: '60px'}}>
                 <span className='hide'>0</span>
                 {carry && !stop && !step3 ? <button className='carry Green' onClick={click}>{sign}</button>:null}

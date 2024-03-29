@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import Step from "./step"
 import HelpAdd from "./HelpAdd"
+import HelpDiv from "./PerfectDivision"
 
 export default function HelpMedian({num1,close}){
     const [done,setDone] = useState(true)
@@ -53,6 +54,7 @@ export default function HelpMedian({num1,close}){
     return (
         <div className="Help">
             {extra && sign == '+' && <HelpAdd close={Extra} num1 ={Q1} num2 = {Q2}/>}
+            {extra && sign === '÷' && <HelpDiv close={Extra} num1 ={Q1%2 === 0 ? Q1:Q1-1} num2 = {Q2}/>}
             <div className='cancel'><button className='cancel-btn' onClick = {close}>X</button></div>
             <div className="double center">
                 {num1[0] >= array[count] ? <span><button onClick = {() => order(num1[0])} className="carry Green">{num1[0]}</button><span className="hide" >.</span></span>:<span>{num1[0]}<span className="hide" >.</span></span>}
