@@ -3,6 +3,9 @@ import StepF from "./fractionStep"
 import { useEffect, useState } from "react"
 import HelpDiv from "./PerfectDivision"
 import HelpHcf from "./HelpHcf"
+import LongDivisionHelp from "./longDivisionHelp"
+import ShortDivisionHelp from "./shortDivison"
+
 
 export default function Question1({num1,num2,whole, close}){  
     const [done,setDone] = useState(false)
@@ -70,7 +73,10 @@ export default function Question1({num1,num2,whole, close}){
     return (
         <div className="Help" style={{border:'10px solid orange'}} >
             {extra && sign === 'and' && <HelpHcf close={Extra} num1 ={Q1} num2 = {Q2}/>}
-            {extra && sign === '÷' && <HelpDiv close={Extra} num1 ={Q1} num2 = {Q2}/>}
+            {extra && sign === '÷' && Q1 <= Q2*9 && <HelpDiv close={Extra} num1 ={Q1} num2 = {Q2}/>}
+            {extra && sign === '÷' && Q1 > 99 && Q2 < 10  && <LongDivisionHelp close={Extra} num1 ={Q2} num2 = {Q1}/>}
+            {extra && sign === '÷' && Q1 > 99 && Q2 >= 10  && <ShortDivisionHelp close={Extra} num1 ={Q2} num2 = {Q1}/>}
+            {extra && sign === '÷' && Q1 < 100 && Q2 < 10  && <ShortDivisionHelp close={Extra} num1 ={Q2} num2 = {Q1}/>}
             <div className='cancel'><button className='cancel-btn' onClick = {close}>X</button></div>
             <div className=" double center"><div className="Green" style={{padding:'5px'}} >{whole > 0 && whole}</div>
                     <div className="column center" >
