@@ -12,6 +12,7 @@ export default function Home() {
     const [link, setLink] = useState(false)
     const [name, setName] = useState(false)
     const [free, setFree] = useState(false)
+    const [check, setCheck] = useState(false)
     const [score, setScore] = useState(false)
     const [loaded, setLoaded] = useState(false)
     const [id, setId] = useState(false)
@@ -33,16 +34,11 @@ export default function Home() {
       }
 
       async function Free(id){
-        const num = Math.ceil(Math.random()*100000000000000000000)
-        window.localStorage.setItem('id' , num)
+        const num = 7*24*60*60*1000+Date.now()
+        window.localStorage.setItem('userId' , num)
+        window.localStorage.setItem('Check' , num + 34521)
+        setCheck(num + 34521)
         setFree(num)
-        const user = window.localStorage.getItem('User')  
-        const docRef = await updateDoc(doc(db, user,id), {
-              time: 7*24*60*60*1000+Date.now()  
-          })
-          
-        
-          
       }
 
       function update(){
@@ -99,7 +95,8 @@ export default function Home() {
       useEffect(()=>{
         PayedCheck()
         setLoaded(true)
-        setFree(window.localStorage.getItem('id'))
+        setFree(window.localStorage.getItem('userId'))
+        setCheck(window.localStorage.getItem('Check'))
         const security = window.localStorage.getItem('Id')
         if(security){
           setLink(security)
@@ -127,8 +124,6 @@ export default function Home() {
       },[])
 
       useEffect(()=>{
-        console.log(window.localStorage.getItem('User'))
-        console.log(Account)
         if(Account[0]){
             setId(Account[0].id)
             window.localStorage.setItem( 'ID', Account[0].id)
@@ -146,8 +141,8 @@ export default function Home() {
         <div className="relative" style={{fontSize:"70px",color:'purple',paddingBottom:"20px"}} >Improved</div>
       </div>
       <div className="box column" >   
-        {!payed && time - Date.now() > 0 && <div className="font center" style={{fontWeight:"bold",width:"300px"}} >Free Trial: {Math.floor(((time - Date.now())%(1000*60*60*24*7))/1000/60/60/24)}d {""}{Math.floor(((time - Date.now())%(1000*60*60*24))/1000/60/60)}h {""}{Math.floor(((time - Date.now())%(1000*60*60))/1000/60)}m {""}
-            {Math.floor(((time - Date.now())%(1000*60))/1000)}s
+        {!payed && parseInt(free) === parseInt(check) - 34521 && free - Date.now() > 0 && <div className="font center" style={{fontWeight:"bold",width:"300px"}} >Free Trial: {Math.floor(((free - Date.now())%(1000*60*60*24*7))/1000/60/60/24)}d {""}{Math.floor(((free - Date.now())%(1000*60*60*24))/1000/60/60)}h {""}{Math.floor(((free - Date.now())%(1000*60*60))/1000/60)}m {""}
+            {Math.floor(((free - Date.now())%(1000*60))/1000)}s
         </div>}
       </div>
         <br></br>
@@ -167,12 +162,12 @@ export default function Home() {
             {Math.floor(((devices - Date.now())%(1000*60))/1000)}s
         </div>
         </div>}
-        {id && !time && !free && !payed && loaded && <button className="topic" style={{backgroundColor:"yellow",color:"black"}} onClick={()=>{Free(id)}} >Start Free Trial</button>}
+        {!free && !payed && loaded && <button className="topic" style={{backgroundColor:"yellow",color:"black",fontWeight:"bolder",borderRadius:"20px",width:'250px', height:"170px"}} onClick={()=>{Free(id)}} >Start Free Trial</button>}
         {!payed && loaded && <div className="center column" ><button className="font" onClick={getCheckoutUrl} style={{color:'white',fontWeight:"bolder",borderRadius:"20px",width:'250px', height:"70px",backgroundColor:"orange"}} >
          <div>Full Access: CA$3.99</div> 
         </button>
       </div>}
-      {((payed && count === link) || time - Date.now()) > 0 &&
+      {((payed && count === link) || (free - Date.now() &&  parseInt(free) === parseInt(check) - 34521)) > 0 &&
         <div className="box center" style={{width:'340px'}}>
         
         <button className="topic column" onClick={()=>{router.push(`/${id}/enter/stats`)}} style={{width:'150px', height:"90px"}} >
