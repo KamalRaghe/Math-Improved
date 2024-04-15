@@ -43,7 +43,7 @@ export default function Home() {
       };
   
       useEffect(()=>{
-        // getCheckoutUrl()
+        getCheckoutUrl()
       },[])
       return(
         <div className='container double center'>

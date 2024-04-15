@@ -1,9 +1,8 @@
 import { use, useEffect, useState } from "react"
 import Step from "./step"
-import HelpMinus from "./HelpAdd"
+import HelpMinus from "./HelpMinus"
 import StepMinus from "./StepMinus"
 import HelpTimes from "./HelpTimes"
-import StepTimes from "./stepTimes"
 
 export default function HelpDiv({num1,num2,close}){
     const [done,setDone] = useState(true)

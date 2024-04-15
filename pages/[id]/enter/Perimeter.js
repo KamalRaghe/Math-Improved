@@ -58,7 +58,6 @@ export default function DoubleAdd(){
             setNum1(Math.ceil(Math.random()*5+5))
             setNum2(Math.ceil(Math.random()*4+1))
             setNum4(Math.floor(Math.random()*4))
-            setNum4(3)
             mix()
             setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5)) 
         }, 1500)

@@ -109,6 +109,7 @@ export default function DoubleAdd(){
             </div>
             <div className="box">
                 <button className="help" onClick={open}>help</button>
+                
             </div>
             {help && <Gl num1 ={num1} num2={num2} close={close}/>}
             {loaded && correct && <Correct></Correct>}

@@ -178,7 +178,7 @@ export default function DoubleAdd(){
                 </div>
             </div>
             <div className="box">
-                <button className="help" onClick={open}>help</button>
+                <button className="help" style={{zIndex:"20"}} onClick={open}>help</button>
             </div>
             {help && <TA close={close} />}
             {loaded && correct && <Correct></Correct>}

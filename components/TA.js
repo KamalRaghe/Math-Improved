@@ -3,7 +3,7 @@ import Step from "./step"
 
 export default function TA({close}){
     return (
-        <div className="Help center column">
+        <div className="Help center column" style={{zIndex:"30"}} >
             <button className=" absolute choice red"  style={{top:'0',left:'0px'}} onClick={close}>Close</button>
            <div>
             <div>

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import { auth } from "@/firebase"
 import { db } from "@/firebase"
-import { addDoc, collection, onSnapshot, query, where, getDoc, updateDoc, doc } from "firebase/firestore"
+import { addDoc, collection } from "firebase/firestore"
 import { createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth"
 
 export default function Home() {

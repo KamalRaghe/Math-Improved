@@ -1,5 +1,5 @@
 function HelpLcm({close, num1 , num2,answer}){
- 
+   console.log(answer)
     return(
         <div className="Help" style={{border: '10px solid yellow'}}>
             <div><button className="choice red" onClick={close} >Close</button></div>

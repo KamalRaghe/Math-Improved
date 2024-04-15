@@ -11,6 +11,7 @@ import Algebra from "@/Algebra/Algebra"
 import AlgebraY from "@/Algebra/AlgebraY"
 import Algebra2y from "@/Algebra/Algebra2y"
 import Algebra4 from "@/Algebra/Algebra4"
+import HelpLcm from "@/components/HelpLcm"
 
 export default function TwoVar({num1,num2,num4,num5,num6,num7,close}){  
     const [done,setDone] = useState(true)
@@ -60,7 +61,6 @@ export default function TwoVar({num1,num2,num4,num5,num6,num7,close}){
    }
 
     function Count(){
-        console.log(num7,num6)
         setArr(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
         if(step2 === true){
             setStep2(false)
@@ -210,7 +210,7 @@ export default function TwoVar({num1,num2,num4,num5,num6,num7,close}){
     function Nothing(){}
     return (
         <div className="Help" style={{border:"10px solid purple"}}>
-             {extra && sign === '+' && Q1 < 10 && Q2 < 10 && <HelpAdd close={Extra} num1 ={Q1} num2 = {Q2}/>}
+             {extra && !step2 && sign === '+' && Q1 < 10 && Q2 < 10 && <HelpAdd close={Extra} num1 ={Q1} num2 = {Q2}/>}
             {extra && sign === '+' && (Q1 >= 10 || Q2 >= 10) && <StepAdd close={Extra} num1 ={Q1} num2 = {Q2}/>}
             {extra && sign === 'x' && Q1 < 10 && Q2 < 10 && <HelpTimes close={Extra} num1 ={Q1} num2 = {Q2}/>}
             {extra && sign === 'x' && (Q1 >= 10 || Q2 >= 10) && <StepTimes close={Extra} num1 ={Q1} num2 = {Q2}/>}
@@ -221,6 +221,7 @@ export default function TwoVar({num1,num2,num4,num5,num6,num7,close}){
             {extra && !count3 && sign === '1' && <Algebra2y close={Extra} num1 ={num2*num6} num2 = {num1} num5={num1}/>}
             {extra && count3 && sign === '1' && <Algebra4 close={Extra} num1 ={num1*num7} num2 = {num2} num5={num2}/>}
             {extra && sign === '÷' && <HelpDiv close={Extra} num1 ={Q1} num2 = {Q2}/>}
+            {extra && step2 && <HelpLcm close={Extra} num1 ={Q1} num2 = {Q2} answer={answer} />}
             <div className='cancel'><button className='cancel-btn' onClick = {close}>X</button></div>
                 {step1 && <div className="double center">
                      <button className="carry Green" onClick={()=>{setStep2(true);setStep1(false); setQ1(num2);setQ2(num4);setDone(false);setAnswers(count1);setCount3(true)}} >{num2}</button>𝑥 + 

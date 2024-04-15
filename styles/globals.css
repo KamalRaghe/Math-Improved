@@ -235,7 +235,8 @@
 }
 
 .Faded{
-  animation: faded 2s linear;
+  display: flex;
+  animation: faded 1.5s linear;
 }
 
 @keyframes faded{
@@ -550,7 +551,7 @@
 }
 
 .zoom{
-  animation: zoom 3s linear;
+  animation: zoom 1s linear;
 }
 
 @keyframes zoom {

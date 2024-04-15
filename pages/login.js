@@ -113,6 +113,7 @@ export default function Home() {
         const unsubscribe = onSnapshot(collection(db, user), (snap) =>{   
           SetAccounts(snap.docs.map(doc =>{
               return{
+                  User: 'hello',
                   id: doc.id,
                   count: doc.data().count,
                   time: doc.data().time,
@@ -121,10 +122,12 @@ export default function Home() {
               }
           }))
       })
+      
       return unsubscribe
       },[])
 
       useEffect(()=>{
+        console.log(window.localStorage.getItem('User'))
         console.log(Account)
         if(Account[0]){
             setId(Account[0].id)
