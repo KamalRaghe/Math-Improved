@@ -9,18 +9,13 @@ import { db , auth} from "../firebase"
 
 export default function Home() {
     const [payed, Payed] = useState(false)
-    const [link, setLink] = useState(false)
     const [name, setName] = useState(false)
     const [free, setFree] = useState(false)
     const [check, setCheck] = useState(false)
     const [score, setScore] = useState(false)
     const [loaded, setLoaded] = useState(false)
-    const [id, setId] = useState(false)
-    const [count, setCount] = useState(false)
-    const [devices, setDevices] = useState(false)
-    const [time, setTime] = useState(false)
-    const [linking, setLinking] = useState(false)
     const [date, setDate] = useState(Date.now()) 
+    const [id , setId] = useState(false)
     const [Account, SetAccounts] = useState([])
     const [account, setAccount] = useState({
     title:""
@@ -33,7 +28,7 @@ export default function Home() {
         window.localStorage.setItem('uid', '')
       }
 
-      async function Free(id){
+      async function Free(){
         const num = 7*24*60*60*1000+Date.now()
         window.localStorage.setItem('userId' , num)
         window.localStorage.setItem('Check' , num + 34521)
@@ -49,17 +44,6 @@ export default function Home() {
     async function getCheckoutUrl(){
         router.push('/paying');
       };
-  
-      async function Linked(id){
-        setLinking(false)
-        const user = window.localStorage.getItem('User')  
-        const security = window.localStorage.getItem('Id')
-          const docRef = await updateDoc(doc(db, user, id), {
-                count: security,
-                device: 3*24*60*60*1000+Date.now()
-            })
-    }
-
       async function PayedCheck() {
         const app = initFirebase()
         const userId = window.localStorage.getItem('uid')
@@ -93,18 +77,11 @@ export default function Home() {
       })
 
       useEffect(()=>{
+        setId(window.localStorage.getItem('uid'))
         PayedCheck()
         setLoaded(true)
         setFree(window.localStorage.getItem('userId'))
         setCheck(window.localStorage.getItem('Check'))
-        const security = window.localStorage.getItem('Id')
-        if(security){
-          setLink(security)
-        }else{
-          const num = Math.ceil(Math.random()*100000000000000000000)
-          window.localStorage.setItem('Id' , num)
-          setLink(num)
-        }
         update()
         const user = window.localStorage.getItem('User')
         const unsubscribe = onSnapshot(collection(db, user), (snap) =>{   
@@ -112,10 +89,6 @@ export default function Home() {
               return{
                   User: 'hello',
                   id: doc.id,
-                  count: doc.data().count,
-                  time: doc.data().time,
-                  device: doc.data().device,
-                  time: doc.data().time,
               }
           }))
       })
@@ -124,15 +97,8 @@ export default function Home() {
       },[])
 
       useEffect(()=>{
-        if(Account[0]){
-            setId(Account[0].id)
-            window.localStorage.setItem( 'ID', Account[0].id)
-            setCount(Account[0].count)
-            setDevices(Account[0].device)
-            setTime(Account[0].time)
-
-        }
-      },[Account])
+        window.localStorage.setItem( 'ID', id)
+      },[id])
 
   return (
     <div className="center beige column">
@@ -150,24 +116,13 @@ export default function Home() {
         <br></br>
         {payed && score && <div className="center" style={{fontSize:"30px",width:"330px"}} >{name && 
         name} Score: {score}</div>}
-        {count !== link  && linking && !(devices > Date.now()) &&<div className="timeout center column" style={{justifyContent:"start",backgroundColor:"lightgrey",border:"10px solid navy"}} >
-            <h1>Are you sure</h1>
-            <div className="font" >Do you want to link account to this device</div>
-            <div className="font" >for the next three days</div>
-            <div className="center box sb" ><button className="help red" onClick={()=>{setLinking(false)}} >No</button>{id && <button className="help" onClick={()=>Linked(id)} >Yes</button>}</div>
-        </div>}
-        {count !== link  && linking && devices > Date.now() &&<div className="timeout center column" style={{backgroundColor:"lightgrey",border:"10px solid navy"}} >
-        <button className="cancel-btn relative" onClick={()=>{setLinking(false)}} style={{top:"-55px",left:"160px"}} >X</button>
-        <div className="font center relative" style={{fontWeight:"bold",width:"300px",top:"-50px"}} >Wait: {Math.floor(((devices - Date.now())%(1000*60*60*24*7))/1000/60/60/24)}d {""}{Math.floor(((devices - Date.now())%(1000*60*60*24))/1000/60/60)}h {""}{Math.floor(((devices - Date.now())%(1000*60*60))/1000/60)}m {""}
-            {Math.floor(((devices - Date.now())%(1000*60))/1000)}s
-        </div>
-        </div>}
-        {<button className="topic" style={{backgroundColor:"yellow",color:"black",fontWeight:"bolder",borderRadius:"20px",width:'250px', height:"150px"}} onClick={()=>{Free(id)}} >Start Free Trial</button>}
+
+        {!check && !free && !payed && loaded && <button className="topic" style={{backgroundColor:"yellow",color:"black",fontSize:"20px",fontWeight:"bolder",borderRadius:"20px",width:'250px', height:"40px"}} onClick={()=>{Free()}} >Start Free Trial</button>}
         {!payed && loaded && <div className="center column" ><button className="font" onClick={getCheckoutUrl} style={{color:'white',fontWeight:"bolder",borderRadius:"20px",width:'250px', height:"70px",backgroundColor:"orange"}} >
          <div>Full Access: CA$3.99</div> 
         </button>
       </div>}
-      {((payed && count === link) || (free - Date.now() &&  parseInt(free) === parseInt(check) - 34521)) > 0 &&
+      {(payed || (free - Date.now() &&  parseInt(free) === parseInt(check) - 34521)) > 0 &&
         <div className="box center" style={{width:'340px'}}>
         
         <button className="topic column" onClick={()=>{router.push(`/${id}/enter/stats`)}} style={{width:'150px', height:"90px"}} >
@@ -186,14 +141,7 @@ export default function Home() {
         </button>
       </div>
       }
-       {payed && count !== link && time < Date.now &&
-        <div className="box center" style={{width:'340px'}}>
-        {!linking  && <button className="topic column" onClick={()=>{setLinking(true)}} style={{color:"black",backgroundColor:"lightgrey",fontSize:"30px",width: '150px', height:"90px"}} >
-            Link
-        </button>}
-      </div>
-      }
-      {(!payed && count !== link) ? <button className="font" style={{color:'white',fontWeight:"bolder",borderRadius:"20px",width:'150px', height:"40px",margin:"10px",backgroundColor:"grey"}}  onClick={SignOut} >SignOut</button>:
+        {!payed ? <button className="font" style={{color:'white',fontWeight:"bolder",borderRadius:"20px",width:'150px', height:"40px",margin:"10px",backgroundColor:"grey"}}  onClick={SignOut} >SignOut</button>:
       <button className="font" style={{color:'white',fontWeight:"bolder",borderRadius:"20px",width:'150px', height:"40px",backgroundColor:"grey"}}  onClick={()=>router.push('settings')} >Settings</button>}
     </div>
   )
