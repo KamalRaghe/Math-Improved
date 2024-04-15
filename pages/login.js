@@ -162,7 +162,7 @@ export default function Home() {
             {Math.floor(((devices - Date.now())%(1000*60))/1000)}s
         </div>
         </div>}
-        {!free && !payed && loaded && <button className="topic" style={{backgroundColor:"yellow",color:"black",fontWeight:"bolder",borderRadius:"20px",width:'250px', height:"170px"}} onClick={()=>{Free(id)}} >Start Free Trial</button>}
+        {<button className="topic" style={{backgroundColor:"yellow",color:"black",fontWeight:"bolder",borderRadius:"20px",width:'250px', height:"70px"}} onClick={()=>{Free(id)}} >Start Free Trial</button>}
         {!payed && loaded && <div className="center column" ><button className="font" onClick={getCheckoutUrl} style={{color:'white',fontWeight:"bolder",borderRadius:"20px",width:'250px', height:"70px",backgroundColor:"orange"}} >
          <div>Full Access: CA$3.99</div> 
         </button>
