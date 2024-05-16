@@ -81,6 +81,7 @@ export default function Home() {
         PayedCheck()
         setLoaded(true)
         setFree(window.localStorage.getItem('userId'))
+        console.log(window.localStorage.getItem('userId')-Date.now())
         setCheck(window.localStorage.getItem('Check'))
         update()
         const user = window.localStorage.getItem('User')
@@ -122,7 +123,7 @@ export default function Home() {
          <div>Full Access: CA$3.99</div> 
         </button>
       </div>}
-      {(payed || (free - Date.now() &&  parseInt(free) === parseInt(check) - 34521)) > 0 &&
+      {(payed || (free - Date.now() > 0 &&  parseInt(free) === parseInt(check) - 34521)) &&
         <div className="box center" style={{width:'340px'}}>
         
         <button className="topic column" onClick={()=>{router.push(`/${id}/enter/stats`)}} style={{width:'150px', height:"90px"}} >
