@@ -60,12 +60,13 @@ export default function Log({num1,num2,Answer,close}){
             {extra && sign === '÷' && <HelpDiv close={Extra} num1 ={Q1} num2 = {Q2}/>}
             <div className='cancel'><button className='cancel-btn' onClick = {close}>X</button></div>
             <div className="double center">log<span style={{fontSize:'20px',padding:'1px',position:'relative', top:"13px"}}>{num1}</span>{num2} = 𝑥 </div>
-               <div className="double center" style={{padding:'40px 19px'}}>
+               <div className="double center" style={{padding:'30px 19px'}}>
                     {num1}<div style={{fontSize:'20px',position:'relative', top:"-13px",paddingRight:'2px'}}>𝑥 </div> = {num2} 
                 </div>
                 {!((count-1) >= Answer) ? <div className="double Red center" >𝑥  {'?'}  {count}</div> : <div className="double Green center" >𝑥  {'='}  {Answer}</div> } 
                <div className="box "></div>
                <br></br>
+
                {!((count-1) >= Answer) && <div className=" double center Green absolute StepQuestion">{Q1} {sign} {Q2} = </div>}  
                {!((count-1) >= Answer) && <div className='center wrap absolute StepAnswer'>
                    <Step value = {((answer))+arr[1]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
