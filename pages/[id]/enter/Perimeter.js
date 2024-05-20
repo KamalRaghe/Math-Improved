@@ -58,6 +58,7 @@ export default function DoubleAdd(){
             setNum1(Math.ceil(Math.random()*5+5))
             setNum2(Math.ceil(Math.random()*4+1))
             setNum4(Math.floor(Math.random()*4))
+            setNum4(2)
             mix()
             setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5)) 
         }, 1500)
@@ -127,11 +128,11 @@ export default function DoubleAdd(){
                     <div className="relative center" style={{top:'-30px',left:"120px",fontSize:'20px'}} >{loaded && num1}</div>
                 </div>}
 
-                {loaded && num4 === 2 && <div className="double relative" style={{top:'50px',color:'white',zIndex:'20'}} >P =</div>}
-                {loaded && num4 === 2 && <div><div className="double" style={{borderBottom:"100px solid black",borderRight:'100px solid transparent',rotate:'120deg'}}></div>
-                    <div className="relative center" style={{top:"-45px",fontSize:'20px'}} >{loaded && num1+num2-1}</div>
-                    <div className="relative center" style={{top:"-140px",left:"30px",fontSize:'20px'}} >{loaded && num2}</div>
-                    <div className="relative center" style={{top:"-140px",left:"-55px",fontSize:'20px'}} >{loaded && num1}</div>
+                {loaded && num4 === 2 && <div className="double relative" style={{top:'100px',color:'white',zIndex:'20'}} >P =</div>}
+                {loaded && num4 === 2 && <div><div className="double relative" style={{top:"50px",borderBottom:"100px solid black",borderRight:'100px solid transparent',rotate:'120deg'}}></div>
+                    <div className="relative center" style={{top:"5px",fontSize:'20px'}} >{loaded && num1+num2-1}</div>
+                    <div className="relative center" style={{top:"-90px",left:"30px",fontSize:'20px'}} >{loaded && num2}</div>
+                    <div className="relative center" style={{top:"-90px",left:"-55px",fontSize:'20px'}} >{loaded && num1}</div>
                 </div>}
 
                 {loaded && num4 === 3 && <div className="double relative" style={{top:'100px',color:'white',zIndex:'20'}} >P =</div>}
