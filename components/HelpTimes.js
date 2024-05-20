@@ -4,8 +4,7 @@ export default function HelpTimes({num1,num2,num3,close}){
             <button className="choice red" onClick={close} >Close</button>
             <br></br>
             <br></br>
-            {num2 == 0 && <br></br>}
-            <div className="center" style={{width:'90%'}} >{ num2 === 0 && <div style={{fontSize: "30px", paddingBottom: '3px',position:"relative"}}>{num1} x 0 = <span className="absolute"><span className="hide">0</span>{num1*0}</span> </div>}</div>
+            <div className="center" style={{width:'90%'}} >{ num2 === 0 && <div className="Green" style={{fontSize: "30px", paddingBottom: '3px',position:"relative"}}>{num1} x 0 = <span className="absolute"><span className="hide">0</span>{num1*0}</span> </div>}</div>
             
             <div className="center" style={{width:'90%'}} >{num2 === 1 ? <div className="Green" style={{fontSize: "30px", paddingBottom: '3px', position:"relative"}}>{num1} x 1 {num3 > 0 && <span>+</span>} {num3 > 0 && num3} = <span className="absolute"><span className="hide">0</span>{!(num3 > 0) && num1*1}{num3 > 0 && num1*num2+num3} </span></div>:
             <div style={{fontSize: "30px", paddingBottom: '3px', position: 'relative'}}>{num1} x 1 = <span className="absolute"><span className="hide">0</span>{num1*1}</span></div>}</div>

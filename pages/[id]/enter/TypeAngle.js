@@ -96,6 +96,7 @@ export default function DoubleAdd(){
                 <div>Score: {loaded && score}</div>
                 <div className="font" >Type of Angle: {loaded && count} </div>
             </div><Link href={`/${id}/enter/TypeAngleTest`}><button className="green test-btn">Test</button></Link></div>
+            <br></br>
             <div className=" relative column" style={{top:"70px"}}>
                 <div className="box" >
                       {num1 === 1 && <div className="relative"  
