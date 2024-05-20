@@ -100,7 +100,7 @@ export default function DoubleAdd(){
 
     return(
         <div className="beige container column">
-            <div className="Test sb"><div className="double" >
+            <div className="Test sb" style={{padding:"20px"}}><div className="double" >
                 <div>Score: {loaded && score}</div>
                 <div className="font" >Factor Circumference: {loaded && count} </div>
             </div><Link href={`/${id}/enter/CircumferenceTest`}><button className="green test-btn">Test</button></Link></div>
