@@ -63,7 +63,7 @@ export default function Algebra1({num1,num2,close}){
 
             {!done&& !step4 && <div className=" double center Green absolute StepQuestion">{Q1} {sign} {Q2} = </div>}
             
-            {!done &&<div className='center wrap absolute StepAnswer'>
+            {!done && !step4 && <div className='center wrap absolute StepAnswer'>
                    <Step value = {step4 ? "𝑥"+"="+ (answer+arr[0]) :answer+arr[0]}  answer={ step4 ? "𝑥"+"="+answer :answer} Count ={Count} done = {done} mistake={Nothing}/>
                    <Step value = {step4 ? '𝑥'+'='+ (answer+arr[2]) : answer+arr[2]}  answer={ step4 ? "𝑥"+"="+answer :answer} Count ={Count} done = {done} mistake={Nothing}/>
                    <Step value = {step4 ? '𝑥'+'='+ (answer+arr[3]) : answer+arr[3]}  answer={ step4 ? "𝑥"+"="+answer :answer} Count ={Count} done = {done} mistake={Nothing}/>

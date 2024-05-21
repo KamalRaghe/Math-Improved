@@ -81,7 +81,7 @@ export default function AlgebraY({num1,num2,close}){
                 y = <span className="hide">.</span>{num2>0?num2:-1*num2}</div>}
 
                 {!done&& !step4 && <div className=" double center Green absolute StepQuestion">{Q1} {sign} {Q2} = </div>}
-               {!done &&<div className='center wrap absolute StepAnswer'>
+               {!done && !step4 &&<div className='center wrap absolute StepAnswer'>
                    <Step value = {step4 ? "y"+"="+ (answer+arr[0]) :answer+arr[0]}  answer={ step4 ? "y"+"="+answer :answer} Count ={Count} done = {done} mistake={Nothing}/>
                    <Step value = {step4 ? 'y'+'='+ (answer+arr[2]) : answer+arr[2]}  answer={ step4 ? "y"+"="+answer :answer} Count ={Count} done = {done} mistake={Nothing}/>
                    <Step value = {step4 ? 'y'+'='+ (answer+arr[3]) : answer+arr[3]}  answer={ step4 ? "y"+"="+answer :answer} Count ={Count} done = {done} mistake={Nothing}/>

@@ -87,15 +87,15 @@ export default function Algebra2y({num1,num2,num5,close}){
                 {num2*num5}<span className="hide">.</span></span>{num5}</span></div>}
 
                 {step6 && <div className="double center">
-               y= <span className="hide">.</span> <span className="center column">
+               y = <span className="hide">.</span> <span className="center column">
                 <span style={{borderBottom:'2px solid black'}} >
                 <span className="hide">.</span>
                 {num2*num5}<span className="hide">.</span></span>{num5}</span></div>}    
 
                 {step7 && <div className="double Green center">
-               y= <span className="hide">.</span> {num2}</div>}  
+               y = <span className="hide">.</span> {num2}</div>}  
 
-               {!done &&<div className='center wrap absolute StepAnswer'>
+               {!done && !step7 &&<div className='center wrap absolute StepAnswer'>
                    <Step big = {true} value = {step7 ? `x=${answer+arr[0]}` :answer+arr[0]}  answer={ step7 ? `x=${answer}` :answer} Count ={Count} done = {done} mistake={Nothing}/>
                    <Step big = {true} value = {step7 ? `x=${answer+arr[2]}` : answer+arr[2]}  answer={ step7 ? `x=${answer}` :answer} Count ={Count} done = {done} mistake={Nothing}/>
                    <Step big = {true} value = {step7 ? `x=${answer+arr[3]}` : answer+arr[3]}  answer={ step7 ? `x=${answer}` :answer} Count ={Count} done = {done} mistake={Nothing}/>

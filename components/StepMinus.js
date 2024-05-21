@@ -70,7 +70,7 @@ function StepMinus({close, num1 , num2}){
         return(
            <div className="Help" style={{zIndex:'20',border:'10px solid orange'}}>
                 {extra && (number1[count] >= 10 || number2[count] >= 10) && <ExtraMinus close={Extra} num1 ={number1[count]+ten} num2 = {number2[count]}/>}
-               {extra && number2[count] < 10 && number1[count] < 10 && <HelpMinus close={Extra} num1 ={number1[count]} num2 = {number2[count]} />}
+               {extra && number2[count] < 10 && number1[count] < 10 && <HelpMinus close={Extra} num1 ={number1[count]+ten} num2 = {number2[count]} />}
                <div className='cancel' style={{width:"100%"}} ><button className='cancel-btn' onClick = {close}>X</button></div>
                <span className='center'>{num1%10 + ten< num2%10 && !step2 && <button className='carry  absolute Red' style={{left:'168px'}} onClick={click}>{'-'}</button>}</span>
                <span className='center'>{slice && <button className=' back2Step2 absolute Red' style={{left: redNum}} onClick={click}>{Math.floor(num1/10)-1}</button>}</span>

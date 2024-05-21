@@ -224,8 +224,8 @@ function Extra(){
             {step6 ? <div className='center double Green' style={{width: '325px'}}><span className='hide'>000</span>{number3%10+number4%10}</div>: null}
             {step7 ? <div className='center double Green' style={{width: '325px'}}><span className='hide'>00</span>{(number3%100+number4%100)%100}</div>: null}
             {step8 ? <div className='center double Green' style={{width: '325px'}}>{number3+number4 < 1000 && <span className='hide'>0</span>}{number3+number4}</div>: null}
-            { !done && !(step7 && (Math.floor(number3/10))%10+(Math.floor(number4/10))%10 >= 10) && <div className=" double center absolute Green StepQuestion">{number1[count]} {sign3} {number2[count]} {sign2}  {num9}{num7}{num5} = </div>}
-            {!done && <div className='center wrap absolute StepAnswer'>
+            { !done && !(step7 && (Math.floor(number3/10))%10+(Math.floor(number4/10))%10 >= 10) && !step8 && <div className=" double center absolute Green StepQuestion">{number1[count]} {sign3} {number2[count]} {sign2}  {num9}{num7}{num5} = </div>}
+            {!done && !step8 && <div className='center wrap absolute StepAnswer'>
                 <Step value = { num8 + num6 + num4 + answer[count]+arr[1]}  answer={ num8 + num6 + num4 + answer[count]} Count ={Count} done = {done} mistake = {nothing}/>
                 <Step value = { num8 + num6 + num4 + answer[count]+arr[2]}  answer={ num8 + num6 + num4 + answer[count]} Count ={Count} done = {done} mistake = {nothing}/>
                 <Step value = { num8 + num6 + num4 + answer[count]+arr[0]}  answer={ num8 + num6 + num4 + answer[count]} Count ={Count} done = {done} mistake = {nothing}/>

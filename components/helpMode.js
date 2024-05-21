@@ -30,7 +30,7 @@ export default function HelpMode({num1,num8,close}){
                 {array[3] >= 1 ? <span><button onClick = {() => order(array[3])} className="carry Green">{array[3]}</button><span className="hide" >.</span></span>:<span>{array[3]}<span className="hide" >.</span></span>}
                 {array[4] >= 1 ? <span><button onClick = {() => order(array[4])} className="carry Green">{array[4]}</button><span className="hide" >.</span></span>:<span>{array[4]}<span className="hide" >.</span></span>} 
                 {array[5] >= 1 ? <span><button onClick = {() => order(array[5])} className="carry Green">{array[5]}</button><span className="hide" >.</span></span>:<span>{array[5]}<span className="hide" >.</span></span>} 
-                {array[5] >= 1 ? <span><button onClick = {() => order(array[5])} className="carry Green">{array[6]}</button><span className="hide" >.</span></span>:<span>{array[6]}<span className="hide" >.</span></span>} 
+                {array[6] >= 1 ? <span><button onClick = {() => order(array[6])} className="carry Green">{array[6]}</button><span className="hide" >.</span></span>:<span>{array[6]}<span className="hide" >.</span></span>} 
             </div><div style={{height:'80px'}}>{big && <div className="Pop center Red">Too big</div>}</div>
             <div className="double center">
                 { count === array[0] && count === num1 && <span className="Green">{array[0]}<span className="hide" >.</span></span>}
@@ -39,7 +39,7 @@ export default function HelpMode({num1,num8,close}){
                 { count === array[3] && count === num1 && <span className="Green">{array[3]}<span className="hide" >.</span></span>}
                 { count === array[4] && count === num1 && <span className="Green">{array[4]}<span className="hide" >.</span></span>} 
                 { count === array[5] && count === num1 && <span className="Green">{array[5]}<span className="hide" >.</span></span>}
-                { count === array[6] && count === num1 && <span className="Green">{array[5]}<span className="hide" >.</span></span>}
+                { count === array[6] && count === num1 && <span className="Green">{array[6]}<span className="hide" >.</span></span>}
 
                 { count === array[0] && count !== num1 && <span className="Red">{array[0]}<span className="hide" >.</span></span>}
                 { count === array[1] && count !== num1 && <span className="Red">{array[1]}<span className="hide" >.</span></span>}

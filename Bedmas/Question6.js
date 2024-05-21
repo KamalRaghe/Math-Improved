@@ -84,7 +84,7 @@ export default function Question6({num1,num2,num4,num5,num6,close}){
             {!step1 && !step2 && !step3 && !step4 && <div className="double center">{num1+num2+(num6*num4)} + {num5*num5} =</div>}
             {!step1 && !step2 && !step3 && !step4 && !step5 && <div className="double center Green">{num1+num2+(num6*num4)+(num5*num5)}</div>}
             {!(!step1 && !step2 && !step3 && !step4 && !step5) && <div className=" double center Green absolute StepQuestion">{Q1} {sign} {Q2} = </div>}  
-            {!done &&<div className='center wrap absolute StepAnswer'>
+            {!done && !step6 && <div className='center wrap absolute StepAnswer'>
                    {(sign === 'x' && (Q1 >= 10 || Q2 >= 10)) && <button className="choice" style={{backgroundColor:'yellow',color:'black'}} onClick={()=>{setExtra(true);console.log(extra)}} >help</button>}
                    <Step value = {answer+arr[0]}  answer={answer} Count ={Count} done = {done} mistake={Nothing}/>
                    {(sign === 'x' && (Q1 >= 10 || Q2 >= 10)) && <button className="choice red" onClick={close} >Close</button>} 

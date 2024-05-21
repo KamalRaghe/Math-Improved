@@ -47,7 +47,7 @@ export default function LT({num9,num1,num8,num,close}){
 
     return (
         <div className="Help">
-            {extra && sign == '+' && <HelpAdd close={Extra} num9 ={Q1} num2 = {Q2}/>}
+            {extra && sign == '+' && <HelpAdd close={Extra} num1 ={Q1} num2 = {Q2}/>}
             <div className='cancel'><button className='cancel-btn' onClick = {close}>X</button></div>
             <div className="center" style={{fontSize:"25px",paddingBottom:'30px'}}>
             <div style={{fontSize:"25px"}}>{num1}𝑥 + {num9[0]} + {num9[1]} + {num9[2]} + {num9[3]} + {num8}z </div>
@@ -58,9 +58,9 @@ export default function LT({num9,num1,num8,num,close}){
                 {!y && !x && z && <div className="Green">{num[2]+'z'} + {num8+'z'} = </div>} 
             </div>
 
-            { zDone && <button className="double carry Green center" onClick={close}  style={{width:"100%",fontSize:"40px"}} >
+            { zDone && <div className="double Green center" onClick={close}  style={{width:"100%",fontSize:"40px"}} >
                {xDone && (num1+num[3])+'x'} {yDone && '+'} {yDone && (num[0]+num[1])+'y'} {zDone && '+'} {zDone && (num8+num[2])+'z'}
-            </button>}
+            </div>}
 
             { !zDone && <div className="double center">
                {xDone && (num1+num[3])+'x'} {yDone && '+'} {yDone && (num[0]+num[1])+'y'} {zDone && '+'}

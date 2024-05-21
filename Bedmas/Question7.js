@@ -20,7 +20,6 @@ export default function Question7({num1,num2,num4,num5,num6,close}){
     const [step3, setStep3] = useState(false) 
     const [step4, setStep4] = useState(false)
     const [step5, setStep5] = useState(false)
-    const [step6, setStep6] = useState(false)
 
     function Extra(){
         setExtra(false)
@@ -76,7 +75,7 @@ export default function Question7({num1,num2,num4,num5,num6,close}){
             {!step1 && !step2 && !step3 && <div className="double center">{num6+((num1+num2)*num4)} + {num5} =</div>}
             {!step1 && !step2 && !step3 && !step4 && <div className="double center Green">{(num6+((num1+num2)*num4))+num5}</div>}
             {!(!step1 && !step2 && !step3 && !step4) && <div className=" double center Green absolute StepQuestion">{Q1} {sign} {Q2} = </div>}  
-            {!done &&<div className='center wrap absolute StepAnswer'>
+            {!done && !step5 &&<div className='center wrap absolute StepAnswer'>
                    {(sign === 'x' && (Q1 >= 10 || Q2 >= 10)) && <button className="choice" style={{backgroundColor:'yellow',color:'black'}} onClick={()=>{setExtra(true);console.log(extra)}} >help</button>}
                    <Step value = {answer+arr[0]}  answer={answer} Count ={Count} done = {done} mistake={Nothing}/>
                    {(sign === 'x' && (Q1 >= 10 || Q2 >= 10)) && <button className="choice red" onClick={close} >Close</button>} 

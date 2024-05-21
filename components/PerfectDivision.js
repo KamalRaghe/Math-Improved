@@ -4,7 +4,7 @@ import HelpMinus from "./HelpMinus"
 import StepMinus from "./StepMinus"
 import HelpTimes from "./HelpTimes"
 
-export default function HelpDiv({num1,num2,close}){
+export default function HelpDiv({num1,num2,close,num3}){
     const [done,setDone] = useState(true)
     const [number4 ,setNumber4] = useState(0)
     const [extra, setExtra] = useState(false)
@@ -77,40 +77,39 @@ export default function HelpDiv({num1,num2,close}){
     },[done])
 
     return (
-        <div className="Help" style={{border:'10px solid yellow'}} >
-            {extra && sign == '-' && number1 <= 9 && <HelpMinus close={Extra} num1 ={number1} num2 = {number2}/>}
-            {extra && sign == '-' && number1 > 9 && <StepMinus close={Extra} num1 ={number1} num2 = {number2} />}
-            {extra && sign == 'x' && <HelpTimes close={Extra} num1 ={number2} num2 = {number1}/>}
-            
-            <div className='cancel'><button className='cancel-btn' onClick = {close}>X</button></div>
-            <div className="double center column">
-                <div>{num1} ÷ {num2} = {!step1 && answer == 0 && <button className="carry Green" onClick={close} >{num1/num2}</button>}</div>
-                {sign === '-'&& !(!step1 && answer == 0) && <div>{num1} - {number4*num2} = {!step1 && answer > 0 && <button className="carry Red" onClick={Small} >{answer}</button> }{!step1 && answer === 0 && answer } </div>}
-            </div> 
-            {small && <div className=" center Red double Pop">Too Small</div>}    
-            {big && <div className=" center Red double Pop">Too big</div>}    
-            {done && step1 && <div style={{display:'flex', justifyContent:'center', alignItems:'end', height:'250px'  }}>
-                        <button className="choice-stretch" onClick = {() => {setDone(false);setNumber4(1) }}>{1}</button>
-                        <button className="choice-stretch" onClick = {() => {setDone(false);setNumber4(2) }}>{2}</button>
-                        <button className="choice-stretch" onClick = {() => {setDone(false);setNumber4(3) }}>{3}</button>
-                   </div>} {done && step1 && <div style={{display:'flex', justifyContent:'center', alignItems:'end'}}>
-                        <button className="choice-stretch" onClick = {() => {setDone(false);setNumber4(4) }}>{4}</button>
-                        <button className="choice-stretch" onClick = {() => {setDone(false);setNumber4(5) }}>{5}</button>
-                        <button className="choice-stretch" onClick = {() => {setDone(false);setNumber4(6) }}>{6}</button>
-                   </div>}{done && step1 && <div style={{display:'flex', justifyContent:'center', alignItems:'end'}}>
-                        <button className="choice-stretch" onClick = {() => {setDone(false);setNumber4(7) }}>{7}</button>
-                        <button className="choice-stretch" onClick = {() => {setDone(false);setNumber4(8) }}>{8}</button>
-                        <button className="choice-stretch" onClick = {() => {setDone(false);setNumber4(9) }}>{9}</button>
-                   </div>}    
-            {!done && <div className=" double center Green absolute StepQuestion">{number1} {sign} {number2} = </div>}  
-               {!done &&<div className='center wrap absolute StepAnswer'>
-                   <Step value = {((answer))+arr[1]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
-                   <Step value = {((answer))+arr[3]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
-                   <Step value = {((answer))+arr[0]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
-                   <button className="choice" style={{backgroundColor:'yellow',color:'black'}} onClick={()=>{setExtra(true);console.log(extra)}} >help</button>
-                   <Step value = {((answer))+arr[2]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
-                   <button className="choice red" onClick={close} >Close</button>
-               </div>}
-        </div>
+        <div className="Help" style={{zIndex:'30', border:'10px solid red'}}>
+        <button className="choice red" onClick={close} >Close</button>
+        <br></br>
+        <br></br>
+        <div className="center" style={{width:'90%'}} >{num1/num2 === 0 && <div className="Green" style={{fontSize: "30px", paddingBottom: '3px',position:"relative"}}>0 ÷ {num1} = <span className="absolute"><span className="hide">0</span>{num1*0}</span> </div>}</div>
+        
+        <div className="center" style={{width:'90%'}} >{num1/num2 === 1 ? <div className="Green" style={{fontSize: "30px", paddingBottom: '3px', position:"relative"}}>{1*num2} ÷ {num2} {num3 > 0 && <span>+</span>} {num3 > 0 && num3} = <span className="absolute"><span className="hide">0</span>{!(num3 > 0) && 1}{num3 > 0 && num1*num2+num3} </span></div>:
+        <div style={{fontSize: "30px", paddingBottom: '3px', position: 'relative'}}>{num2*1} ÷ {num2} = <span className="absolute"><span className="hide">0</span>{1}</span></div>}</div>
+        
+        <div className="center" style={{width:'90%'}} >{num1/num2 === 2 ? <div className="Green" style={{fontSize: "30px", paddingBottom: '3px', position:"relative"}}>{2*num2} ÷ {num2} {num3 > 0 && <span>+</span>} {num3 > 0 && num3} = <span className="absolute"><span className="hide">0</span>{!(num3 > 0) && 2}{num3 > 0 && num1*num2+num3} </span></div>:
+        <div style={{fontSize: "30px", paddingBottom: '3px', position: 'relative'}}>{num2*2} ÷ {num2} = <span className="absolute"><span className="hide">0</span>{2}</span></div>}</div>
+        
+        <div className="center" style={{width:'90%'}} >{num1/num2 === 3 ? <div className="Green" style={{fontSize: "30px", paddingBottom: '3px', position:"relative"}}>{3*num2} ÷ {num2} {num3 > 0 && <span>+</span>} {num3 > 0 && num3} = <span className="absolute"><span className="hide">0</span>{!(num3 > 0) && 3}{num3 > 0 && num1*num2+num3} </span></div>:
+        <div style={{fontSize: "30px", paddingBottom: '3px', position: 'relative'}}>{num2*3} ÷ {num2} = <span className="absolute"><span className="hide">0</span>{3}</span></div>}</div>
+        
+        <div className="center" style={{width:'90%'}} >{num1/num2 === 4 ? <div className="Green" style={{fontSize: "30px", paddingBottom: '3px', position:"relative"}}>{4*num2} ÷ {num2} {num3 > 0 && <span>+</span>} {num3 > 0 && num3} = <span className="absolute"><span className="hide">0</span>{!(num3 > 0) && 4}{num3 > 0 && num1*num2+num3} </span></div>:
+        <div style={{fontSize: "30px", paddingBottom: '3px', position: 'relative'}}>{num2*4} ÷ {num2} = <span className="absolute"><span className="hide">0</span>{4}</span></div>}</div>
+        
+        <div className="center" style={{width:'90%'}} >{num1/num2 === 5 ? <div className="Green" style={{fontSize: "30px", paddingBottom: '3px', position:"relative"}}>{5*num2} ÷ {num2} {num3 > 0 && <span>+</span>} {num3 > 0 && num3} = <span className="absolute"><span className="hide">0</span>{!(num3 > 0) && 5}{num3 > 0 && num1*num2+num3} </span></div>:
+        <div style={{fontSize: "30px", paddingBottom: '3px', position: 'relative'}}>{num2*5} ÷ {num2} = <span className="absolute"><span className="hide">0</span>{5}</span></div>}</div>
+        
+        <div className="center" style={{width:'90%'}} >{num1/num2 === 6 ? <div className="Green" style={{fontSize: "30px", paddingBottom: '3px', position:"relative"}}>{6*num2} ÷ {num2} {num3 > 0 && <span>+</span>} {num3 > 0 && num3} = <span className="absolute"><span className="hide">0</span>{!(num3 > 0) && 6}{num3 > 0 && num1*num2+num3} </span></div>:
+        <div style={{fontSize: "30px", paddingBottom: '3px', position: 'relative'}}>{num2*6} ÷ {num2} = <span className="absolute"><span className="hide">0</span>{6}</span></div>}</div>
+        
+        <div className="center" style={{width:'90%'}} >{num1/num2 === 7 ? <div className="Green" style={{fontSize: "30px", paddingBottom: '3px', position:"relative"}}>{7*num2} ÷ {num2} {num3 > 0 && <span>+</span>} {num3 > 0 && num3} = <span className="absolute"><span className="hide">0</span>{!(num3 > 0) && 7}{num3 > 0 && num1*num2+num3} </span></div>:
+        <div style={{fontSize: "30px", paddingBottom: '3px', position: 'relative'}}>{num2*7} ÷ {num2} = <span className="absolute"><span className="hide">0</span>{7}</span></div>}</div>
+        
+        <div className="center" style={{width:'90%'}} >{num1/num2 === 8 ? <div className="Green" style={{fontSize: "30px", paddingBottom: '3px', position:"relative"}}>{8*num2} ÷ {num2} {num3 > 0 && <span>+</span>} {num3 > 0 && num3} = <span className="absolute"><span className="hide">0</span>{!(num3 > 0) && 8}{num3 > 0 && num1*num2+num3} </span></div>:
+        <div style={{fontSize: "30px", paddingBottom: '3px', position: 'relative'}}>{num2*8} ÷ {num2} = <span className="absolute"><span className="hide">0</span>{8}</span></div>}</div>
+        
+        <div className="center" style={{width:'90%'}} >{num1/num2 === 9 ? <div className="Green" style={{fontSize: "30px", paddingBottom: '3px', position:"relative"}}>{9*num2} ÷ {num2} {num3 > 0 && <span>+</span>} {num3 > 0 && num3} = <span className="absolute"><span className="hide">0</span>{!(num3 > 0) && 9}{num3 > 0 && num1*num2+num3} </span></div>:
+        <div style={{fontSize: "30px", paddingBottom: '3px', position: 'relative'}}>{num2*9} ÷ {num2} = <span className="absolute"><span className="hide">0</span>{9}</span></div>}</div>
+    </div>
+        
     )
 }
