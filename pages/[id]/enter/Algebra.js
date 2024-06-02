@@ -57,7 +57,6 @@ export default function DoubleAdd(){
     function Add(){
         setTimeout(() => {
             setNum(Math.floor(Math.random()*5))
-            setNum(4)
             setNum2(Math.ceil(Math.random()*7+2))
             mix()
             setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5)) 

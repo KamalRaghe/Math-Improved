@@ -13,8 +13,8 @@ export default function Foil1({num1,num2,close}){
     const [extra, setExtra] = useState(false)
     const [arr, setArr] = useState([0,Math.floor(Math.random()*1+2)+1,1,Math.floor(Math.random()*3)-4])
     const [answer, setAnswers] = useState(<div>𝑥<span style={{fontSize:'13px',position:'relative',padding:"2px", top:"-5px"}}>2</span></div>)
-    const[Q1, setQ1] = useState(num1) 
-    const[Q2, setQ2] = useState(num2)
+    const[Q1, setQ1] = useState('𝑥') 
+    const[Q2, setQ2] = useState('𝑥')
     const [sign, setSign] = useState('*')
     const [step1, setStep1] = useState(true) 
     const [step2, setStep2] = useState(false) 
@@ -32,6 +32,7 @@ export default function Foil1({num1,num2,close}){
    }
 
     function Count(){
+        setExtra(false)
         setArr(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
         if(step1 === true){
             setStep1(false)
@@ -104,9 +105,9 @@ export default function Foil1({num1,num2,close}){
              { !done &&  <div className="center double" >
                 {!step1 && <div>𝑥<span style={{fontSize:'20px',position:'relative',paddingRight:"10px", top:"-13px"}}>2</span></div>} {!step1 && !step2 && '+'} <div className= {Green5} style={{paddingLeft:"10px"}} >{!step1 && !step2 && num2 > 1 && num2}</div>{!step1 && !step2 && <div className={Green5} style={{paddingRight:"10px"}}>𝑥</div>} {!step1 && !step2 && !step3 && '-'} <div className= {Green5} style={{paddingLeft:"10px"}} >{!step1 && !step2 && !step3 && num1}</div>{!step1 && !step2 && !step3 && <div className={Green5} style={{paddingRight:"10px"}}>𝑥</div>} {!step1 && !step2 && !step3 && !step4 && '-'} { !step1 && !step2 && !step3 && !step4 && num1*num2} {!step1 && !step2 && !step3 && !step4 && '='}</div>}   
             { done && <div className="center Green double" >𝑥<span style={{fontSize:'20px',position:'relative', top:"-13px"}}>2</span> - {num1-num2}𝑥 - {num1*num2} </div>}   
-            {step1 && <div className=" double center Green absolute StepQuestion">{'𝑥'} {sign} {'𝑥'} = </div>} 
+            {step1 && !extra && <div className=" double center Green absolute StepQuestion">{'𝑥'} {sign} {'𝑥'} = </div>} 
 
-            {!done&& !step1 && <div className=" double center Green absolute StepQuestion">{Q1} {sign} {Q2} = {extra && answer+'𝑥'}</div>}
+            {!done && <div className=" double center Green absolute StepQuestion">{Q1} {sign} {Q2} = {extra && !step1 && answer+'𝑥'}{extra && step1 && <div style={{paddingLeft:"10px"}}>𝑥<span style={{fontSize:'17px',position:'relative',padding:"2px", top:"-15px"}}>2</span></div>}</div>}
                {!done && !step1 &&<div className='center wrap absolute StepAnswer'>
                    <Step value = {(step4 || step5) ? (answer+arr[0]) : answer+arr[0]+'𝑥'}  answer={ (step4 || step5) ? answer :answer+'𝑥'} Count ={Count} done = {done} mistake={Nothing}/>
                    <Step value = {(step4 || step5) ? (answer+arr[2]) : answer+arr[2]+'𝑥'}  answer={ (step4 || step5) ? answer :answer+'𝑥'} Count ={Count} done = {done} mistake={Nothing}/>
@@ -116,10 +117,10 @@ export default function Foil1({num1,num2,close}){
                    <button className="choice red" onClick={close} >Close</button>
                </div>}
                {step1 &&<div className='center wrap absolute StepAnswer'>
-                    {extra ? <button className="choice green" ></button> :<Step value = {answer}  answer={answer} Count ={Count} done = {done} mistake={Nothing}/>}
+                    {<Step value = {answer}  answer={answer} Count ={Count} done = {done} mistake={Nothing}/>}
                    <Step value = {'𝑥𝑥'}  answer={answer} Count ={Count} done = {done} mistake={Nothing}/>
                    <Step value = {'2𝑥'}  answer={answer} Count ={Count} done = {done} mistake={Nothing}/>
-                   <button className="choice" style={{backgroundColor:'yellow',color:'black'}} onClick={()=>{setExtra(true);setTimeout(()=>{setExtra(false)},750)}} >help</button>
+                   <button className="choice" style={{backgroundColor:'yellow',color:'black'}} onClick={()=>{setExtra(true)}} >help</button>
                    <Step value = {'𝑥'}  answer={answer} Count ={Count} done = {done} mistake={Nothing}/>
                    <button className="choice red" onClick={close} >Close</button>
                </div>}

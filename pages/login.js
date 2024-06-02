@@ -81,7 +81,6 @@ export default function Home() {
         PayedCheck()
         setLoaded(true)
         setFree(window.localStorage.getItem('userId'))
-        console.log(window.localStorage.getItem('userId')-Date.now())
         setCheck(window.localStorage.getItem('Check'))
         update()
         const user = window.localStorage.getItem('User')

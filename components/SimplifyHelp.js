@@ -13,8 +13,8 @@ export default function Question1({num1,num2,whole, close}){
     const [count, setCount] = useState(1)
     const [arr, setArr] = useState([0,Math.floor(Math.random()*1+2)+1,1,Math.floor(Math.random()*3)-4])
     const [answer, setAnswers] = useState(num1+num2)
-    const[Q1, setQ1] = useState(num1) 
-    const[Q2, setQ2] = useState(num2)
+    const[Q1, setQ1] = useState(num1 > 0 ? num1:-1*num1) 
+    const[Q2, setQ2] = useState(num2 > 0 ? num2:-1*num2)
     const [sign, setSign] = useState('and')
     const [step1, setStep1] = useState(true) 
     const [step2, setStep2] = useState(false) 
@@ -31,17 +31,17 @@ export default function Question1({num1,num2,whole, close}){
         if(step1 === true){
            setStep1(false)
            setStep2(true) 
-           setQ1(num1) 
+           setQ1(num1 > 0 ? num1:-1*num1) 
            setQ2(count)
            setSign('÷')
-           setAnswers(num1/count) 
+           setAnswers(num1 > 0 ? num1/count:-1*num1/count) 
         }if(step2 === true){
             setStep2(false)
             setStep3(true)
-            setQ1(num2) 
+            setQ1(num2 > 0 ? num2:-1*num2) 
             setQ2(count)
             setSign('÷')
-            setAnswers(num2/count) 
+            setAnswers(num2> 0 ? num2/count:-1*num2/count) 
         }if(step3 === true){
             setStep3(false)
             setStep4(true)
@@ -81,25 +81,25 @@ export default function Question1({num1,num2,whole, close}){
             <div className=" double center"><div className="Green" style={{padding:'5px'}} >{whole > 0 && whole}</div>
                     <div className="column center" >
                         {step1 && <div className="center" style={{borderBottom:'2px solid black', width:'45px'}} >
-                            {num1}
+                            {num1 > 0 ? num1:-1*num1}
                         </div>}
                         {step2 && <div style={{borderBottom:'2px solid black'}} >
-                            {step2 && <div >{num1} ÷ {count}</div>}
+                            {step2 && <div >{num1 > 0 ? num1:-1*num1} ÷ {count}</div>}
                         </div>}
                         {step3 && <div className="center" style={{borderBottom:'2px solid black', width:'45px'}} >
-                            {num1/count}
+                            {num1 > 0 ? num1/count:-1*num1/count}
                         </div>}
                         {step4 && <div className="center Green " style={{borderBottom:'2px solid Green', width:'45px'}} >
-                            {num1/count}
+                            {num1 > 0 ? num1/count:-1*num1/count}
                         </div>}
-                        {step1 && num2}{(step2 || step3)&& !step4 && <div>{num2} ÷ {count}</div>}
-                        {step4 && <div className="Green" >{num2/count}</div>}
+                        {step1 && num2 > 0 && num2}{step1 && num2 < 0 && -1*num2}{(step2 || step3)&& !step4 && <div>{num2 > 0 ? num2:-1*num2} ÷ {count}</div>}
+                        {step4 && <div className="Green" >{num2> 0 ? num2/count:-1*num2/count}</div>}
                     </div>
                 </div>
             
             {!done && sign === 'and' && <div className=" double center" style={{paddingTop:'20px'}}  >Highest common </div>}
             {!done && sign === 'and' && <div className=" double center" >factor of</div>}
-            {!done && sign === 'and' && <div className=" double center" >{num1} and {num2} </div>}
+            {!done && sign === 'and' && <div className=" double center" >{num1> 0 ? num1:-1*num1} and {num2 > 0 ? num2:-1*num2} </div>}
             {!done && sign !== 'and' && <div className=" double center Green absolute StepQuestion">{Q1} {sign} {Q2} = </div>}  
             {!done &&<div className='center wrap absolute StepAnswer'>
                    {(sign === 'x' && (Q1 >= 10 || Q2 >= 10)) && <button className="choice" style={{backgroundColor:'yellow',color:'black'}} onClick={()=>{setExtra(true);console.log(extra)}} >help</button>}
@@ -111,11 +111,11 @@ export default function Question1({num1,num2,whole, close}){
                    <Step value = {answer+arr[1]}  answer={answer} Count ={Count} done = {done} mistake={Nothing}/>
                    {!(sign === 'x' && (Q1 >= 10 || Q2 >= 10)) && <button className="choice red" onClick={close} >Close</button>} 
                </div>}
-               {done &&<div className='center wrap absolute StepAnswer' style={{width:'100%'}} >
-                   <StepF whole={whole} value1 = {num1/count+arr[0]}  answer1={num1/count} value2 = {num2/count+arr[0]}  answer2={num2/count}  Count ={Count} mistake={Nothing}/>
-                   <StepF whole={whole} value1 = {num1/count+arr[2]}  answer1={num1/count} value2 = {num2/count+arr[2]}  answer2={num2/count}  Count ={Count} mistake={Nothing}/>
-                   <StepF whole={whole} value1 = {num1/count+arr[3]}  answer1={num1/count} value2 = {num2/count+arr[3]}  answer2={num2/count}  Count ={Count} mistake={Nothing}/>
-                   <StepF whole={whole} value1 = {num1/count+arr[1]}  answer1={num1/count} value2 = {num2/count+arr[1]}  answer2={num2/count}  Count ={Count} mistake={Nothing}/>
+               {done &&<div className='center wrap absolute' style={{width:'100%',top:"325px"}} >
+                   <StepF whole={whole} value1 = {num1/count > 0 ? num1/count+arr[0] : -1*(num1/count+arr[0])}  answer1={num1/count > 0 ? num1/count : -1*(num1/count)} value2 = {num2/count > 0 ? num2/count+arr[0] : -1*(num2/count+arr[0])}  answer2={num2/count > 0 ? num2/count+arr[0] : -1*(num2/count+arr[0])}  Count ={Count} mistake={Nothing}/>
+                   <StepF whole={whole} value1 = {num1/count > 0 ? num1/count+arr[2] : -1*(num1/count+arr[2])}  answer1={num1/count > 0 ? num1/count : -1*(num1/count)} value2 = {num2/count > 0 ? num2/count+arr[2] : -1*(num2/count+arr[2])}  answer2={num2/count > 0 ? num2/count+arr[2] : -1*(num2/count+arr[2])}  Count ={Count} mistake={Nothing}/>
+                   <StepF whole={whole} value1 = {num1/count > 0 ? num1/count+arr[3] : -1*(num1/count+arr[3])}  answer1={num1/count > 0 ? num1/count : -1*(num1/count)} value2 = {num2/count > 0 ? num2/count+arr[3] : -1*(num2/count+arr[3])}  answer2={num2/count > 0 ? num2/count+arr[3] : -1*(num2/count+arr[3])}  Count ={Count} mistake={Nothing}/>
+                   <StepF whole={whole} value1 = {num1/count > 0 ? num1/count+arr[1] : -1*(num1/count+arr[1])}  answer1={num1/count > 0 ? num1/count : -1*(num1/count)} value2 = {num2/count > 0 ? num2/count+arr[1] : -1*(num2/count+arr[1])}  answer2={num2/count > 0 ? num2/count+arr[1] : -1*(num2/count+arr[1])}  Count ={Count} mistake={Nothing}/>
                </div>}
         </div>
     )

@@ -147,13 +147,13 @@ export default function SMF({num1,num2,close,num4,num5, whole1, whole2}){
     return (
         <div className="Help">
             {extra && !done && sign === '-' && (Q1 >= 10 || Q2 >= 10) && <StepMinus close={Extra} num1 ={Q1} num2 = {Q2}/>} 
-            { (step3 || step4) && extra && <Question1  whole={num1*count/num2+num4*count/num5 > count && 1} num1={num1*count/num2+num4*count/num5 > num4 ? num1*count/num2+num4*count/num5-count : num1*count/num2+num4*count/num5} num2={count} close={Extra} />}
+            { (step3 || step4) && extra && <Question1  whole={whole1-whole2-below2 !== 0 && whole1-whole2-below2} num1={((num1*count/num2)+below) - (num4*count/num5)} num2={count} close={Extra} />}
             {extra && !done && sign === '+' && Q1 < 10 && Q2 < 10 && <HelpAdd close={Extra} num1 ={Q1} num2 = {Q2}/>}
             {extra && !done && sign === '+' && (Q1 >= 10 || Q2 >= 10) && <StepAdd close={Extra} num1 ={Q1} num2 = {Q2}/>}
             {extra && !done && sign === 'x' && Q1 < 10 && Q2 < 10 && <HelpTimes close={Extra} num1 ={Q1} num2 = {Q2}/>}
             {extra && !done && sign === 'x' && (Q1 >= 10 || Q2 >= 10) && <StepTimes close={Extra} num1 ={Q1} num2 = {Q2}/>}
             {extra && !done && sign === '-' && Q1 < 10 && Q2 < 10 && <HelpMinus close={Extra} num1 ={Q1} num2 = {Q2}/>}
-            {extra && !done && sign === 'and' && <HelpLcm close={Extra} num1 ={num2} num2 = {num5}/>}
+            {extra && !done && sign === 'and' && <HelpLcm close={Extra} num1 ={num2} num2 = {num5} answer={answer} /> }
             {extra && !done && sign === '÷' && <HelpDiv close={Extra} num1 ={Q1} num2 = {Q2}/>}
 
             <div className='cancel'><button className='cancel-btn' onClick = {close}>X</button></div>
