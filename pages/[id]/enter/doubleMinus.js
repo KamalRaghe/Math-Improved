@@ -64,7 +64,7 @@ export default function DoubleAdd(){
      const [count, setCount] =useState(0)
  
      useEffect(() =>{
-         setLoaded(true)
+        setLoaded(true)
          const count = parseInt(window.localStorage.getItem(`${id} DoubleMinus`))
          setCount(count ? count : 0)
          const score = parseInt(window.localStorage.getItem(`${id} score`))
@@ -78,6 +78,7 @@ export default function DoubleAdd(){
      useEffect(() =>{
          if(count > 0){
          window.localStorage.setItem(`${id} DoubleMinus`, count)
+        
      }},[count])
  
      useEffect(() =>{
