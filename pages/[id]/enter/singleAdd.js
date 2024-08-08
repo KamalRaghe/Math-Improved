@@ -61,7 +61,8 @@ export default function DoubleAdd(){
         }, 1500)
     }
 
-    
+    const [score, setScore] =useState(0)
+    const [count, setCount] =useState(0)
 
     useEffect(() =>{
         setLoaded(true)
@@ -72,12 +73,12 @@ export default function DoubleAdd(){
     },[])
 
     useEffect(() =>{
-        if(count > 0){
+        if(count >= 0){
         window.localStorage.setItem(`singleAdd ${id}`, count)
     }},[count])
 
     useEffect(() =>{
-        if(score > 0){
+        if(score >= 0){
         window.localStorage.setItem(`${id} score` , score)
     }},[score])
 
