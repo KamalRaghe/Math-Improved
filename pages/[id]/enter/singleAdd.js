@@ -61,8 +61,7 @@ export default function DoubleAdd(){
         }, 1500)
     }
 
-    const [score, setScore] =useState(0)
-    const [count, setCount] =useState(0)
+    
 
     useEffect(() =>{
         setLoaded(true)
