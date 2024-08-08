@@ -81,6 +81,7 @@ export default function DoubleAdd(){
      },[])
  
      useEffect(() =>{
+        const count = parseInt(window.localStorage.getItem(`${id} DoubleAdd`))
          if(count > 0){
          window.localStorage.setItem(`${id} DoubleAdd`, count)
      }},[count])
