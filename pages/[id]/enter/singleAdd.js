@@ -66,19 +66,19 @@ export default function DoubleAdd(){
 
     useEffect(() =>{
         setLoaded(true)
-        const count = parseInt(window.localStorage.getItem(`${id} singleAdd`))
+        const count = parseInt(window.localStorage.getItem(`singleAdd ${id}`))
         setCount(count ? count : 0)
         const score = parseInt(window.localStorage.getItem(`${id} score`))
         setScore(score ? score : 0)
     },[])
 
     useEffect(() =>{
-        if(count >= 0){
+        if(count > 0){
         window.localStorage.setItem(`singleAdd ${id}`, count)
     }},[count])
 
     useEffect(() =>{
-        if(score >= 0){
+        if(score > 0){
         window.localStorage.setItem(`${id} score` , score)
     }},[score])
 

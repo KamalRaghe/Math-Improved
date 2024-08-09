@@ -16,7 +16,6 @@ export default function DoubleAdd(){
     const [num1, setNum1] = useState(Math.floor(Math.random()*90+10));
     const [num2, setNum2] = useState(Math.floor(Math.random()*90+10));
     const [num3, setNum3] = useState([0,Math.ceil(Math.random()*10),-1*Math.ceil(Math.random()*10),Math.ceil(Math.random()*20+10),-1*(Math.ceil(Math.random()*10+10))])
-    const [localStorageAvailable, setLocalStorageAvailable] = useState(false);
     const router = useRouter()
     const {username} = router.query 
     const {id} = router.query 
@@ -61,13 +60,9 @@ export default function DoubleAdd(){
         setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
      },[num1])
 
-     const [score, setScore] =useState()
-     const [count, setCount] =useState()
+     const [score, setScore] =useState(0)
+     const [count, setCount] =useState(0)
  
-     useEffect(() => {
-        setLocalStorageAvailable(typeof window !== "undefined" && window.localStorage);
-    }, []);
-
      useEffect(() =>{
          setLoaded(true)
          const count = parseInt(window.localStorage.getItem(`${id} DoubleAdd`))
@@ -81,7 +76,6 @@ export default function DoubleAdd(){
      },[])
  
      useEffect(() =>{
-        const count = parseInt(window.localStorage.getItem(`${id} DoubleAdd`))
          if(count > 0){
          window.localStorage.setItem(`${id} DoubleAdd`, count)
      }},[count])
@@ -95,7 +89,7 @@ export default function DoubleAdd(){
         <div className="beige container column">
             <div className="Test sb"><div className="double" >
                 <div>Score: {loaded && score}</div>
-                <div className="font" >Double digit Addition: { localStorageAvailable && parseInt(window.localStorage.getItem(`singleAdd ${id}`)) ? parseInt(window.localStorage.getItem(`singleAdd ${id}`)): 0} </div>
+                <div className="font" >Double digit Addition: {loaded && count} </div>
             </div><Link href={`/${id}/enter/testDoubleAdd`}><button className="green test-btn">Test</button></Link></div>
             <div className="box column">
                 <div className="double top-number">{loaded && num1}</div>
