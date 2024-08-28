@@ -101,7 +101,7 @@ export default function Home() {
             </div>  
           <form className="center sb column" style={{alignItems:'start'}} onSubmit={(e)=> signIn(e)}>   
             <div className="" style={{width:"200px",backgroundColor:"transparent",border:'none'}} >
-              <input className="relative" style={{borderColor: red,width:'190px',marginBottom:"10px"}} name='email' type='email' placeholder="Email" ></input>
+              <input className="relative" style={{borderColor: red,width:'190px',marginBottom:"10px",zIndex:"100"}} name='email' type='email' placeholder="Email" ></input>
               <input style={{borderColor: red,width:'190px'}} name='password' type={password} placeholder="password" ></input> </div>
               
           <div className="center" >
@@ -109,7 +109,7 @@ export default function Home() {
           </div>
           </form>
           </div>}
-            <div style={{display:'flex',justifyContent:'end',position:"relative"}}>
+            <div style={{display:'flex',justifyContent:'end',position:"relative",zIndex:"10"}}>
               {!user && !create && loaded && <button style={{position:"relative",left:"-9px",top:"-74px"}} onClick={Password}>
               <div className="relative">{password === 'password' ? 'show password' : 'hide password'}</div></button>}
             </div>
