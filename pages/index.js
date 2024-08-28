@@ -46,8 +46,6 @@ export default function Home() {
       }
         
     }
-
-    const name = e.target.name.value
     const email = e.target.email.value
     const password = e.target.password.value
     
@@ -104,19 +102,23 @@ export default function Home() {
         <div className="relative" style={{fontSize:"70px",top:"20px",color:'navy',padding:"0px"}} >Math</div>
         <div className="relative" style={{fontSize:"70px",color:'purple',paddingBottom:"20px"}} >Improved</div>
         <div className="relative">
-        {!user && !create && loaded && <div>
-          <div style={{paddingBottom:'10px',fontSize:"50px"}} >Sign In 
-          <button style={{background:'none',fontSize:"30px",border:'none',color:"blue"}} onClick={()=>{setCreate(true)}} >Sign up</button></div>  
+          
+        {!user && !create && loaded && <div style={{ display:"flex",flexDirection:"column",alignItems:"center", height:"215px",border:"2px solid black",padding:"5px",position:"relative",left:"30px"}}>
+          <div style={{paddingBottom:'10px',fontSize:"50px"}} >
+          <button style={{background:'none',fontSize:"20px",border:'none',color:"blue",display:"flex",justifyContent:"end",width:"110%",paddingTop:"5px"}} onClick={()=>{setCreate(true)}} >Sign up</button>
+            <div className="center" style={{fontSize:"50px",fontWeight:"bold"}}  >Sign In</div> 
+          </div>  
         <form className="center sb column" style={{alignItems:'start'}} onSubmit={(e)=> signIn(e)}>
-          <input className="relative" style={{borderColor: red,width:'190px'}} name='email' type='email' placeholder="Email" ></input><br></br>
-          <div className="center" style={{width:"200px",backgroundColor:"transparent",border:'none'}} >
-            <input style={{borderColor: red,width:'200px'}} name='password' type={password} placeholder="password" ></input> </div>
+          
+          <div className="" style={{width:"150px",backgroundColor:"transparent",border:'none'}} >
+            <input className="relative" style={{borderColor: red,width:'150px',marginBottom:"10px"}} name='email' type='email' placeholder="Email" ></input>
+            <input style={{borderColor: red,width:'150px'}} name='password' type={password} placeholder="password" ></input> </div>
         <div className="center" >
-          <button style={{marginTop:'10px'}}>Enter</button>   
+          <button style={{position:'relative',top:"30px"}}>Enter</button>   
         </div>
         </form>
         </div>}
-        <div className="relative" style={{display:'flex',justifyContent:'end',width:'200px',top:'-32px'}}>
+        <div className="relative" style={{display:'flex',justifyContent:'end',width:'200px',top:'-74px',left:"13px"}}>
             {!user && !create && loaded && <button onClick={Password}>
             <div className="relative">{password === 'password' ? 'show password' : 'hide password'}</div></button>}
         </div>
@@ -126,19 +128,18 @@ export default function Home() {
       {(create || user) && <div className="box" ></div>}
       {create && <div className="box" ></div>}
       
-        {!user && create && <div className="timeout center" style={{paddingBottom:"15px",border:'10px solid navy',width:"280px",backgroundColor:"silver"}} >
-        <button className="relative" style={{top:'-70px',left:'210px',background:'none',border:'none',color:"black",fontSize:"50px",zIndex:"10"}} onClick={()=>{setCreate(false)}} >X</button> 
+        {!user && create && <div className="timeout center" style={{paddingBottom:"15px",border:'2px solid black',width:"280px",backgroundColor:"beige"}} >
+        <button className="relative" style={{top:'-70px',left:'205px',background:'none',border:'none',color:"black",fontSize:"50px",zIndex:"10"}} onClick={()=>{setCreate(false)}} >X</button> 
         <div className="relative" ><br></br><br></br>
-          <form className="center column relative" style={{right:"20px"}} onSubmit={(e)=> CreateUser(e)}>
+          <form className="center column relative" style={{right:"28px"}} onSubmit={(e)=> CreateUser(e)}>
             <div style={{padding:'10px',fontSize:"40px"}} >Sign Up</div>
-            <input style={{borderColor: red, width:'180px'}} name='name' placeholder="name" ></input><br></br>
             <input style={{borderColor: red, width:'180px'}} name='email' type='email' placeholder="email" ></input><br></br>
             <div className="center" style={{backgroundColor:"transparent",border:'none'}} >
               <input style={{borderColor: red, width:'180px'}} name='password' type={password} placeholder="password" ></input>
           </div><br></br>
               <button className="relative" style={{marginBottom:'10px',right:'69px'}} >Create</button>
           </form>
-          <div className="relative" style={{display:'flex',justifyContent:'end',top:'-50px',right:'20px'}} >
+          <div className="relative" style={{display:'flex',justifyContent:'end',top:'-50px',right:'28px'}} >
             <button onClick={Password}><div className="relative">{password === 'password' ? 'show password' : 'hide password'}</div></button>
           </div>
         </div>

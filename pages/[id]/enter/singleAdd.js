@@ -110,6 +110,7 @@ export default function DoubleAdd(){
             </div>
             <div className="box">
                 <button className="help" onClick={()=>open()}>help</button>
+                <button className="help green" style={{fontWeight:"200px",margin:"10px"}} onClick={()=>open()}>Memories</button>
             </div>
             {help && <HelpAdd num1 ={num1} num2={num2} close={close}/>}
             {loaded && correct && <Correct></Correct>}
