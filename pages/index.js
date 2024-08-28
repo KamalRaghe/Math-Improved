@@ -103,7 +103,7 @@ export default function Home() {
         <div className="relative" style={{fontSize:"70px",color:'purple',paddingBottom:"20px"}} >Improved</div>
         <div className="relative">
           
-        <div className="center" style={{width:"100%"}} >
+        <div className="center" style={{width:"125%"}} >
           {!user && !create && loaded && <div style={{ display:"flex",flexDirection:"column",alignItems:"center", height:"215px",border:"2px solid black",padding:"5px"}}>
             <div style={{paddingBottom:'10px',fontSize:"50px"}} >
             <button style={{background:'none',fontSize:"20px",border:'none',color:"blue",display:"flex",justifyContent:"end",width:"110%",paddingTop:"5px"}} onClick={()=>{setCreate(true)}} >Sign up</button>
