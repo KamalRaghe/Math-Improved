@@ -103,24 +103,27 @@ export default function Home() {
         <div className="relative" style={{fontSize:"70px",color:'purple',paddingBottom:"20px"}} >Improved</div>
         <div className="relative">
           
-        {!user && !create && loaded && <div style={{ display:"flex",flexDirection:"column",alignItems:"center", height:"215px",border:"2px solid black",padding:"5px",position:"relative",left:"30px"}}>
-          <div style={{paddingBottom:'10px',fontSize:"50px"}} >
-          <button style={{background:'none',fontSize:"20px",border:'none',color:"blue",display:"flex",justifyContent:"end",width:"110%",paddingTop:"5px"}} onClick={()=>{setCreate(true)}} >Sign up</button>
-            <div className="center" style={{fontSize:"50px",fontWeight:"bold"}}  >Sign In</div> 
-          </div>  
-        <form className="center sb column" style={{alignItems:'start'}} onSubmit={(e)=> signIn(e)}>
-          
-          <div className="" style={{width:"200px",backgroundColor:"transparent",border:'none'}} >
-            <input className="relative" style={{borderColor: red,width:'190px',marginBottom:"10px"}} name='email' type='email' placeholder="Email" ></input>
-            <input style={{borderColor: red,width:'190px'}} name='password' type={password} placeholder="password" ></input> </div>
-        <div className="center" >
-          <button style={{position:'relative',top:"30px"}}>Enter</button>   
+        <div className="center" style={{width:"100%"}} >
+          {!user && !create && loaded && <div style={{ display:"flex",flexDirection:"column",alignItems:"center", height:"215px",border:"2px solid black",padding:"5px"}}>
+            <div style={{paddingBottom:'10px',fontSize:"50px"}} >
+            <button style={{background:'none',fontSize:"20px",border:'none',color:"blue",display:"flex",justifyContent:"end",width:"110%",paddingTop:"5px"}} onClick={()=>{setCreate(true)}} >Sign up</button>
+              <div className="center" style={{fontSize:"50px",fontWeight:"bold"}}  >Sign In</div> 
+            </div>  
+          <form className="center sb column" style={{alignItems:'start'}} onSubmit={(e)=> signIn(e)}>
+            
+            <div className="" style={{width:"200px",backgroundColor:"transparent",border:'none'}} >
+              <input className="relative" style={{borderColor: red,width:'190px',marginBottom:"10px"}} name='email' type='email' placeholder="Email" ></input>
+              <input style={{borderColor: red,width:'190px'}} name='password' type={password} placeholder="password" ></input> </div>
+              {!user && !create && loaded && <button style={{position:"relative",left:"90px"}} onClick={Password}>
+              <div className="relative">{password === 'password' ? 'show password' : 'hide password'}</div></button>}
+          <div className="center" >
+            <button style={{position:'relative',top:"15px"}}>Enter</button>   
+          </div>
+          </form>
+          </div>}
         </div>
-        </form>
-        </div>}
-        <div className="relative" style={{display:'flex',justifyContent:'end',width:'200px',top:'-74px',left:"35px"}}>
-            {!user && !create && loaded && <button onClick={Password}>
-            <div className="relative">{password === 'password' ? 'show password' : 'hide password'}</div></button>}
+        <div className="relative" style={{display:'flex',justifyContent:'end',width:'200px',top:'-74px',left:"5px"}}>
+           
         </div>
         
         </div>
