@@ -110,7 +110,7 @@ export default function Home() {
           </form>
           </div>}
             <div style={{display:'flex',justifyContent:'end'}}>
-              {!user && !create && loaded && <button style={{position:"relative",left:"-9px",top:"-74px"}} onClick={Password}>
+              {!user && !create && loaded && <button style={{position:"relative",left:"-9px",top:"-72px"}} onClick={Password}>
               <div className="relative">{password === 'password' ? 'show password' : 'hide password'}</div></button>}
             </div>
         <div className="relative" style={{display:'flex',justifyContent:'end',width:'200px',top:'-74px',left:"5px"}}>
