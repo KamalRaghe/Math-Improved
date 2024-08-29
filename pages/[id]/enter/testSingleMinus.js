@@ -47,7 +47,7 @@ export default function DoubleAdd(){
         setCorrect(true)
         setTimeout(() => {
             setCorrect(false) 
-        }, 15100);
+        }, 1500);
         setCount(count+1)
       }
   
@@ -56,7 +56,7 @@ export default function DoubleAdd(){
         setWrong(true)
         setTimeout(() => {
             setWrong(false) 
-        }, 15100);
+        }, 1500);
       } 
     function Add(){
         setTimeout(() => {
