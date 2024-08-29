@@ -64,7 +64,7 @@ export default function DoubleAdd(){
             setNum2(Math.ceil(Math.random()*4))
             mix()
             setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5)) 
-        }, 15100)
+        }, 1500)
     }
 
     function cancel(){
