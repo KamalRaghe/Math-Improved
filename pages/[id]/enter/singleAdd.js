@@ -104,7 +104,7 @@ export default function DoubleAdd(){
                     <button className="green test-btn">Test</button>
                 </Link>
             </div>
-            {ready ? <div className="center " style={{fontSize:"25px",width:"340px",margin:"10px"}}>
+            {ready ? <div className="center " style={{fontSize:"25px",width:"320px",marginTop:"10px"}}>
                 <div>
                     <div>{num1} + 0 = {num1+0}</div>
                     <div>{num1} + 1 = {num1+1}</div>
@@ -112,7 +112,7 @@ export default function DoubleAdd(){
                     <div>{num1} + 3 = {num1+3}</div>
                     <div>{num1} + 4 = {num1+4}</div>
                 </div>
-                <button className="green choice" onClick={() => setReady(false)} style={{borderRadius:"20px",margin:"20px"}} >Ready</button>
+                <button className="green choice" onClick={() => setReady(false)} style={{borderRadius:"20px",margin:"10px"}} >Ready</button>
                 <div>
                     <div>{num1} + 5 = {num1+5}</div>
                     <div>{num1} + 6 = {num1+6}</div>
