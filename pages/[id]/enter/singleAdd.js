@@ -57,7 +57,7 @@ export default function DoubleAdd(){
             setNum2(Math.ceil(Math.random()*9))
             mix()
             setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5)) 
-        }, 1500)
+        }, 1900)
     }
 
     const [score, setScore] =useState(0)

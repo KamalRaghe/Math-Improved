@@ -14,6 +14,7 @@ export default function DoubleAdd(){
     const [loaded, setLoaded] = useState(false)
     const [correct, setCorrect] = useState(false)
     const[ wrong, setWrong] = useState(false)
+    const [ready, setReady] = useState(true)
     const [num1, setNum1] = useState(Math.ceil(Math.random()*9));
     const [num2, setNum2] = useState(Math.ceil(Math.random()*9));
     const [num3, setNum3] = useState([0,num1+num1,num2+num2+num2,-1*num1,num2])
@@ -33,6 +34,7 @@ export default function DoubleAdd(){
       }
 
     function CorrectA(){ 
+        setReady(true)
         setCorrect(true)
         setCount(count+1)
         setScore(score+1)
@@ -46,6 +48,7 @@ export default function DoubleAdd(){
       }
   
       function WrongA(){ 
+        setReady(true)
         setWrong(true)
         setTimeout(() => {
             setWrong(false) 
@@ -57,7 +60,7 @@ export default function DoubleAdd(){
             setNum2(Math.ceil(Math.random()*9)) 
             mix()
             setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
-        }, 1500)
+        }, 1900)
     }
 
 
@@ -103,16 +106,30 @@ export default function DoubleAdd(){
             <Link href={`/${id}/enter/testSingleTimes`}>
                 <button className="green test-btn">Test</button>
             </Link></div>
-            <div className="box column">
-                <div className="double">{loaded && num1} x {loaded && num2} =</div>
-            </div>
-            <div className="box">
-                <button className="help" onClick={open}>help</button>
-            </div>
+           {ready ? <div className="center " style={{fontSize:"30px",width:"320px",marginTop:"10px"}}>
+                <div>
+                    <div>{num1} x 0 = {num1*0}</div>
+                    <div>{num1} x 1 = {num1*1}</div>
+                    <div>{num1} x 2 = {num1*2}</div>
+                    <div>{num1} x 3 = {num1*3}</div>
+                    <div>{num1} x 4 = {num1*4}</div>
+                    <div>{num1} x 5 = {num1*5}</div>
+                    <div>{num1} x 6 = {num1*6}</div>
+                    <div>{num1} x 7 = {num1*7}</div>
+                    <div>{num1} x 8 = {num1*8}</div>
+                    <div>{num1} x 9 = {num1*9}</div>
+                </div>
+                <button className="green choice" onClick={() => setReady(false)} style={{borderRadius:"20px",margin:"10px"}} >Ready</button>
+            </div>:<div>
+                <div className="box column">
+                      <div className="double">{loaded && num1} x {loaded && num2} =</div>
+                </div>
+                <div style={{height:"30px"}} ></div>
+           </div>}
             {help && <HelpTimes num1 ={num1} num2={num2} close={close}/>}
             {loaded && correct && <Correct></Correct>}
             {loaded && wrong && <Wrong/> }
-            <div className="box column">
+            {!ready && <div className="box column">
                <div className="row ">
                     { loaded && <Choice value ={num1*num2+num3[0]} answer ={num1*num2} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
                     { loaded && <Choice value ={num1*num2+num3[1]} answer ={num1*num2} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
@@ -122,7 +139,7 @@ export default function DoubleAdd(){
                     { loaded && <Choice value ={num1*num2+num3[3]} answer ={num1*num2} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
                     { loaded && <Choice value ={num1*num2+num3[4]} answer ={num1*num2} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
                </div>
-            </div>
+            </div>}
         </div>
     )
 }
