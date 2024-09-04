@@ -1,7 +1,7 @@
 import io from "socket.io-client";
 import { useEffect, useState } from "react";
 
-const socket = io.connect("http://localhost:3005");
+const socket = io.connect("http://localhost:3001");
 
 function App() {
   //Room State

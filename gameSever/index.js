@@ -10,7 +10,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://mathimproved.com/Game",
     methods: ["GET", "POST"],
   },
 });
@@ -27,6 +27,6 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(3005, () => {
+server.listen(3001, () => {
   console.log("SERVER IS RUNNING");
 });
