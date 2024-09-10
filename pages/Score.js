@@ -79,7 +79,7 @@ function App() {
 return(
     <div className="center column" style={{height:"100vh"}}>
         {users.map(num =>{//{num.data.user}: {num.data.score}
-            return <div className="double" key={num.id} >{num.data.score > 0 && num.data.user}: {num.data.score > 0 && num.data.score}</div>}
+            return <div className="double" key={num.id} >{num.data.score > 0 && num.data.user} {num.data.score > 0 && num.data.score}</div>
           })}
         <button onClick={Again} className="red" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}} >Play Again</button>
     </div>
