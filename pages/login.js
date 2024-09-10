@@ -77,6 +77,8 @@ export default function Home() {
       })
 
       useEffect(()=>{
+        const timer = window.localStorage.getItem('Timer')
+        console.log(timer)
         setId(window.localStorage.getItem('uid'))
         PayedCheck()
         setLoaded(true)
@@ -114,6 +116,7 @@ export default function Home() {
         <br></br>
         <br></br>
         <br></br>
+        <button onClick={()=>{router.push('/Join')}} className="green" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}} >Game</button> 
         {payed && score && <div className="center" style={{fontSize:"30px",width:"330px"}} >{name && 
         name} Score: {score}</div>}
 

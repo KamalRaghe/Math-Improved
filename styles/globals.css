@@ -425,6 +425,7 @@
       scale: 0.01;
     }
   }
+ 
 }@media(max-width: 480px){
   .tooBig{
     position: relative;
@@ -550,6 +551,19 @@
   flex-direction: column;
 }
 
+.WaitScreen{
+  animation: FadedIn 1s alternate infinite;
+}
+
+@keyframes FadedIn{
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0.4;
+  }
+}
+
 .zoom{
   animation: zoom 1s linear;
 }
@@ -563,7 +577,7 @@
 
 .beige{
   background-color: beige;
-  height: 100vh;  
+  height: 90vh;  
 }
 
 .sb{
