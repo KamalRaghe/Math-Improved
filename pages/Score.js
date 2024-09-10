@@ -9,7 +9,7 @@ function App() {
  const [user, setUser] = useState(0)
  const [inList,setInList] = useState(false)
  const [add, setAdd] = useState(false)
- const [score, setScore] = useState()
+ const [score, setScore] = useState(false)
  const router = useRouter()
  const [account, setAccount] = useState({
     title:""
@@ -68,7 +68,10 @@ function App() {
         }) 
        }
     useEffect(()=>{
-        PlayerList()
+        setTimeout(()=>{
+            PlayerList()
+            setAdd(true)
+        },3000)
         Remove()
         setTimeout(()=>{
             Leave()
@@ -78,10 +81,11 @@ function App() {
 
 return(
     <div className="center column" style={{height:"100vh"}}>
+        {!add && <div className="double WaitScreen" >Result</div>}
         {users.map(num =>{//{num.data.user}: {num.data.score}
             return <div className="double" key={num.id} >{num.data.score > 0 && num.data.user} {num.data.score > 0 && num.data.score}</div>
           })}
-        <button onClick={Again} className="red" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}} >Play Again</button>
+        {add && <button onClick={Again} className="red" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}} >Play Again</button>}
     </div>
 )
 
