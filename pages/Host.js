@@ -51,7 +51,7 @@ function App() {
     }
 
     useEffect(()=>{
-        let userId = account.title
+        let userId = window.localStorage.getItem('GameId')
         setUser(userId)
         setAdd(userId)
         const usersRef = ref(rdb, 'users/'+'time')
