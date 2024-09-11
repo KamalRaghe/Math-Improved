@@ -99,19 +99,19 @@ export default function Home() {
             <button style={{background:'none',fontSize:"20px",border:'none',color:"blue",display:"flex",justifyContent:"end",width:"110%",paddingTop:"5px"}} onClick={()=>{setCreate(true)}} >Sign up</button>
               <div className="center" style={{fontSize:"50px",fontWeight:"bold"}}  >Sign In</div> 
             </div>  
-          <form className="center sb column" style={{alignItems:'start'}} onSubmit={(e)=> signIn(e)}>   
+             
             <div className="" style={{width:"200px",backgroundColor:"transparent",border:'none'}} >
               <input className="relative" style={{borderColor: red,width:'190px',marginBottom:"10px"}} name='email' type='email' placeholder="Email" ></input>
               <input style={{borderColor: red,width:'190px',zIndex:"100"}} name='password' type={password} placeholder="password" ></input> </div>
-              
+              {!user && !create && loaded && <button style={{position:"relative",left:"43px"}} onClick={Password}>
+              <div className="relative">{password === 'password' ? 'show password' : 'hide password'}</div></button>}
           <div className="center" >
-            <button style={{position:'relative',top:"15px"}}>Enter</button>   
+            <button style={{position:'relative',top:"15px",right:"70px"}}>Enter</button>   
           </div>
-          </form>
+          
           </div>}
             <div style={{display:'flex',justifyContent:'end',position:"relative",zIndex:"10"}}>
-              {!user && !create && loaded && <button style={{position:"relative",left:"-9px",top:"-74px"}} onClick={Password}>
-              <div className="relative">{password === 'password' ? 'show password' : 'hide password'}</div></button>}
+             
             </div>
         <div className="relative" style={{display:'flex',justifyContent:'end',width:'200px',top:'-74px',left:"5px"}}>
            
