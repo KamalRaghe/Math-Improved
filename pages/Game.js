@@ -25,7 +25,8 @@ export default function DoubleAdd(){
     const router = useRouter()
     const [score, setScore] =useState(0)
     const [name, setName] =useState()
-    const [time, setTime] = useState(60000+Date.now())
+    const [time, setTime] = useState()
+    const [start, setStart] = useState(3)
     const [date, setDate] = useState(Date.now())
     const {username} = router.query 
     const {id} = router.query 
@@ -83,8 +84,22 @@ export default function DoubleAdd(){
 
     
     useEffect(() =>{
-        setLoaded(true)
-        update()
+        
+        setTimeout(() => {
+            setStart(2)
+        }, 1000); 
+        setTimeout(() => {
+            setStart(1)
+        }, 2000);
+        setTimeout(() => {
+            
+        }, 3000);
+        setTimeout(() => {
+            setStart()
+            setLoaded(true)
+            setTime(60000+Date.now())
+            update() 
+        }, 3000);
         let name = window.localStorage.getItem('GameName')
         setName(name)
     },[])
@@ -115,6 +130,7 @@ export default function DoubleAdd(){
                     </div>}
                 </div>
                 {help && <HelpAdd num1 ={num1} num2={num2} close={close}/>}
+                {<div className="countStart" >{start}</div>}
                 {loaded && <button className="help" style={{zIndex:"20"}} onClick={open}>help</button>}
                 <div style={{height:"30px"}} ></div>
                 <div className="box column">

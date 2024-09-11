@@ -9,7 +9,6 @@ import { db , auth} from "../firebase"
 import { getFunctions, httpsCallable } from "firebase/functions";
 
 export default function Home() {
-
   const [Data, setData] = useState(false)
   const [id, setId] = useState(false)
   const [edit, setEdit] = useState(false)
@@ -49,9 +48,9 @@ export default function Home() {
             returnUrl: window.location.origin,
           });
           setData(data)
+          console.log('cancel')
         } catch (error) {
         }
-      
         return new Promise((resolve, reject) => {
           if (Data.url) {
             router.push(Data.url);

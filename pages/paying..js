@@ -47,7 +47,7 @@ export default function Home() {
       },[])
       return(
         <div className='container double center'>
-            <div className="rotate center" style={{border:"20px solid black",width:'300px',height:'300px',borderRadius:"50%",borderRight:"20px solid grey"}} >
+            <div className="rotate center" style={{border:"20px solid black",width:'200px',height:'200px',borderRadius:"50%",borderRight:"20px solid grey"}} >
 
             </div>
         </div>
