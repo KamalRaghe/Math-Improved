@@ -49,7 +49,7 @@ export default function Home() {
     e.preventDefault()
     const email = e.target.email.value
     const password = e.target.password.value
-    
+
     createUserWithEmailAndPassword(auth,email,password).then(()=>{
       setUser(true)
       router.push('/login')
@@ -122,9 +122,9 @@ export default function Home() {
         </div>
       </div>
       {(create || user) && <div className="box" ></div>}
-      {create && <div className="box" ></div>}
+      {create && <div className="box"></div>}
       
-        {!user && create && <div className="timeout center" style={{paddingBottom:"15px",border:'2px solid black',width:"280px",backgroundColor:"beige"}} >
+        {!user && create && <div className="timeout center" style={{paddingBottom:"15px",border:'2px solid black',width:"280px",backgroundColor:"beige",position:"relative",top:"-50px"}} >
         <button className="relative" style={{top:'-70px',left:'205px',background:'none',border:'none',color:"black",fontSize:"50px",zIndex:"10"}} onClick={()=>{setCreate(false)}} >X</button> 
         <div className="relative" ><br></br><br></br>
           <form className="center column relative" style={{right:"28px"}} onSubmit={(e)=> CreateUser(e)}>
