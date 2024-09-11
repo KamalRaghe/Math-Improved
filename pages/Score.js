@@ -32,8 +32,6 @@ function App() {
         set(ref(rdb, 'users/' + id),{
             user: name,
             score: 0
-        }).then(()=>{
-            router.push('/')
         })
     }
 
@@ -72,9 +70,12 @@ function App() {
             PlayerList()
             setAdd(true)
         },1500)
+        setTimeout(() => {
+            Leave()
+        }, 3000);
         Remove()
         setTimeout(()=>{
-            Leave()
+            router.push('/')
         },300000)
     },[])
 

@@ -108,7 +108,7 @@ export default function Home() {
               <div className="relative">{password === 'password' ? 'show password' : 'hide password'}</div></button>}
           <div className="center column" >
           <button style={{position:'relative',right:"70px"}} onClick={signIn} >Enter</button>
-            <button style={{position:'relative',right:"43px",margin:"4px",backgroundColor:"transparent",border:'none',color:"blue"}} onClick={Forgot} >Forgot password</button>   
+            <button style={{position:'relative',right:"44px",margin:"4px",backgroundColor:"transparent",border:'none',color:"blue"}} onClick={Forgot} >Forgot password</button>   
           </div>
           
           </div>}
