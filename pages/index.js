@@ -16,15 +16,18 @@ export default function Home() {
   const [move, setMove] = useState('165px')
   const [id, setId] = useState('id')
   const [link, setLink] = useState(false)
+  const [account, setAccount] = useState({
+    title:"", 
+    password:""
+    })
 
   const router = useRouter()
 
 
 
-  function signIn(e){
-    e.preventDefault()
-    const email = e.target.email.value
-    const password = e.target.password.value
+  function signIn(){
+    const email = account.title
+    const password = account.password
     signInWithEmailAndPassword(auth,email,password).then((result)=>{
       setUser(true)
       router.push('/login')
@@ -101,12 +104,12 @@ export default function Home() {
             </div>  
              
             <div className="" style={{width:"200px",backgroundColor:"transparent",border:'none'}} >
-              <input className="relative" style={{borderColor: red,width:'190px',marginBottom:"10px"}} name='email' type='email' placeholder="Email" ></input>
-              <input style={{borderColor: red,width:'190px',zIndex:"100"}} name='password' type={password} placeholder="password" ></input> </div>
+              <input className="relative" style={{borderColor: red,width:'190px',marginBottom:"10px"}} name='email' type='email' placeholder="Email" value={account.title} onChange = {(e) => setAccount({...account, title: e.target.value})} ></input>
+              <input style={{borderColor: red,width:'190px',zIndex:"100"}} name='password' type={password} placeholder="password" value={account.password} onChange = {(e) => setAccount({...account, password: e.target.value})} ></input> </div>
               {!user && !create && loaded && <button style={{position:"relative",left:"43px"}} onClick={Password}>
               <div className="relative">{password === 'password' ? 'show password' : 'hide password'}</div></button>}
           <div className="center" >
-            <button style={{position:'relative',top:"15px",right:"70px"}}>Enter</button>   
+            <button style={{position:'relative',top:"15px",right:"70px"}} onClick={signIn} >Enter</button>   
           </div>
           
           </div>}
