@@ -71,7 +71,7 @@ function App() {
         setTimeout(()=>{
             PlayerList()
             setAdd(true)
-        },3000)
+        },1500)
         Remove()
         setTimeout(()=>{
             Leave()

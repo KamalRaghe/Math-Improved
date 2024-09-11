@@ -4,7 +4,7 @@ import { useRouter } from "next/router"
 import { auth } from "@/firebase"
 import { db } from "@/firebase"
 import { addDoc, collection } from "firebase/firestore"
-import { createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth"
+import { createUserWithEmailAndPassword,signInWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail } from "firebase/auth"
 
 export default function Home() {
   const [sign, setSign] = useState()
@@ -36,22 +36,20 @@ export default function Home() {
     })
   }
   
+  function Forgot(){
+    const email = account.title
+    if(email){
+      sendPasswordResetEmail(auth, email).then(()=>{alert('Check your email')})
+    }else{
+      alert('Put in your email') 
+    }
+  }
+
   function CreateUser(e){
     e.preventDefault()
-
-    async function handleSubmit(){  
-      if(name){
-      const docRef = await addDoc(collection(db, email), {
-            count: link,
-            device: 0,
-        }) 
-        window.localStorage.setItem(`${docRef.id} username` , name);
-      }
-        
-    }
     const email = e.target.email.value
     const password = e.target.password.value
-    handleSubmit()
+    
     createUserWithEmailAndPassword(auth,email,password).then(()=>{
       setUser(true)
       router.push('/login')
@@ -108,8 +106,9 @@ export default function Home() {
               <input style={{borderColor: red,width:'190px',zIndex:"100"}} name='password' type={password} placeholder="password" value={account.password} onChange = {(e) => setAccount({...account, password: e.target.value})} ></input> </div>
               {!user && !create && loaded && <button style={{position:"relative",left:"43px"}} onClick={Password}>
               <div className="relative">{password === 'password' ? 'show password' : 'hide password'}</div></button>}
-          <div className="center" >
-            <button style={{position:'relative',top:"15px",right:"70px"}} onClick={signIn} >Enter</button>   
+          <div className="center column" >
+          <button style={{position:'relative',right:"70px"}} onClick={signIn} >Enter</button>
+            <button style={{position:'relative',right:"43px",margin:"4px",backgroundColor:"transparent",border:'none',color:"blue"}} onClick={Forgot} >Forgot password</button>   
           </div>
           
           </div>}
