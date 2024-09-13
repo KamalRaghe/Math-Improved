@@ -84,7 +84,8 @@ export default function DoubleAdd(){
 
     
     useEffect(() =>{
-        
+        let timer = window.localStorage.getItem('Timer')
+        setTime(timer)
         setTimeout(() => {
             setStart(2)
         }, 1000); 
@@ -92,12 +93,8 @@ export default function DoubleAdd(){
             setStart(1)
         }, 2000);
         setTimeout(() => {
-            
-        }, 3000);
-        setTimeout(() => {
             setStart()
             setLoaded(true)
-            setTime(60000+Date.now())
             update() 
         }, 3000);
         let name = window.localStorage.getItem('GameName')

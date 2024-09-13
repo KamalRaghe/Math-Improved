@@ -17,7 +17,7 @@ function App() {
         const usersRef = ref(rdb, 'users/'+'time')
         const AddList = push(usersRef)
         set(AddList,{
-            time: 60000
+            time: 63000 + Date.now()
         })
        
     }
@@ -51,7 +51,7 @@ function App() {
     }
 
     useEffect(()=>{
-        let userId = window.localStorage.getItem('GameId')
+        let userId = account.title
         setUser(userId)
         setAdd(userId)
         const usersRef = ref(rdb, 'users/'+'time')
