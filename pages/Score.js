@@ -72,7 +72,7 @@ function App() {
         },1500)
         setTimeout(() => {
             Leave()
-        }, 3000);
+        }, 30000);
         Remove()
         setTimeout(()=>{
             router.push('/')
