@@ -25,20 +25,11 @@ function App() {
  const [account, setAccount] = useState({
     title:""
     })
-
-    function Timer(){
-        const usersRef = ref(rdb, 'users/'+'time')
-        const AddList = push(usersRef)
-        set(AddList,{
-            time: 63000 + Date.now()
-        })
-       
-    }
     function AddList(){
         setAdd(true)
         let Code = code.join('')
-        console.log(Code
-        )
+        console.log(Code)
+        window.localStorage.setItem('GameRoom', Code)
         const usersRef = ref(rdb, `${Code}`)
         const AddList = push(usersRef)
         set(AddList,{
@@ -58,8 +49,7 @@ function App() {
                         window.localStorage.setItem('GameName',usersArray[i].data.user)
                     }
                 }
-                let userId = window.localStorage.getItem('GameId')
-                console.log(userId)
+                router.push('/Host')
             }
          }).catch((error)=>{ 
             console.error(error)
@@ -69,28 +59,18 @@ function App() {
   
     useEffect(()=>{
         setCode(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
-        let userId = window.localStorage.getItem('username')
-        setUser(userId)
-        setAdd(userId)
-        const usersRef = ref(rdb, 'users/'+'time')
-        onChildAdded(usersRef,(snapshot)=>{
-            let time = Object.entries(snapshot.val())[0]
-            console.log(time[1])
-            window.localStorage.setItem('Timer', time[1])
-            router.push('/Game')
-        })
     },[])
 
 return(
     <div className="center column" style={{height:"100vh"}}>       
-        {add ? <button onClick={Timer} className="green" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}} >Ready</button> :<div>
+       <div>
             <div className="double center">{user} { user && <button onClick={AddList} className="green" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}} >Ready</button>}</div>
             <br></br>
             <div>
                 <input placeholder="Name" value={account.title} type='text' onChange = {(e) => setAccount({...account, title: e.target.value})} ></input>
                 <button onClick={()=>{setUser(account.title)}} >Enter</button>
             </div>    
-        </div>}
+        </div>
     </div>
 )
 

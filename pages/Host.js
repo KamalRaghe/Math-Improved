@@ -14,47 +14,23 @@ function App() {
     })
 
     function Timer(){
-        const usersRef = ref(rdb, 'users/'+'time')
+        let room = window.localStorage.getItem('GameRoom')
+        const usersRef = ref(rdb, `${room}/`+'time')
         const AddList = push(usersRef)
         set(AddList,{
             time: 63000 + Date.now()
         })
        
     }
-    function AddList(){
-        setAdd(true)
-        const usersRef = ref(rdb, 'users/')
-        const AddList = push(usersRef)
-        set(AddList,{
-            user: account.title
-        })
-        get(usersRef).then((snapshot)=>{
-            if(snapshot.exists()){
-                const usersArray = Object.entries(snapshot.val()).map(([id,data])=>({
-                    id,
-                    data,
-                }))
-            
-                for(let i = 0; i < usersArray.length;i++){
-                    if(usersArray[i].data.user === account.title){
-                        window.localStorage.setItem('GameId',usersArray[i].id)
-                        window.localStorage.setItem('GameName',usersArray[i].data.user)
-                    }
-                }
-                let userId = window.localStorage.getItem('GameId')
-                console.log(userId)
-            }
-         }).catch((error)=>{ 
-            console.error(error)
-        
-        })    
-    }
+   
 
     useEffect(()=>{
-        let userId = account.title
-        setUser(userId)
-        setAdd(userId)
-        const usersRef = ref(rdb, 'users/'+'time')
+        let userId = window.localStorage.getItem('GameId')
+        if(!userId){
+            router.push('/create')
+        }
+        let room = window.localStorage.getItem('GameRoom')
+        const usersRef = ref(rdb, `${room}/`+'time')
         onChildAdded(usersRef,(snapshot)=>{
             let time = Object.entries(snapshot.val())[0]
             console.log(time[1])
@@ -65,14 +41,7 @@ function App() {
 
 return(
     <div className="center column" style={{height:"100vh"}}>       
-        {add ? <button onClick={Timer} className="green" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}} >Ready</button> :<div>
-            <div className="double center">{user} { user && <button onClick={AddList} className="green" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}} >Ready</button>}</div>
-            <br></br>
-            <div>
-                <input placeholder="Name" value={account.title} type='text' onChange = {(e) => setAccount({...account, title: e.target.value})} ></input>
-                <button onClick={()=>{setUser(account.title)}} >Enter</button>
-            </div>    
-        </div>}
+        <button onClick={Timer} className="green" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}} >Start</button>        
     </div>
 )
 

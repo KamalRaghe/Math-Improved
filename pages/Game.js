@@ -74,7 +74,8 @@ export default function DoubleAdd(){
     function updateList(){
         let name = window.localStorage.getItem('GameName')
         let id = window.localStorage.getItem('GameId')
-        set(ref(rdb, 'users/' + id),{
+        let room = window.localStorage.getItem('GameRoom')
+        set(ref(rdb, `${room}/` + id),{
             user: name,
             score: score
         }).then(()=>{

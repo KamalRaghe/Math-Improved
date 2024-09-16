@@ -54,7 +54,8 @@ function App() {
         let userId = account.title 
         setUser(userId)
         setAdd(userId)
-        const usersRef = ref(rdb, 'users/'+'time')
+        let room = window.localStorage.getItem('GameRoom')
+        const usersRef = ref(rdb, `${room}/`+'time')
         onChildAdded(usersRef,(snapshot)=>{
             let time = Object.entries(snapshot.val())[0]
             console.log(time[1])

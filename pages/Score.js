@@ -18,7 +18,8 @@ function App() {
     function Again(){
         let name = window.localStorage.getItem('GameName')
         let id = window.localStorage.getItem('GameId')
-        set(ref(rdb, 'users/' + id),{
+        let room = window.localStorage.getItem('GameRoom')
+        set(ref(rdb, `${room}/` + id),{
             user: name,
             score: 0
         }).then(()=>{
@@ -29,7 +30,8 @@ function App() {
     function Leave(){
         let name = window.localStorage.getItem('GameName')
         let id = window.localStorage.getItem('GameId')
-        set(ref(rdb, 'users/' + id),{
+        let room = window.localStorage.getItem('GameRoom')
+        set(ref(rdb, `${room}/` + id),{
             user: name,
             score: 0
         })
@@ -38,11 +40,13 @@ function App() {
     function Remove(){
         let name = window.localStorage.getItem('GameName')
         let id = window.localStorage.getItem('GameId')
-        remove(ref(rdb, 'users/' + 'time'))
+        let room = window.localStorage.getItem('GameRoom')
+        remove(ref(rdb, `${room}/` + 'time'))
     }
 
     const PlayerList = () =>{
-        const usersRef = ref(rdb, 'users/')
+        let room = window.localStorage.getItem('GameRoom')
+        const usersRef = ref(rdb, `${room}/`)
         const abort = new AbortController()
         get(usersRef).then((snapshot)=>{
             if(snapshot.exists()){
