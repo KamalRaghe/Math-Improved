@@ -51,7 +51,13 @@ function App() {
 
 return(
     <div className="center column" style={{height:"100vh"}}>
-        {<div className="double" style={{width:"80%",height:"50%"}}>Code: {user}</div>}       
+        <div className="double center sb" style={{width:"80%",height:"25%",alignItems:"start"}}>
+         <div>Code: {user}</div>
+         <div>Time</div>  
+        </div>
+        <div className="double" style={{width:"80%",height:"25%",display:"flex",alignItems:"end",}}>
+            <button className="red" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}}>Leave</button>
+        </div>       
         <button onClick={Timer} className="green" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}} >Start</button>        
     </div>
 )
