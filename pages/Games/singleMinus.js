@@ -1,0 +1,143 @@
+import { useEffect, useState } from "react";
+import Choice from "@/components/choice";
+import Correct from "@/components/correct";
+import Wrong from "@/components/wrong"; 
+import HelpAdd from '@/components/HelpAdd'
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { db } from "@/firebase";
+import axios from "axios";
+
+export default function DoubleAdd(){
+
+    const [help, setHelp] = useState(false)
+    const [loaded, setLoaded] = useState(false)
+    const [ready, setReady] = useState(true)
+    const [correct, setCorrect] = useState(false)
+    const[ wrong, setWrong] = useState(false)
+    const [num1, setNum1] = useState(Math.ceil(Math.random()*9));
+    const [num2, setNum2] = useState(Math.ceil(Math.random()*9));
+    const [num3, setNum3] = useState([0,1,-1,Math.ceil(Math.random()*2+1),-1*Math.ceil(Math.random()*2+1)])
+    const router = useRouter()
+    const {username} = router.query 
+    const {id} = router.query 
+
+    function mix(){
+        setNum3([0,1,-1,Math.ceil(Math.random()*2+1),-1*Math.ceil(Math.random()*2+1)])
+    }
+
+    function open(){
+        setHelp(true)
+      }
+      function close(){
+        setHelp(false)
+      }
+
+    function CorrectA(){ 
+        setCorrect(true)
+        setCount(count + 1)
+        setScore(score+1)
+        setTimeout(() => {
+            setCorrect(false)
+            setReady(true) 
+        }, 1900);
+      }
+      
+      function WrongA(){ 
+        setWrong(true)
+        setTimeout(() => {
+            setReady(true)
+            setWrong(false) 
+        }, 1900);
+      } 
+    function Add(){
+        setTimeout(() => {
+            setNum1(Math.ceil(Math.random()*9))
+            setNum2(Math.ceil(Math.random()*9))
+            mix()
+            setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5)) 
+        }, 1900)
+    }
+
+    const [score, setScore] =useState(0)
+    const [count, setCount] =useState(0)
+
+    useEffect(() =>{
+        setLoaded(true)
+        const count = parseInt(window.localStorage.getItem(`singleAdd ${id}`))
+        setCount(count ? count : 0)
+        const score = parseInt(window.localStorage.getItem(`${id} score`))
+        setScore(score ? score : 0)
+    },[])
+
+    useEffect(() =>{
+        if(count > 0){
+        window.localStorage.setItem(`singleAdd ${id}`, count)
+    }},[count])
+
+    useEffect(() =>{
+        if(score > 0){
+        window.localStorage.setItem(`${id} score` , score)
+    }},[score])
+
+
+    useEffect(() =>{
+        mix()
+        setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
+     },[num1])
+
+     useEffect(()=>{
+        const ID = window.localStorage.getItem('ID')
+        if(!(ID === id)){
+            router.push("/")
+        }
+    },[])
+
+    return(
+        <div className="beige container column">
+            <div className="Test sb"><div className="double" >
+                <div>Score: {loaded && score}</div>
+                <div className="font" >Single digit Addition: {loaded && count} </div>
+            </div>
+                <Link href={`/${id}/enter/testSingleAdd`}>
+                    <button className="green test-btn">Test</button>
+                </Link>
+            </div>
+            {ready ? <div className="center " style={{fontSize:"30px",width:"320px",marginTop:"10px"}}>
+                <div>
+                    <div>{num1} + 0 = {num1+0}</div>
+                    <div>{num1} + 1 = {num1+1}</div>
+                    <div>{num1} + 2 = {num1+2}</div>
+                    <div>{num1} + 3 = {num1+3}</div>
+                    <div>{num1} + 4 = {num1+4}</div>
+                    <div>{num1} + 5 = {num1+5}</div>
+                    <div>{num1} + 6 = {num1+6}</div>
+                    <div>{num1} + 7 = {num1+7}</div>
+                    <div>{num1} + 8 = {num1+8}</div>
+                    <div>{num1} + 9 = {num1+9}</div>
+                </div>
+                <button className="green choice" onClick={() => setReady(false)} style={{borderRadius:"20px",margin:"10px"}} >Ready</button>
+            </div>:<div className="center column" >
+                <div className="box column">
+                    <div className="double">{loaded && num1} + {loaded && num2} =</div>
+                </div>
+                {help && <HelpAdd num1 ={num1} num2={num2} close={close}/>}
+                {loaded && correct && <Correct></Correct>}
+                {loaded && wrong && <Wrong/> }
+                <div style={{height:"30px"}} ></div>
+                <div className="box column">
+                <div className="row ">
+                        { loaded && <Choice value ={num1+num2+num3[0]} answer ={num1+num2} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                        { loaded && <Choice value ={num1+num2+num3[1]} answer ={num1+num2} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                        { loaded && <Choice value ={num1+num2+num3[2]} answer ={num1+num2} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                </div>
+                <div className="row">
+                        { loaded && <Choice value ={num1+num2+num3[3]} answer ={num1+num2} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                        { loaded && <Choice value ={num1+num2+num3[4]} answer ={num1+num2} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                </div>
+                </div>
+            </div>}
+        </div>
+    )
+}
