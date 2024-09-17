@@ -25,11 +25,21 @@ function App() {
    
 
     useEffect(()=>{
-        let userId = window.localStorage.getItem('GameId')
-        if(!userId){
+        let room = window.localStorage.getItem('GameRoom')
+        setUser(room)
+        if(room){
+            const roomRef = ref(rdb, `${room}/`)
+            get(roomRef).then((snapshot)=>{
+                if(!(snapshot.exists())){
+                    router.push('/create')
+                }
+            }).catch((error)=>{ 
+                console.error(error)
+            
+            })
+        }else{
             router.push('/create')
         }
-        let room = window.localStorage.getItem('GameRoom')
         const usersRef = ref(rdb, `${room}/`+'time')
         onChildAdded(usersRef,(snapshot)=>{
             let time = Object.entries(snapshot.val())[0]
@@ -40,7 +50,8 @@ function App() {
     },[])
 
 return(
-    <div className="center column" style={{height:"100vh"}}>       
+    <div className="center column" style={{height:"100vh"}}>
+        {<div className="double" style={{width:"80%",height:"50%"}}>Code: {user}</div>}       
         <button onClick={Timer} className="green" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}} >Start</button>        
     </div>
 )
