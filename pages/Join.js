@@ -51,10 +51,10 @@ function App() {
     }
 
     useEffect(()=>{
-        let userId = account.title 
-        setUser(userId)
-        setAdd(userId)
         let room = window.localStorage.getItem('GameRoom')
+        if(!room){
+            router.push('/Enter')
+        }
         const usersRef = ref(rdb, `${room}/`+'time')
         onChildAdded(usersRef,(snapshot)=>{
             let time = Object.entries(snapshot.val())[0]
