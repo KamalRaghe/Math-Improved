@@ -27,19 +27,13 @@ function App() {
     useEffect(()=>{
         let room = window.localStorage.getItem('GameRoom')
         setUser(room)
-        if(room){
-            const roomRef = ref(rdb, `${room}/`)
-            get(roomRef).then((snapshot)=>{
-                if(!(snapshot.exists())){
-                    router.push('/create')
-                }
-            }).catch((error)=>{ 
-                console.error(error)
-            
-            })
-        }else{
+        if(!room){
             router.push('/create')
         }
+        const roomRef = ref(rdb, `${room}/`+'cancel')
+        onChildAdded(roomRef,()=>{
+            router.push('/')
+        })
         const usersRef = ref(rdb, `${room}/`+'time')
         onChildAdded(usersRef,(snapshot)=>{
             let time = Object.entries(snapshot.val())[0]
