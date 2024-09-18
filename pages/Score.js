@@ -47,7 +47,7 @@ function App() {
     const PlayerList = () =>{
         let room = window.localStorage.getItem('GameRoom')
         const usersRef = ref(rdb, `${room}/`)
-        const abort = new AbortController()
+        
         get(usersRef).then((snapshot)=>{
             if(snapshot.exists()){
                 const usersArray = Object.entries(snapshot.val()).map(([id,data])=>({
