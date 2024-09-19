@@ -141,7 +141,7 @@ export default function Home() {
         </div>
         </div>}
       <div className="box" >
-        <button onClick={()=>{router.push('/Join')}} className="green" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}} >Game</button>
+        <button onClick={()=>{router.push('/Enter')}} className="green" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}} >Game</button>
       </div>
       {!user && <div className="box" ></div>}
       {user && <div className="box center" style={{width:'340px'}} >
