@@ -45,7 +45,6 @@ function App() {
                     if(usersArray[i].data.user === account.title){
                         window.localStorage.setItem('GameId',usersArray[i].id)
                         window.localStorage.setItem('GameName',usersArray[i].data.user)
-                        window.localStorage.setItem('host', true )
                     }
                 }
                 router.push('Join')
