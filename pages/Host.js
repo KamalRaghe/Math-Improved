@@ -45,8 +45,8 @@ function App() {
 
 return(
     <div className="center column" style={{height:"100vh"}}>
-        <div className="center sb" style={{fontSize:"30px",width:"300px",height:"25%",alignItems:"start"}}>
-         <div>Code: {user}</div>
+        <div className="center sb" style={{fontSize:"30px",width:"340px",height:"25%",alignItems:"start"}}>
+         <div>Code:<span style={{padding:"1.5px"}} >{user}</span></div>
          <div className="center column" style={{position:'relative',top: '0.5px'}} >
             Time
             <div className="center" style={{fontSize:"20px"}}>
@@ -67,7 +67,7 @@ return(
         </div>  
         </div>
         {time}
-        <div className="double" style={{width:"300px",height:"25%",display:"flex",alignItems:"end",}}>
+        <div className="double" style={{width:"340px",height:"25%",display:"flex",alignItems:"end",}}>
             <button className="red" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}}>Leave</button>
         </div>       
         <button onClick={Timer} className="green" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}} >Start</button>        

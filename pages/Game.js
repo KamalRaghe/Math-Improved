@@ -118,7 +118,10 @@ export default function DoubleAdd(){
             <div className="Test sb" style={{alignItems:"end"}}><div className="double" >
                 {loaded && <div><div>Score: {score}</div><div style={{fontSize:"20px"}} >{name}</div></div>}
             </div>
-                {loaded && time-Date.now() > 0 && <span style={{fontSize:"30px"}}>{Math.floor(((time-Date.now())%(1000*60))/1000)}s</span>}
+                <div>
+                    {loaded && time-Date.now() > 60 && <span style={{fontSize:"30px",padding:"5px"}}>{Math.floor(((time-Date.now())%(1000*60*60))/60000)}m</span>}
+                    {loaded && time-Date.now() > 0 && <span style={{fontSize:"30px"}}>{Math.floor(((time-Date.now())%(1000*60))/1000)}s</span>}
+                </div>    
             </div>
             {<div className="center column" >
                 <div className="box column" style={{width:'300px'}}>
