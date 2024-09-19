@@ -11,6 +11,7 @@ function App() {
 
     useEffect(()=>{
         let room = window.localStorage.getItem('GameRoom')
+        window.localStorage.setItem('host', false )
         setUser(room)
         if(!room){
             router.push('/Enter')
@@ -29,12 +30,12 @@ function App() {
     },[])
 
 return(
-    <div>
-        <div className="double" style={{paddingTop:"30px",paddingLeft:"50px"}} >Code: {user}</div>
-        <div className="center column" style={{height:"70vh"}}>       
-             <div className="double WaitScreen" >Waiting for host</div>
-        </div>
+     <div className="center column" style={{height:"100vh"}}>       
+         <div className="double WaitScreen" >Waiting for host</div>
+         <div style={{margin:"20px",fontSize:"20px"}}>Code: {user}</div>
+         <button onClick={()=>{router.push('/Enter')}} className="Red" style={{backgroundColor:"transparent",padding:"5px"}} >Wrong room?</button>
     </div>
+
 )
 
 

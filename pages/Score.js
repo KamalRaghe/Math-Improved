@@ -23,26 +23,48 @@ function App() {
             user: name,
             score: 0
         }).then(()=>{
-            router.push('/Join')
+            let host = window.localStorage.getItem('host')
+            if(host){
+                router.push('/Host')
+            }else{
+                router.push('/Join')
+            }
+            
         })
     }
 
-    function Leave(){
-        let name = window.localStorage.getItem('GameName')
-        let id = window.localStorage.getItem('GameId')
-        let room = window.localStorage.getItem('GameRoom')
-        set(ref(rdb, `${room}/` + id),{
-            user: name,
-            score: 0
-        })
-    }
+    // function restart(){
+    //     let name = window.localStorage.getItem('GameName')
+    //     let id = window.localStorage.getItem('GameId')
+    //     let room = window.localStorage.getItem('GameRoom')
+    //     set(ref(rdb, `${room}/` + id),{
+    //         user: name,
+    //         score: 0
+    //     })
+    // }
+
+
 
     function Remove(){
-        let name = window.localStorage.getItem('GameName')
-        let id = window.localStorage.getItem('GameId')
         let room = window.localStorage.getItem('GameRoom')
         remove(ref(rdb, `${room}/` + 'time'))
     }
+    
+    function Leave(){
+        let room = window.localStorage.getItem('GameRoom')
+        let host = window.localStorage.getItem('host')
+        if(host){
+            const usersRef = ref(rdb, `${room}/`+'cancel')
+            const AddList = push(usersRef)
+            set(AddList,{
+                time: 63000 + Date.now()
+            }).then(remove(ref(rdb, `${room}/`)))  
+        }else(
+            remove(ref(rdb, `${room}/`+ id))  
+        )
+             
+    }
+   
 
     const PlayerList = () =>{
         let room = window.localStorage.getItem('GameRoom')
@@ -70,14 +92,14 @@ function App() {
         }) 
        }
     useEffect(()=>{
+        Remove()
         setTimeout(()=>{
             PlayerList()
             setAdd(true)
         },1500)
-        setTimeout(() => {
-            Leave()
-        }, 30000);
-        Remove()
+        // setTimeout(() => {
+        //     restart()
+        // }, 30000);
         setTimeout(()=>{
             router.push('/')
         },300000)
@@ -90,7 +112,12 @@ return(
         {users.map(num =>{//{num.data.user}: {num.data.score}
             return <div className="double" key={num.id} >{num.data.score > 0 && num.data.user} {num.data.score > 0 && num.data.score}</div>
           })}
-        {add && <button onClick={Again} className="red" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}} >Play Again</button>}
+        {add && 
+            <div className="center" >
+                <button onClick={Again} className="green" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}} >Play Again</button>
+                <button onClick={Leave} className="red" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}} >Leave</button>
+            </div>
+        }
     </div>
 )
 
