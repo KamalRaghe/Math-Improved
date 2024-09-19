@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 
 
 function App() {
- const [users, setUsers] = useState([])
+ const [time, setTime] = useState(1)
  const [user, setUser] = useState()
  const [add, setAdd] = useState(false)
  const router = useRouter()
@@ -18,7 +18,7 @@ function App() {
         const usersRef = ref(rdb, `${room}/`+'time')
         const AddList = push(usersRef)
         set(AddList,{
-            time: 63000 + Date.now()
+            time: time*60000 + 3000 + Date.now()
         })
        
     }
@@ -45,11 +45,29 @@ function App() {
 
 return(
     <div className="center column" style={{height:"100vh"}}>
-        <div className="double center sb" style={{width:"80%",height:"25%",alignItems:"start"}}>
+        <div className="center sb" style={{fontSize:"30px",width:"300px",height:"25%",alignItems:"start"}}>
          <div>Code: {user}</div>
-         <div>Time</div>  
+         <div className="center column" style={{position:'relative',top: '0.5px'}} >
+            Time
+            <div className="center" style={{fontSize:"20px"}}>
+                <input name='time' value={time} type='radio' onClick = {(e) => setTime(1)}/>1 min
+            </div>
+            <div className="center" style={{fontSize:"20px"}}>
+                <input name='time' value={time} type='radio' onClick = {(e) => setTime(2)}/>2 min
+            </div>
+            <div className="center" style={{fontSize:"20px"}}>
+                <input name='time' value={time} type='radio' onClick = {(e) => setTime(3)}/>3 min
+            </div>
+            <div className="center" style={{fontSize:"20px"}}>
+                <input name='time' value={time} type='radio' onClick = {(e) => setTime(4)}/>4 min
+            </div>
+            <div className="center" style={{fontSize:"20px"}}>
+                <input name='time' value={time} type='radio' onClick = {(e) => setTime(5)}/>5 min
+            </div>
+        </div>  
         </div>
-        <div className="double" style={{width:"80%",height:"25%",display:"flex",alignItems:"end",}}>
+        {time}
+        <div className="double" style={{width:"300px",height:"25%",display:"flex",alignItems:"end",}}>
             <button className="red" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}}>Leave</button>
         </div>       
         <button onClick={Timer} className="green" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}} >Start</button>        
