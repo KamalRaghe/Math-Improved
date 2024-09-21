@@ -33,15 +33,15 @@ function App() {
         })
     }
 
-    // function restart(){
-    //     let name = window.localStorage.getItem('GameName')
-    //     let id = window.localStorage.getItem('GameId')
-    //     let room = window.localStorage.getItem('GameRoom')
-    //     set(ref(rdb, `${room}/` + id),{
-    //         user: name,
-    //         score: 0
-    //     })
-    // }
+    function restart(){
+        let name = window.localStorage.getItem('GameName')
+        let id = window.localStorage.getItem('GameId')
+        let room = window.localStorage.getItem('GameRoom')
+        set(ref(rdb, `${room}/` + id),{
+            user: name,
+            score: 0
+        })
+    }
 
 
 
@@ -97,9 +97,9 @@ function App() {
             PlayerList()
             setAdd(true)
         },1500)
-        // setTimeout(() => {
-        //     restart()
-        // }, 30000);
+        setTimeout(() => {
+            restart()
+        }, 30000);
         setTimeout(()=>{
             router.push('/')
         },300000)

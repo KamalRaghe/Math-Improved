@@ -39,7 +39,7 @@ function App() {
             let time = Object.entries(snapshot.val())[0]
             console.log(time[1])
             window.localStorage.setItem('Timer', time[1])
-            router.push('/Game')
+            router.push('/Games/singleAdd')
         })
     },[])
 

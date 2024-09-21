@@ -106,26 +106,12 @@ export default function DoubleAdd(){
             <Link href={`/${id}/enter/testSingleTimes`}>
                 <button className="green test-btn">Test</button>
             </Link></div>
-           {ready ? <div className="center " style={{fontSize:"30px",width:"320px",marginTop:"10px"}}>
-                <div>
-                    <div>{num1} x 0 = {num1*0}</div>
-                    <div>{num1} x 1 = {num1*1}</div>
-                    <div>{num1} x 2 = {num1*2}</div>
-                    <div>{num1} x 3 = {num1*3}</div>
-                    <div>{num1} x 4 = {num1*4}</div>
-                    <div>{num1} x 5 = {num1*5}</div>
-                    <div>{num1} x 6 = {num1*6}</div>
-                    <div>{num1} x 7 = {num1*7}</div>
-                    <div>{num1} x 8 = {num1*8}</div>
-                    <div>{num1} x 9 = {num1*9}</div>
-                </div>
-                <button className="green choice" onClick={() => setReady(false)} style={{borderRadius:"20px",margin:"10px"}} >Ready</button>
-            </div>:<div>
+          <div>
                 <div className="box column">
                       <div className="double">{loaded && num1} x {loaded && num2} =</div>
                 </div>
                 <div style={{height:"30px"}} ></div>
-           </div>}
+           </div>
             {help && <HelpTimes num1 ={num1} num2={num2} close={close}/>}
             {loaded && correct && <Correct></Correct>}
             {loaded && wrong && <Wrong/> }
