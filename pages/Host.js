@@ -8,7 +8,7 @@ function App() {
  const [time, setTime] = useState(1)
  const [user, setUser] = useState()
  const [add, setAdd] = useState(false)
- const [topic, setTopic] = useState('singleAdd')
+ const [topic, setTopic] = useState('Single digit Addition')
  const router = useRouter()
  const [account, setAccount] = useState({
     title:""
@@ -41,7 +41,12 @@ function App() {
             let time = Object.entries(snapshot.val())[0]
             console.log(time[1])
             window.localStorage.setItem('Timer', time[1])
-            router.push('/Games/singleAdd')
+            let topics = ''
+            for(let word of topic.split(' ') ){
+                topics += word
+            }
+            console.log(topics)
+            // router.push(`/Games/${topics}`)
         })
     },[])
 
@@ -68,11 +73,11 @@ return(
             </div>
         </div>  
         </div>
-        {time}
-        <div className="double" style={{width:"340px",height:"25%",display:"flex",alignItems:"end",}}>
-            <button className="red" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}}>Leave</button>
+        <div><button className="sub-topic" style={{margin:"2px"}} >{topic}</button></div>
+        <div className="double" style={{width:"340px",height:"10%",display:"flex",alignItems:"end",}}>
+            <button className="topic red" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px 20px"}}>Leave</button>
         </div>       
-        <button onClick={Timer} className="green" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}} >Start</button>        
+        <button onClick={Timer} className="topic green" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px 20px"}} >Start</button>        
     </div>
 )
 
