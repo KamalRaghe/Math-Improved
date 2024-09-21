@@ -8,6 +8,7 @@ function App() {
  const [time, setTime] = useState(1)
  const [user, setUser] = useState()
  const [add, setAdd] = useState(false)
+ const [topic, setTopic] = useState('singleAdd')
  const router = useRouter()
  const [account, setAccount] = useState({
     title:""
@@ -18,7 +19,8 @@ function App() {
         const usersRef = ref(rdb, `${room}/`+'time')
         const AddList = push(usersRef)
         set(AddList,{
-            time: time*60000 + 3000 + Date.now()
+            time: time*60000 + 3000 + Date.now(),
+            topic: topic
         })
        
     }

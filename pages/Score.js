@@ -101,6 +101,7 @@ function App() {
             restart()
         }, 30000);
         setTimeout(()=>{
+            Leave()
             router.push('/')
         },300000)
     },[])
