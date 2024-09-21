@@ -125,7 +125,7 @@ export default function DoubleAdd(){
             </div>
             {<div className="center column" >
                 <div className="box column" style={{width:'300px'}}>
-                    {loaded && <div className="double">{num1} + {num2} =
+                    {loaded && <div className="double">{num1} - {num2} =
                         {loaded && correct && <span className="Green" style={{padding:"10px"}} >{num1+num2}</span>}
                         {loaded && wrong && <span className="Red" style={{padding:"10px"}} >{num1+num2}</span>}
                     </div>}
