@@ -5,6 +5,8 @@ import { rdb } from "@/firebase";
 
 
 export default function DoubleAdd(){
+    const [loaded, setLoaded] =useState()
+
     const [name, setName] =useState()
     const [time, setTime] = useState()
     const [start, setStart] = useState(3)
