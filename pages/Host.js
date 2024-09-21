@@ -38,14 +38,13 @@ function App() {
         })
         const usersRef = ref(rdb, `${room}/`+'time')
         onChildAdded(usersRef,(snapshot)=>{
-            let time = Object.entries(snapshot.val())[0]
+            let time = Object.entries(snapshot.val())[1]
             console.log(time[1])
             window.localStorage.setItem('Timer', time[1])
             let topics = ''
             for(let word of topic.split(' ') ){
                 topics += word
             }
-            console.log(topics)
             // router.push(`/Games/${topics}`)
         })
     },[])
