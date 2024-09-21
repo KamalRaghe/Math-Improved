@@ -8,11 +8,18 @@ import { db } from "@/firebase";
 export default function Menu(){
     const [count, setCount] = useState(0)
     const [loaded, setLoaded] = useState(true)
-    const router = useRouter() 
+    const router = useRouter()
+    const [menu, setMenu] = useState('200vh') 
     const {id} = router.query 
    
+    useEffect(()=>{
+        if(count !== 'fraction' && count !== 10){
+            setMenu('200vh')
+        }
+    })
+
     return (
-        <div className="beige menu Help" style={{backgroundColor:'beige',msOverflowY:'scroll'}}>
+        <div className="beige menu Help" style={{height:menu,backgroundColor:'beige',OverflowY:'scroll',border:"2px solid "}}>
             <h1 style={{marginLeft:'35px',paddingLeft:'15px',paddingTop:'15px', borderBottom: '2px solid black',width: '90px'}} >Math</h1>
             
             {loaded && <button onClick={() => {setCount(1)}} className="topic">Addition</button >}
@@ -34,7 +41,7 @@ export default function Menu(){
             {  count === 5 &&<Link href= {`/${id}/enter/Lcm`}><button className="sub-topic zoom">Lowest Common Multiple</button></Link>}
             {  count === 5 && <Link href= {`/${id}/enter/Hcf`}><button className="sub-topic zoom">Highest Common Factor</button></Link>}
 
-            { loaded && <button onClick={() => {setCount('fraction')}}  className="topic">Fractions</button >}
+            { loaded && <button onClick={() => {setCount('fraction');setMenu('300vh')}}  className="topic">Fractions</button >}
             {  count === 'fraction' &&<Link href= {`/${id}/enter/Simplify`}><button className="sub-topic zoom">Simplify</button></Link>}
             {  count === 'fraction' &&<Link href= {`/${id}/enter/Mixed`}><button className="sub-topic zoom">Mixed to Improper</button></Link>}
             {  count === 'fraction' && <Link href= {`/${id}/enter/Improper`}><button className="sub-topic zoom">Improper to Mixed</button></Link>}            
@@ -67,7 +74,7 @@ export default function Menu(){
             { loaded && <button onClick={() => {setCount(9)}}  className="topic">Bedmas</button >}
             { count === 9 &&<Link href= {`/${id}/enter/Bedmas`}><button className="sub-topic zoom">Bedmas</button></Link>}
             
-            { loaded && <button onClick={() => {setCount(10)}}  className="topic">Algebra</button >}
+            { loaded && <button onClick={() => {setCount(10);setMenu('250vh')}}  className="topic">Algebra</button >}
             { count === 10 && <Link href= {`/${id}/enter/Algebra`}><button className="sub-topic zoom">One variable</button></Link>}
             { count === 10 && <Link href= {`/${id}/enter/likeTerm`}><button className="sub-topic zoom">Like terms</button></Link>}
             { count === 10 && <Link href= {`/${id}/enter/Algebra2`}><button className="sub-topic zoom">Two variable</button></Link>}
