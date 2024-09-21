@@ -9,7 +9,7 @@ function App() {
  const [time, setTime] = useState(1)
  const [user, setUser] = useState()
  const [add, setAdd] = useState(false)
- const [Choice, setChoice] = useState(false)
+ const [menu, setMenu] = useState(false)
  const [topic, setTopic] = useState('Single digit Addition')
  const router = useRouter()
  const [account, setAccount] = useState({
@@ -75,8 +75,8 @@ return(
             </div>
         </div>  
         </div>
-        <br></br>{<Menu></Menu>}
-        <div><button className="sub-topic" style={{margin:"2px"}} >{topic}</button></div>
+        <br></br>{menu && <Menu close = {()=>{setMenu(false)}}  ></Menu>}
+        <div><button className="sub-topic" style={{margin:"2px"}} onClick={()=>{setMenu(true)}} >{topic}</button></div>
         <div className="double" style={{width:"340px",height:"10%",display:"flex",alignItems:"end",}}>
             <button className="topic red" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px 20px"}}>Leave</button>
         </div>       

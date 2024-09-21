@@ -9,18 +9,12 @@ export default function Menu(){
     const [count, setCount] = useState(0)
     const [loaded, setLoaded] = useState(true)
     const router = useRouter()
-    const [menu, setMenu] = useState('200vh') 
+    const [menu, setMenu] = useState('100vh') 
     const {id} = router.query 
-   
-    useEffect(()=>{
-        if(count !== 'fraction' && count !== 10){
-            setMenu('200vh')
-        }
-    })
 
     return (
-        <div className="beige menu Help" style={{height:menu,backgroundColor:'beige',OverflowY:'scroll',border:"2px solid "}}>
-            <h1 style={{marginLeft:'35px',paddingLeft:'15px',paddingTop:'15px', borderBottom: '2px solid black',width: '90px'}} >Math</h1>
+        <div className="beige menu Help" style={{height:'100vh',overflowY:"scroll",backgroundColor:'beige',border:"2px solid "}}>
+            <button className=" cancel-btn absolute " style={{left:'270px'}} onClick={close} >X</button>
             
             {loaded && <button onClick={() => {setCount(1)}} className="topic">Addition</button >}
             { count === 1 && <Link href= {`/${id}/enter/singleAdd`}><button className="sub-topic zoom">Single digit Addition</button></Link>}
