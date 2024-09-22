@@ -5,11 +5,16 @@ import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "@/firebase";
 
 
-export default function Menu(){
+export default function Menu({close,setTopic}){
     const [count, setCount] = useState(0)
     const [loaded, setLoaded] = useState(true)
     const router = useRouter()
     const {id} = router.query 
+
+    function topic(Topic){
+        window.localStorage.setItem('Topic', Topic)
+        setTopic()
+    }
 
     return (
         <div className="beige menu Help" style={{height:'100vh',overflowY:"scroll",backgroundColor:'beige',border:"2px solid "}}>
@@ -20,7 +25,7 @@ export default function Menu(){
             { count === 1 && <Link href= {`/${id}/enter/doubleAdd`}><button className="sub-topic zoom">Double digit Addition</button></Link>}
             
             { loaded && <button onClick={() => {setCount(2)}}  className="topic">Subtraction</button >}
-            {  count === 2 &&<Link href= {`/${id}/enter/singleMinus`}><button className="sub-topic zoom">Single digit Subtraction</button></Link>}
+            {  count === 2 &&<button onClick={()=>{topic('Single digit subtraction')}} className="sub-topic zoom">Single digit Subtraction</button>}
             {  count === 2 && <Link href= {`/${id}/enter/doubleMinus`}><button className="sub-topic zoom">Double digit subtraction</button></Link>}
 
             { loaded && <button onClick={() => {setCount(3)}}  className="topic">Multiplication</button >}

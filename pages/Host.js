@@ -27,6 +27,14 @@ function App() {
        
     }
    
+    function close(){
+        setMenu(false)
+    }
+
+    function pick(){
+        let topic = window.localStorage.getItem('Topic')
+        setTopic(topic)
+    }
 
     useEffect(()=>{
         let room = window.localStorage.getItem('GameRoom')
@@ -75,7 +83,7 @@ return(
             </div>
         </div>  
         </div>
-        <br></br>{menu && <Menu close = {()=>{setMenu(false)}}  ></Menu>}
+        <br></br>{menu && <Menu close ={close} setTopic={pick} ></Menu>}
         <div><button className="sub-topic" style={{margin:"2px"}} onClick={()=>{setMenu(true)}} >{topic}</button></div>
         <div className="double" style={{width:"340px",height:"10%",display:"flex",alignItems:"end",}}>
             <button className="topic red" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px 20px"}}>Leave</button>
