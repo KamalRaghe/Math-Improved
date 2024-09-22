@@ -20,7 +20,10 @@ export default function Math(){
 
     return (
         <div className="beige menu" style={{height: '300vh',backgroundColor:'beige'}}>
-            <h1 style={{marginLeft:'35px',paddingLeft:'15px',paddingTop:'15px', borderBottom: '2px solid black',width: '90px'}} >Math</h1>
+            <h1 style={{marginLeft:'35px',paddingLeft:'15px',paddingTop:'15px', borderBottom: '2px solid black',width: '105px'}} >Match</h1>
+            <Link href= {`/Enter`}><button className="sub-topic green" style={{padding:"8px 43px"}} >Join</button></Link>
+            <Link href= {`/create`}><button className="sub-topic green">Create</button></Link>
+            <h1 style={{marginLeft:'35px',paddingLeft:'15px',margin:"20px",paddingTop:'15px', borderBottom: '2px solid black',width: '125px'}} >Practice</h1>
             
             {loaded && <button onClick={() => {setCount(1)}} className="topic">Addition</button >}
             { count === 1 && <Link href= {`/${id}/enter/singleAdd`}><button className="sub-topic zoom">Single digit Addition</button></Link>}
