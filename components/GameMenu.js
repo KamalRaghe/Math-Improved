@@ -14,6 +14,7 @@ export default function Menu({close,setTopic}){
     function topic(Topic){
         window.localStorage.setItem('Topic', Topic)
         setTopic()
+        close()
     }
 
     return (
@@ -21,7 +22,7 @@ export default function Menu({close,setTopic}){
             <button className=" cancel-btn absolute " style={{left:'270px'}} onClick={close} >X</button>
             
             {loaded && <button onClick={() => {setCount(1)}} className="topic">Addition</button >}
-            { count === 1 && <Link href= {`/${id}/enter/singleAdd`}><button className="sub-topic zoom">Single digit Addition</button></Link>}
+            { count === 1 && <button onClick={()=>{topic('Single digit addition')}}className="sub-topic zoom">Single digit Addition</button>}
             { count === 1 && <Link href= {`/${id}/enter/doubleAdd`}><button className="sub-topic zoom">Double digit Addition</button></Link>}
             
             { loaded && <button onClick={() => {setCount(2)}}  className="topic">Subtraction</button >}

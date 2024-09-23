@@ -87,25 +87,21 @@ export default function DoubleAdd(){
         setScore(score+1)
         setTimeout(() => {
             setCorrect(false) 
-        }, 1900);
-        setCorrect(true)
-        setTimeout(() => {
-            setCorrect(false) 
-        }, 1900);
+        }, 1200);
       }
   
       function WrongA(){ 
         setWrong(true)
         setTimeout(() => {
             setWrong(false) 
-        }, 1900);
+        }, 1200);
       } 
     function Add(){
         setTimeout(() => {
             setNum1(Math.ceil(Math.random()*9))
             mix()
             setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5)) 
-        }, 1500)
+        }, 1200)
     }
 
     const [score, setScore] =useState(0)
@@ -127,15 +123,13 @@ export default function DoubleAdd(){
                 {loaded && time-Date.now() > 0 && <span style={{fontSize:"30px"}}>{Math.floor(((time-Date.now())%(1000*60))/1000)}s</span>}
                 </div>
             </div>
-            <div className="box column">
-                {loaded && <div className="double">{loaded && num1} - {loaded && num2} =</div>}
+            <div className="box column" style={{width:"300px"}} >
+                {loaded && <div className="double">{loaded && num1} - {loaded && num2} = 
+                {loaded && correct && <span className="Green" style={{padding:"10px"}} >{num1-num2}</span>}
+                {loaded && wrong && <span className="Red" style={{padding:"10px"}} >{num1-num2}</span>}</div>}
             </div>
             {<div className="countStart" >{start}</div>}
-            <div className="box">
-                {loaded && <div className="double">{num1} + {num2} =
-                        {loaded && correct && <span className="Green" style={{padding:"10px"}} >{num1-num2}</span>}
-                        {loaded && wrong && <span className="Red" style={{padding:"10px"}} >{num1-num2}</span>}
-                    </div>}
+            <div style={{marginBottom:"20px"}}>
                 {loaded && <button className="help" onClick={open}>help</button>}
             </div>
             {help && <HelpMinus num1 ={num1} num2={num2} close={close}/>}
