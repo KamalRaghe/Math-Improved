@@ -103,7 +103,6 @@ export default function DoubleAdd(){
     function Add(){
         setTimeout(() => {
             setNum1(Math.ceil(Math.random()*9))
-            
             mix()
             setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5)) 
         }, 1500)
@@ -133,11 +132,13 @@ export default function DoubleAdd(){
             </div>
             {<div className="countStart" >{start}</div>}
             <div className="box">
+                {loaded && <div className="double">{num1} + {num2} =
+                        {loaded && correct && <span className="Green" style={{padding:"10px"}} >{num1-num2}</span>}
+                        {loaded && wrong && <span className="Red" style={{padding:"10px"}} >{num1-num2}</span>}
+                    </div>}
                 {loaded && <button className="help" onClick={open}>help</button>}
             </div>
             {help && <HelpMinus num1 ={num1} num2={num2} close={close}/>}
-            {loaded && correct && <Correct></Correct>}
-            {loaded && wrong && <Wrong/> }
             <div className="box column">
                <div className="row ">
                     { loaded && <Choice value ={num1-num2+num3[0]} answer ={num1-num2} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}

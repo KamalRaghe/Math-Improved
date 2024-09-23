@@ -52,7 +52,7 @@ export default function DoubleAdd(){
         setTimeout(() => {
             setCorrect(false)
             setReady(true) 
-        }, 1200);
+        }, 1900);
       }
       
       function WrongA(){ 
