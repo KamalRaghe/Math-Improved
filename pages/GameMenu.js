@@ -28,10 +28,10 @@ export default function Menu(){
             {  count === 2 && <Link href= {`/${id}/enter/doubleMinus`}><button className="sub-topic zoom">Double digit subtraction</button></Link>}
 
             { loaded && <button onClick={() => {setCount(3)}}  className="topic">Multiplication</button >}
-            {  count === 3 &&<Link href= {`/${id}/enter/singleTimes`}><button className="sub-topic zoom">Single digit Multiplication</button></Link>}
+            {  count === 3 &&<button onClick={()=>{topic('Single digit multiplication')}} className="sub-topic zoom">Single digit Multiplication</button>}
             {   count === 3 && <Link href= {`/${id}/enter/doubleTimes`}><button className="sub-topic zoom">Double digit Multiplication</button></Link>}
 
-            { loaded && <button onClick={() => {setCount(4)}}  className="topic">Division</button >}
+            {/* { loaded && <button onClick={() => {setCount(4)}}  className="topic">Division</button >}
             {  count === 4 &&<Link href= {`/${id}/enter/longDivision`}><button className="sub-topic zoom">Long Division</button></Link>}
 
             { loaded && <button onClick={() => {setCount(5)}}  className="topic">LCM & HCF</button >}
@@ -87,7 +87,7 @@ export default function Menu(){
             { count === 'angle' &&<Link href= {`/${id}/enter/Area`}><button className="sub-topic zoom">Area</button></Link>}
 
             { loaded && <button onClick={() => {setCount('log')}}  className="topic">Logarithms</button >}
-            { count === 'log' &&<Link href= {`/${id}/enter/Logarithm`}><button className="sub-topic zoom">Logarithms</button></Link>}
+            { count === 'log' &&<Link href= {`/${id}/enter/Logarithm`}><button className="sub-topic zoom">Logarithms</button></Link>} */}
         </div>     
     )
 } 
