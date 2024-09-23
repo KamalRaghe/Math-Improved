@@ -5,7 +5,7 @@ import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "@/firebase";
 
 
-export default function Menu({close,setTopic}){
+export default function Menu(){
     const [count, setCount] = useState(0)
     const [loaded, setLoaded] = useState(true)
     const router = useRouter()
@@ -13,14 +13,12 @@ export default function Menu({close,setTopic}){
 
     function topic(Topic){
         window.localStorage.setItem('Topic', Topic)
-        setTopic()
-        close()
+        router.push('/Host')
     }
 
     return (
-        <div className="beige menu Help" style={{height:'100vh',overflowY:"scroll",backgroundColor:'beige',border:"2px solid "}}>
-            <button className=" cancel-btn absolute " style={{left:'270px'}} onClick={close} >X</button>
-            
+        <div className="beige menu" style={{height:'300vh',backgroundColor:'beige'}}>
+            <h1 style={{marginLeft:'35px',paddingLeft:'15px',margin:"20px",paddingTop:'15px', borderBottom: '2px solid black',width:'95px'}} >Topic</h1>
             {loaded && <button onClick={() => {setCount(1)}} className="topic">Addition</button >}
             { count === 1 && <button onClick={()=>{topic('Single digit addition')}}className="sub-topic zoom">Single digit Addition</button>}
             { count === 1 && <Link href= {`/${id}/enter/doubleAdd`}><button className="sub-topic zoom">Double digit Addition</button></Link>}

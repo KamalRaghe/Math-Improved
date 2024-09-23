@@ -2,19 +2,14 @@ import { useEffect, useState } from "react";
 import { rdb } from "@/firebase";
 import { get, ref, push, set, onChildAdded } from "firebase/database";
 import { useRouter } from "next/router";
-import Menu from "@/components/GameMenu";
+
 
 
 function App() {
  const [time, setTime] = useState(1)
  const [user, setUser] = useState()
- const [add, setAdd] = useState(false)
- const [menu, setMenu] = useState(false)
- const [topic, setTopic] = useState('Single digit Addition')
+ const [topic, setTopic] = useState('Single digit addition')
  const router = useRouter()
- const [account, setAccount] = useState({
-    title:""
-    })
 
     function Timer(){
         let room = window.localStorage.getItem('GameRoom')
@@ -26,10 +21,6 @@ function App() {
         })
        
     }
-   
-    function close(){
-        setMenu(false)
-    }
 
     function pick(){
         let topic = window.localStorage.getItem('Topic')
@@ -37,6 +28,7 @@ function App() {
     }
 
     useEffect(()=>{
+        pick()
         let room = window.localStorage.getItem('GameRoom')
         setUser(room)
         if(!room){
@@ -83,8 +75,8 @@ return(
             </div>
         </div>  
         </div>
-        <br></br>{menu && <Menu close ={close} setTopic={pick} ></Menu>}
-        <div><button className="sub-topic" style={{margin:"2px"}} onClick={()=>{setMenu(true)}} >{topic}</button></div>
+        <br></br>
+        <div><button className="sub-topic" style={{margin:"2px"}} onClick={()=>{router.push('/GameMenu')}} >{topic}</button></div>
         <div className="double" style={{width:"340px",height:"10%",display:"flex",alignItems:"end",}}>
             <button className="topic red" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px 20px"}}>Leave</button>
         </div>       
