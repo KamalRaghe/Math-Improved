@@ -50,7 +50,7 @@ function App() {
                 go += word
             }
             console.log(go)
-            router.push(`/Games/${go}`)
+            // router.push(`/Games/${go}`)
         })
     },[])
 
