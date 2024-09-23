@@ -24,7 +24,9 @@ function App() {
 
     function pick(){
         let topic = window.localStorage.getItem('Topic')
-        setTopic(topic)
+        if(topic){
+            setTopic(topic)
+        }
     }
 
     useEffect(()=>{
