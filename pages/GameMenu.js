@@ -21,7 +21,7 @@ export default function Menu(){
             <h1 style={{marginLeft:'35px',paddingLeft:'15px',margin:"20px",paddingTop:'15px', borderBottom: '2px solid black',width:'95px'}} >Topic</h1>
             {loaded && <button onClick={() => {setCount(1)}} className="topic">Addition</button >}
             { count === 1 && <button onClick={()=>{topic('Single digit addition')}}className="sub-topic zoom">Single digit Addition</button>}
-            { count === 1 && <Link href= {`/${id}/enter/doubleAdd`}><button className="sub-topic zoom">Double digit Addition</button></Link>}
+            { count === 1 && <button onClick={()=>{topic('Double digit addition')}} className="sub-topic zoom">Double digit Addition</button>}
             
             { loaded && <button onClick={() => {setCount(2)}}  className="topic">Subtraction</button >}
             {  count === 2 &&<button onClick={()=>{topic('Single digit subtraction')}} className="sub-topic zoom">Single digit Subtraction</button>}

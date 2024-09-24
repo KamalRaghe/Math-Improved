@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+
 import { set, ref } from "firebase/database";
 import { rdb } from "@/firebase";
 
