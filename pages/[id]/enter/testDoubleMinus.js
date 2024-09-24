@@ -125,7 +125,8 @@ export default function testDoubleMinus(){
             <div className="box column">
                 <div className="double top-number">{loaded && num1}</div>
                 <div className="double bottom-number" >-<span className="hide">.</span>{loaded && num2}</div>
-                {correct && <div className="Green double lower-number">{loaded && num1-num2}</div>}{wrong && <div className="Red double lower-number``">{loaded && num2+num1}</div>}
+                {correct && <div className="Green double lower-number">{loaded && num1-num2}</div>}
+                {wrong && <div className="Red double lower-number">{loaded && num1-num2}</div>}
             </div>
             <div className="box">
                

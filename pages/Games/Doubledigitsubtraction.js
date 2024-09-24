@@ -81,14 +81,14 @@ export default function DoubleAdd(){
         setScore(score+1)
         setTimeout(() => {
             setCorrect(false) 
-        }, 1900);
+        }, 1200);
       }
   
       function WrongA(){ 
         setWrong(true)
         setTimeout(() => {
             setWrong(false) 
-        }, 1900);
+        }, 1200);
       } 
     function Add(){
         setTimeout(() => {
@@ -96,7 +96,7 @@ export default function DoubleAdd(){
             setNum2(Math.floor(Math.random()*40+10))
             mix()
             setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5)) 
-        }, 1500)
+        }, 1200)
     }
 
     useEffect(() =>{
@@ -118,18 +118,16 @@ export default function DoubleAdd(){
                 </div>    
             </div>
                 {<div className="countStart" >{start}</div>}
-            <div className="box column">
+            {loaded && <div className="box column">
                 <div className="double top-number">{loaded && num1}</div>
                 <div className="double bottom-number">-<span className="hide">.</span>{loaded && num2}</div>
                 {correct && <div className="Green double lower-number">{loaded && num1-num2}</div>}
-                {wrong && <div className="Red double lower-number``">{loaded && num2+num1}</div>}
-            </div>
-            <div className="box">
+                {wrong && <div className="Red double lower-number``">{loaded && num1-num2}</div>}
+            </div>}
+           {loaded && <div className="box">
                 <button className="help" onClick={open}>Step by step</button>
-            </div>
+            </div>}
             {help && <StepMinus num1 ={num1} num2={num2} close={close}/>}
-            {loaded && correct && <Correct></Correct> }
-            {loaded && wrong && <Wrong/> }
             <div className="box column">
                <div className="row ">
                     { loaded && <Choice value ={num1-num2+num3[0]} answer ={num1-num2} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
