@@ -37,7 +37,7 @@ export default function DoubleAdd(){
         setCorrect(true)
         setTimeout(() => {
             setCorrect(false) 
-        }, 1900);
+        }, 1200);
         setScore(score+1)
     }
   
@@ -45,7 +45,7 @@ export default function DoubleAdd(){
         setWrong(true)
         setTimeout(() => {
             setWrong(false) 
-        }, 1900);
+        }, 1200);
       } 
     function Add(){
         setTimeout(() => {
@@ -53,7 +53,7 @@ export default function DoubleAdd(){
             setNum2(Math.ceil(Math.random()*900+99))   
             mix()
             setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5)) 
-        }, 1500)
+        }, 1200)
     }
 
 
@@ -120,15 +120,15 @@ export default function DoubleAdd(){
                 </div>    
             </div>
                 {<div className="countStart" >{start}</div>}
-            <div className="box">
-            <div className="center double Green" style={{width:"105.5%"}}><span></span>{correct && num2/num1 < 100 && <span className="hide">0</span>}{correct && loaded && ((num2-(num2 % num1))/num1)}{correct && num2%num1 > 0 && "R"+ (num2%num1)}</div>
-            <div className="center double Red" style={{marginBottom:'15px', width:"105.5%"}}><span></span>{wrong && num2/num1 < 100 && <span className="hide">0</span>}{wrong && loaded && ((num2-(num2 % num1))/num1)}{wrong && num2%num1 > 0 && "R"+ (num2%num1)}</div>
-                <div className="double center">{loaded && num1}<div style={{borderLeft: '3px solid black', borderTop: '3px solid black', marginLeft:'5px', paddingRight:'10px'}}><span className="hide">.</span>{loaded && num2}</div> </div>
-            </div>
+            {loaded && <div className="box column">
+                <div className="center double Green" style={{width:"105.5%"}}><span></span>{correct && num2/num1 < 100 && <span className="hide">0</span>}{correct && loaded && ((num2-(num2 % num1))/num1)}{correct && num2%num1 > 0 && "R"+ (num2%num1)}</div>
+                <div className="center double Red" style={{marginBottom:'15px', width:"105.5%"}}><span></span>{wrong && num2/num1 < 100 && <span className="hide">0</span>}{wrong && loaded && ((num2-(num2 % num1))/num1)}{wrong && num2%num1 > 0 && "R"+ (num2%num1)}</div>
+                <div className="double center" style={{ height: '10px'}}>{loaded && num1}<div style={{borderLeft: '3px solid black', borderTop: '3px solid black', margin:'5px', paddingRight:'10px'}}><span className="hide">.</span>{loaded && num2}</div> </div>
+            </div>}
             <div className="box">
                 <button className="help" onClick={open}>help</button>
             </div>
-            {help && <LongDivisionHelp num1 ={num1} num2={num2} close={close}/>}
+            {help && loaded && <LongDivisionHelp num1 ={num1} num2={num2} close={close}/>}
             <div className="box column">
                <div className="row ">
                     { loaded && num2 % num1 > 0 && <Choice big={true} size={'65px'}  value ={`${((num2-(num2 % num1))/num1)-num3[0]} R${(num2%num1)}`} answer ={`${((num2-(num2 % num1))/num1)} R${(num2%num1)}`} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
