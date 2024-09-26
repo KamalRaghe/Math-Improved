@@ -38,13 +38,6 @@ export default function DoubleAdd(){
         setLoaded(true)
     }
 
-    function open(){
-        setHelp(true)
-      }
-      function close(){
-        setHelp(false)
-      }
-
     function mix(){
         setNum3([0,1,-1,Math.ceil(Math.random()*2+1),-1*Math.ceil(Math.random()*2+1)])
     }
