@@ -23,6 +23,7 @@ export default function DoubleAdd(){
     const [mistake, setMistake] = useState(0)
     const [count, setCount] = useState(0)
     const [help, setHelp] = useState(false)
+    const [move,setMove] = useState('0px')
     const [time, setTime] = useState( 600000 + Date.now())
     const [date, setDate] = useState(Date.now()) 
     const router = useRouter()
@@ -83,6 +84,11 @@ export default function DoubleAdd(){
     useEffect(() =>{
         mix()
         setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
+        if(!(num2%num1 > 0)){
+            setMove('-25px')
+        }else{
+            setMove('0px')
+        }
      },[num1])
 
     useEffect(() =>{
