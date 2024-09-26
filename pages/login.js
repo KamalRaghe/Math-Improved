@@ -106,7 +106,7 @@ export default function Home() {
     <div className="center beige column">
       <div className="center column" style={{alignItems:"start"}}>
         <div className="relative" style={{fontSize:"70px",top:"20px",color:'navy',padding:"0px"}} >Math</div>
-        <div className="relative" style={{fontSize:"70px",color:'purple',paddingBottom:"20px"}} >Improved</div>
+        <div className="relative" style={{fontSize:"70px",color:'purple',paddingBottom:"20px"}} >Improve</div>
       </div>
       <div className="box column" >   
         {!payed && parseInt(free) === parseInt(check) - 34521 && free - Date.now() > 0 && <div className="font center" style={{fontWeight:"bold",width:"300px"}} >Free Trial: {Math.floor(((free - Date.now())%(1000*60*60*24*7))/1000/60/60/24)}d {""}{Math.floor(((free - Date.now())%(1000*60*60*24))/1000/60/60)}h {""}{Math.floor(((free - Date.now())%(1000*60*60))/1000/60)}m {""}

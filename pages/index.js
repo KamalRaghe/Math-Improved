@@ -93,7 +93,7 @@ export default function Home() {
     <div className="center beige column">
       <div className="center column" style={{alignItems:"start"}}>
         <div className="relative" style={{fontSize:"70px",top:"20px",color:'navy',padding:"0px"}} >Math</div>
-        <div className="relative" style={{fontSize:"70px",color:'purple',paddingBottom:"20px"}} >Improved</div>
+        <div className="relative" style={{fontSize:"70px",color:'purple',paddingBottom:"20px"}} >Improve</div>
         <div className="relative">
           {!user && !create && loaded && <div style={{ display:"flex",flexDirection:"column",alignItems:"center", height:"215px",border:"2px solid black",padding:"5px"}}>
             <div style={{paddingBottom:'10px',fontSize:"50px"}} >
