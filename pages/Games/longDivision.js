@@ -19,6 +19,7 @@ export default function DoubleAdd(){
     const [num2, setNum2] = useState(Math.ceil(Math.random()*900 + 99));
     const [num3, setNum3] = useState([0,1,-1,Math.ceil(Math.random()*2+1),-1*Math.ceil(Math.random()*2+1)])
     const router = useRouter()
+    const [move,setMove] = useState('0px')
     const {username} = router.query 
     const {id} = router.query 
 
@@ -60,6 +61,11 @@ export default function DoubleAdd(){
     useEffect(() =>{
         mix()
         setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
+        if(!(num2%num1 > 0)){
+            setMove('-25px')
+        }else{
+            setMove('0px')
+        }
      },[num1])
 
      const [score, setScore] =useState(0)
@@ -120,8 +126,8 @@ export default function DoubleAdd(){
                 </div>    
             </div>
             {loaded && <div style={{width:"100%"}}>
-                <div className="center double Green" style={{width:"105.5%"}}><span></span>{correct && num2/num1 < 100 && <span className="hide">0</span>}{correct && loaded && ((num2-(num2 % num1))/num1)}{correct && num2%num1 > 0 && "R"+ (num2%num1)}</div>
-                <div className="center double Red" style={{marginBottom:'15px', width:"105.5%"}}><span></span>{wrong && num2/num1 < 100 && <span className="hide">0</span>}{wrong && loaded && ((num2-(num2 % num1))/num1)}{wrong && num2%num1 > 0 && "R"+ (num2%num1)}</div>
+                <div className="center double Green" style={{width:"105.5%",position:"relative",left:move}}>{num2/num1 < 100 && <span className="hide">0</span>}{loaded && ((num2-(num2 % num1))/num1)}{num2%num1 > 0 && "R"+ (num2%num1)}</div>
+                <div className="center double Red" style={{marginBottom:'15px', width:"105.5%",position:"relative",left:move}}><span></span>{wrong && num2/num1 < 100 && <span className="hide">0</span>}{wrong && loaded && ((num2-(num2 % num1))/num1)}{wrong && num2%num1 > 0 && "R"+ (num2%num1)}</div>
                 <div className="double center" style={{ height: '10px'}}>{loaded && num1}<div style={{borderLeft: '3px solid black', borderTop: '3px solid black', margin:'5px', paddingRight:'10px'}}><span className="hide">.</span>{loaded && num2}</div> </div>
             </div>}
             <div className="box">
