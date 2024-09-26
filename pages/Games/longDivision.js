@@ -119,14 +119,14 @@ export default function DoubleAdd(){
                     {loaded && time-Date.now() > 0 && <span style={{fontSize:"30px"}}>{Math.floor(((time-Date.now())%(1000*60))/1000)}s</span>}
                 </div>    
             </div>
-                {<div className="countStart" >{start}</div>}
-            {loaded && <div className="box column">
+            {loaded && <div style={{width:"100%"}}>
                 <div className="center double Green" style={{width:"105.5%"}}><span></span>{correct && num2/num1 < 100 && <span className="hide">0</span>}{correct && loaded && ((num2-(num2 % num1))/num1)}{correct && num2%num1 > 0 && "R"+ (num2%num1)}</div>
                 <div className="center double Red" style={{marginBottom:'15px', width:"105.5%"}}><span></span>{wrong && num2/num1 < 100 && <span className="hide">0</span>}{wrong && loaded && ((num2-(num2 % num1))/num1)}{wrong && num2%num1 > 0 && "R"+ (num2%num1)}</div>
                 <div className="double center" style={{ height: '10px'}}>{loaded && num1}<div style={{borderLeft: '3px solid black', borderTop: '3px solid black', margin:'5px', paddingRight:'10px'}}><span className="hide">.</span>{loaded && num2}</div> </div>
             </div>}
             <div className="box">
-                <button className="help" onClick={open}>help</button>
+                {loaded && <button className="help" onClick={open}>help</button>}
+                {<div className="countStart" >{start}</div>}
             </div>
             {help && loaded && <LongDivisionHelp num1 ={num1} num2={num2} close={close}/>}
             <div className="box column">
