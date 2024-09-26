@@ -31,14 +31,14 @@ export default function Menu(){
             {  count === 3 && <button onClick={()=>{topic('Single digit multiplication')}} className="sub-topic zoom">Single digit Multiplication</button>}
             {  count === 3 && <button onClick={()=>{topic('Double digit multiplication')}} className="sub-topic zoom">Double digit Multiplication</button>}
 
-            {/* { loaded && <button onClick={() => {setCount(4)}}  className="topic">Division</button >}
-            {  count === 4 &&<Link href= {`/${id}/enter/longDivision`}><button className="sub-topic zoom">Long Division</button></Link>}
+            { loaded && <button onClick={() => {setCount(4)}}  className="topic">Division</button >}
+            {  count === 4 && <button className="sub-topic zoom">Long Division</button>}
 
             { loaded && <button onClick={() => {setCount(5)}}  className="topic">LCM & HCF</button >}
             {  count === 5 &&<Link href= {`/${id}/enter/Lcm`}><button className="sub-topic zoom">Lowest Common Multiple</button></Link>}
             {  count === 5 && <Link href= {`/${id}/enter/Hcf`}><button className="sub-topic zoom">Highest Common Factor</button></Link>}
 
-            { loaded && <button onClick={() => {setCount('fraction')}}  className="topic">Fractions</button >}
+            {/* { loaded && <button onClick={() => {setCount('fraction')}}  className="topic">Fractions</button >}
             {  count === 'fraction' &&<Link href= {`/${id}/enter/Simplify`}><button className="sub-topic zoom">Simplify</button></Link>}
             {  count === 'fraction' &&<Link href= {`/${id}/enter/Mixed`}><button className="sub-topic zoom">Mixed to Improper</button></Link>}
             {  count === 'fraction' && <Link href= {`/${id}/enter/Improper`}><button className="sub-topic zoom">Improper to Mixed</button></Link>}            
@@ -50,7 +50,7 @@ export default function Menu(){
             {  count === 'fraction' && <Link href= {`/${id}/enter/MPF`}><button className="sub-topic zoom">Multiplication (Proper Fractions)</button></Link>}            
             {  count === 'fraction' && <Link href= {`/${id}/enter/MMF`}><button className="sub-topic zoom">Multiplication (Mixed Fractions)</button></Link>}
             {  count === 'fraction' && <Link href= {`/${id}/enter/DPF`}><button className="sub-topic zoom">Division (Proper Fractions)</button></Link>}            
-            {  count === 'fraction' && <Link href= {`/${id}/enter/DMF`}><button className="sub-topic zoom">Division (Mixed Fractions)</button></Link>}                        
+            {  count === 'fraction' && <Link href= {`/${id}/enter/DMF`}><button className="sub-topic zoom">Division (Mixed Fractions)</button></Link>}                         */}
 
             { loaded && <button onClick={() => {setCount('in')}} className="topic" >Inequality</button>}
             { count === 'in' && <Link href= {`/${id}/enter/Gl`}><button className="sub-topic zoom">Greater than less than</button></Link>}
@@ -71,23 +71,23 @@ export default function Menu(){
             { loaded && <button onClick={() => {setCount(9)}}  className="topic">Bedmas</button >}
             { count === 9 &&<Link href= {`/${id}/enter/Bedmas`}><button className="sub-topic zoom">Bedmas</button></Link>}
             
-            { loaded && <button onClick={() => {setCount(10)}}  className="topic">Algebra</button >}
+            {/* { loaded && <button onClick={() => {setCount(10)}}  className="topic">Algebra</button >}
             { count === 10 && <Link href= {`/${id}/enter/Algebra`}><button className="sub-topic zoom">One variable</button></Link>}
             { count === 10 && <Link href= {`/${id}/enter/likeTerm`}><button className="sub-topic zoom">Like terms</button></Link>}
             { count === 10 && <Link href= {`/${id}/enter/Algebra2`}><button className="sub-topic zoom">Two variable</button></Link>}
             { count === 10 && <Link href= {`/${id}/enter/Foil`}><button className="sub-topic zoom">Foil</button></Link>}
             { count === 10 && <Link href= {`/${id}/enter/Trinomial`}><button className="sub-topic zoom">Factor trinomial</button></Link>}
-            { count === 10 && <Link href= {`/${id}/enter/Quadratic`}><button className="sub-topic zoom">Quadratic formula</button></Link>}
+            { count === 10 && <Link href= {`/${id}/enter/Quadratic`}><button className="sub-topic zoom">Quadratic formula</button></Link>} */}
 
             
-            { loaded && <button onClick={() => {setCount('angle')}}  className="topic">Geometry</button >}
+            {/* { loaded && <button onClick={() => {setCount('angle')}}  className="topic">Geometry</button >}
             { count === 'angle' &&<Link href= {`/${id}/enter/TypeAngle`}><button className="sub-topic zoom">Types of angle</button></Link>}
             { count === 'angle' &&<Link href= {`/${id}/enter/Perimeter`}><button className="sub-topic zoom">Perimeter</button></Link>}
             { count === 'angle' &&<Link href= {`/${id}/enter/Circumference`}><button className="sub-topic zoom">Circumference</button></Link>}
-            { count === 'angle' &&<Link href= {`/${id}/enter/Area`}><button className="sub-topic zoom">Area</button></Link>}
+            { count === 'angle' &&<Link href= {`/${id}/enter/Area`}><button className="sub-topic zoom">Area</button></Link>} */}
 
             { loaded && <button onClick={() => {setCount('log')}}  className="topic">Logarithms</button >}
-            { count === 'log' &&<Link href= {`/${id}/enter/Logarithm`}><button className="sub-topic zoom">Logarithms</button></Link>} */}
+            { count === 'log' &&<Link href= {`/${id}/enter/Logarithm`}><button className="sub-topic zoom">Logarithms</button></Link>}
         </div>     
     )
 } 

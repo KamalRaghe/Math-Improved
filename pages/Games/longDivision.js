@@ -7,6 +7,8 @@ import { useRouter } from "next/router";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "@/firebase";
 import LongDivisionHelp from "@/components/longDivisionHelp";
+import { set, ref } from "firebase/database";
+import { rdb } from "@/firebase";
 
 export default function DoubleAdd(){
     const [help, setHelp] = useState(false)
@@ -36,7 +38,6 @@ export default function DoubleAdd(){
         setTimeout(() => {
             setCorrect(false) 
         }, 1900);
-        setCount(count+1)
         setScore(score+1)
     }
   
@@ -62,45 +63,72 @@ export default function DoubleAdd(){
      },[num1])
 
      const [score, setScore] =useState(0)
-     const [count, setCount] =useState(0)
+     const [name, setName] =useState()
+     const [time, setTime] = useState()
+     const [start, setStart] = useState(3)
+     const [date, setDate] = useState(Date.now())
  
+     function update(){
+         setDate(requestAnimationFrame(update))
+       }
+ 
+     function updateList(){
+         let name = window.localStorage.getItem('GameName')
+         let id = window.localStorage.getItem('GameId')
+         let room = window.localStorage.getItem('GameRoom')
+         set(ref(rdb, `${room}/` + id),{
+             user: name,
+             score: score
+         }).then(()=>{
+             router.push('/Score')
+         })
+     }
+ 
+     
      useEffect(() =>{
-         setLoaded(true)
-         const count = parseInt(window.localStorage.getItem(`${id} longDivision`))
-         setCount(count ? count : 0)
-         const score = parseInt(window.localStorage.getItem(`${id} score`))
-         setScore(score ? score : 0)
-         const ID = window.localStorage.getItem('ID')
-        if(!(ID === id)){
-            router.push("/")
-        }
+         let timer = window.localStorage.getItem('Timer')
+         setTime(timer)
+         setTimeout(() => {
+             setStart(2)
+         }, 1000); 
+         setTimeout(() => {
+             setStart(1)
+         }, 2000);
+         setTimeout(() => {
+             setStart()
+             setLoaded(true)
+             update() 
+         }, 3000);
+         let name = window.localStorage.getItem('GameName')
+         setName(name)
      },[])
  
-     useEffect(() =>{
-         if(count > 0){
-         window.localStorage.setItem(`${id} longDivision`, count)
-     }},[count])
- 
-     useEffect(() =>{
-         if(score > 0){
-         window.localStorage.setItem(`${id} score` , score)
-     }},[score])
+      useEffect(() =>{
+         if(time - Date.now() < 0 ){
+             updateList()
+         }
+     })
 
     return(
         <div className="beige container column">
-            <div className="Test sb"><div className="double" >
-                <div>Score: {loaded && score}</div>
-                <div className="font" >Long Division: {loaded && count} </div>
-            </div><Link href={`/${id}/enter/testLongDivision`}><button className="green test-btn">Test</button></Link></div>
+            <div className="Test sb" style={{alignItems:"end"}}><div className="double" >
+                {loaded && <div><div>Score: {score}</div><div style={{fontSize:"20px"}} >{name}</div></div>}
+            </div>
+                <div>
+                    {loaded && time-Date.now() > 60 && <span style={{fontSize:"30px",padding:"5px"}}>{Math.floor(((time-Date.now())%(1000*60*60))/60000)}m</span>}
+                    {loaded && time-Date.now() > 0 && <span style={{fontSize:"30px"}}>{Math.floor(((time-Date.now())%(1000*60))/1000)}s</span>}
+                </div>    
+            </div>
+                {<div className="countStart" >{start}</div>}
             <div className="box">
+            <div className="center double Green" style={{width:"105.5%"}}><span></span>{correct && num2/num1 < 100 && <span className="hide">0</span>}{correct && loaded && ((num2-(num2 % num1))/num1)}{correct && num2%num1 > 0 && "R"+ (num2%num1)}</div>
+            <div className="center double Red" style={{marginBottom:'15px', width:"105.5%"}}><span></span>{wrong && num2/num1 < 100 && <span className="hide">0</span>}{wrong && loaded && ((num2-(num2 % num1))/num1)}{wrong && num2%num1 > 0 && "R"+ (num2%num1)}</div>
                 <div className="double center">{loaded && num1}<div style={{borderLeft: '3px solid black', borderTop: '3px solid black', marginLeft:'5px', paddingRight:'10px'}}><span className="hide">.</span>{loaded && num2}</div> </div>
             </div>
             <div className="box">
                 <button className="help" onClick={open}>help</button>
             </div>
             {help && <LongDivisionHelp num1 ={num1} num2={num2} close={close}/>}
-            {loaded && correct && <Correct></Correct>}
-            {loaded && wrong && <Wrong/> }
             <div className="box column">
                <div className="row ">
                     { loaded && num2 % num1 > 0 && <Choice big={true} size={'65px'}  value ={`${((num2-(num2 % num1))/num1)-num3[0]} R${(num2%num1)}`} answer ={`${((num2-(num2 % num1))/num1)} R${(num2%num1)}`} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
