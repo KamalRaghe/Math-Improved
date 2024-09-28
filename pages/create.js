@@ -30,10 +30,12 @@ function App() {
         let Code = code.join('')
         console.log(Code)
         window.localStorage.setItem('GameRoom', Code)
+        let player = window.localStorage.getItem('uid')
         const usersRef = ref(rdb, `${Code}`)
         const AddList = push(usersRef)
         set(AddList,{
-           user: account.title
+           user: account.title,
+           id: player
         })
        
         get(usersRef).then((snapshot)=>{

@@ -37,8 +37,10 @@ function App() {
         let name = window.localStorage.getItem('GameName')
         let id = window.localStorage.getItem('GameId')
         let room = window.localStorage.getItem('GameRoom')
+        let player = window.localStorage.getItem('uid')
         set(ref(rdb, `${room}/` + id),{
             user: name,
+            id: player,
             score: 0
         })
     }
