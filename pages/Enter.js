@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { rdb } from "@/firebase";
 import { get, ref, push, set, onChildAdded } from "firebase/database";
 import { useRouter } from "next/router";
+import { LocaleRouteNormalizer } from "next/dist/server/future/normalizers/locale-route-normalizer";
 
 
 function App() {
  const [users, setUsers] = useState([])
+ const [letIn,setLetIn] = useState(false)
  const [user, setUser] = useState()
  const [add, setAdd] = useState(false)
  const router = useRouter()
@@ -22,7 +24,6 @@ function App() {
             if(snapshot.exists()){
                 window.localStorage.setItem('GameRoom', code.title)
                 setAdd(true)
-                console.log(code.title)
             }
         })
     }
@@ -31,8 +32,10 @@ function App() {
         setAdd(true)
         const usersRef = ref(rdb, `${code.title}`)
         const AddList = push(usersRef)
+        let player = window.localStorage.getItem('uid')
         set(AddList,{
-            user: account.title
+            user: account.title,
+            id : player
         })
         get(usersRef).then((snapshot)=>{
             if(snapshot.exists()){
@@ -46,8 +49,16 @@ function App() {
                         window.localStorage.setItem('GameId',usersArray[i].id)
                         window.localStorage.setItem('GameName',usersArray[i].data.user)
                     }
+
+                }for(let i = 0; i < usersArray.length;i++){
+                    if(usersArray[i].data.id === player){
+                        setLetIn(true)
+                        console.log('in')
+                    }
                 }
-                router.push('Join')
+                if(!letIn){
+                    router.push('/Join')
+                }
             }
          }).catch((error)=>{ 
             console.error(error)
@@ -55,14 +66,13 @@ function App() {
         })    
     }
 
-
 return(
     <div className="center column" style={{height:"100vh"}}>       
         {user ? <div className="double" >
             <div>
-            <div className="double center">{user} { add && <button onClick={AddList} className="green" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}} >Ready</button>}</div>
-                {!add && <input placeholder="Code" value={code.title} type='text' onChange = {(e) => setCode({...code, title: e.target.value})} ></input>}
-                { !add && <button onClick={()=>{inList()}} >Enter</button>}
+            <div className="double center">{!letIn && user}{letIn && <div className="WaitScreen center column " >User is inside<br></br><div style={{fontSize:"20px"}} >Create a new account</div></div>} { add && !letIn && <button onClick={AddList} className="green" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}} >Ready</button>}</div>
+                {!add && !letIn && <input placeholder="Code" value={code.title} type='text' onChange = {(e) => setCode({...code, title: e.target.value})} ></input>}
+                { !add && !letIn && <button onClick={()=>{inList()}} >Enter</button>}
             </div> 
         </div> 
             :<div>
