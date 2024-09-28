@@ -21,8 +21,8 @@ export default function Math(){
     return (
         <div className="beige menu" style={{height: '300vh',backgroundColor:'beige'}}>
             <h1 style={{marginLeft:'35px',paddingLeft:'15px',paddingTop:'15px', borderBottom: '2px solid black',width: '105px'}} >Match</h1>
-            <Link href= {`/Enter`}><button className="sub-topic green" style={{padding:"8px 43px"}} >Join</button></Link>
-            <Link href= {`/create`}><button className="sub-topic green">Create</button></Link>
+            <button onClick={()=>{router.push('/Enter')}} className="sub-topic green" style={{padding:"8px 43px"}} >Join</button>
+            <button onClick={()=>{router.push('/create')}} className="sub-topic green">Create</button>
             <h1 style={{marginLeft:'35px',paddingLeft:'15px',margin:"20px",paddingTop:'15px', borderBottom: '2px solid black',width: '125px'}} >Practice</h1>
             
             {loaded && <button onClick={() => {setCount(1)}} className="topic">Addition</button >}
