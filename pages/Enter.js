@@ -23,13 +23,11 @@ function App() {
         let player = window.localStorage.getItem('uid')
         get(usersRef).then((snapshot)=>{
             if(snapshot.exists()){
-                window.localStorage.setItem('GameRoom', code.title)
-                setAdd(true)
                 const usersArray = Object.entries(snapshot.val()).map(([id,data])=>({
                     id,
                     data,
                 }))
-            
+                window.localStorage.setItem('GameRoom', code.title)
                 for(let i = 0; i < usersArray.length;i++){
                     if(usersArray[i].data.player === player){
                         setStayOut(true)
@@ -37,6 +35,7 @@ function App() {
                     }
 
                 }
+                setAdd(true)
             }
         })
     }
@@ -48,8 +47,8 @@ function App() {
         window.localStorage.setItem('host', false)
         let player = window.localStorage.getItem('uid')
         set(AddList,{
-            user: account.title,
-            player: player
+            player: player,
+            user: account.title 
         })
         get(usersRef).then((snapshot)=>{
             if(snapshot.exists()){
