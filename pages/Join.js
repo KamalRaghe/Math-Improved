@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { rdb } from "@/firebase";
-import { get, ref, push, set, onChildAdded } from "firebase/database";
+import { get, ref, push, set, onChildAdded, remove } from "firebase/database";
 import { useRouter } from "next/router";
 
 
@@ -8,6 +8,9 @@ function App() {
  const [user, setUser] = useState()
  const router = useRouter()
 
+    function Remove(){
+
+    }
 
     useEffect(()=>{
         let room = window.localStorage.getItem('GameRoom')
