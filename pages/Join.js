@@ -11,7 +11,6 @@ function App() {
 
     useEffect(()=>{
         let room = window.localStorage.getItem('GameRoom')
-        window.localStorage.setItem('host', false )
         setUser(room)
         if(!room){
             router.push('/Enter')

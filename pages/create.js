@@ -60,7 +60,7 @@ function App() {
     }
   
     useEffect(()=>{
-        window.localStorage.setItem('host', true )
+        window.localStorage.setItem('host', 'Host' )
         setCode(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
     },[])
 
