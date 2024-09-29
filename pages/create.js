@@ -35,7 +35,7 @@ function App() {
         const AddList = push(usersRef)
         set(AddList,{
            user: account.title,
-           id: player
+           player: player
         })
        
         get(usersRef).then((snapshot)=>{
