@@ -31,7 +31,7 @@ function App() {
                 }))
             
                 for(let i = 0; i < usersArray.length;i++){
-                    if(usersArray[i].data.id === player){
+                    if(usersArray[i].data.player === player){
                         setStayOut(true)
                         console.log('fstbgd')
                     }
@@ -49,7 +49,7 @@ function App() {
         let player = window.localStorage.getItem('uid')
         set(AddList,{
             user: account.title,
-            id : player
+            player: player
         })
         get(usersRef).then((snapshot)=>{
             if(snapshot.exists()){
@@ -65,7 +65,9 @@ function App() {
                     }
 
                 }
-            } 
+            } if(!stayOut){
+                router.push('/Join')
+            }
          }).catch((error)=>{ 
             console.error(error)
         
