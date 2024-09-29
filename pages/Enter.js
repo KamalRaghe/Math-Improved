@@ -32,6 +32,8 @@ function App() {
                     if(usersArray[i].data.player === player){
                         setStayOut(true)
                         console.log('fstbgd')
+                    }else{
+                        console.log('fstbgd')
                     }
 
                 }
@@ -48,7 +50,7 @@ function App() {
         let player = window.localStorage.getItem('uid')
         set(AddList,{
             player: player,
-            user: account.title 
+            user: player
         })
         get(usersRef).then((snapshot)=>{
             if(snapshot.exists()){
