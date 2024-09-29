@@ -22,9 +22,14 @@ function App() {
         const usersRef = ref(rdb, `${room}/`+'time')
         onChildAdded(usersRef,(snapshot)=>{
             let time = Object.entries(snapshot.val())[0]
-            console.log(time[1])
+            let topic = Object.entries(snapshot.val())[1]
             window.localStorage.setItem('Timer', time[1])
-            router.push('/Game')
+            let go = ''
+            for(let word of topic[1].split(' ')){
+                go += word
+            }
+            console.log(go)
+            router.push(`/Games/${go}`)
         })
     },[])
 
