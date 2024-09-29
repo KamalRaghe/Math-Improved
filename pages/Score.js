@@ -24,7 +24,7 @@ function App() {
             score: 0
         }).then(()=>{
             let host = window.localStorage.getItem('host')
-            if(host){
+            if(host === true){
                 router.push('/Host')
             }else{
                 router.push('/Join')
