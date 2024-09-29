@@ -7,7 +7,7 @@ import { LocaleRouteNormalizer } from "next/dist/server/future/normalizers/local
 
 function App() {
  const [users, setUsers] = useState([])
- const [letIn,setLetIn] = useState(false)
+ const [stayOut,setStayOut] = useState(false)
  const [user, setUser] = useState()
  const [add, setAdd] = useState(false)
  const router = useRouter()
@@ -32,6 +32,7 @@ function App() {
         setAdd(true)
         const usersRef = ref(rdb, `${code.title}`)
         const AddList = push(usersRef)
+        window.localStorage.setItem('host', false)
         let player = window.localStorage.getItem('uid')
         set(AddList,{
             user: account.title,
@@ -50,16 +51,16 @@ function App() {
                         window.localStorage.setItem('GameName',usersArray[i].data.user)
                     }
 
-                }for(let i = 0; i < usersArray.length;i++){
-                    if(usersArray[i].data.id === player){
-                        setLetIn(true)
-                        console.log('in')
-                    }
                 }
-                if(!letIn){
+                let Security = usersArray.filter(item => item !== player) 
+                console.log(Security.length,usersArray.length)
+                if(Security.length + 1 === usersArray.length){
                     router.push('/Join')
+                }else{
+                    setStayOut(true)
                 }
-            }
+
+            } 
          }).catch((error)=>{ 
             console.error(error)
         
@@ -70,14 +71,14 @@ return(
     <div className="center column" style={{height:"100vh"}}>       
         {user ? <div className="double" >
             <div>
-            <div className="double center">{!letIn && user}{letIn && <div className="WaitScreen center column " >User is inside<br></br><div style={{fontSize:"20px"}} >Create a new account</div></div>} { add && !letIn && <button onClick={AddList} className="green" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}} >Ready</button>}</div>
-                {!add && !letIn && <input placeholder="Code" value={code.title} type='text' onChange = {(e) => setCode({...code, title: e.target.value})} ></input>}
-                { !add && !letIn && <button onClick={()=>{inList()}} >Enter</button>}
+            <div className="double center">{!stayOut && user}{stayOut && <div className="WaitScreen center column " >User is inside<br></br><div style={{fontSize:"20px"}} >Create a new account</div></div>} { add && !stayOut && <button onClick={AddList} className="green" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}} >Ready</button>}</div>
+                {!add && !stayOut && <input placeholder="Code" value={code.title} type='text' onChange = {(e) => setCode({...code, title: e.target.value})} ></input>}
+                { !add && !stayOut && <button onClick={()=>{inList()}} >Enter</button>}
             </div> 
         </div> 
             :<div>
                 <input placeholder="Name" value={account.title} type='text' onChange = {(e) => setAccount({...account, title: e.target.value})} ></input>
-                <button onClick={()=>{setUser(account.title);console.log(account.title)}} >Enter</button>
+                <button onClick={()=>{setUser(account.title)}} >Enter</button>
             </div>}
     </div>
 )
