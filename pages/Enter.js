@@ -20,10 +20,23 @@ function App() {
 
     function inList(){
         const usersRef = ref(rdb, `${code.title}`)
+        let player = window.localStorage.getItem('uid')
         get(usersRef).then((snapshot)=>{
             if(snapshot.exists()){
                 window.localStorage.setItem('GameRoom', code.title)
                 setAdd(true)
+                const usersArray = Object.entries(snapshot.val()).map(([id,data])=>({
+                    id,
+                    data,
+                }))
+            
+                for(let i = 0; i < usersArray.length;i++){
+                    if(usersArray[i].data.id === player){
+                        setStayOut(true)
+                        console.log('fstbgd')
+                    }
+
+                }
             }
         })
     }
@@ -52,14 +65,6 @@ function App() {
                     }
 
                 }
-                let Security = usersArray.filter(item => item !== player) 
-                console.log(Security.length,usersArray.length)
-                if(Security.length + 1 === usersArray.length){
-                    router.push('/Join')
-                }else{
-                    setStayOut(true)
-                }
-
             } 
          }).catch((error)=>{ 
             console.error(error)
