@@ -91,9 +91,7 @@ export default function DoubleAdd(){
         mix()
         setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
         const ID = window.localStorage.getItem('ID')
-        if(!(ID === id)){
-            router.push("/")
-        }
+        
     },[])
 
     useEffect(()=>{

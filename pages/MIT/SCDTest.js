@@ -131,9 +131,7 @@ export default function testDoubleMinus(){
 
      useEffect(()=>{
         const ID = window.localStorage.getItem('ID')
-        if(!(ID === id)){
-            router.push("/")
-        }
+        
     },[])
 
     return(

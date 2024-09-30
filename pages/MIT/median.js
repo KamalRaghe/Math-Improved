@@ -67,9 +67,7 @@ export default function DoubleAdd(){
         mix()
         Add()
         const ID = window.localStorage.getItem('ID')
-        if(!(ID === id)){
-            router.push("/")
-        }
+        
     },[])
 
 

@@ -13,9 +13,7 @@ export default function Math(){
 
     useEffect(()=>{
         const ID = window.localStorage.getItem('ID')
-        if(!(ID === id)){
-            router.push("/")
-        }
+        
     },[])
 
     return (

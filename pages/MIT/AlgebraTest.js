@@ -90,9 +90,7 @@ export default function DoubleAdd(){
         setLoaded(true)
         update()
         const ID = window.localStorage.getItem('ID')
-        if(!(ID === id)){
-            router.push("/")
-        }
+        
     },[])
 
 

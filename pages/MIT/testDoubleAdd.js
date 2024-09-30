@@ -94,9 +94,7 @@ export default function testDoubleAdd(){
 
     useEffect(()=>{
         const ID = window.localStorage.getItem('ID')
-        if(!(ID === id)){
-            router.push("/")
-        }
+        
     },[])
 
     useEffect(() =>{

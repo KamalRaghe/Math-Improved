@@ -12,15 +12,12 @@ export default function Math(){
     const {id} = router.query 
 
     useEffect(()=>{
-        const ID = window.localStorage.getItem('ID')
-        if(!(ID === id)){
-            router.push("/")
-        }
+        const ID = window.localStorage.setItem('ID', 'MlT')
     },[])
 
     return (
         <div className="beige menu" style={{height: '300vh',backgroundColor:'beige'}}>
-            <h1 style={{marginLeft:'35px',paddingLeft:'15px',margin:"20px",paddingTop:'15px', borderBottom: '2px solid black',width: '100px'}} >Math</h1>
+            <h1 style={{marginLeft:'35px',paddingLeft:'15px',margin:"20px",paddingTop:'15px', borderBottom: '2px solid black',width: '90px'}} >Math</h1>
             
             {loaded && <button onClick={() => {setCount(1)}} className="topic">Addition</button >}
             { count === 1 && <Link href= {`/MIT/singleAdd`}><button className="sub-topic zoom">Single digit Addition</button></Link>}

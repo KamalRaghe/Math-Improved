@@ -70,9 +70,7 @@ export default function DoubleAdd(){
          const score = parseInt(window.localStorage.getItem(`${id} score`))
          setScore(score ? score : 0)
          const ID = window.localStorage.getItem('ID')
-        if(!(ID === id)){
-            router.push("/")
-        }
+        
      },[])
  
      useEffect(() =>{

@@ -84,9 +84,7 @@ function Lcm(){
       setCount1(count ? count : 0)
       const score = parseInt(window.localStorage.getItem(`${id} score`))
       const ID = window.localStorage.getItem('ID')
-        if(!(ID === id)){
-            router.push("/")
-        }
+        
       setScore(score ? score : 0)
   },[])
 

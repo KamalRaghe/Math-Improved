@@ -82,9 +82,7 @@ export default function DoubleAdd(){
      useEffect(() =>{
          Add()
          const ID = window.localStorage.getItem('ID')
-        if(!(ID === id)){
-            router.push("/")
-        }
+        
          setLoaded(true)
          const count = parseInt(window.localStorage.getItem(`${id} ACD`))
          setCount(count ? count : 0)

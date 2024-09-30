@@ -7,7 +7,7 @@ import Heart1 from "@/components/heart1";
 import Heart2 from "@/components/heart2";
 import Heart3 from "@/components/heart3";
 import Mistake from "@/components/mistake";
-import Pass from "@/components/pass";
+import Pass from "@/components/passTiral";
 import { useRouter } from "next/router";
 
 export default function DoubleAdd(){
@@ -106,9 +106,7 @@ export default function DoubleAdd(){
         mix()
         setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
         const ID = window.localStorage.getItem('ID')
-        if(!(ID === id)){
-            router.push("/")
-        }
+        
     },[])
 
     useEffect(() =>{

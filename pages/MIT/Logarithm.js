@@ -60,9 +60,7 @@ export default function DoubleAdd(){
     useEffect(() =>{
         setLoaded(true)
         const ID = window.localStorage.getItem('ID')
-        if(!(ID === id)){
-            router.push("/")
-        }
+        
     },[])
 
     useEffect(() =>{

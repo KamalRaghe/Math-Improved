@@ -90,9 +90,7 @@ export default function DoubleAdd({Count}){
 
      useEffect(()=>{
         const ID = window.localStorage.getItem('ID')
-        if(!(ID === id)){
-            router.push("/")
-        }
+        
     },[])
 
     return(
