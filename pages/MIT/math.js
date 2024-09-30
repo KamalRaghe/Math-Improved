@@ -11,10 +11,17 @@ export default function Math(){
     const router = useRouter() 
     const {id} = router.query 
 
+    useEffect(()=>{
+        const ID = window.localStorage.getItem('ID')
+        
+    },[])
 
     return (
         <div className="beige menu" style={{height: '300vh',backgroundColor:'beige'}}>
-            <h1 style={{marginLeft:'35px',paddingLeft:'15px',margin:"20px",paddingTop:'15px', borderBottom: '2px solid black',width: '90px'}} >Math</h1>
+            <h1 style={{marginLeft:'35px',paddingLeft:'15px',paddingTop:'15px', borderBottom: '2px solid black',width: '105px'}} >Match</h1>
+            <button onClick={()=>{router.push('/MIT')}} className="sub-topic green" style={{padding:"8px 43px"}} >Join</button>
+            <button onClick={()=>{router.push('/create')}} className="sub-topic green">Create</button>
+            <h1 style={{marginLeft:'35px',paddingLeft:'15px',margin:"20px",paddingTop:'15px', borderBottom: '2px solid black',width: '125px'}} >Practice</h1>
             
             {loaded && <button onClick={() => {setCount(1)}} className="topic">Addition</button >}
             { count === 1 && <Link href= {`/MIT/singleAdd`}><button className="sub-topic zoom">Single digit Addition</button></Link>}
