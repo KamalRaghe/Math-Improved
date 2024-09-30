@@ -11,10 +11,6 @@ export default function Math(){
     const router = useRouter() 
     const {id} = router.query 
 
-    useEffect(()=>{
-        
-    },[])
-
     return (
         <div className="beige menu" style={{height: '300vh',backgroundColor:'beige'}}>
             <h1 style={{marginLeft:'35px',paddingLeft:'15px',margin:"20px",paddingTop:'15px', borderBottom: '2px solid black',width: '90px'}} >Math</h1>

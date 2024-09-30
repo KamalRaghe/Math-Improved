@@ -11,18 +11,13 @@ function Pass({time}){
     const {id} = router.query 
     useEffect(()=>{
         setMinus(time)
-        if(id){
-          setLink(`/${id}/enter/math`)  
-        }else{
-            setLink(`/MIT/math`)
-        }
     },[])
     return(
         <div className="timeout center column green"> 
             <h1>Congratulation</h1>
             <h2>You passed </h2>
             <p className="absolute" style={{top:'55px'}} >Time: {Math.floor(((minus)%(1000*60*60))/1000/60)}m {Math.floor(((minus)%(1000*60))/1000)}s</p>
-            <Link href={link}><button className="choice-stretch Purple ">Menu</button></Link>
+            <Link href={`/${id}/enter/math`}><button className="choice-stretch Purple ">Menu</button></Link>
         </div>
     )
 }
