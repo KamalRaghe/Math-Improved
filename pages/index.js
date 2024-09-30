@@ -153,7 +153,7 @@ export default function Home() {
           </div>
           Stats
         </button>
-        <button className="topic column" onClick={router.push('/login')} style={{width: '150px', height:"90px"}} >
+        <button className="topic column" onClick={()=>{router.push('/stats')}} style={{width: '150px', height:"90px"}} >
           <div className="center" style={{padding:'0 20px'}}>
             <div className="relative" style={{rotate:"90deg",borderBottom:"50px solid white",borderRight:'25px solid transparent',borderLeft:'25px solid transparent'}} ></div>
           </div>

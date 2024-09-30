@@ -9,7 +9,10 @@ function App() {
  const router = useRouter()
 
     function Remove(){
-
+        let room = window.localStorage.getItem('GameRoom')
+        let id = window.localStorage.getItem('GameId')
+        router.push('/Enter')
+        remove(ref(rdb, `${room}/`+ id))
     }
 
     useEffect(()=>{
@@ -40,7 +43,7 @@ return(
      <div className="center column" style={{height:"100vh"}}>       
          <div className="double WaitScreen" >Waiting for host</div>
          <div style={{margin:"20px",fontSize:"20px"}}>Code: {user}</div>
-         <button onClick={()=>{router.push('/Enter')}} className="Red" style={{backgroundColor:"transparent",padding:"5px"}} >Wrong room?</button>
+         <button onClick={Remove} className="Red" style={{backgroundColor:"transparent",padding:"5px"}} >Wrong room?</button>
     </div>
 
 )
