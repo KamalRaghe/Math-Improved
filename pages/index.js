@@ -12,7 +12,7 @@ export default function Math(){
     const {id} = router.query 
 
     useEffect(()=>{
-        const ID = window.localStorage.setItem('ID', 'MlT')
+        
     },[])
 
     return (
