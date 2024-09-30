@@ -107,7 +107,7 @@ export default function DoubleAdd(){
              <div className="Test sb"><div className="double" >
                  <div>Score: {loaded && score}</div>
                  <div className="font" >Mode: {loaded && count} </div>
-             </div><Link href={`/enter/testMode`}><button className="green test-btn">Test</button></Link></div>
+             </div><Link href={`/MIT/testMode`}><button className="green test-btn">Test</button></Link></div>
             <div className="column">
                 <div className="double center" style={{width:'100%'}}>{loaded && num8[0]} {loaded && num8[1]} {loaded && num8[2]} {loaded && num8[3]} {loaded && num8[4]} {loaded && num8[5]} {loaded && num8[6]}</div>
             </div>

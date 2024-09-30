@@ -104,7 +104,7 @@ export default function DoubleAdd(){
                 <div className="font" >{username} </div>
                 <div>Score: {loaded && score}</div>
                 <div className="font" >Foil: {loaded && count} </div>
-            </div><Link href={`/enter/FoilTest`}><button className="green test-btn">Test</button></Link></div>
+            </div><Link href={`/MIT/FoilTest`}><button className="green test-btn">Test</button></Link></div>
             <div className="column ">
                 { loaded && num === 0 && <div className="double" >(𝑥 + {num1})(𝑥 + {num2})</div> }
                 

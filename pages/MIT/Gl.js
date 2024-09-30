@@ -103,7 +103,7 @@ export default function DoubleAdd(){
              <div className="Test sb"><div className="double" >
                  <div>Score: {loaded && score}</div>
                  <div className="font" >Inequality: {loaded && count} </div>
-             </div><Link href={`/enter/GlTest`}><button className="green test-btn">Test</button></Link></div>
+             </div><Link href={`/MIT/GlTest`}><button className="green test-btn">Test</button></Link></div>
             <div className="box column">
                 <div className="double">{loaded && num1} ? {loaded && num2}</div>
             </div>

@@ -113,7 +113,7 @@ export default function DoubleAdd(){
             <div className="Test sb"><div className="double" >
                 <div>Score: {loaded && score}</div>
                 <div className="font" >Subtraction common Denominator: {loaded && count} </div>
-            </div><Link href={`/enter/SCDTest`}><button className="green test-btn">Test</button></Link></div>
+            </div><Link href={`/MIT/SCDTest`}><button className="green test-btn">Test</button></Link></div>
             <div className="box">
                 <span className="hide">00000</span>
                 {loaded && <div className=" double center">

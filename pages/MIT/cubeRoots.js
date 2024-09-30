@@ -93,7 +93,7 @@ export default function DoubleAdd(){
             <div className="Test sb"><div className="double" >
                 <div>Score: {loaded && score}</div>
                 <div className="font" >Cube Root: {loaded && count} </div>
-            </div><Link href={`/enter/testCubeRoots`}><button className="green test-btn">Test</button></Link></div>
+            </div><Link href={`/MIT/testCubeRoots`}><button className="green test-btn">Test</button></Link></div>
             <div className="box">
                 <div className="double center root-top"><span className="root-tip" style={{top:'-8px',left:"-19px"}} ><div style={{position:'relative',rotate:'90deg',top:"-2px",left:'7px'}} >3</div></span><span className="root-right" style={{left:'-13px'}}></span><span className="root-left" style={{left:'-20px'}}></span>{loaded && num1*num1*num1}</div>
             </div>

@@ -100,7 +100,7 @@ export default function DoubleAdd(){
                 <div>Score: {loaded && score}</div>
                 <div className="font" >Single digit Addition: {loaded && count} </div>
             </div>
-                <Link href={`/enter/testSingleAdd`}>
+                <Link href={`/MIT/testSingleAdd`}>
                     <button className="green test-btn">Test</button>
                 </Link>
             </div>

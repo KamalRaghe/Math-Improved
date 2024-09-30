@@ -133,7 +133,7 @@ export default function DoubleAdd(){
             <div className="Test sb"><div className="double" >
                 <div>Score: {loaded && score}</div>
                 <div className="font" >Bedmas: {loaded && count} </div>
-            </div><Link href={`/enter/BedmasTest`}><button className="green test-btn">Test</button></Link></div>
+            </div><Link href={`/MIT/BedmasTest`}><button className="green test-btn">Test</button></Link></div>
             <div className="column" style={{padding: '35px'}}>
                 {/* (num4*num5)+((num1+num2)*(num1+num2)) */}
                 {loaded && num === 0 && <div className="double">{num4} x {num5} + ({num1} + {num2})<span style={{fontSize:'20px',position:'relative', top:"-19px"}}>2</span> </div>}

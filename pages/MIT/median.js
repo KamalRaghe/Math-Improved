@@ -120,7 +120,7 @@ export default function DoubleAdd(){
              <div className="Test sb"><div className="double" >
                  <div>Score: {loaded && score}</div>
                  <div className="font" >Median: {loaded && count} </div>
-             </div><Link href={`/enter/testMedian`}><button className="green test-btn">Test</button></Link></div>
+             </div><Link href={`/MIT/testMedian`}><button className="green test-btn">Test</button></Link></div>
             <div className="column">
                 <div className="double center" style={{width:'100%'}}>{loaded && num1[0]} {loaded && num1[1]} {loaded && num1[2]} {loaded && num1[3]} {loaded && num1[4]} {loaded && num1[5]}  {loaded && num1[6]}</div>
             </div>

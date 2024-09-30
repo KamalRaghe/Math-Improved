@@ -100,7 +100,7 @@ export default function DoubleAdd({Count}){
             <div className="Test sb"><div className="double" >
                 <div>Score: {loaded && score}</div>
                 <div className="font" >Simplify: {loaded && count} </div>
-            </div><Link href={`/enter/simplifyTest`}><button className="green test-btn">Test</button></Link></div>
+            </div><Link href={`/MIT/simplifyTest`}><button className="green test-btn">Test</button></Link></div>
             <div className="double" >Simplify</div>
             <div className="box column">
                 {loaded && <div className=" double center">

@@ -90,7 +90,7 @@ export default function DoubleAdd(){
             <div className="Test sb"><div className="double" >
                 <div>Score: {loaded && score}</div>
                 <div className="font" >Double digit Addition: {loaded && count} </div>
-            </div><Link href={`/enter/testDoubleTimes`}><button className="green test-btn">Test</button></Link></div>
+            </div><Link href={`/MIT/testDoubleTimes`}><button className="green test-btn">Test</button></Link></div>
             <div className="box column">
                 <div className="double top-number">{loaded && num1}</div>
                 <div className="double bottom-number">x{loaded && num2}</div>

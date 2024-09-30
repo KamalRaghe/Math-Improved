@@ -107,7 +107,7 @@ export default function DoubleAdd({Count}){
             <div className="Test sb"><div className="double" >
                 <div>Score: {loaded && score}</div>
                 <div className="font" >Factor Trinomial: {loaded && count} </div>
-            </div><Link href={`/enter/TrinomialTest`}><button className="green test-btn">Test</button></Link></div>
+            </div><Link href={`/MIT/TrinomialTest`}><button className="green test-btn">Test</button></Link></div>
             <div className="column ">
                 {loaded &&<div className="double" >𝑥<span style={{fontSize:'20px',position:'relative',padding:"2px", top:"-13px",paddingLeft:"2px",paddingRight:"10px"}}>2</span>
                     {sign1[num]} {(num ===2 || num === 1) ? num1-num2 : num1+num2}x {sign2[num]} {num1*num2}

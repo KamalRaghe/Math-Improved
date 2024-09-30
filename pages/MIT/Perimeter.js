@@ -109,7 +109,7 @@ export default function DoubleAdd(){
              <div className="Test sb"><div className="double" >
                  <div>Score: {loaded && score}</div>
                  <div className="font" >Perimeter: {loaded && count} </div>
-             </div><Link href={`/enter/PmTest`}><button className="green test-btn">Test</button></Link></div>
+             </div><Link href={`/MIT/PmTest`}><button className="green test-btn">Test</button></Link></div>
             <div className="box column center">
                 {loaded && num4 === 0 && <div className="double relative" style={{top:'70px',color:'white'}} >P =</div>}
                 {loaded && num4 === 0 && <div className="double" style={{width:'100px', height:"100px",border:"3px solid black",backgroundColor:'black'}}>

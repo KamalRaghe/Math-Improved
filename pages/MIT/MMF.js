@@ -114,7 +114,7 @@ export default function DoubleAdd(){
             <div className="Test sb"><div className="double" >
                 <div>Score: {loaded && score}</div>
                 <div className="font" >Multiplication Mixed Fraction: {loaded && count} </div>
-            </div><Link href={`/enter/MMFTest`}><button className="green test-btn">Test</button></Link></div>
+            </div><Link href={`/MIT/MMFTest`}><button className="green test-btn">Test</button></Link></div>
             <div className="box">
                 <span className="hide">00000</span>
                 {loaded && <div className=" double center"><span style={{padding:'3px'}} >{num6}</span>

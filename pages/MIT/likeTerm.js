@@ -117,7 +117,7 @@ export default function DoubleAdd(){
              <div className="Test sb"><div className="double" >
                  <div>Score: {loaded && score}</div>
                  <div className="font" >Like terms: {loaded && count} </div>
-             </div><Link href={`/enter/LikeTermTest`}><button className="green test-btn">Test</button></Link></div>
+             </div><Link href={`/MIT/LikeTermTest`}><button className="green test-btn">Test</button></Link></div>
             <div className="column center" style={{width:"300px"}}>
                 { loaded && <div style={{fontSize:"25px"}}>{num1}𝑥 + {num9[0]} + {num9[1]} + {num9[2]} + {num9[3]} + {num8}z </div>}
             </div>

@@ -97,7 +97,7 @@ export default function DoubleAdd(){
             <div className="Test sb"><div className="double" >
                 <div>Score: {loaded && score}</div>
                 <div className="font" >Square: {loaded && count} </div>
-            </div><Link href={`/enter/testSquare`}><button className="green test-btn">Test</button></Link></div>
+            </div><Link href={`/MIT/testSquare`}><button className="green test-btn">Test</button></Link></div>
             <div className="box">
                 <div className="double center">{loaded && num1}</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>2</span>
             </div>
