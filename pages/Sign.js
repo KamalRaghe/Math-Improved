@@ -2,10 +2,7 @@
 import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import { auth } from "@/firebase"
-import { db } from "@/firebase"
-import { addDoc, collection } from "firebase/firestore"
 import { createUserWithEmailAndPassword,signInWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail } from "firebase/auth"
-
 export default function Home() {
   const [sign, setSign] = useState()
   const [create, setCreate] = useState(false)
@@ -22,8 +19,6 @@ export default function Home() {
     })
 
   const router = useRouter()
-
-
 
   function signIn(){
     const email = account.title
