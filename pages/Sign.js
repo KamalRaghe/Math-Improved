@@ -65,9 +65,9 @@ export default function Home() {
 
   useEffect(()=>{
     const SignInUser = window.localStorage.getItem('User')
-    setUser((SignInUser))
     setLoaded(true)
     const security = window.localStorage.getItem('Id')
+    setId(window.localStorage.getItem('uid'))
     if(security){
       setLink(security)
     }else{
@@ -140,7 +140,7 @@ export default function Home() {
       {!user && <div className="box" ></div>}
       {user && <div className="box center" style={{width:'340px'}} >
         
-        <button className="topic column" onClick={()=>{router.push('/stats')}} style={{width:'150px', height:"90px"}} >
+        <button className="topic column" onClick={()=>{router.push(`/${id}/enter/stats`)}} style={{width:'150px', height:"90px"}} >
           <div className="center" style={{paddingTop:'20px',paddingBottom:"5px"}} >
             <div className="red relative" style={{marginBottom:"10px",rotate:'90deg',width:'20px',height:'10px',left:'20px',top:"4px"}} ></div>
             <div className="relative" style={{marginBottom:"10px",rotate:'90deg',width:'40px',height:'10px',backgroundColor:"cyan",top:"-5px",left:"5px"}} ></div>
@@ -148,7 +148,7 @@ export default function Home() {
           </div>
           Stats
         </button>
-        <button className="topic column" onClick={()=>{router.push('/stats')}} style={{width: '150px', height:"90px"}} >
+        <button className="topic column" onClick={()=>{router.push(`/${id}/enter/math`)}} style={{width: '150px', height:"90px"}} >
           <div className="center" style={{padding:'0 20px'}}>
             <div className="relative" style={{rotate:"90deg",borderBottom:"50px solid white",borderRight:'25px solid transparent',borderLeft:'25px solid transparent'}} ></div>
           </div>
