@@ -40,7 +40,7 @@ function App() {
         let player = window.localStorage.getItem('uid')
         set(ref(rdb, `${room}/` + id),{
             user: name,
-            id: player,
+            player: player,
             score: 0
         })
     }
