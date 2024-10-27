@@ -9,7 +9,7 @@ export default function Menu(){
     const [count, setCount] = useState(0)
     const [loaded, setLoaded] = useState(true)
     const router = useRouter()
-    const {id} = router.query 
+   
 
     function topic(Topic){
         window.localStorage.setItem('Topic', Topic)
