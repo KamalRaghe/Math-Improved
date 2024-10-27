@@ -55,10 +55,7 @@ export default function Menu(){
             { loaded && <button onClick={() => {setCount('in')}} className="topic" >Inequality</button>}
             { count === 'in' && <Link href= {`/${id}/enter/Gl`}><button className="sub-topic zoom">Greater than less than</button></Link>} */}
 
-            {/* { loaded && <button onClick={() => {setCount(6)}} className="topic" >Mean Median & Mode</button>}
-            { count === 6 && <Link href= {`/${id}/enter/mean`}><button className="sub-topic zoom">Mean</button></Link>}
-            { count === 6 && <Link href= {`/${id}/enter/median`}><button className="sub-topic zoom ">Median</button></Link>}
-            { count === 6 && <Link href= {`/${id}/enter/mode`}><button className="sub-topic zoom" >Mode</button></Link>} */}
+           
 
             {/* { loaded && <button onClick={() => {setCount(7)}}  className="topic">Exponents/Power</button >}
             {  count === 7 &&<Link href= {`/${id}/enter/square`}><button className="sub-topic zoom">Square</button></Link>}
