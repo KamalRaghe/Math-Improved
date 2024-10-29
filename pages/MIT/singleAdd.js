@@ -70,8 +70,8 @@ export default function DoubleAdd(){
         // const score = parseInt(window.localStorage.getItem(`${id} score`))
         // setScore(score ? score : 0)
         fetch("http://localhost:3001/score").then(
-            res => res.json()
-        ).then(data => setScore(data.score))
+            res => {res.json();console.log(res)}
+        )
     },[])
 
     useEffect(() =>{

@@ -2,12 +2,12 @@ const express = require("express");
 const app = express();
 const http = require("http");
 const cors = require("cors");
-let score = 0;
+let Score = window.localStorage.getItem('Score');
 app.use(cors());
 
 app.get('/score',(req, res)=>{
   score += 1
-  res.json({score: score})
+  res.json({score: Score})
 })
 
 
