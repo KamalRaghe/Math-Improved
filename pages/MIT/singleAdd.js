@@ -37,6 +37,13 @@ export default function DoubleAdd(){
     function CorrectA(){ 
         setCorrect(true)
         setCount(count + 1)
+        fetch("http://localhost:8080/score").then(
+            res => res.json()
+        ).then(
+            data =>{
+                setScore(data.count)
+            }
+        )
         setScore(score+1)
         setTimeout(() => {
             setCorrect(false)
@@ -69,9 +76,6 @@ export default function DoubleAdd(){
         setCount(count ? count : 0)
         // const score = parseInt(window.localStorage.getItem(`${id} score`))
         // setScore(score ? score : 0)
-        fetch("http://localhost:3001/score").then(
-            res => {res.json();console.log(res)}
-        )
     },[])
 
     useEffect(() =>{
