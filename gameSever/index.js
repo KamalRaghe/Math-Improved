@@ -1,19 +1,25 @@
 const express = require("express");
 const app = express();
 const http = require("http");
-const { Server } = require("socket.io");
 const cors = require("cors");
-
+let score = 0;
 app.use(cors());
 
-const server = http.createServer(app);
+app.get('/score',(req, res)=>{
+  score += 1
+  res.json({score: score})
+})
 
 
+server.listen(8080, () => {
+  console.log("SERVER IS RUNNING");
+});
 
 
 
 // WebSocket
-
+// const { Server } = require("socket.io");
+// const server = http.createServer(app);
 // const io = new Server(server, {
 //   cors: {
 //     origin: "https://mathimproved.com/Game",
