@@ -11,7 +11,7 @@ app.get('/score',(req, res)=>{
 })
 
 
-server.listen(8080, () => {
+app.listen(8080, () => {
   console.log("SERVER IS RUNNING");
 });
 

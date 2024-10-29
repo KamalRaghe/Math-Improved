@@ -67,8 +67,11 @@ export default function DoubleAdd(){
         setLoaded(true)
         const count = parseInt(window.localStorage.getItem(`singleAdd ${id}`))
         setCount(count ? count : 0)
-        const score = parseInt(window.localStorage.getItem(`${id} score`))
-        setScore(score ? score : 0)
+        // const score = parseInt(window.localStorage.getItem(`${id} score`))
+        // setScore(score ? score : 0)
+        fetch("http://localhost:3001/score").then(
+            res => res.json()
+        ).then(data => setScore(data.score))
     },[])
 
     useEffect(() =>{
@@ -107,7 +110,6 @@ export default function DoubleAdd(){
                     <div className="double">{loaded && num1} + {loaded && num2} =</div>
                 </div>
                 <div className="box column" style={{height:"30px",paddingBottom:"20px"}}>
-                <button className="help" onClick={open}>help</button>
                 </div>
                 {help && <HelpAdd num1 ={num1} num2={num2} close={close}/>}
                 {loaded && correct && <Correct></Correct>}
