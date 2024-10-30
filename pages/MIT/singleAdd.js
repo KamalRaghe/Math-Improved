@@ -37,10 +37,13 @@ export default function DoubleAdd(){
     function CorrectA(){ 
         setCorrect(true)
         setCount(count + 1)
-        fetch("https://mathimprove.com/score").then(
-            res => {console.log(res.json())}
+        fetch("http://localhost:8080/score").then(
+            res => res.json()
         ).then(
-                console.log(111)
+            data =>{
+                console.log(data)
+            }
+                
         )
         setScore(score+1)
         setTimeout(() => {
