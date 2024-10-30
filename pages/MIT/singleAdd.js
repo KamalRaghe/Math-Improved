@@ -37,12 +37,11 @@ export default function DoubleAdd(){
     function CorrectA(){ 
         setCorrect(true)
         setCount(count + 1)
-        fetch("https://mathimprove.com/MIT/singleAdd/score").then(
-            res => res.json()
+        fetch("https://mathimprove.com/score").then(
+            res => {res.json();console.log(res)}
         ).then(
-            data =>{
-                setScore(data.count)
-            }
+                console.log(111)
+            
         )
         setScore(score+1)
         setTimeout(() => {

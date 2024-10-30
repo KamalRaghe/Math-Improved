@@ -5,6 +5,10 @@ const cors = require("cors");
 let score = 0;
 app.use(cors());
 
+app.use(cors({
+  origin: "https://mathimprove.com"
+}));
+
 app.get('/score',(req, res)=>{
   score += 1
   res.json({count: score})
