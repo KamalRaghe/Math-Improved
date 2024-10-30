@@ -37,17 +37,15 @@ export default function DoubleAdd(){
     function CorrectA(){ 
         setCorrect(true)
         setCount(count + 1)
-        fetch("http://localhost:8080/score").then(
-            res => {
-                console.log(res.json())
-            })
-        // ).then(
-        //     data =>{
-        //         console.log(data)
-        //         setScore(data.count)
-        //     }
+        fetch("http://localhost:3000/MIT/singleAdd/score").then(
+            res => res.json()
+        ).then(
+            data =>{
+                console.log(data)
+                setScore(data.count)
+            }
                 
-        // )
+        )
         setScore(score+1)
         setTimeout(() => {
             setCorrect(false)
