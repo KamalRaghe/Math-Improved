@@ -38,10 +38,10 @@ export default function DoubleAdd(){
         setCorrect(true)
         setCount(count + 1)
         fetch("http://localhost:8080/score").then(
-            res => res.json()
+            res => res.text()
         ).then(
             data =>{
-                console.log(data)
+                setScore(data.count)
             }
                 
         )
