@@ -39,13 +39,14 @@ export default function DoubleAdd(){
         setCount(count + 1)
         fetch("https://mathimprove.com/MIT/singleAdd/score").then(
             res => JSON.stringify(res.json())
-        ).then(
-            data =>{
-                console.log(data)
-                setScore(data.count)
-            }
-                
         )
+        // ).then(
+        //     data =>{
+        //         console.log(data)
+        //         setScore(data.count)
+        //     }
+                
+        // )
         setScore(score+1)
         setTimeout(() => {
             setCorrect(false)
