@@ -37,9 +37,10 @@ export default function DoubleAdd(){
     function CorrectA(){ 
         setCorrect(true)
         setCount(count + 1)
-        fetch("https://mathimprove.com/MIT/singleAdd/score").then(
-            res => JSON.stringify(res.json())
-        )
+        fetch("http://localhost:8080/score").then(
+            res => {
+                console.log(res.json())
+            })
         // ).then(
         //     data =>{
         //         console.log(data)

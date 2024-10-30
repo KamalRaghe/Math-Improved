@@ -12,6 +12,7 @@ app.use(cors({
 app.get('/score',(req, res)=>{
   score += 1
   res.json({count: score})
+  console.log(res)
 })
 
 
