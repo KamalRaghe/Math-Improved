@@ -6,12 +6,13 @@ let score = 0;
 app.use(cors());
 
 app.use(cors({
-  origin: "*"
+  origin: "*",
+  methods: ["GET", "POST"],
 }));
 
 app.get('/score',(req, res)=>{
   score += 1
-  res.json({count: score})
+  res.send({count: score})
   console.log(res)
 })
 
