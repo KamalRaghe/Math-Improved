@@ -7,7 +7,6 @@ app.use(cors());
 
 app.use(cors({
   origin: "*",
-  methods: ["GET", "POST"],
 }));
 
 app.get('/score',(req, res)=>{
