@@ -23,7 +23,9 @@ export default function DoubleAdd(){
     const {username} = router.query 
     const {id} = router.query 
 
-  
+    function mix(){
+        setNum3([0,1,-1,Math.ceil(Math.random()*2+1),-1*Math.ceil(Math.random()*2+1)])
+    }
 
     function open(){
         setHelp(true)
