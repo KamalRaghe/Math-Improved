@@ -2,7 +2,7 @@ import { useState } from "react";
 import Plot from "react-plotly.js";
 import { evaluate } from "mathjs"; // For parsing mathematical expressions
 
-const FourQuadrantGraph = () => {
+export default function FourQuadrantGraph(){
   const [equation, setEquation] = useState("x^2"); // Default equation
   const [range, setRange] = useState(10); // Range for x-axis
 
@@ -88,5 +88,3 @@ const FourQuadrantGraph = () => {
     </div>
   );
 };
-
-export default FourQuadrantGraph;
