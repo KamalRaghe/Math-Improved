@@ -6,7 +6,7 @@ let score = 0;
 app.use(cors());
 
 app.use(cors({
-  origin: "*",
+  origin: "*"
 }));
 
 app.get('/score',(req, res)=>{
@@ -21,29 +21,3 @@ app.listen(8080, () => {
 });
 
 
-
-// WebSocket
-// const { Server } = require("socket.io");
-// const server = http.createServer(app);
-// const io = new Server(server, {
-//   cors: {
-//     origin: "https://mathimproved.com/Game",
-//     methods: ["GET", "POST"],
-//   },
-// });
-
-// io.on("connection", (socket) => {
-//   console.log(`User Connected: ${socket.id}`);
-
-//   socket.on("join_room", (data) => {
-//     socket.join(data);
-//   });
-
-//   socket.on("send_message", (data) => {
-//     socket.to(data.room).emit("receive_message", data);
-//   });
-// });
-
-// server.listen(3001, () => {
-//   console.log("SERVER IS RUNNING");
-// });
