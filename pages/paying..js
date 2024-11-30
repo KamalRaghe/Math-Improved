@@ -4,7 +4,6 @@ import { addDoc, collection, onSnapshot} from "firebase/firestore"
 import { initFirebase } from "@/firebase"
 import { getFirestore } from "firebase/firestore"
 import { db , auth} from "../firebase"
-
 export default function Home() {
 
     const router = useRouter()
