@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
-import { addDoc, collection, onSnapshot, query, where, getDoc, updateDoc, doc } from "firebase/firestore"
-import Link from "next/link"
+import { addDoc, collection, onSnapshot} from "firebase/firestore"
 import { initFirebase } from "@/firebase"
 import { getFirestore } from "firebase/firestore"
 import { db , auth} from "../firebase"
