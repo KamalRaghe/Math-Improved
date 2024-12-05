@@ -73,7 +73,7 @@ const FourQuadrantGraph = () => {
           gridcolor: "#ddd",
           range: [-range, range],
           dtick: range / 10, // Synchronize x-axis tick spacing
-          tickangle: -90, // Rotate tick labels 45 degrees counterclockwise
+          tickangle: 0, // Rotate tick labels 45 degrees counterclockwise
         },
         yaxis: {
           title: "y-axis",
@@ -104,7 +104,7 @@ const FourQuadrantGraph = () => {
           },
         ],
       }}
-      style={{ width: "500px", height: "500px" }}
+      style={{ width: "100vh", height: "100vh" }}
     />
     </div>
   );
