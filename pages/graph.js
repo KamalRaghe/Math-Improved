@@ -71,6 +71,7 @@ const FourQuadrantGraph = () => {
             zerolinecolor: "black", // Darker x-axis line
             showgrid: true,
             gridcolor: "#ddd",
+            range: [-range, range], // Ensure x-axis range matches user input
           },
           yaxis: {
             title: "y-axis",
@@ -78,14 +79,16 @@ const FourQuadrantGraph = () => {
             zerolinecolor: "black", // Darker y-axis line
             showgrid: true,
             gridcolor: "#ddd",
+            scaleanchor: "x", // Link y-axis scale to x-axis scale
+            range: [-range, range], // Ensure y-axis range matches user input
           },
           shapes: [
             {
               type: "line",
               x0: 0,
               x1: 0,
-              y0: -Math.pow(range, 2),
-              y1: Math.pow(range, 2),
+              y0: -range,
+              y1: range,
               line: { color: "black", width: 2 },
             },
             {
