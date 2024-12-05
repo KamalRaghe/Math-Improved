@@ -72,7 +72,7 @@ const FourQuadrantGraph = () => {
           showgrid: true,
           gridcolor: "#ddd",
           range: [-range, range],
-          dtick: range / 10, // Synchronize x-axis tick spacing
+          dtick: range / 5, // Synchronize x-axis tick spacing
           tickangle: 0, // Rotate tick labels 45 degrees counterclockwise
         },
         yaxis: {
@@ -83,7 +83,7 @@ const FourQuadrantGraph = () => {
           gridcolor: "#ddd",
           scaleanchor: "x", // Ensures equal scaling
           range: [-range, range],
-          dtick: range / 10, // Synchronize y-axis tick spacing
+          dtick: range / 5, // Synchronize y-axis tick spacing
         },
         shapes: [
           {
