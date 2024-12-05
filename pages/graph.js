@@ -53,56 +53,58 @@ const FourQuadrantGraph = () => {
           />
         </label>
       </div>
-      <Plot
-        data={[
-          {
-            x: xValues,
-            y: yValues,
-            type: "scatter",
-            mode: "lines",
-            line: { color: "blue" },
-          },
-        ]}
-        layout={{
-          title: "Graph of the Equation",
-          xaxis: {
-            title: "x-axis",
-            zeroline: true,
-            zerolinecolor: "black", // Darker x-axis line
-            showgrid: true,
-            gridcolor: "#ddd",
-            range: [-range, range], // Ensure x-axis range matches user input
-          },
-          yaxis: {
-            title: "y-axis",
-            zeroline: true,
-            zerolinecolor: "black", // Darker y-axis line
-            showgrid: true,
-            gridcolor: "#ddd",
-            scaleanchor: "x", // Link y-axis scale to x-axis scale
-            range: [-range, range], // Ensure y-axis range matches user input
-          },
-          shapes: [
-            {
-              type: "line",
-              x0: 0,
-              x1: 0,
-              y0: -range,
-              y1: range,
-              line: { color: "black", width: 2 },
-            },
-            {
-              type: "line",
-              x0: -range,
-              x1: range,
-              y0: 0,
-              y1: 0,
-              line: { color: "black", width: 2 },
-            },
-          ],
-        }}
-        style={{ width: "500px", height: "500px" }}
-      />
+        <Plot
+    data={[
+      {
+        x: xValues,
+        y: yValues,
+        type: "scatter",
+        mode: "lines",
+        line: { color: "blue" },
+      },
+    ]}
+    layout={{
+      title: "Graph of the Equation",
+      xaxis: {
+        title: "x-axis",
+        zeroline: true,
+        zerolinecolor: "black",
+        showgrid: true,
+        gridcolor: "#ddd",
+        range: [-range, range],
+        dtick: range / 10, // Synchronize x-axis tick spacing
+      },
+      yaxis: {
+        title: "y-axis",
+        zeroline: true,
+        zerolinecolor: "black",
+        showgrid: true,
+        gridcolor: "#ddd",
+        scaleanchor: "x", // Ensures equal scaling
+        range: [-range, range],
+        dtick: range / 10, // Synchronize y-axis tick spacing
+      },
+      shapes: [
+        {
+          type: "line",
+          x0: 0,
+          x1: 0,
+          y0: -range,
+          y1: range,
+          line: { color: "black", width: 2 },
+        },
+        {
+          type: "line",
+          x0: -range,
+          x1: range,
+          y0: 0,
+          y1: 0,
+          line: { color: "black", width: 2 },
+        },
+      ],
+    }}
+    style={{ width: "500px", height: "500px" }}
+  />
     </div>
   );
 };
