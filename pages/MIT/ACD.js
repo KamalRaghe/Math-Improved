@@ -5,8 +5,8 @@ import Wrong from "@/components/wrong";
 import Link from "next/link";
 import ACD from "@/components/ACDHelp";
 import { useRouter } from "next/router";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
-import { db } from "@/firebase";
+import Sign from "@/components/SignUp";
+import { sign } from "mathjs";
 
 
 
@@ -127,6 +127,7 @@ export default function DoubleAdd(){
                 <button className="help" onClick={open}>help</button>
             </div>
             {help && <ACD num1={num4} num2={num2} close={close} num4={num1} />}
+            {count > 2  && <Sign></Sign>}
             {loaded && correct && <Correct></Correct>}
             {loaded && wrong && <Wrong/> }
             <div className="box column">

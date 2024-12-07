@@ -1,8 +1,8 @@
 
-export default function HelpAdd(){
+export default function Sign(){
     return(
-        <div style={{backgroundColor:"beige",zIndex:"200",width:"100%",height:"100%"}} >
-            <div className="Help column" style={{zIndex:'30', border:'10px solid yellow',backgroundColor:"beige"}}>
+        <div className="center" style={{backgroundColor:"beige",zIndex:"200",width:"100%",height:"100%",position:"absolute"}} >
+            <div className="Help column" style={{zIndex:'30', border:'1px solid brown',backgroundColor:"beige"}}>
 
             </div>
         </div>
