@@ -7,6 +7,8 @@ import { useRouter } from "next/router";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "@/firebase";
 import TA from "@/components/TA";
+import Sign from "@/components/SignUp";
+import Sign2 from "@/components/SignUp2";
 
 export default function DoubleAdd(){
 

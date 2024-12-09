@@ -5,6 +5,8 @@ import Wrong from "@/components/wrong";
 import Link from "next/link";
 import HelpHcf from '@/components/HelpHcf';
 import { useRouter } from 'next/router';
+import Sign from "@/components/SignUp";
+import Sign2 from "@/components/SignUp2";
 
 
 function Hcf(){

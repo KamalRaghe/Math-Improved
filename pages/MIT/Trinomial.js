@@ -10,6 +10,8 @@ import Tri from "@/Trinomail/Tri";
 import Tri1 from "@/Trinomail/Tri1";
 import Tri2 from "@/Trinomail/Tri2";
 import Tri3 from "@/Trinomail/Tri3";
+import Sign from "@/components/SignUp";
+import Sign2 from "@/components/SignUp2";
 
 export default function DoubleAdd({Count}){
     const [help, setHelp] = useState(false)

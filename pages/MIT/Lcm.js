@@ -7,6 +7,8 @@ import HelpLcm from '@/components/HelpLcm';
 import { useRouter } from 'next/router';
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "@/firebase";
+import Sign from "@/components/SignUp";
+import Sign2 from "@/components/SignUp2";
 
 
 function Lcm(){

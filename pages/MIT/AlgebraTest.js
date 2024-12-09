@@ -13,6 +13,8 @@ import Algebra2 from "@/Algebra/Algebra2";
 import Algebra3 from "@/Algebra/Algebra3";
 import Algebra4 from "@/Algebra/Algebra4";
 import Mistake from "@/components/mistake";
+import Sign from "@/components/SignUp";
+import Sign2 from "@/components/SignUp2";
 
 export default function DoubleAdd(){
     const [again, setAgain] = useState(false)
