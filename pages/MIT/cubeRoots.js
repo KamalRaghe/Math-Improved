@@ -7,6 +7,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "@/firebase";
+import Sign from "@/components/SignUp";
+import Sign2 from "@/components/SignUp2";
 
 export default function DoubleAdd(){
     const [help, setHelp] = useState(false)
@@ -99,6 +101,8 @@ export default function DoubleAdd(){
                 <button className="help" onClick={open}>help</button>
             </div>
             {help && <HelpCube  num1={num1} close={close}/>}
+            {count > 10 && score < 100  && <Sign></Sign>}
+            {score > 100  && <Sign2></Sign2>}
             {loaded && correct && <Correct></Correct>}
             {loaded && wrong && <Wrong/> }
             <div className="box column">
