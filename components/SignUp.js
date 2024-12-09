@@ -6,7 +6,8 @@ export default function Sign(){
     const [free, setFree] = useState(false)
     const [check, setCheck] = useState(false)
     useEffect(()=>{
-        parseInt(free) === parseInt(check) - 34521
+        setFree(window.localStorage.getItem('userId'))
+        setCheck(window.localStorage.getItem('Check'))
     })
     return(
         <div className="center zoom" style={{backgroundColor:"beige",zIndex:"200",width:"100%",height:"100%",position:"absolute"}} >
@@ -17,7 +18,7 @@ export default function Sign(){
                 <br></br>
                 <div>or</div>
                 <div><button className="sub-topic" onClick={()=>{router.push('/Sign')}} >Sign up</button></div>
-                <div className="font" > 7 day free trial available</div>
+                {!(parseInt(free) === parseInt(check) - 34521) && <div className="font" > 7 day free trial available</div>}
             </div>
         </div>
     )
