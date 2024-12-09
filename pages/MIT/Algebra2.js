@@ -120,6 +120,8 @@ export default function DoubleAdd(){
             {help && <TwoVar num1 ={num1} num2={num2} num4={num4} num5 ={num5} num6={num6} num7={num7} close={close}/>}
             {loaded && correct && <Correct></Correct>}
             {loaded && wrong && <Wrong/> }
+            {count > 10 && score < 100  && <Sign></Sign>}
+            {score > 100  && <Sign2></Sign2>}
             <div className="box column">
                <div className="row ">
                     { loaded && <Choice big={true} size={'115px'} value ={`𝑥 = ${num6+num3[0]}, y = ${num7-num3[0]}`} answer ={`𝑥 = ${num6}, y = ${num7}`} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
