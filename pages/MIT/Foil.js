@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "@/firebase";
-import Foil from "@/gameSever/ATopic/Foil/foil";
+import Foil from "@/ATopic/Foil/foil";
 import Foil1 from "@/ATopic/Foil/foil1";
 import Foil2 from "@/ATopic/Foil/foil2"
 import Foil3 from "@/ATopic/Foil/foil3";
