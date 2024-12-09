@@ -98,6 +98,8 @@ function Hcf(){
         <h1 className='double'>{loaded && num1} and {loaded && num2}</h1>
         {correct ? <Correct /> : null}
         {wrong ? <Wrong /> : null}
+        {count > 10 && score < 100  && <Sign></Sign>}
+        {score > 100  && <Sign2></Sign2>}
         <button className='help' onClick={() => setOpen(true)}>help</button>
         <br/><br/>
         {open ? <HelpHcf num1 = {num1} num2 ={num2}close={noHelp} /> : null}
