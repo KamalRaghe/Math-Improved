@@ -6,7 +6,7 @@ import Link from "next/link";
 import ACD from "@/components/ACDHelp";
 import { useRouter } from "next/router";
 import Sign from "@/components/SignUp";
-import { sign } from "mathjs";
+import Sign2 from "@/components/SignUp2";
 
 
 
