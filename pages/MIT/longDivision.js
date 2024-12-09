@@ -99,6 +99,8 @@ export default function DoubleAdd(){
                 <button className="help" onClick={open}>help</button>
             </div>
             {help && <LongDivisionHelp num1 ={num1} num2={num2} close={close}/>}
+            {count > 10 && score < 100  && <Sign></Sign>}
+            {score > 100  && <Sign2></Sign2>}
             {loaded && correct && <Correct></Correct>}
             {loaded && wrong && <Wrong/> }
             <div className="box column">
