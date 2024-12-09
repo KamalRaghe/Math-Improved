@@ -123,6 +123,8 @@ export default function DoubleAdd(){
             {help && num === 1 && <Foil1 num1 ={num1} num2={num2} close={close}/>}
             {help && num === 2 && <Foil2 num1 ={num1} num2={num2} close={close}/>}
             {help && num === 3 && <Foil3 num1 ={num1} num2={num2} close={close}/>}
+            {count > 10 && score < 100  && <Sign></Sign>}
+            {score > 100  && <Sign2></Sign2>}
             {loaded && correct && <Correct></Correct>}
             {loaded && wrong && <Wrong/> }
             <div className="box column">

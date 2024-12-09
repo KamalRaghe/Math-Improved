@@ -133,6 +133,8 @@ export default function DoubleAdd(){
                 <button className="help" onClick={open}>help</button>
             </div>
             {help && <DPF num1={num4} num2={num5} close={close} num4={num2} num5={num1} />}
+            {count > 10 && score < 100  && <Sign></Sign>}
+            {score > 100  && <Sign2></Sign2>}
             {loaded && correct && <Correct></Correct>}
             {loaded && wrong && <Wrong/> }
             <div className="box column">
