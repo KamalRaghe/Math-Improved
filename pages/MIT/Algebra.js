@@ -123,6 +123,8 @@ export default function DoubleAdd(){
             {help && num === 3 && <Algebra3 num1 ={num1} num2={num2} num5={num5} close={close}/>}
             {help && num === 4 && <Algebra4 num1 ={num1} num2={num2} num5={num5} close={close}/>}
             {loaded && correct && <Correct></Correct>}
+            {count > 10 && score < 100  && <Sign></Sign>}
+            {score > 100  && <Sign2></Sign2>}
             {loaded && wrong && <Wrong/> }
             <div className="box column">
                <div className="row ">
