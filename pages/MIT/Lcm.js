@@ -112,6 +112,8 @@ function Lcm(){
             <div className='double' style={{padding:'10px'}}>of</div>
             <div className='double'>{loaded && num1} and {loaded && num2}</div>  
         </div>
+        {count > 10 && score < 100  && <Sign></Sign>}
+        {score > 100  && <Sign2></Sign2>}
         {correct ? <Correct /> : null}
         {wrong ? <Wrong /> : null}
         <div className='box'><button className='help' onClick={open} >help</button></div>
