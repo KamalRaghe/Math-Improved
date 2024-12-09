@@ -124,6 +124,8 @@ export default function DoubleAdd(){
             {help && num4 === 1 && <CircumTwo num1 ={num1} close={close}/>}
             {loaded && correct && <Correct></Correct>}
             {loaded && wrong && <Wrong/> }
+            {count > 10 && score < 100  && <Sign></Sign>}
+            {score > 100  && <Sign2></Sign2>}
             <div className="box column">
                <div className="row ">
                     { loaded && <Choice value ={num6+num3[0]} answer ={num6} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}

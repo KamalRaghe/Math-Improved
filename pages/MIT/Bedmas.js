@@ -167,6 +167,8 @@ export default function DoubleAdd(){
             {help && num === 7 && <Question7 num1 ={num1} num2={num2} num4={num4} num5={num5} num6={num6} close={close}/>}
             {help && num === 8 && <Question8 num1 ={num1} num2={num2} num4={num4} num5={num5} num6={num6} close={close}/>}
             
+            {count > 10 && score < 100  && <Sign></Sign>}
+            {score > 100  && <Sign2></Sign2>}
             {loaded && correct && <Correct></Correct>}
             {loaded && wrong && <Wrong/> }
             <div className="box column">
