@@ -123,6 +123,8 @@ export default function DoubleAdd({Count}){
             {help && num === 3 && <Tri3 num1 ={num1} num2={num2} close={close}/>}
             {loaded && correct && <Correct></Correct>}
             {loaded && wrong && <Wrong/> }
+            {count > 10 && score < 100  && <Sign></Sign>}
+            {score > 100  && <Sign2></Sign2>}
             <div className="box column">
                <div className="row ">
                     { loaded && <Choice big={true} size={'140px'} 

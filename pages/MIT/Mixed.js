@@ -107,6 +107,8 @@ export default function DoubleAdd(){
             {help && <Question1  num1={num4} num2={num1} whole={num2} close={close}/>}
             {loaded && correct && <Correct></Correct>}
             {loaded && wrong && <Wrong/> }
+            {count > 10 && score < 100  && <Sign></Sign>}
+            {score > 100  && <Sign2></Sign2>}
             <div className="box column">
                <div className="row ">
                     { loaded && <Choice  beginning={true}  value1 ={num2*num1+num4+num3[0]} answer1 ={num2*num1+num4}  value2={num1}  answer2={num1}  doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}

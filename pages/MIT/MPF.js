@@ -141,6 +141,8 @@ export default function DoubleAdd(){
             {help && <MPF num1={num4} num2={num5} close={close} num4={num2} num5={num1} />}
             {loaded && correct && <Correct></Correct>}
             {loaded && wrong && <Wrong/> }
+            {count > 10 && score < 100  && <Sign></Sign>}
+            {score > 100  && <Sign2></Sign2>}
             <div className="box column">
                <div className="row ">
                     { loaded && <Choice whole={Math.floor((num4*num2)/(num5*num1))} value1 ={(((num2)*(num4))+num3[0])%(num5*num1) } answer1 ={(((num2)*(num4)))%(num5*num1)} value2={num1*num5} answer2={num1*num5} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}

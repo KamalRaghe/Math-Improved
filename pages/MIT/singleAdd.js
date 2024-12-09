@@ -121,6 +121,8 @@ export default function DoubleAdd(){
                 {help && <HelpAdd num1 ={num1} num2={num2} close={close}/>}
                 {loaded && correct && <Correct></Correct>}
                 {loaded && wrong && <Wrong/> }
+                {count > 10 && score < 100  && <Sign></Sign>}
+                {score > 100  && <Sign2></Sign2>}
                 <div className="box column" style={{height:"30px",paddingBottom:"20px"}}>
                 <button className="help" onClick={open}>help</button>
                 </div>

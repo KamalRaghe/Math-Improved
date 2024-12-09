@@ -120,6 +120,8 @@ export default function DoubleAdd(){
             {help && num === 3 && <Quad3 num1 ={num1} num2={num2} close={close}/>}
             {loaded && correct && <Correct></Correct>}
             {loaded && wrong && <Wrong/> }
+            {count > 10 && score < 100  && <Sign></Sign>}
+            {score > 100  && <Sign2></Sign2>}
             <div className="box column center relative tooBig">
                <div className="row " >
                     { loaded && <Choice big={true} size={'160px'} 

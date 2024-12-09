@@ -136,6 +136,8 @@ export default function DoubleAdd(){
             {help && <SCD num1={num4} num2={num2} close={close} num4={num1} />}
             {loaded && correct && <Correct></Correct>}
             {loaded && wrong && <Wrong/> }
+            {count > 10 && score < 100  && <Sign></Sign>}
+            {score > 100  && <Sign2></Sign2>}
             <div className="box column">
                <div className="row ">
                     { loaded && <Choice value1 ={(num4-num2+num3[0])% num1 } answer1 ={(num4-num2)%num1} value2={num1} answer2={num1} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}

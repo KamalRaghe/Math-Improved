@@ -137,6 +137,8 @@ export default function DoubleAdd(){
             {help && <HelpMean num1 ={num1} num2 ={num2} num3 ={num3} num4 ={num4} num5 ={num5} num8 ={num8}  close={close}/>}
             {loaded && correct && <Correct></Correct>}
             {loaded && wrong && <Wrong/> }
+            {count > 10 && score < 100  && <Sign></Sign>}
+            {score > 100  && <Sign2></Sign2>}
             <div className="box column">
 
                <div className="row ">
