@@ -62,7 +62,7 @@ export default function DoubleAdd(){
              mix()
             setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5)) 
             setNum1(Math.ceil(Math.random()*6+3))
-        }, 1500)
+        }, 1600)
     }
 
 
