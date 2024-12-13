@@ -1,8 +1,8 @@
 import { useState ,useEffect, use } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
-import { db } from "@/firebase";
+import { set, remove } from "firebase/database";
+import { rdb } from "@/firebase";
 
 
 export default function Math(){
@@ -10,6 +10,27 @@ export default function Math(){
     const [loaded, setLoaded] = useState(true)
     const router = useRouter() 
     const {id} = router.query 
+
+    function Leave(){
+        let room = window.localStorage.getItem('GameRoom')
+        let host = window.localStorage.getItem('host')
+        let id = window.localStorage.getItem('GameId')
+        if(host  === 'Host'){
+            const usersRef = ref(rdb, `${room}/`+'cancel')
+            const AddList = push(usersRef)
+            set(AddList,{
+                time: 63000 + Date.now()
+            }).then(
+                remove(ref(rdb, `${room}/`))
+                
+            ) 
+            router.push('/') 
+        }else{
+            remove(ref(rdb, `${room}/`+ id))
+            router.push('/')
+        }
+             
+    }
 
     useEffect(()=>{
         const ID = window.localStorage.getItem('ID')
