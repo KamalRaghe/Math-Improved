@@ -21,13 +21,10 @@ export default function Math(){
             set(AddList,{
                 time: 63000 + Date.now()
             }).then(
-                remove(ref(rdb, `${room}/`))
-                
+                remove(ref(rdb, `${room}/`))  
             ) 
-            router.push('/') 
         }else{
             remove(ref(rdb, `${room}/`+ id))
-            router.push('/')
         }
              
     }
