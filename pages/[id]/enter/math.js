@@ -31,6 +31,11 @@ export default function Math(){
 
     useEffect(()=>{
         const ID = window.localStorage.getItem('ID')
+        let room = window.localStorage.getItem('GameRoom')
+        if(room){
+            Leave()
+            window.localStorage.setItem('GameRoom', false)
+        }
         if(!(ID === id)){
             router.push("/")
         }
