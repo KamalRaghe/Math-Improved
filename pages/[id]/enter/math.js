@@ -29,12 +29,30 @@ export default function Math(){
              
     }
 
+    function Leave(){
+        let room = window.localStorage.getItem('GameRoom')
+        let host = window.localStorage.getItem('host')
+        let id = window.localStorage.getItem('GameId')
+        if(host  === 'Host'){
+            const usersRef = ref(rdb, `${room}/`+'cancel')
+            const AddList = push(usersRef)
+            set(AddList,{
+                time: 63000 + Date.now()
+            }).then(
+                remove(ref(rdb, `${room}/`))  
+            ) 
+        }else{
+            remove(ref(rdb, `${room}/`+ id))
+        }
+             
+    }
+
     useEffect(()=>{
         const ID = window.localStorage.getItem('ID')
         let room = window.localStorage.getItem('GameRoom')
         if(room){
             Leave()
-            window.localStorage.etItem('GameRoom', false)
+            window.localStorage.setItem('GameRoom', false)
         }
         if(!(ID === id)){
             router.push("/")
