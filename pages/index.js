@@ -18,10 +18,8 @@ export default function Math(){
             {check && <FeedBack/>}
             <div className="center"  style={{position:"relative",justifyContent:"end",width:"100vw",zIndex:"100"}} ><button className="sub-topic" onClick={()=>{router.push('/Sign');console.log('RG')}} >Sign in</button></div>
             <div style={{position:"relative",bottom:"100px",zIndex:"1"}} >
-                <div>
-                    <h1 style={{marginLeft:'35px',paddingLeft:'15px',paddingRight:'15px',margin:"20px",paddingTop:'15px', borderBottom: '2px solid black',width: '90px'}} >Math</h1>
-                    <button className="sub-topic" ></button>
-                </div>
+                <h1 style={{marginLeft:'35px',paddingLeft:'15px',paddingRight:'15px',margin:"20px",paddingTop:'15px', borderBottom: '2px solid black',width: '90px'}} >Math</h1>
+                
                 {loaded && <button onClick={() => {setCount(1)}} className="topic">Addition</button >}
                 { count === 1 && <Link href= {`/MIT/singleAdd`}><button className="sub-topic zoom">Single digit Addition</button></Link>}
                 { count === 1 && <Link href= {`/MIT/doubleAdd`}><button className="sub-topic zoom">Double digit Addition</button></Link>}
