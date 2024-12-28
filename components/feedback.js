@@ -26,7 +26,7 @@ export default function FeedBack({close}){
                 </div>
                  <textarea placeholder="Feedback"></textarea>
                  <br></br>
-                 <button onClick={()=>router.reload()}>Submit</button>
+                 <button onClick={NewFeedback}>Submit</button>
             </div>
         </div>
     )
