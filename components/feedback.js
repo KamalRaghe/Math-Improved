@@ -5,14 +5,15 @@ import { useEffect, useState } from "react"
 
 export default function FeedBack({close}){
     const router = useRouter()
-    const [post, setPost] = useState({hello:"hello"})
+    const [post, setPost] = useState()
     const [check, setCheck] = useState(false)
 
     function NewFeedback(){
         if(post){
-            addDoc(collection(db, 'feedback'),post).then(
+            addDoc(collection(db, 'feedback'),{person: post}).then(
                 close()
             )
+            console.log(post)
         }else{
             close()
         }    
@@ -24,7 +25,7 @@ export default function FeedBack({close}){
                  <div className='cancel' style={{width:"100%"}} >
                     <button className='cancel-btn' style={{fontSize:"25px",margin:"0px",position:"relative",bottom:"8px"}}  onClick = {close}>X</button>
                 </div>
-                 <textarea placeholder="Feedback"></textarea>
+                 <textarea placeholder="Feedback" onChange={(e)=>{setPost(e.target.value)}} ></textarea>
                  <br></br>
                  <button onClick={NewFeedback}>Submit</button>
             </div>
