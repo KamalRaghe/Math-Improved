@@ -21,7 +21,7 @@ export default function FeedBack(){
             <div className=" column center" style={{borderRadius:"20px",padding:"20px",border:'2px solid brown',backgroundColor:"beige"}}>
                  <textarea placeholder="Feedback"></textarea>
                  <br></br>
-                 <button onClick={()=>{setCheck(!check)}}>Submit</button>
+                 <button onClick={()=>router.reload()}>Submit</button>
             </div>
         </div>
     )
