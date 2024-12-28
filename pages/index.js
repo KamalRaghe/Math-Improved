@@ -2,7 +2,7 @@ import { useState ,useEffect, use } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
-import { db } from "@/firebase";
+import FeedBack from "@/components/feedback";
 
 
 export default function Math(){
@@ -14,6 +14,7 @@ export default function Math(){
 
     return (
         <div className="beige menu" style={{height: '300vh',backgroundColor:'beige'}}>
+            <FeedBack/>
             <div className="center"  style={{position:"relative",justifyContent:"end",width:"100vw",zIndex:"100"}} ><button className="sub-topic" onClick={()=>{router.push('/Sign');console.log('RG')}} >Sign in</button></div>
             <div style={{position:"relative",bottom:"100px",zIndex:"1"}} >
                 <h1 style={{marginLeft:'35px',paddingLeft:'15px',paddingRight:'15px',margin:"20px",paddingTop:'15px', borderBottom: '2px solid black',width: '90px'}} >Math</h1>
