@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import FeedBack from "@/components/feedback";
+import { tree } from "next/dist/build/templates/app-page";
 
 
 export default function Math(){
@@ -18,7 +19,7 @@ export default function Math(){
             {check && <FeedBack/>}
             <div className="center" style={{position:"relative",justifyContent:"end",width:"100vw",zIndex:"100"}} >
                 <button className="sub-topic" onClick={()=>{router.push('/Sign')}} >Sign in</button>
-                <button className="sub-topic" onClick={()=>{router.push('/Sign')}} >Sign in</button>
+                <button className="sub-topic" onClick={()=>{setCheck(true)}} >Feedback</button>
             </div>
             <div style={{position:"relative",bottom:"100px",zIndex:"1"}} >
                 <h1 style={{marginLeft:'35px',paddingLeft:'15px',paddingRight:'15px',margin:"20px",paddingTop:'15px', borderBottom: '2px solid black',width: '90px'}} >Math</h1>
