@@ -16,7 +16,10 @@ export default function Math(){
     return (
         <div className="beige menu" style={{height: '300vh',backgroundColor:'beige'}}>
             {check && <FeedBack/>}
-            <div className="center"  style={{position:"relative",justifyContent:"end",width:"100vw",zIndex:"100"}} ><button className="sub-topic" onClick={()=>{router.push('/Sign');console.log('RG')}} >Sign in</button></div>
+            <div className="center" style={{position:"relative",justifyContent:"end",width:"100vw",zIndex:"100"}} >
+                <button className="sub-topic" onClick={()=>{router.push('/Sign')}} >Sign in</button>
+                <button className="sub-topic" onClick={()=>{router.push('/Sign')}} >Sign in</button>
+            </div>
             <div style={{position:"relative",bottom:"100px",zIndex:"1"}} >
                 <h1 style={{marginLeft:'35px',paddingLeft:'15px',paddingRight:'15px',margin:"20px",paddingTop:'15px', borderBottom: '2px solid black',width: '90px'}} >Math</h1>
                 
