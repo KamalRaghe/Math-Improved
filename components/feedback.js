@@ -9,12 +9,14 @@ export default function FeedBack({close}){
     const [check, setCheck] = useState(false)
 
     function NewFeedback(){
-        addDoc(collection(db, 'feedback'),post)
+        if(post){
+            addDoc(collection(db, 'feedback'),post).then(
+                close()
+            )
+        }else{
+            close()
+        }    
     }
-
-    useEffect(()=>{
-        NewFeedback()
-    },[])
     
     return(
         <div className="center zoom" style={{backgroundColor:"beige",zIndex:"200",width:"100%",height:"100%",position:"absolute"}} >
