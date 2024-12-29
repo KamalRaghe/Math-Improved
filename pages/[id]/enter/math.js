@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { set, remove, ref, push } from "firebase/database";
 import { rdb } from "@/firebase";
+import FeedBack from "@/components/feedback";
 
 
 export default function Math(){

@@ -4,10 +4,12 @@ import { useRouter } from "next/navigation"
 import { initFirebase } from "@/firebase"
 import { db , auth} from "../firebase"
 import { getFunctions, httpsCallable } from "firebase/functions";
+import FeedBack from "@/components/feedback";
 
 export default function Home() {
   const [Data, setData] = useState(false)
   const [id, setId] = useState(false)
+  const [check, setCheck] = useState(false)
   const [edit, setEdit] = useState(false)
   const [name, setName] = useState(false)
   
@@ -66,6 +68,7 @@ export default function Home() {
 
   return (
 <div className="center column beige">
+{check && <FeedBack close={()=>{setCheck(false)}} />}
 {!name && <div className="center" style={{width:"300px"}}> 
   <input placeholder = 'Enter Name' value={account.title} type='text' onChange = {(e) => setAccount({...account, title: e.target.value})}>
   </input><button onClick={handleSubmit} >Enter</button> </div>}

@@ -19,7 +19,8 @@ export default function Math(){
 
     return (
         <div className="beige menu" style={{height: '300vh',backgroundColor:'beige'}}>
-            {check2 && <Sign2></Sign2>}   
+            {check2 && <Sign2></Sign2>} 
+            {check && <FeedBack close={()=>{setCheck(false)}} />}  
             <div className="center" style={{position:"relative",justifyContent:"end",alignItems:"end",width:"97vw",zIndex:"100",marginRight:"400px",flexDirection:"column"}} >
                 <button className="sub-topic" onClick={()=>{router.push('/Sign')}} style={{margin:"0px"}}  >Sign in</button>
                 <br></br>
