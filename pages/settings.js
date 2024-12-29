@@ -79,7 +79,7 @@ export default function Home() {
   <div className="center sb" style={{fontSize:"30px",width:"300px"}}>{name && name} 
   <button className="help" style={{backgroundColor:"cyan",fontWeight:"bold"}} onClick={()=>setEdit(true)} >Change</button> </div>}
   </div>}
-  <button className="sub-topic" onClick={()=>{setCheck(true)}} style={{margin:"0px", position:'relative',top:"23px"}} >Feedback</button>
+
   <button className="topic relative" style={{top:'20px',backgroundColor:"red",marginBottom:"30px",width:"100px"}} onClick={getPortalUrl} >Cancel</button> 
   <button  style={{margin:"20px"}}  onClick={SignOut} >SignOut</button>
   </div>
