@@ -10,15 +10,15 @@ export default function Math(){
     const router = useRouter() 
     const {id} = router.query 
 
-
     return (
         <div className="beige menu" style={{height: '300vh',backgroundColor:'beige'}}>
             {check && <FeedBack close={()=>{setCheck(false)}} />}
             <div className="center" style={{position:"relative",justifyContent:"end",alignItems:"end",width:"97vw",zIndex:"100",marginRight:"400px",flexDirection:"column"}} >
-                <button className="sub-topic" onClick={()=>{router.push('/Sign')}} >Sign in</button>
-                <button className="sub-topic" onClick={()=>{setCheck(true)}} >Feedback</button>
+                <button className="sub-topic" onClick={()=>{router.push('/Sign')}} style={{margin:"0px"}}  >Sign in</button>
+                <br></br>
+                <button className="sub-topic" onClick={()=>{setCheck(true)}} style={{margin:"0px"}} >Feedback</button>
             </div>
-            <div style={{position:"relative",bottom:"100px",zIndex:"1"}} >
+            <div style={{position:"relative",bottom:"120px",zIndex:"1"}} >
                 <h1 style={{marginLeft:'35px',paddingLeft:'15px',paddingRight:'15px',margin:"20px",paddingTop:'15px', borderBottom: '2px solid black',width: '90px'}} >Math</h1>
                 
                 {loaded && <button onClick={() => {setCount(1)}} className="topic">Addition</button >}
