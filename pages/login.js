@@ -144,7 +144,13 @@ export default function Home() {
       </div>
       }
         {!payed && <button className="font" style={{color:'white',fontWeight:"bolder",borderRadius:"20px",width:'150px', height:"40px",margin:"10px",backgroundColor:"grey"}}  onClick={SignOut} >SignOut</button>}
-      {payed && false && <div><button className="font" style={{color:'white',fontWeight:"bolder",borderRadius:"20px",width:'150px', height:"40px",backgroundColor:"blue"}}  onClick={()=>{router.push('settings'),console.log('widubc')}} >Settings</button></div>}
+      {payed &&  <button className="topic column" onClick={()=>{router.push(`/${id}/enter/math`)}} style={{width: '150px', height:"90px"}} >
+          <div className="center" style={{padding:'0 20px'}}>
+            <div className="relative" style={{rotate:"90deg",borderBottom:"50px solid white",borderRight:'25px solid transparent',borderLeft:'25px solid transparent'}} ></div>
+          </div>
+          Start
+        </button>
+      }
     </div>
   )
 }
