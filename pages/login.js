@@ -144,11 +144,8 @@ export default function Home() {
       </div>
       }
         {!payed && <button className="font" style={{color:'white',fontWeight:"bolder",borderRadius:"20px",width:'150px', height:"40px",margin:"10px",backgroundColor:"grey"}}  onClick={SignOut} >SignOut</button>}
-      {<button className="topic column" onClick={()=>{router.push(`/${id}/enter/math`)}} style={{width: '150px', height:"90px"}} >
-          <div className="center" style={{padding:'0 20px'}}>
-            <div className="relative" style={{rotate:"90deg",borderBottom:"50px solid white",borderRight:'25px solid transparent',borderLeft:'25px solid transparent'}} ></div>
-          </div>
-          Start
+      {<button className="topic column" onClick={()=>{router.push(`/settings`)}} style={{width:'150px', height:"90px",fontSize:"20px",backgroundColor:"gray"}} >
+          Setting
         </button>
       }
     </div>
