@@ -144,7 +144,7 @@ export default function Home() {
       </div>
       }
         {!payed && <button className="font" style={{color:'white',fontWeight:"bolder",borderRadius:"20px",width:'150px', height:"40px",margin:"10px",backgroundColor:"grey"}}  onClick={SignOut} >SignOut</button>}
-      {<button className="topic column" onClick={()=>{router.push(`/settings`)}} style={{width:'150px', height:"90px",fontSize:"20px",backgroundColor:"gray",padding:"4px 12px"}} >
+      {<button className="topic column" onClick={()=>{router.push(`/settings`)}} style={{width:'150px', height:"90px",fontSize:"20px",backgroundColor:"gray",padding:"2px 8px"}} >
           Setting
         </button>
       }
