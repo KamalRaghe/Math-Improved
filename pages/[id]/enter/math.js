@@ -1,7 +1,7 @@
 import { useState ,useEffect, use } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { set, remove } from "firebase/database";
+import { set, remove, ref, push } from "firebase/database";
 import { rdb } from "@/firebase";
 
 
