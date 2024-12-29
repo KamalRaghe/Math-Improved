@@ -90,12 +90,12 @@ export default function DoubleAdd(){
   
       useEffect(() =>{
           if(count > 0){
-          window.localStorage.setItem(`${id+username} Gl`, count)
+          window.localStorage.setItem(`${id} Gl`, count)
       }},[count])
   
       useEffect(() =>{
           if(score > 0){
-          window.localStorage.setItem(`${id+username} score` , score)
+          window.localStorage.setItem(`${id} score` , score)
       }},[score])
  
      return(
