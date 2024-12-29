@@ -2,17 +2,25 @@ import { useState ,useEffect, use } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
-import FeedBack from "@/components/feedback";
+import FeedBack from "@/components/feedback"
+import Sign2 from "@/components/SignUp2";
 export default function Math(){
     const [count, setCount] = useState(0)
     const [loaded, setLoaded] = useState(true)
     const [check, setCheck] = useState(false)
+    const [check2, setCheck2] = useState(false)
     const router = useRouter() 
     const {id} = router.query 
+
+    useEffect(()=>{
+        const score = parseInt(window.localStorage.getItem(`${id} score`))
+        setCheck2(score > 100)
+    },[])
 
     return (
         <div className="beige menu" style={{height: '300vh',backgroundColor:'beige'}}>
             {check && <FeedBack close={()=>{setCheck(false)}} />}
+            {check2 && <Sign2></Sign2>}   
             <div className="center" style={{position:"relative",justifyContent:"end",alignItems:"end",width:"97vw",zIndex:"100",marginRight:"400px",flexDirection:"column"}} >
                 <button className="sub-topic" onClick={()=>{router.push('/Sign')}} style={{margin:"0px"}}  >Sign in</button>
                 <br></br>
