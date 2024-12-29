@@ -13,6 +13,8 @@ export default function Home() {
   const [id, setId] = useState(false)
   const [edit, setEdit] = useState(false)
   const [name, setName] = useState(false)
+  const [check2, setCheck2] = useState(false)
+  
   const router = useRouter() 
   const [account, setAccount] = useState({
     title:""
@@ -68,6 +70,9 @@ export default function Home() {
   return (
 <div className="center column beige">
 {!name && <div className="center" style={{width:"300px"}}>
+             <button className="sub-topic" onClick={()=>{setCheck(true)}} style={{margin:"0px"}} >Feedback</button>
+
+  <button className="sub-topic" onClick={()=>{setCheck(true)}} style={{margin:"0px"}} >Feedback</button>
   <input placeholder = 'Enter Name' value={account.title} type='text' onChange = {(e) => setAccount({...account, title: e.target.value})}>
   </input><button onClick={handleSubmit} >Enter</button> </div>}
 {name && <div className="center">
