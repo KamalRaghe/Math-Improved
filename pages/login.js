@@ -144,7 +144,7 @@ export default function Home() {
       </div>
       }
         {!payed && <button className="font" style={{color:'white',fontWeight:"bolder",borderRadius:"20px",width:'150px', height:"40px",margin:"10px",backgroundColor:"grey"}}  onClick={SignOut} >SignOut</button>}
-      {payed && <button className="font" style={{color:'white',fontWeight:"bolder",borderRadius:"20px",width:'150px', height:"40px",backgroundColor:"grey"}}  onClick={()=>{router.push('settings'),console.log('widubc')}} >Settings</button>}
+      {payed && <button className="font" style={{color:'white',fontWeight:"bolder",borderRadius:"20px",width:'150px', height:"40px",backgroundColor:"blue"}}  onClick={()=>{router.push('settings'),console.log('widubc')}} >Settings</button>}
     </div>
   )
 }
