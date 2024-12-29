@@ -9,6 +9,7 @@ export default function Math(){
     const [count, setCount] = useState(0)
     const [loaded, setLoaded] = useState(true)
     const router = useRouter() 
+    const [check, setCheck] = useState(false)
     const {id} = router.query 
 
     function Leave(){
@@ -61,9 +62,14 @@ export default function Math(){
 
     return (
         <div className="beige menu" style={{height: '300vh',backgroundColor:'beige'}}>
-            <h1 style={{marginLeft:'15px',paddingLeft:'15px',paddingTop:'15px', borderBottom: '2px solid black',width: '105px'}} >Match</h1>
-            <button onClick={()=>{router.push('/Enter')}} className="sub-topic green" style={{padding:"8px 43px"}} >Join</button>
-            <button onClick={()=>{router.push('/create')}} className="sub-topic green" style={{padding:"8px 43px"}} >Host</button>
+            {check && <FeedBack close={()=>{setCheck(false)}} />}
+            <div style={{display:"flex",justifyContent:'space-between'}} >
+                <h1 style={{marginLeft:'15px',paddingLeft:'15px',paddingTop:'15px', borderBottom: '2px solid black',width: '105px',position:"relative",bottom:"30px"}} >Match</h1>
+                <button className="sub-topic" onClick={()=>{setCheck(true)}} style={{}} >Feedback</button>
+            </div>
+            <button onClick={()=>{router.push('/Enter')}} className="sub-topic green" style={{padding:"8px 43px",position:"relative",bottom:"55px"}} >Join</button>
+            <button onClick={()=>{router.push('/create')}} className="sub-topic green" style={{padding:"8px 43px",position:"relative",bottom:"55px"}} >Host</button>
+            <div style={{position:"relative",bottom:"65px"}} >
             <h1 style={{marginLeft:'35px',paddingLeft:'15px',margin:"20px",paddingTop:'15px', borderBottom: '2px solid black',width: '125px'}} >Practice</h1>
             
             {loaded && <button onClick={() => {setCount(1)}} className="topic">Addition</button >}
@@ -135,6 +141,7 @@ export default function Math(){
 
             { loaded && <button onClick={() => {setCount('log')}}  className="topic">Logarithms</button >}
             { count === 'log' &&<Link href= {`/${id}/enter/Logarithm`}><button className="sub-topic zoom">Logarithms</button></Link>}
+            </div>
         </div>     
     )
 } 
