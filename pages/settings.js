@@ -1,10 +1,7 @@
 
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
-import { addDoc, collection, onSnapshot, query, where, getDoc, updateDoc, doc } from "firebase/firestore"
-import Link from "next/link"
 import { initFirebase } from "@/firebase"
-import { getFirestore } from "firebase/firestore"
 import { db , auth} from "../firebase"
 import { getFunctions, httpsCallable } from "firebase/functions";
 
@@ -13,7 +10,7 @@ export default function Home() {
   const [id, setId] = useState(false)
   const [edit, setEdit] = useState(false)
   const [name, setName] = useState(false)
-  const [check2, setCheck2] = useState(false)
+  
   
   const router = useRouter() 
   const [account, setAccount] = useState({
@@ -69,10 +66,7 @@ export default function Home() {
 
   return (
 <div className="center column beige">
-{!name && <div className="center" style={{width:"300px"}}>
-             <button className="sub-topic" onClick={()=>{setCheck(true)}} style={{margin:"0px"}} >Feedback</button>
-
-  <button className="sub-topic" onClick={()=>{setCheck(true)}} style={{margin:"0px"}} >Feedback</button>
+{!name && <div className="center" style={{width:"300px"}}> 
   <input placeholder = 'Enter Name' value={account.title} type='text' onChange = {(e) => setAccount({...account, title: e.target.value})}>
   </input><button onClick={handleSubmit} >Enter</button> </div>}
 {name && <div className="center">
@@ -82,7 +76,7 @@ export default function Home() {
   <div className="center sb" style={{fontSize:"30px",width:"300px"}}>{name && name} 
   <button className="help" style={{backgroundColor:"cyan",fontWeight:"bold"}} onClick={()=>setEdit(true)} >Change</button> </div>}
   </div>}
-  
+  <button className="sub-topic" onClick={()=>{setCheck(true)}} style={{margin:"0px", position:'relative',top:"23px"}} >Feedback</button>
   <button className="topic relative" style={{top:'20px',backgroundColor:"red",marginBottom:"30px",width:"100px"}} onClick={getPortalUrl} >Cancel</button> 
   <button  style={{margin:"20px"}}  onClick={SignOut} >SignOut</button>
   </div>
