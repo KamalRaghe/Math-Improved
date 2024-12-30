@@ -54,7 +54,7 @@ export default function Math(){
         let room = window.localStorage.getItem('GameRoom')
         if(room){
             Leave()
-            window.localStorage.setItem('GameRoom', false)
+            window.localStorage.setItem('GameRoom', '')
         }
         if(!(ID === id)){
             router.push("/")
