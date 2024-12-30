@@ -7,6 +7,7 @@ import WrongRoom from "@/components/WrongRoom";
 
 function App() {
  const [user, setUser] = useState()
+ const [wrong, setWrong] = useState()
  const router = useRouter()
 
     function Remove(){
@@ -46,8 +47,8 @@ return(
      <div className="center column" style={{height:"100vh"}}>       
          <div className="double WaitScreen" >Waiting for host</div>
          <div style={{margin:"20px",fontSize:"20px"}}>Code: {user}</div>
-         <button onClick={Remove} className="Red" style={{backgroundColor:"transparent",padding:"5px"}} >Wrong room?</button>
-         <WrongRoom code={user} remove={Remove} close={} ></WrongRoom>
+         <button onClick={()=>{setWrong(true)}} className="Red" style={{backgroundColor:"transparent",padding:"5px"}} >Wrong room?</button>
+         {wrong && <WrongRoom code={user} remove={Remove} close={()=>{setWrong(false)}} ></WrongRoom>}
     </div>
 
 )
