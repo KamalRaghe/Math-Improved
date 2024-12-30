@@ -125,7 +125,7 @@ export default function Home() {
         </button>
       </div>}
       {(payed || (free - Date.now() > 0 &&  parseInt(free) === parseInt(check) - 34521)) &&
-        <div className="box center" style={{width:'340px'}}>
+        <div className="box center" style={{width:'340px',position:"relative", top:"15px"}}>
         
         <button className="topic column" onClick={()=>{router.push(`/${id}/enter/stats`)}} style={{width:'150px', height:"90px"}} >
           <div className="center" style={{paddingTop:'20px',paddingBottom:"5px"}} >
@@ -135,7 +135,7 @@ export default function Home() {
           </div>
           Stats
         </button>
-        <button className="topic column" onClick={()=>{router.push(`/${id}/enter/math`)}} style={{width: '150px', height:"90px"}} >
+        <button className="topic column" onClick={()=>{router.push(`/${id}/enter/math`)}} style={{width:'150px', height:"90px"}} >
           <div className="center" style={{padding:'0 20px'}}>
             <div className="relative" style={{rotate:"90deg",borderBottom:"50px solid white",borderRight:'25px solid transparent',borderLeft:'25px solid transparent'}} ></div>
           </div>
@@ -144,7 +144,7 @@ export default function Home() {
       </div>
       }
         {!payed && <button className="font" style={{color:'white',fontWeight:"bolder",borderRadius:"20px",width:'150px', height:"40px",margin:"10px",backgroundColor:"grey"}}  onClick={SignOut} >SignOut</button>}
-        {<button className="topic column" onClick={()=>{router.push(`/settings`)}} style={{fontSize:"20px",backgroundColor:"gray",padding:"12px 34px",position:"relative", bottom:"10px"}} >
+        {<button className="topic column" onClick={()=>{router.push(`/settings`)}} style={{fontSize:"20px",backgroundColor:"gray",padding:"12px 34px"}} >
           Setting
         </button>
       }

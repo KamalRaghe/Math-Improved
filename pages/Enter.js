@@ -80,8 +80,10 @@ return(
                 {!add && !stayOut && <input placeholder="Code" value={code.title} type='text' onChange = {(e) => setCode({...code, title: e.target.value})} ></input>}
                 { !add && !stayOut && <button onClick={()=>{inList()}} >Enter</button>}
             </div> 
+            { !add && !stayOut && <div>Ask host for code</div>}
         </div> 
             :<div>
+                <div className="double">Enter Name</div>
                 <input placeholder="Name" value={account.title} type='text' onChange = {(e) => setAccount({...account, title: e.target.value})} ></input>
                 <button onClick={()=>{setUser(account.title)}} >Enter</button>
             </div>}
