@@ -67,9 +67,10 @@ function App() {
 return(
     <div className="center column" style={{height:"100vh"}}>       
        <div>
-            <div className="double center">{user} { user && <button onClick={AddList} className="green" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}} >Ready</button>}</div>
+            <div className="double center">{user} { user && <button onClick={AddList} className="green" style={{fontSize:"20px",margin:"0px 10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}} >Ready</button>}</div>
             <br></br>
             <div>
+             {user ? <div className="font" style={{marginBottom:"5px",marginLeft:"5px"}} >Change Name</div>:<div className="double center" >Enter Name</div>}   
             <input placeholder="Name" value={account.title} type='text' onChange = {(e) => setAccount({...account, title: e.target.value})} ></input>
                 <button onClick={()=>{setUser(account.title)}} >Enter</button>
             </div>    
