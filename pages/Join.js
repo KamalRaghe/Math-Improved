@@ -18,10 +18,11 @@ function App() {
 
     useEffect(()=>{
         let room = window.localStorage.getItem('GameRoom')
-        console.log(room)
         setUser(room)
-        if(!room){
+        if(room == false || !room){
             router.push('/Enter')
+        }else{
+            console.log(room)
         }
         const roomRef = ref(rdb, `${room}/`+'cancel')
         onChildAdded(roomRef,()=>{
@@ -46,7 +47,7 @@ return(
          <div className="double WaitScreen" >Waiting for host</div>
          <div style={{margin:"20px",fontSize:"20px"}}>Code: {user}</div>
          <button onClick={Remove} className="Red" style={{backgroundColor:"transparent",padding:"5px"}} >Wrong room?</button>
-         <WrongRoom code={user} ></WrongRoom>
+         <WrongRoom code={user} remove={Remove} close={} ></WrongRoom>
     </div>
 
 )
