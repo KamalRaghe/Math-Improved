@@ -20,11 +20,6 @@ function App() {
     useEffect(()=>{
         let room = window.localStorage.getItem('GameRoom')
         setUser(room)
-        if(room == false || !room){
-            router.push('/Enter')
-        }else{
-            console.log(room)
-        }
         const roomRef = ref(rdb, `${room}/`+'cancel')
         onChildAdded(roomRef,()=>{
             router.push('/login')

@@ -15,8 +15,8 @@ export default function WrongRoom({code,close,remove}){
                 <div style={{marginBottom:"5px"}} >Is this the Code</div>
                 <div className="double" >{code}</div>
                 <div className="center" >
-                    <button className="green choice" onClick={remove} >Yes</button>
-                    <button className="red choice" onClick={close} >No</button>
+                    <button className="green choice" onClick={close} >Yes</button>
+                    <button className="red choice" onClick={remove} >No</button>
                 </div> 
             </div>
         </div>
