@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { rdb } from "@/firebase";
 import { get, ref, push, set, onChildAdded, remove } from "firebase/database";
 import { useRouter } from "next/router";
+import WrongRoom from "@/components/WrongRoom";
 
 
 function App() {
@@ -17,13 +18,14 @@ function App() {
 
     useEffect(()=>{
         let room = window.localStorage.getItem('GameRoom')
+        console.log(room)
         setUser(room)
         if(!room){
             router.push('/Enter')
         }
         const roomRef = ref(rdb, `${room}/`+'cancel')
         onChildAdded(roomRef,()=>{
-            router.push('/')
+            router.push('/login')
         })
         const usersRef = ref(rdb, `${room}/`+'time')
         onChildAdded(usersRef,(snapshot)=>{
@@ -44,6 +46,7 @@ return(
          <div className="double WaitScreen" >Waiting for host</div>
          <div style={{margin:"20px",fontSize:"20px"}}>Code: {user}</div>
          <button onClick={Remove} className="Red" style={{backgroundColor:"transparent",padding:"5px"}} >Wrong room?</button>
+         <WrongRoom code={user} ></WrongRoom>
     </div>
 
 )

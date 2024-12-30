@@ -49,7 +49,7 @@ function App() {
         }
         const roomRef = ref(rdb, `${room}/`+'cancel')
         onChildAdded(roomRef,()=>{
-            router.push('/')
+            router.push('/login')
         })
         const usersRef = ref(rdb, `${room}/`+'time')
         onChildAdded(usersRef,(snapshot)=>{
