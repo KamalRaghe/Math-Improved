@@ -74,13 +74,13 @@ function App() {
 
 return(
     <div className="center column" style={{height:"100vh"}}>       
-        {user ? <div className="double" >
+        {user ? <div className="center column" >
             <div>
             <div className="double center">{!stayOut && user}{stayOut && <div className="WaitScreen center column " >User is inside<br></br><div style={{fontSize:"20px"}} >Create a new account</div></div>} { add && !stayOut && <button onClick={AddList} className="green" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}} >Ready</button>}</div>
                 {!add && !stayOut && <input placeholder="Code" value={code.title} type='text' onChange = {(e) => setCode({...code, title: e.target.value})} ></input>}
                 { !add && !stayOut && <button onClick={()=>{inList()}} >Enter</button>}
             </div> 
-            { !add && !stayOut && <div>Ask host for code</div>}
+            { !add && !stayOut && <div style={{padding:"5px"}} >Ask host for code</div>}
         </div> 
             :<div>
                 <div className="double">Enter Name</div>
