@@ -22,8 +22,6 @@ function App() {
         setUser(room)
         if(!room){
             router.push('/Enter')
-        }else{
-            console.log(room)
         }
         const roomRef = ref(rdb, `${room}/`+'cancel')
         onChildAdded(roomRef,()=>{
