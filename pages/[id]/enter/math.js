@@ -68,8 +68,8 @@ export default function Math(){
                 <h1 style={{marginLeft:'15px',paddingLeft:'15px',paddingTop:'15px', borderBottom: '2px solid black',width: '105px',position:"relative",bottom:"30px"}} >Match</h1>
                 <button className="sub-topic" onClick={()=>{setCheck(true)}} style={{}} >Feedback</button>
             </div>
-            <button onClick={()=>{router.push('/Enter')}} className="sub-topic green" style={{padding:"8px 43px",position:"relative",bottom:"55px"}} >Join</button>
             <button onClick={()=>{router.push('/create')}} className="sub-topic green" style={{padding:"8px 43px",position:"relative",bottom:"55px"}} >Host</button>
+            <button onClick={()=>{router.push('/Enter')}} className="sub-topic green" style={{padding:"8px 43px",position:"relative",bottom:"55px"}} >Join</button>
             <div style={{position:"relative",bottom:"65px"}} >
             <h1 style={{marginLeft:'35px',paddingLeft:'15px',margin:"20px",paddingTop:'15px', borderBottom: '2px solid black',width: '125px'}} >Practice</h1>
             
