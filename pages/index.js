@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import FeedBack from "@/components/feedback"
 import Sign2 from "@/components/SignUp2";
+import AboutUs from "@/components/AboutUS";
 export default function Math(){
     const [count, setCount] = useState(0)
     const [loaded, setLoaded] = useState(true)
@@ -20,7 +21,8 @@ export default function Math(){
     return (
         <div className="beige menu" style={{height: '300vh',backgroundColor:'beige'}}>
             {check2 && <Sign2></Sign2>} 
-            {check && <FeedBack close={()=>{setCheck(false)}} />}  
+            {check && <FeedBack close={()=>{setCheck(false)}} />}
+            {<AboutUs close={()=>{setCheck(false)}} />}  
             <div className="center" style={{position:"relative",justifyContent:"end",alignItems:"end",width:"97vw",zIndex:"100",marginRight:"400px",flexDirection:"column"}} >
                 <button className="sub-topic" onClick={()=>{router.push('/Sign')}} style={{margin:"0px"}}  >Sign in</button>
                 <br></br>
