@@ -123,9 +123,9 @@
   background-color: darkorchid;
   color: white;
   border-radius: 30px;
-  width:150px;
+  padding: 8px 30px;
   height: 40px;
-  margin: 10px;
+  margin: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -135,7 +135,7 @@
 
 .sub-topic{
   background-color: navy;
-  margin: 20px 10px;
+  margin: 20px 40px;
 }
 
 .DivSwitch1{
