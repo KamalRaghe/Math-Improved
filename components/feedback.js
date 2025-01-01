@@ -19,7 +19,7 @@ export default function FeedBack({close}){
         }    
     }
     
-    return(
+    return3
         <div className="center zoom" style={{backgroundColor:"beige",zIndex:"200",width:"100%",height:"100%",position:"fixed",right:"5px"}} >
             <div className=" column center" style={{borderRadius:"20px",padding:"20px",border:'2px solid brown',backgroundColor:"beige"}}>
                  <div className='cancel' style={{width:"100%"}} >
