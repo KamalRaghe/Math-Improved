@@ -19,9 +19,9 @@ export default function Math(){
     useEffect(()=>{
         const score = parseInt(window.localStorage.getItem(`${id} score`))
         setCheck2(score > 100)
-        if(score > 100){
-            setNone('none')
-        }
+        // if(score > 100){
+        //     setNone('none')
+        // }
         let main =  window.localStorage.getItem('uid')
         if(main){
             router.push('/login')
