@@ -20,12 +20,13 @@ export default function Math(){
     },[])
 
     return (
-        <div className="beige menu" style={{padding:"20px",backgroundColor:'beige',width:"100vw",overflowX:"scroll"}}>
-            {/* {check2 && <Sign2></Sign2>}  */}
+        <div className="beige" style={{padding:"20px",paddingBottom:"50px",backgroundColor:'beige',width:"95vw"}}>
+            {check2 && <Sign2></Sign2>} 
             {check && <FeedBack close={()=>{setCheck(false)}} />}
-            {about &&<AboutUs close={()=>{setAbout(false)}} />}  
-            <div style={{display:"flex",zIndex:"1"}} >
-                <div>
+            {about &&<AboutUs close={()=>{setAbout(false)}} />}
+            <div className="relative" style={{fontSize:"70px",top:"20px",color:'navy',padding:"0px"}} >Math</div>
+            <div className="relative" style={{fontSize:"70px",color:'purple',paddingBottom:"20px"}} >Improve</div>      
+            <div style={{display:"flex",flexDirection:"column",justifyContent:"space-between",zIndex:"1"}} >
                     {loaded && <button onClick={() => {setCount(1)}} className="topic">Addition</button >}
                     { count === 1 && <Link href= {`/MIT/singleAdd`}><button className="sub-topic zoom">Single digit Addition</button></Link>}
                     { count === 1 && <Link href= {`/MIT/doubleAdd`}><button className="sub-topic zoom">Double digit Addition</button></Link>}
@@ -34,14 +35,12 @@ export default function Math(){
                     {  count === 2 &&<Link href= {`/MIT/singleMinus`}><button className="sub-topic zoom">Single digit Subtraction</button></Link>}
                     {  count === 2 && <Link href= {`/MIT/doubleMinus`}><button className="sub-topic zoom">Double digit subtraction</button></Link>}
 
-                    { loaded && <button onClick={() => {setCount(3)}}  className="topic">Multiplication</button >}
+                    { loaded && <button onClick={() => {setCount(3)}} style={{width:"173px"}}  className="topic">Multiplication</button >}
                     {  count === 3 &&<Link href= {`/MIT/singleTimes`}><button className="sub-topic zoom">Single digit Multiplication</button></Link>}
                     {   count === 3 && <Link href= {`/MIT/doubleTimes`}><button className="sub-topic zoom">Double digit Multiplication</button></Link>}
 
                     { loaded && <button onClick={() => {setCount(4)}}  className="topic">Division</button >}
                     {  count === 4 &&<Link href= {`/MIT/longDivision`}><button className="sub-topic zoom">Long Division</button></Link>}
-                </div>
-                <div>
                     { loaded && <button style={{width:"163px"}} onClick={() => {setCount(5)}}  className="topic">LCM & HCF</button >}
                     {  count === 5 &&<Link href= {`/MIT/Lcm`}><button className="sub-topic zoom">Lowest Common Multiple</button></Link>}
                     {  count === 5 && <Link href= {`/MIT/Hcf`}><button className="sub-topic zoom">Highest Common Factor</button></Link>}
@@ -67,10 +66,7 @@ export default function Math(){
                     { count === 6 && <Link href= {`/MIT/mean`}><button className="sub-topic zoom">Mean</button></Link>}
                     { count === 6 && <Link href= {`/MIT/median`}><button className="sub-topic zoom ">Median</button></Link>}
                     { count === 6 && <Link href= {`/MIT/mode`}><button className="sub-topic zoom" >Mode</button></Link>}
-                </div>  
-
-                <div>
-                    { loaded && <button onClick={() => {setCount(7)}}  className="topic">Exponents/Power</button >}
+                    { loaded && <button onClick={() => {setCount(7)}} style={{width:"200px"}} className="topic">Exponents/Power</button >}
                     {  count === 7 &&<Link href= {`/MIT/square`}><button className="sub-topic zoom">Square</button></Link>}
                     {  count === 7 && <Link href= {`/MIT/cube`}><button className="sub-topic zoom">Cube</button></Link>}
 
@@ -88,8 +84,6 @@ export default function Math(){
                     { count === 10 && <Link href= {`/MIT/Foil`}><button className="sub-topic zoom">Foil</button></Link>}
                     { count === 10 && <Link href= {`/MIT/Trinomial`}><button className="sub-topic zoom">Factor trinomial</button></Link>}
                     { count === 10 && <Link href= {`/MIT/Quadratic`}><button className="sub-topic zoom">Quadratic formula</button></Link>}
-                </div>
-                <div>
                     { loaded && <button onClick={() => {setCount('angle')}}  className="topic">Geometry</button >}
                     { count === 'angle' &&<Link href= {`/MIT/TypeAngle`}><button className="sub-topic zoom">Types of angle</button></Link>}
                     { count === 'angle' &&<Link href= {`/MIT/Perimeter`}><button className="sub-topic zoom">Perimeter</button></Link>}
@@ -98,12 +92,11 @@ export default function Math(){
 
                     { loaded && <button onClick={() => {setCount('log')}}  className="topic">Logarithms</button >}
                     { count === 'log' &&<Link href= {`/MIT/Logarithm`}><button className="sub-topic zoom">Logarithms</button></Link>}
-                </div>
-                <div className=" center column" style={{marginLeft:"50px",justifyContent:"end",position:"relative",bottom:"20px"}}>
+            </div>
+            <div className=" center column" style={{marginLeft:"50px",alignItems:"end",justifyContent:"start"}}>
                     <div ><button className="sub-topic" onClick={()=>{router.push('/Sign')}}>Sign in</button></div>
                     <div><button className="sub-topic" style={{position:"relative",bottom:"20px"}} onClick={()=>{setCheck(true)}} >Feedback</button></div>
                     <div ><button className="sub-topic" style={{position:"relative",bottom:"40px"}} onClick={()=>{setAbout(true)}} >About us</button></div>
-                </div>
             </div>
         </div>     
     )
