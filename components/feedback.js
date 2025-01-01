@@ -20,7 +20,7 @@ export default function FeedBack({close}){
     }
     
     return(
-        <div className="center zoom" style={{backgroundColor:"beige",zIndex:"200",width:"100%",height:"100vh",position:"fixed"}} >
+        <div className="center zoom" style={{backgroundColor:"beige",zIndex:"200",width:"100vw",height:"100vh",position:"fixed"}} >
             <div className=" column center" style={{borderRadius:"20px",padding:"20px",border:'2px solid brown',backgroundColor:"beige"}}>
                  <div className='cancel' style={{width:"100%"}} >
                  <button className='cancel-btn' style={{fontSize:"25px",margin:"0px",position:"relative",left:"6px",bottom:"10px",alignItems:"end",zIndex:"100"}}  onClick={()=>close()}>X</button>
