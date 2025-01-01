@@ -15,7 +15,7 @@ export default function AboutUs(){
             <button className='cancel-btn' style={{fontSize:"25px",margin:"0px",position:"relative",left:"140px",alignItems:"end"}}  onClick = {close}>X</button>
             <div className="center column" style={{position:"relative",bottom:"20px"}}>
                 <h2>Mission</h2>
-                To create a supportive and engaging learning environment where students can build strong foundations in mathematics, empowering them to overcome challenges, explore their full potential, and develop a lifelong love for learning no matter their grade level.
+                To create a supportive and engaging learning environment where students can build strong foundations in mathematics no matter their grade level and parents can easily track their progress. Empowering students to overcome challenges, explore their full potential, and develop a lifelong love for learning. 
 
                 <h2>Vision</h2>
                 To become the go-to platform for students to truly understand and excel in mathematics, fostering curiosity, confidence, and mastery in learners of all levels.
