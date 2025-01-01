@@ -117,7 +117,13 @@
   height: 100%;
 }
 
+.SFA{
+  bottom: 1055
+}
 
+.topic{
+  margin-right: 20px ;
+}
 
 .topic, .sub-topic{
   background-color: darkorchid;
@@ -449,6 +455,9 @@
   .tooBig{
     position: relative;
     left: 20px
+  }
+  .SFA{
+    bottom: 855
   }
 }
 .test-btn{
