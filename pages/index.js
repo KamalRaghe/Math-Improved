@@ -23,7 +23,7 @@ export default function Math(){
         <div className="beige menu" style={{padding:"20px",backgroundColor:'beige',width:"100vw"}}>
             {check2 && <Sign2></Sign2>} 
             {check && <FeedBack close={()=>{setCheck(false)}} />}
-            {about &&<AboutUs close={()=>{setCheck(false)}} />}  
+            {about &&<AboutUs close={()=>{setAbout(false)}} />}  
             <div style={{display:"flex",zIndex:"1"}} >
                 <div>
                     {loaded && <button onClick={() => {setCount(1)}} className="topic">Addition</button >}
@@ -42,7 +42,7 @@ export default function Math(){
                     {  count === 4 &&<Link href= {`/MIT/longDivision`}><button className="sub-topic zoom">Long Division</button></Link>}
                 </div>
                 <div>
-                    { loaded && <button onClick={() => {setCount(5)}}  className="topic">LCM & HCF</button >}
+                    { loaded && <button style={{width:"170px"}} onClick={() => {setCount(5)}}  className="topic">LCM & HCF</button >}
                     {  count === 5 &&<Link href= {`/MIT/Lcm`}><button className="sub-topic zoom">Lowest Common Multiple</button></Link>}
                     {  count === 5 && <Link href= {`/MIT/Hcf`}><button className="sub-topic zoom">Highest Common Factor</button></Link>}
 
