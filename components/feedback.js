@@ -20,10 +20,10 @@ export default function FeedBack({close}){
     }
     
     return(
-        <div className="center zoom" style={{backgroundColor:"beige",zIndex:"200",width:"100%",height:"100%",position:"fixed"}} >
+        <div className="center zoom" style={{backgroundColor:"beige",zIndex:"200",width:"100%",height:"100%",position:"fixed",right:"10px"}} >
             <div className=" column center" style={{borderRadius:"20px",padding:"20px",border:'2px solid brown',backgroundColor:"beige"}}>
                  <div className='cancel' style={{width:"100%"}} >
-                 <button className='cancel-btn' style={{fontSize:"25px",margin:"0px",position:"relative",alignItems:"end",zIndex:"100"}}  onClick={()=>close()}>X</button>
+                 <button className='cancel-btn' style={{fontSize:"25px",margin:"0px",position:"relative",left:"6px",bottom:"10px",alignItems:"end",zIndex:"100"}}  onClick={()=>close()}>X</button>
                 </div>
                  <textarea placeholder="Feedback" onChange={(e)=>{setPost(e.target.value)}} ></textarea>
                  <br></br>
