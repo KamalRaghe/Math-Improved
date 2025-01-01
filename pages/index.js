@@ -28,8 +28,17 @@ export default function Math(){
             {check2 && <Sign2></Sign2>} 
             {check && <FeedBack close={()=>{setCheck(false)}} />}
             {about &&<AboutUs close={()=>{setAbout(false)}} />}
-            <div className="relative center" style={{fontSize:"70px",top:"20px",color:'navy',padding:"0px"}} >Math</div>
-            <div className="relative center" style={{fontSize:"70px",color:'purple',paddingBottom:"20px"}} >Improve</div>      
+            <div style={{display:"flex",justifyContent:"space-between",width:"90%"}}>
+                <div>
+                    <div className="relative" style={{fontSize:"70px",top:"20px",color:'navy',padding:"0px"}} >Math</div>
+                    <div className="relative" style={{fontSize:"70px",color:'purple',paddingBottom:"20px"}} >Improve</div>      
+                </div>
+                <div className=" center column relative" style={{marginLeft:"50px",width:"300px",justifyContent:"end"}}>
+                    <div ><button className="sub-topic" onClick={()=>{router.push('/Sign')}}>Sign in</button></div>
+                    <div><button className="sub-topic" style={{position:"relative",bottom:"20px"}} onClick={()=>{setCheck(true)}} >Feedback</button></div>
+                    <div ><button className="sub-topic" style={{position:"relative",bottom:"40px"}} onClick={()=>{setAbout(true)}} >About us</button></div>
+                </div>
+            </div>
             <div style={{zIndex:"1000"}} >
                 {loaded && <button onClick={() => {setCount(1)}} className="topic">Addition</button >}
                 { count === 1 && <Link href= {`/${id}/enter/singleAdd`}><button className="sub-topic zoom">Single digit Addition</button></Link>}
@@ -100,11 +109,6 @@ export default function Math(){
 
                 { loaded && <button onClick={() => {setCount('log')}}  className="topic">Logarithms</button >}
                 { count === 'log' &&<Link href= {`/${id}/enter/Logarithm`}><button className="sub-topic zoom">Logarithms</button></Link>}
-            </div>
-            <div className=" center column relative" style={{marginLeft:"50px",alignItems:"end",justifyContent:"end",bottom:"855px",left:"75%",width:"300px"}}>
-                    <div ><button className="sub-topic" onClick={()=>{router.push('/Sign')}}>Sign in</button></div>
-                    <div><button className="sub-topic" style={{position:"relative",bottom:"20px"}} onClick={()=>{setCheck(true)}} >Feedback</button></div>
-                    <div ><button className="sub-topic" style={{position:"relative",bottom:"40px"}} onClick={()=>{setAbout(true)}} >About us</button></div>
             </div>
         </div>     
     )
