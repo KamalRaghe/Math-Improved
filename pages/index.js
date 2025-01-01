@@ -20,7 +20,7 @@ export default function Math(){
     },[])
 
     return (
-        <div className="beige menu" style={{padding:"20px",backgroundColor:'beige',width:"100vw"}}>
+        <div className="beige menu" style={{padding:"20px",backgroundColor:'beige',width:"100vw",overflowX:"scroll"}}>
             {check2 && <Sign2></Sign2>} 
             {check && <FeedBack close={()=>{setCheck(false)}} />}
             {about &&<AboutUs close={()=>{setAbout(false)}} />}  
@@ -42,7 +42,7 @@ export default function Math(){
                     {  count === 4 &&<Link href= {`/MIT/longDivision`}><button className="sub-topic zoom">Long Division</button></Link>}
                 </div>
                 <div>
-                    { loaded && <button style={{width:"170px"}} onClick={() => {setCount(5)}}  className="topic">LCM & HCF</button >}
+                    { loaded && <button style={{width:"163px"}} onClick={() => {setCount(5)}}  className="topic">LCM & HCF</button >}
                     {  count === 5 &&<Link href= {`/MIT/Lcm`}><button className="sub-topic zoom">Lowest Common Multiple</button></Link>}
                     {  count === 5 && <Link href= {`/MIT/Hcf`}><button className="sub-topic zoom">Highest Common Factor</button></Link>}
 
@@ -63,7 +63,7 @@ export default function Math(){
                     { loaded && <button onClick={() => {setCount('in')}} className="topic" >Inequality</button>}
                     { count === 'in' && <Link href= {`/MIT/Gl`}><button className="sub-topic zoom">Greater than less than</button></Link>}
 
-                    { loaded && <button onClick={() => {setCount(6)}} className="topic" >Mean Median & Mode</button>}
+                    { loaded && <button style={{width:"237px"}} onClick={() => {setCount(6)}} className="topic" >Mean Median & Mode</button>}
                     { count === 6 && <Link href= {`/MIT/mean`}><button className="sub-topic zoom">Mean</button></Link>}
                     { count === 6 && <Link href= {`/MIT/median`}><button className="sub-topic zoom ">Median</button></Link>}
                     { count === 6 && <Link href= {`/MIT/mode`}><button className="sub-topic zoom" >Mode</button></Link>}
@@ -99,10 +99,10 @@ export default function Math(){
                     { loaded && <button onClick={() => {setCount('log')}}  className="topic">Logarithms</button >}
                     { count === 'log' &&<Link href= {`/MIT/Logarithm`}><button className="sub-topic zoom">Logarithms</button></Link>}
                 </div>
-                <div style={{marginLeft:"50px"}}>
-                    <button className="sub-topic" onClick={()=>{router.push('/Sign')}}>Sign in</button>
-                    <button className="sub-topic" onClick={()=>{setCheck(true)}} >Feedback</button>
-                    <button className="sub-topic" onClick={()=>{setAbout(true)}} >About us</button>
+                <div className=" center column" style={{marginLeft:"50px",justifyContent:"end",height:"200px",border:"1px solid black"}}>
+                    <div ><button className="sub-topic" onClick={()=>{router.push('/Sign')}}>Sign in</button></div>
+                    <div><button className="sub-topic" onClick={()=>{setCheck(true)}} >Feedback</button></div>
+                    <div ><button className="sub-topic" onClick={()=>{setAbout(true)}} >About us</button></div>
                 </div>
             </div>
         </div>     
