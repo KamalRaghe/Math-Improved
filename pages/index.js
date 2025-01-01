@@ -16,6 +16,12 @@ export default function Math(){
     const router = useRouter() 
     const {id} = router.query 
 
+    function close(){
+        if(count){
+            setCount(false)
+        }
+    }
+
     useEffect(()=>{
         const score = parseInt(window.localStorage.getItem(`${id} score`))
         setCheck2(score > 100)
@@ -44,7 +50,7 @@ export default function Math(){
                     <div ><button className="sub-topic" style={{position:"relative",bottom:"40px"}} onClick={()=>{setAbout(true);setNone('none'),setFlex('none')}} >About us</button></div>
                 </div>
             </div>
-            <div className="column" style={{display:none}} >
+            <div className="column" style={{display:none}} onClick={close} >
                 {loaded && <button onClick={() => {setCount(1)}} className="topic">Addition</button >}
                 { count === 1 && <Link href= {`/MIT/singleAdd`}><button className="sub-topic zoom">Single digit Addition</button></Link>}
                 { count === 1 && <Link href= {`/MIT/doubleAdd`}><button className="sub-topic zoom">Double digit Addition</button></Link>}

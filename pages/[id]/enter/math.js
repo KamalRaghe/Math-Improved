@@ -49,6 +49,12 @@ export default function Math(){
              
     }
 
+    function close(){
+        if(count){
+            setCount(false)
+        }
+    }
+
     useEffect(()=>{
         const ID = window.localStorage.getItem('ID')
         let room = window.localStorage.getItem('GameRoom')
@@ -62,7 +68,7 @@ export default function Math(){
     },[])
 
     return (
-        <div className="beige menu" style={{paddingBottom:"50px",backgroundColor:'beige'}}>
+        <div className="beige menu" style={{paddingBottom:"50px",backgroundColor:'beige'}} onClick={close} >
             {check && <FeedBack close={()=>{setCheck(false)}} />}
             <div style={{display:"flex",justifyContent:'space-between'}} >
                 <h1 style={{marginLeft:'15px',paddingLeft:'15px',paddingTop:'15px', borderBottom: '2px solid black',width: '105px',position:"relative",bottom:"30px"}} >Match</h1>
