@@ -11,7 +11,8 @@ export default function Math(){
     const [check, setCheck] = useState(false)
     const [check2, setCheck2] = useState(false)
     const [about, setAbout] = useState(false)
-    const [none, setNone] = useState('flex')
+    const [none, setNone] = useState('')
+    const [flex, setFlex] = useState('flex')
     const router = useRouter() 
     const {id} = router.query 
 
@@ -30,20 +31,20 @@ export default function Math(){
     return (
         <div className="beige" style={{padding:"20px",paddingBottom:"50px",backgroundColor:'beige'}}>
             {check2 && <Sign2></Sign2>} 
-            {check && <FeedBack close={()=>{setCheck(false),setNone('flex')}} />}
-            {about &&<AboutUs close={()=>{setAbout(false),setNone('flex')}} />}
-            <div style={{display:none,justifyContent:"space-between",width:"100vw",height:"180px"}}>
+            {check && <FeedBack close={()=>{setCheck(false),setNone(''),setFlex('flex')}} />}
+            {about &&<AboutUs close={()=>{setAbout(false),setNone(''),setFlex('flex')}} />}
+            <div style={{display:flex,justifyContent:"space-between",width:"100vw",height:"180px"}}>
                 <div>
                     <div className="relative" style={{fontSize:"70px",top:"20px",color:'navy',padding:"0px"}} >Math</div>
                     <div className="relative" style={{fontSize:"70px",color:'purple',paddingBottom:"20px"}} >Improve</div>      
                 </div>
                 <div className=" center column relative" style={{marginLeft:"50px",width:"300px",justifyContent:"end",top:"50px"}}>
                     <div ><button className="sub-topic" onClick={()=>{router.push('/Sign')}}>Sign in</button></div>
-                    <div><button className="sub-topic" style={{position:"relative",bottom:"20px"}} onClick={()=>{setCheck(true);setNone('none')}} >Feedback</button></div>
-                    <div ><button className="sub-topic" style={{position:"relative",bottom:"40px"}} onClick={()=>{setAbout(true);setNone('none')}} >About us</button></div>
+                    <div><button className="sub-topic" style={{position:"relative",bottom:"20px"}} onClick={()=>{setCheck(true);setNone('none'),setFlex('none')}} >Feedback</button></div>
+                    <div ><button className="sub-topic" style={{position:"relative",bottom:"40px"}} onClick={()=>{setAbout(true);setNone('none'),setFlex('none')}} >About us</button></div>
                 </div>
             </div>
-            <div>
+            <div className="column" style={{display:none}} >
                 {loaded && <button onClick={() => {setCount(1)}} className="topic">Addition</button >}
                 { count === 1 && <Link href= {`/MIT/singleAdd`}><button className="sub-topic zoom">Single digit Addition</button></Link>}
                 { count === 1 && <Link href= {`/MIT/doubleAdd`}><button className="sub-topic zoom">Double digit Addition</button></Link>}
