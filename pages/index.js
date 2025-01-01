@@ -28,7 +28,7 @@ export default function Math(){
             {check2 && <Sign2></Sign2>} 
             {check && <FeedBack close={()=>{setCheck(false)}} />}
             {about &&<AboutUs close={()=>{setAbout(false)}} />}
-            <div style={{display:"flex",justifyContent:"space-between",width:"90%"}}>
+            <div style={{display:"flex",justifyContent:"space-between",width:"100vw"}}>
                 <div>
                     <div className="relative" style={{fontSize:"70px",top:"20px",color:'navy',padding:"0px"}} >Math</div>
                     <div className="relative" style={{fontSize:"70px",color:'purple',paddingBottom:"20px"}} >Improve</div>      
