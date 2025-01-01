@@ -17,10 +17,10 @@ export default function Math(){
     useEffect(()=>{
         const score = parseInt(window.localStorage.getItem(`${id} score`))
         setCheck2(score > 100)
-        // let main =  window.localStorage.getItem('uid')
-        // if(main){
-        //     router.push('/login')
-        // }
+        let main =  window.localStorage.getItem('uid')
+        if(main){
+            router.push('/login')
+        }
     },[])
 
     return (
@@ -28,12 +28,12 @@ export default function Math(){
             {check2 && <Sign2></Sign2>} 
             {check && <FeedBack close={()=>{setCheck(false)}} />}
             {about &&<AboutUs close={()=>{setAbout(false)}} />}
-            <div style={{display:"flex",justifyContent:"space-between",width:"100vw", border:"1px solid yellow",height:"180px"}}>
+            <div style={{display:"flex",justifyContent:"space-between",width:"100vw",height:"180px"}}>
                 <div>
                     <div className="relative" style={{fontSize:"70px",top:"20px",color:'navy',padding:"0px"}} >Math</div>
                     <div className="relative" style={{fontSize:"70px",color:'purple',paddingBottom:"20px"}} >Improve</div>      
                 </div>
-                <div className=" center column relative" style={{marginLeft:"50px",width:"300px",justifyContent:"end",top:"60px"}}>
+                <div className=" center column relative" style={{marginLeft:"50px",width:"300px",justifyContent:"end",top:"50px"}}>
                     <div ><button className="sub-topic" onClick={()=>{router.push('/Sign')}}>Sign in</button></div>
                     <div><button className="sub-topic" style={{position:"relative",bottom:"20px"}} onClick={()=>{setCheck(true)}} >Feedback</button></div>
                     <div ><button className="sub-topic" style={{position:"relative",bottom:"40px"}} onClick={()=>{setAbout(true)}} >About us</button></div>
