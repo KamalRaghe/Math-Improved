@@ -21,7 +21,7 @@ export default function Math(){
 
     return (
         <div className="beige menu" style={{padding:"20px",backgroundColor:'beige',width:"100vw",overflowX:"scroll"}}>
-            {check2 && <Sign2></Sign2>} 
+            {/* {check2 && <Sign2></Sign2>}  */}
             {check && <FeedBack close={()=>{setCheck(false)}} />}
             {about &&<AboutUs close={()=>{setAbout(false)}} />}  
             <div style={{display:"flex",zIndex:"1"}} >
@@ -99,10 +99,10 @@ export default function Math(){
                     { loaded && <button onClick={() => {setCount('log')}}  className="topic">Logarithms</button >}
                     { count === 'log' &&<Link href= {`/MIT/Logarithm`}><button className="sub-topic zoom">Logarithms</button></Link>}
                 </div>
-                <div className=" center column" style={{marginLeft:"50px",justifyContent:"end",height:"200px",border:"1px solid black"}}>
+                <div className=" center column" style={{marginLeft:"50px",justifyContent:"end",position:"relative",bottom:"20px"}}>
                     <div ><button className="sub-topic" onClick={()=>{router.push('/Sign')}}>Sign in</button></div>
-                    <div><button className="sub-topic" onClick={()=>{setCheck(true)}} >Feedback</button></div>
-                    <div ><button className="sub-topic" onClick={()=>{setAbout(true)}} >About us</button></div>
+                    <div><button className="sub-topic" style={{position:"relative",bottom:"20px"}} onClick={()=>{setCheck(true)}} >Feedback</button></div>
+                    <div ><button className="sub-topic" style={{position:"relative",bottom:"40px"}} onClick={()=>{setAbout(true)}} >About us</button></div>
                 </div>
             </div>
         </div>     
