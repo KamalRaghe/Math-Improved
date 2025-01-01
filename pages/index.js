@@ -101,7 +101,7 @@ export default function Math(){
                 { loaded && <button onClick={() => {setCount('log')}}  className="topic">Logarithms</button >}
                 { count === 'log' &&<Link href= {`/${id}/enter/Logarithm`}><button className="sub-topic zoom">Logarithms</button></Link>}
             </div>
-            <div className=" center column relative SFA" style={{marginLeft:"50px",alignItems:"end",justifyContent:"start"}}>
+            <div className=" center column relative" style={{marginLeft:"50px",alignItems:"end",justifyContent:"start",bottom:"855px"}}>
                     <div ><button className="sub-topic" onClick={()=>{router.push('/Sign')}}>Sign in</button></div>
                     <div><button className="sub-topic" style={{position:"relative",bottom:"20px"}} onClick={()=>{setCheck(true)}} >Feedback</button></div>
                     <div ><button className="sub-topic" style={{position:"relative",bottom:"40px"}} onClick={()=>{setAbout(true)}} >About us</button></div>

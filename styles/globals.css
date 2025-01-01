@@ -117,9 +117,7 @@
   height: 100%;
 }
 
-.SFA{
-  bottom: 1055
-}
+
 
 .topic{
   margin-right: 20px ;
@@ -455,9 +453,6 @@
   .tooBig{
     position: relative;
     left: 20px
-  }
-  .SFA{
-    bottom: 855
   }
 }
 .test-btn{
