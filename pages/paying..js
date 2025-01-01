@@ -25,19 +25,16 @@ export default function Home() {
           success_url: window.location.origin,
           cancel_url: window.location.origin,
         });
-        const promise = new Promise((resolve, reject) => {
           const unsubscribe = onSnapshot(docRef, (snap) => {
             const { error, url } = snap.data() || {};
             if (error) {
               unsubscribe(); 
-              reject(new Error(`An error occurred: ${error.message}`));
             }
             if (url) {
               unsubscribe(); 
               router.push(url);
             }
           });
-        });
       };
   
       useEffect(()=>{
@@ -45,8 +42,8 @@ export default function Home() {
       },[])
       return(
         <div className='container double center'>
-            <div className="rotate center" style={{border:"20px solid black",width:'200px',height:'200px',borderRadius:"50%",borderRight:"20px solid grey"}} >
-
+            <div>
+              Loading...
             </div>
         </div>
       )

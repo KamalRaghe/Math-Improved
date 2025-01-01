@@ -49,15 +49,10 @@ export default function Home() {
             returnUrl: window.location.origin,
           });
           setData(data)
+          router.push(data.url)
           console.log('cancel')
         } catch (error) {
         }
-        return new Promise((resolve, reject) => {
-          if (Data.url) {
-            router.push(Data.url);
-            resolve(Data.url)
-          }
-        });
       };    
  
 
