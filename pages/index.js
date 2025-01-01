@@ -20,7 +20,7 @@ export default function Math(){
     },[])
 
     return (
-        <div className="beige menu" style={{padding:"20px",backgroundColor:'beige'}}>
+        <div className="beige menu" style={{padding:"20px",backgroundColor:'beige',width:"100vw"}}>
             {check2 && <Sign2></Sign2>} 
             {check && <FeedBack close={()=>{setCheck(false)}} />}
             {about &&<AboutUs close={()=>{setCheck(false)}} />}  
@@ -99,10 +99,10 @@ export default function Math(){
                     { loaded && <button onClick={() => {setCount('log')}}  className="topic">Logarithms</button >}
                     { count === 'log' &&<Link href= {`/MIT/Logarithm`}><button className="sub-topic zoom">Logarithms</button></Link>}
                 </div>
-                <div>
+                <div style={{marginLeft:"50px"}}>
                     <button className="sub-topic" onClick={()=>{router.push('/Sign')}}>Sign in</button>
-                    <br></br>
                     <button className="sub-topic" onClick={()=>{setCheck(true)}} >Feedback</button>
+                    <button className="sub-topic" onClick={()=>{setAbout(true)}} >About us</button>
                 </div>
             </div>
         </div>     
