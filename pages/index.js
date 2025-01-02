@@ -32,9 +32,8 @@ export default function Math(){
         let me =  window.localStorage.getItem('tag')
         if(main){
             router.push('/login')
-        }if(!me){
+        }if(me){
             router.push('https://mathimprove.com/')
-            window.localStorage.setItem('tag', true)
         }
     },[])
 
