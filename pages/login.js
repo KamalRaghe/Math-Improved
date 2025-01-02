@@ -78,7 +78,6 @@ export default function Home() {
 
       useEffect(()=>{
         const timer = window.localStorage.getItem('Timer')
-        console.log(timer)
         setId(window.localStorage.getItem('uid'))
         PayedCheck()
         setLoaded(true)
@@ -96,6 +95,7 @@ export default function Home() {
       })
       
       return unsubscribe
+    
       },[])
 
       useEffect(()=>{
@@ -104,6 +104,7 @@ export default function Home() {
 
   return (
     <div className="center beige column">
+      
       <div className="center column" style={{alignItems:"start"}}>
         <div className="relative" style={{fontSize:"70px",top:"20px",color:'navy',padding:"0px"}} >Math</div>
         <div className="relative" style={{fontSize:"70px",color:'purple',paddingBottom:"20px"}} >Improve</div>

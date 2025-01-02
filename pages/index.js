@@ -25,18 +25,22 @@ export default function Math(){
     useEffect(()=>{
         const score = parseInt(window.localStorage.getItem(`${id} score`))
         setCheck2(score > 100)
-        // if(score > 100){
-        //     setNone('none')
-        // }
+        if(score > 100){
+            setNone('none')
+        }
         let main =  window.localStorage.getItem('uid')
+        let me =  window.localStorage.getItem('tag')
         if(main){
             router.push('/login')
+        }if(!me){
+            router.push('https://mathimprove.com/')
+            console.log(me)
         }
     },[])
 
     return (
         <div className="beige" style={{padding:"20px",paddingBottom:"50px",backgroundColor:'beige'}}>
-            {/* {check2 && <Sign2></Sign2>}  */}
+            {check2 && <Sign2></Sign2>} 
             {check && <FeedBack close={()=>{setCheck(false),setNone(''),setFlex('flex')}} />}
             {about &&<AboutUs close={()=>{setAbout(false),setNone(''),setFlex('flex')}} />}
             <div style={{display:flex,justifyContent:"space-between",width:"100vw",height:"180px"}}>
