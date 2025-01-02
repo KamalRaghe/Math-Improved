@@ -132,7 +132,7 @@ export default function Home() {
           </div><br></br>
               <button className="relative" style={{marginBottom:'10px',right:'69px'}} >Create</button>
           </form>
-          <div className="relative" style={{display:'flex',justifyContent:'end',top:'48px',right:"96px"}} >
+          <div className="relative" style={{display:'flex',justifyContent:'end',top:'55px',right:"146px"}} >
             <button onClick={Password}><div className="relative" style={{width:"100px"}} >{password === 'password' ? 'show password' : 'hide password'}</div></button>
           </div>
         </div>
