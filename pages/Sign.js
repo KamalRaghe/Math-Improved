@@ -121,19 +121,19 @@ export default function Home() {
       
         {!user && create && <div className="center" style={{width:"280px",backgroundColor:"beige",position:"relative",top:"-50px"}} >
         <div className="relative center" style={{border:"2px solid black",width:"220px",paddingLeft:"30px"}} >
-          <form className="center column relative" onSubmit={(e)=> CreateUser(e)}>
-            <div className="center" style={{padding:'10px',fontSize:"40px"}} >Sign Up</div>
+          <form className="center column relative" style={{left:"20px"}} onSubmit={(e)=> CreateUser(e)}>
+            <div style={{padding:'10px',fontSize:"40px"}} >Sign Up</div>
             <input style={{borderColor: red, width:'180px'}} name='email' type='email' placeholder="email" ></input><br></br>
-            <div className="center" style={{backgroundColor:"transparent",border:'none'}} >
+            <div  style={{backgroundColor:"transparent",border:'none'}} >
               <input style={{borderColor: red, width:'180px'}} name='password' type={password} placeholder="password" ></input>
           </div><br></br>
               <button className="relative" style={{marginBottom:'10px',right:'69px'}} >Create</button>
           </form>
-          <div className="relative" style={{display:'flex',justifyContent:'end',top:'48px',right:"116px"}} >
+          <div className="relative" style={{display:'flex',justifyContent:'end',top:'48px',right:"96px"}} >
             <button onClick={Password}><div className="relative" style={{width:"100px"}} >{password === 'password' ? 'show password' : 'hide password'}</div></button>
           </div>
-          <button className="relative" style={{background:'none',border:'none',color:"black",fontSize:"50px",zIndex:"10"}} onClick={()=>{setCreate(false)}} >X</button> 
         </div>
+        <button className="relative" style={{background:'none',border:'none',color:"black",fontSize:"50px",zIndex:"10",bottom:'60px',right:"50px"}} onClick={()=>{setCreate(false)}} >X</button> 
         </div>}
       <div className="box" >
       </div>
