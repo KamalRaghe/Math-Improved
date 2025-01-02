@@ -121,9 +121,8 @@ export default function Home() {
       
         {!user && create && <div className="center" style={{width:"280px",backgroundColor:"beige",position:"relative",top:"-50px"}} >
         <div className="relative center" style={{border:"2px solid black",width:"220px",paddingLeft:"30px"}} >
-        <button className="relative" style={{top:'-60px',left:'235px',background:'none',border:'none',color:"black",fontSize:"50px",zIndex:"10"}} onClick={()=>{setCreate(false)}} >X</button> 
           <form className="center column relative" onSubmit={(e)=> CreateUser(e)}>
-            <div className="center" style={{padding:'10px',fontSize:"40px",margin:"0 20px"}} >Sign Up</div>
+            <div className="center" style={{padding:'10px',fontSize:"40px"}} >Sign Up</div>
             <input style={{borderColor: red, width:'180px'}} name='email' type='email' placeholder="email" ></input><br></br>
             <div className="center" style={{backgroundColor:"transparent",border:'none'}} >
               <input style={{borderColor: red, width:'180px'}} name='password' type={password} placeholder="password" ></input>
@@ -133,6 +132,7 @@ export default function Home() {
           <div className="relative" style={{display:'flex',justifyContent:'end',top:'48px',right:"116px"}} >
             <button onClick={Password}><div className="relative" style={{width:"100px"}} >{password === 'password' ? 'show password' : 'hide password'}</div></button>
           </div>
+          <button className="relative" style={{background:'none',border:'none',color:"black",fontSize:"50px",zIndex:"10"}} onClick={()=>{setCreate(false)}} >X</button> 
         </div>
         </div>}
       <div className="box" >
