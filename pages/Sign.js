@@ -119,18 +119,18 @@ export default function Home() {
       {(create || user) && <div className="box" ></div>}
       {create && <div className="box"></div>}
       
-        {!user && create && <div className="timeout center" style={{paddingBottom:"15px",border:'2px solid black',width:"280px",backgroundColor:"beige",position:"relative",top:"-50px"}} >
+        {!user && create && <div className="center" style={{border:'2px solid black',width:"280px",backgroundColor:"beige",position:"relative",top:"-50px"}} >
         <button className="relative" style={{top:'-70px',left:'215px',background:'none',border:'none',color:"black",fontSize:"50px",zIndex:"10"}} onClick={()=>{setCreate(false)}} >X</button> 
-        <div className="relative" style={{marginRight:"20px",border:"1px solid black",height:"100%"}} >
-          <form className="center column relative" style={{right:"28px"}} onSubmit={(e)=> CreateUser(e)}>
-            <div className="center" style={{padding:'10px',fontSize:"40px",marginLeft:"20px"}} >Sign Up</div>
+        <div className="relative" style={{marginRight:"40px",border:"1px solid black"}} >
+          <form className="center column relative" onSubmit={(e)=> CreateUser(e)}>
+            <div className="center" style={{padding:'10px',fontSize:"40px"}} >Sign Up</div>
             <input style={{borderColor: red, width:'180px'}} name='email' type='email' placeholder="email" ></input><br></br>
             <div className="center" style={{backgroundColor:"transparent",border:'none'}} >
               <input style={{borderColor: red, width:'180px'}} name='password' type={password} placeholder="password" ></input>
           </div><br></br>
               <button className="relative" style={{marginBottom:'10px',right:'69px'}} >Create</button>
           </form>
-          <div className="relative" style={{display:'flex',justifyContent:'end',top:'-50px',right:'28px'}} >
+          <div className="relative" style={{display:'flex',justifyContent:'end',top:'-50px'}} >
             <button onClick={Password}><div className="relative">{password === 'password' ? 'show password' : 'hide password'}</div></button>
           </div>
         </div>
