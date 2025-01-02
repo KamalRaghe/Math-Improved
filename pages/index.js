@@ -34,7 +34,7 @@ export default function Math(){
             router.push('/login')
         }if(!me){
             router.push('https://mathimprove.com/')
-            console.log(me)
+            window.localStorage.setItem('tag', true)
         }
     },[])
 
