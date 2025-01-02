@@ -73,6 +73,7 @@ function ExtraAdd({close, num1 , num2}){
            <div className="Help" style={{zIndex:'20', border:'10px solid yellow'}}>
                {extra && <HelpAdd close={Extra} num1 ={number1[count]%10} num2 = {number2[count]%10} num3={num4} />}
                <div className='cancel' style={{width:"100%"}} ><button className='cancel-btn' onClick = {close}>X</button></div>
+               <span className='center'>{carry && done && <button className='carry absolute Green center' style={{fontSize:"30px",left:'145px',bottom:"450px"}} onClick={click}>Click</button>}</span>
                <span className='center'>{carry && done && <button className='carry  absolute Green' style={{left:'162px'}} onClick={click}>{sign}</button>}</span>
                <span className='center'>{carry && !done && <button className=' back2Step2 absolute Green' style={{left:'165px'}} onClick={click}>{sign}</button>}</span>
                <div className='double top-number center'>
