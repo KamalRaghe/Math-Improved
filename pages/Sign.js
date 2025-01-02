@@ -119,9 +119,9 @@ export default function Home() {
       {(create || user) && <div className="box" ></div>}
       {create && <div className="box"></div>}
       
-        {!user && create && <div className="center" style={{border:'2px solid black',width:"280px",backgroundColor:"beige",position:"relative",top:"-50px"}} >
-        <button className="relative" style={{top:'-70px',left:'215px',background:'none',border:'none',color:"black",fontSize:"50px",zIndex:"10"}} onClick={()=>{setCreate(false)}} >X</button> 
-        <div className="relative center" style={{border:"1px solid black"}} >
+        {!user && create && <div className="center" style={{width:"280px",backgroundColor:"beige",position:"relative",top:"-50px"}} >
+        <div className="relative center" style={{border:"2px solid black",width:"220px",paddingLeft:"30px"}} >
+        <button className="relative" style={{top:'-60px',left:'235px',background:'none',border:'none',color:"black",fontSize:"50px",zIndex:"10"}} onClick={()=>{setCreate(false)}} >X</button> 
           <form className="center column relative" onSubmit={(e)=> CreateUser(e)}>
             <div className="center" style={{padding:'10px',fontSize:"40px"}} >Sign Up</div>
             <input style={{borderColor: red, width:'180px'}} name='email' type='email' placeholder="email" ></input><br></br>
@@ -130,8 +130,8 @@ export default function Home() {
           </div><br></br>
               <button className="relative" style={{marginBottom:'10px',right:'69px'}} >Create</button>
           </form>
-          <div className="relative" style={{display:'flex',justifyContent:'end',top:'-50px'}} >
-            <button onClick={Password}><div className="relative">{password === 'password' ? 'show password' : 'hide password'}</div></button>
+          <div className="relative" style={{display:'flex',justifyContent:'end',top:'48px',right:"116px"}} >
+            <button onClick={Password}><div className="relative" style={{width:"100px"}} >{password === 'password' ? 'show password' : 'hide password'}</div></button>
           </div>
         </div>
         </div>}
