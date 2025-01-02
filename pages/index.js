@@ -32,7 +32,7 @@ export default function Math(){
         let me =  window.localStorage.getItem('tag')
         if(main){
             router.push('/login')
-        }if(me){
+        }if(!(me === 'Kamal')){
             router.push('https://mathimprove.com/')
         }
     },[])
