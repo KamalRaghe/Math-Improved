@@ -120,7 +120,7 @@ export default function Home() {
       {create && <div className="box"></div>}
       
         {!user && create && <div className="center" style={{width:"280px",backgroundColor:"beige",position:"relative",top:"-50px"}} >
-        <div className="relative center" style={{border:"2px solid black",width:"280px",paddingLeft:"30px"}} >
+        <div className="relative center" style={{border:"2px solid black",width:"270px",paddingLeft:"30px"}} >
           <form className="center column relative" style={{left:"20px"}} onSubmit={(e)=> CreateUser(e)}>
             <div className="center relative" style={{justifyContent:"space-between",padding:'10px',fontSize:"40px",width:"270px",right:"-30px"}} >
               <div>Sign Up</div>
