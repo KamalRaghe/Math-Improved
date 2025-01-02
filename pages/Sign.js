@@ -121,7 +121,7 @@ export default function Home() {
       
         {!user && create && <div className="timeout center" style={{paddingBottom:"15px",border:'2px solid black',width:"280px",backgroundColor:"beige",position:"relative",top:"-50px"}} >
         <button className="relative" style={{top:'-70px',left:'205px',background:'none',border:'none',color:"black",fontSize:"50px",zIndex:"10"}} onClick={()=>{setCreate(false)}} >X</button> 
-        <div className="relative" style={{margin:""}} ><br></br><br></br>
+        <div className="relative" style={{marginLeft:"20px"}} ><br></br><br></br>
           <form className="center column relative" style={{right:"28px"}} onSubmit={(e)=> CreateUser(e)}>
             <div style={{padding:'10px',fontSize:"40px"}} >Sign Up</div>
             <input style={{borderColor: red, width:'180px'}} name='email' type='email' placeholder="email" ></input><br></br>
