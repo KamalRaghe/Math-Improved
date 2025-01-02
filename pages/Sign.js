@@ -123,7 +123,7 @@ export default function Home() {
         <div className="relative center" style={{border:"2px solid black",width:"220px",paddingLeft:"30px"}} >
         <button className="relative" style={{top:'-60px',left:'235px',background:'none',border:'none',color:"black",fontSize:"50px",zIndex:"10"}} onClick={()=>{setCreate(false)}} >X</button> 
           <form className="center column relative" onSubmit={(e)=> CreateUser(e)}>
-            <div className="center" style={{padding:'10px',fontSize:"40px",marginRight:"20px"}} >Sign Up</div>
+            <div className="center" style={{padding:'10px',fontSize:"40px",margin:"0 20px"}} >Sign Up</div>
             <input style={{borderColor: red, width:'180px'}} name='email' type='email' placeholder="email" ></input><br></br>
             <div className="center" style={{backgroundColor:"transparent",border:'none'}} >
               <input style={{borderColor: red, width:'180px'}} name='password' type={password} placeholder="password" ></input>
