@@ -71,20 +71,26 @@ return(
          <div>Code:<span style={{padding:"1.5px"}} >{user}</span></div>
          <div className="center column" style={{position:'relative',top: '0.5px'}} >
             Time
-            <div className="center" style={{fontSize:"20px"}}>
-                <input name='time' value={time} type='radio' onClick = {(e) => setTime(1)}/>1 min
-            </div>
-            <div className="center" style={{fontSize:"20px"}}>
-                <input name='time' value={time} type='radio' onClick = {(e) => setTime(2)}/>2 min
-            </div>
-           { <div className="center" style={{fontSize:"20px",cursor:"pointer",padding:"2px 8px",border:"2px solid black"}} onClick = {(e) => setTime(3)} >
-                3 min
+            {time === 1 ? <div className="center" style={{fontSize:"20px",cursor:"pointer",padding:"2px 8px",border:"2px solid black"}} onClick = {(e) => setTime(3)} >
+                1 min
+            </div>:<div className="center" style={{fontSize:"20px",cursor:"pointer",padding:"2px 8px"}} onClick = {(e) => setTime(3)} >
+                1 min
+            </div>}
+            {time === 3 ? <div className="center" style={{fontSize:"20px",cursor:"pointer",padding:"2px 8px",border:"2px solid black"}} onClick = {(e) => setTime(3)} >
+                3 mins
+            </div>:<div className="center" style={{fontSize:"20px",cursor:"pointer",padding:"2px 8px"}} onClick = {(e) => setTime(3)} >
+                3 mins
+            </div>}
+           {time === 3 ? <div className="center" style={{fontSize:"20px",cursor:"pointer",padding:"2px 8px",border:"2px solid black"}} onClick = {(e) => setTime(3)} >
+                3 mins
+            </div>:<div className="center" style={{fontSize:"20px",cursor:"pointer",padding:"2px 8px"}} onClick = {(e) => setTime(3)} >
+                3 mins
             </div>}
             <div className="center" style={{fontSize:"20px"}}>
-                <input name='time' value={time} type='radio' onClick = {(e) => setTime(4)}/>4 min
+                <input name='time' value={time} type='radio' onClick = {(e) => setTime(4)}/>4 mins
             </div>
             <div className="center" style={{fontSize:"20px"}}>
-                <input name='time' value={time} type='radio' onClick = {(e) => setTime(5)}/>5 min
+                <input name='time' value={time} type='radio' onClick = {(e) => setTime(5)}/>5 mins
             </div>
         </div>  
         </div>
