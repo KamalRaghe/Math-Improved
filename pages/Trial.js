@@ -28,13 +28,6 @@ export default function Math(){
         if(score > 100){
             setNone('none')
         }
-        let main =  window.localStorage.getItem('uid')
-        let me =  window.localStorage.getItem('tag')
-        if(main){
-            router.push('/login')
-        }if(!(me === 'Kamal')){
-            router.push('https://mathimprove.com/')
-        }
     },[])
 
     return (

@@ -77,6 +77,13 @@ export default function Home() {
       })
 
       useEffect(()=>{
+        let main =  window.localStorage.getItem('uid')
+        let me =  window.localStorage.getItem('tag')
+        if(main){
+            router.push('/login')
+        }if(!(me === 'Kamal')){
+            router.push('https://mathimprove.com/')
+        }
         const timer = window.localStorage.getItem('Timer')
         setId(window.localStorage.getItem('uid'))
         PayedCheck()
