@@ -77,9 +77,9 @@ return(
             <div className="center" style={{fontSize:"20px"}}>
                 <input name='time' value={time} type='radio' onClick = {(e) => setTime(2)}/>2 min
             </div>
-            <div className="center" style={{fontSize:"20px"}}>
-                <input name='time' value={time} type='radio' onClick = {(e) => setTime(3)}/>3 min
-            </div>
+           { <div className="center" style={{fontSize:"20px",cursor:"pointer",padding:"2px 8px",border:"2px solid black"}} onClick = {(e) => setTime(3)} >
+                3 min
+            </div>}
             <div className="center" style={{fontSize:"20px"}}>
                 <input name='time' value={time} type='radio' onClick = {(e) => setTime(4)}/>4 min
             </div>
