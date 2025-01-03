@@ -143,6 +143,10 @@
   margin: 20px 40px;
 }
 
+.FrontPage{
+  width:500px
+}
+
 .DivSwitch1{
    animation: switchDown 2s linear;
    z-index: 20px;
@@ -450,7 +454,15 @@
     }
   }
  
-}@media(max-width: 480px){
+}
+
+@media(max-width: 540px){
+  .FrontPage{
+    width:300px
+  }
+}
+
+@media(max-width: 480px){
   .tooBig{
     position: relative;
     left: 20px
