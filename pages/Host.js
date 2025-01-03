@@ -73,27 +73,32 @@ return(
             Time
             {time === 1 ? <div className="center" style={{fontSize:"20px",cursor:"pointer",padding:"2px 8px",border:"2px solid black"}} onClick = {(e) => setTime(3)} >
                 1 min
-            </div>:<div className="center" style={{fontSize:"20px",cursor:"pointer",padding:"2px 8px"}} onClick = {(e) => setTime(3)} >
+            </div>:<div className="center" style={{fontSize:"20px",cursor:"pointer",padding:"2px 8px"}} onClick = {(e) => setTime(1)} >
                 1 min
             </div>}
-            {time === 3 ? <div className="center" style={{fontSize:"20px",cursor:"pointer",padding:"2px 8px",border:"2px solid black"}} onClick = {(e) => setTime(3)} >
-                3 mins
-            </div>:<div className="center" style={{fontSize:"20px",cursor:"pointer",padding:"2px 8px"}} onClick = {(e) => setTime(3)} >
-                3 mins
+            {time === 2 ? <div className="center" style={{fontSize:"20px",cursor:"pointer",padding:"2px 8px",border:"2px solid black"}} onClick = {(e) => setTime(3)} >
+                2 mins
+            </div>:<div className="center" style={{fontSize:"20px",cursor:"pointer",padding:"2px 8px"}} onClick = {(e) => setTime(2)} >
+                2 mins
             </div>}
            {time === 3 ? <div className="center" style={{fontSize:"20px",cursor:"pointer",padding:"2px 8px",border:"2px solid black"}} onClick = {(e) => setTime(3)} >
                 3 mins
             </div>:<div className="center" style={{fontSize:"20px",cursor:"pointer",padding:"2px 8px"}} onClick = {(e) => setTime(3)} >
                 3 mins
             </div>}
-            <div className="center" style={{fontSize:"20px"}}>
-                <input name='time' value={time} type='radio' onClick = {(e) => setTime(4)}/>4 mins
-            </div>
-            <div className="center" style={{fontSize:"20px"}}>
-                <input name='time' value={time} type='radio' onClick = {(e) => setTime(5)}/>5 mins
-            </div>
+            {time === 4 ? <div className="center" style={{fontSize:"20px",cursor:"pointer",padding:"2px 8px",border:"2px solid black"}} onClick = {(e) => setTime(3)} >
+                4 mins
+            </div>:<div className="center" style={{fontSize:"20px",cursor:"pointer",padding:"2px 8px"}} onClick = {(e) => setTime(4)} >
+                4 mins
+            </div>}
+            {time === 5 ? <div className="center" style={{fontSize:"20px",cursor:"pointer",padding:"2px 8px",border:"2px solid black"}} onClick = {(e) => setTime(3)} >
+                5 mins
+            </div>:<div className="center" style={{fontSize:"20px",cursor:"pointer",padding:"2px 8px"}} onClick = {(e) => setTime(5)} >
+                5 mins
+            </div>}
         </div>  
         </div>
+        <br></br>
         <br></br>
         <div><button className="sub-topic" style={{margin:"2px"}} onClick={()=>{router.push('/GameMenu')}} >{topic}</button></div>
         <div className="double" style={{width:"340px",height:"10%",display:"flex",justifyContent:"space-between",alignItems:"end",}}>
