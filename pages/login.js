@@ -6,6 +6,7 @@ import Link from "next/link"
 import { initFirebase } from "@/firebase"
 import { getFirestore } from "firebase/firestore"
 import { db , auth} from "../firebase"
+import { Resend } from 'resend';
 
 export default function Home() {
     const [payed, Payed] = useState(false)
@@ -98,9 +99,22 @@ export default function Home() {
     
       },[])
 
+     
+
+  const resend = new Resend('re_6bpe5ZTx_BoRmvFfjdTSGCLBY6XMiCzGY');
+
       useEffect(()=>{
         window.localStorage.setItem( 'ID', id)
       },[id])
+
+      useEffect(()=>{
+        resend.emails.send({
+          from: 'kamal.raghe33@gmail.com',
+          to: 'kamal.raghe33@gmail.com',
+          subject: 'Hello World',
+          html: '<p>Congrats on sending your <strong>first email</strong>!</p>'
+        });
+      },[])
 
   return (
     <div className="center beige column">
