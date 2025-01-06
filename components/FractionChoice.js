@@ -23,16 +23,16 @@ function Choice({value1, answer1, whole,whole2,value2, answer2, doSomething, Cor
 
     function Do(){
         if(answer1 === value1 && answer2 === value2){
-            Correct() 
+            Correct()
+            doSomething() 
         }
         else{
-          
             Wrong()
         }
     }
     return(
         <div>
-            <button className='choice-stretch center' style={{padding:'30px 10px'}} onClick={()=>{Do();doSomething()}}>
+            <button className='choice-stretch center' style={{padding:'30px 10px'}} onClick={()=>{Do()}}>
                 {whole > 0 && !(beginning === true)? <div style={{paddingRight:'2px'}}>{whole}</div>:null}
                 {!(whole > 0) && whole2 > 0 && !(beginning === true) && <div style={{paddingRight:'2px'}}>{whole2}</div> }
                 {!(whole > 0) && !(whole2 > 0) && !(beginning === true)&& (value1 === 0) && 0}

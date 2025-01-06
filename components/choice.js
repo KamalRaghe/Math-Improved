@@ -4,6 +4,7 @@ function Choice({value, answer, doSomething, Correct, Wrong,big, size ,title}){
     function Do(){
         if(answer === value){
             Correct() 
+            doSomething()
         }
         else{
             Wrong()
@@ -11,8 +12,8 @@ function Choice({value, answer, doSomething, Correct, Wrong,big, size ,title}){
     }
     return(
         <div className="center" >
-            {big ? <button className='choice-stretch' onClick={()=>{Do();doSomething()}}><div style={{width: size }} >{title ? title:value}</div></button> 
-            :<button className='choice center' onClick={()=>{Do();doSomething()}}>{value}</button>}
+            {big ? <button className='choice-stretch' onClick={()=>{Do()}}><div style={{width: size }} >{title ? title:value}</div></button> 
+            :<button className='choice center' onClick={()=>{Do()}}>{value}</button>}
         </div>
         
             
