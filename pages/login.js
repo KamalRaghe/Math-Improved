@@ -29,7 +29,7 @@ export default function Home() {
       }
 
       async function Free(){
-        const num = 7*24*60*60*1000+Date.now()
+        const num = 3*24*60*60*1000+Date.now()
         window.localStorage.setItem('userId' , num)
         window.localStorage.setItem('Check' , num + 34521)
         setCheck(num + 34521)
@@ -110,7 +110,7 @@ export default function Home() {
         <div className="relative" style={{fontSize:"70px",color:'purple',paddingBottom:"20px"}} >Improve</div>
       </div>
       <div className="box column" >   
-        {!payed && parseInt(free) === parseInt(check) - 34521 && free - Date.now() > 0 && <div className="font center" style={{fontWeight:"bold",width:"300px"}} >Free Trial: {Math.floor(((free - Date.now())%(1000*60*60*24*7))/1000/60/60/24)}d {""}{Math.floor(((free - Date.now())%(1000*60*60*24))/1000/60/60)}h {""}{Math.floor(((free - Date.now())%(1000*60*60))/1000/60)}m {""}
+        {!payed && parseInt(free) === parseInt(check) - 34521 && free - Date.now() > 0 && <div className="font center" style={{fontWeight:"bold",width:"300px"}} >Free Trial: {Math.floor(((free - Date.now())%(1000*60*60*24*3))/1000/60/60/24)}d {""}{Math.floor(((free - Date.now())%(1000*60*60*24))/1000/60/60)}h {""}{Math.floor(((free - Date.now())%(1000*60*60))/1000/60)}m {""}
             {Math.floor(((free - Date.now())%(1000*60))/1000)}s
         </div>}
       </div>

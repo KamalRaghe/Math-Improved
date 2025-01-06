@@ -18,7 +18,7 @@ export default function Sign(){
                 <br></br>
                 <div>or</div>
                 <div><button className="sub-topic" onClick={()=>{router.push('/Sign')}} >Sign up</button></div>
-                {!(parseInt(free) === parseInt(check) - 34521) && <div className="font" > 7 day free trial available</div>}
+                {!(parseInt(free) === parseInt(check) - 34521) && <div className="font" > 3 day free trial available</div>}
             </div>
         </div>
     )
