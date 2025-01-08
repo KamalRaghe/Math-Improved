@@ -40,6 +40,15 @@ const PlotlyGraph = () => {
             hoverinfo: 'none',
             marker: { color: 'rgba(255, 206, 86, 0.6)', size: 10 },
         },
+        {
+            x: [4], // Quadrant IV
+            y: [-3],
+            mode: 'markers',
+            type: 'scatter',
+            name: 'Quadrant IV',
+            hoverinfo: 'none',
+            marker: { color: 'rgba(255, 206, 86, 0.6)', size: 10 },
+        },
     ];
 
     const layout = {
