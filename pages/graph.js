@@ -38,6 +38,22 @@ const PlotlyGraph = () => {
             type: 'scatter',
             marker: { color: 'rgba(255, 206, 86, 0.6)', size: 10 },
         },
+        {
+            x: [0,0,0,0,0,0,0,0,0,0,0,0], // Yaxis
+            y: [-3, -5,-4,-2,-1,0,1,2,3,4,5],
+            mode: 'markers',
+            hoverinfo: 'none', // Disable hover info
+            type: 'scatter',
+            marker: { color: 'rgba(0, 0, 0, 1', size: 10 },
+        },
+        {
+            y: [0,0,0,0,0,0,0,0,0,0,0,0], // Xaxis
+            x: [-3, -5,-4,-3,-2,-1,0,1,2,3,4,5],
+            mode: 'markers',
+            hoverinfo: 'none', // Disable hover info
+            type: 'scatter',
+            marker: { color: 'rgba(0, 0, 0, 1', size: 10 },
+        },
     ];
 
     const layout = {
@@ -73,7 +89,7 @@ const PlotlyGraph = () => {
             data={data}
             layout={layout}
             onClick={handleClick} // Handle point click
-            style={{ width: '100vh', height: '100vh' }}
+            style={{ width: '80vh', height: '80vh' }}
             useResizeHandler={true} // Make the graph responsive
         />
     );
