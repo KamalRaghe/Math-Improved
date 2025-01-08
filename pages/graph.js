@@ -5,11 +5,12 @@ import {
     CategoryScale,
     LinearScale,
     PointElement,
+    Title,
     Tooltip,
     Legend,
 } from 'chart.js';
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, Tooltip, Legend);
+ChartJS.register(CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend);
 
 const Graph = () => {
     const data = {
@@ -36,49 +37,44 @@ const Graph = () => {
             },
         ],
     };
-
     const options = {
         responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: '4-Quadrant Graph',
+            },
+        },
         scales: {
             x: {
-                beginAtZero: true,
+                beginAtZero: false,
                 grid: {
                     drawBorder: true,
                 },
+                ticks: {
+                    font: {
+                        weight: 'bolder', // Makes x-axis labels bold
+                    },
+                },
             },
             y: {
-                beginAtZero: true,
+                beginAtZero: false,
                 grid: {
                     drawBorder: true,
+                },
+                ticks: {
+                    font: {
+                        weight: 'bolder', // Makes y-axis labels bold
+                    },
                 },
             },
         },
     };
 
-    return (
-        <div>
-            <h2>4-Quadrant Graph</h2>
-            <Scatter data={data} options={options} />
-        </div>
-    );
+    return <Scatter onClick={()=>{console.log('sIVGweyi')}} style={{backgroundColor:"beige",color:"black",fontWeight:"bold"}} data={data} options={options} />;
 };
 
 export default Graph;
-Use the Graph Component in a Page
-In the pages directory, create a new file graph.js and use the Graph component:
-
-javascript
-Copy code
-import React from 'react';
-import Graph from '../components/Graph';
-
-const GraphPage = () => {
-    return (
-        <div>
-            <h1>4-Quadrant Graph</h1>
-            <Graph />
-        </div>
-    );
-};
-
-export default GraphPage;
