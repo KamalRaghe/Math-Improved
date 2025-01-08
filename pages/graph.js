@@ -1,6 +1,7 @@
 import React from 'react';
-import Plot from 'react-plotly.js';
+import dynamic from 'next/dynamic';
 
+const Ploty = dynamic(() => import('react-plotly.js'), { ssr: false });
 const PlotlyGraph = () => {
     const data = [
         {
@@ -8,7 +9,7 @@ const PlotlyGraph = () => {
             y: [3, 5],
             mode: 'markers',
             type: 'scatter',
-            name: 'Quadrant I',
+            name: 'none',
             marker: { color: 'rgba(75, 192, 192, 0.6)', size: 10 },
         },
         {
@@ -28,17 +29,17 @@ const PlotlyGraph = () => {
             marker: { color: 'rgba(153, 102, 255, 0.6)', size: 10 },
         },
         {
-            x: [2, 4], // Quadrant IV
-            y: [-3, -5],
+            x: [2], // Quadrant IV
+            y: [-3],
             mode: 'markers',
             type: 'scatter',
             name: 'Quadrant IV',
+            hoverinfo: 'none',
             marker: { color: 'rgba(255, 206, 86, 0.6)', size: 10 },
         },
     ];
 
     const layout = {
-        title: '4-Quadrant Graph',
         xaxis: {
             title: 'X-Axis',
             zeroline: true,
@@ -51,7 +52,7 @@ const PlotlyGraph = () => {
             showgrid: true,
             titlefont: { size: 16, color: 'black' },
         },
-        showlegend: true,
+        showlegend: false,
         hovermode: 'closest',
     };
 
@@ -63,11 +64,11 @@ const PlotlyGraph = () => {
     };
 
     return (
-        <Plot
+        <Ploty
             data={data}
             layout={layout}
             onClick={handleClick} // Handle point click
-            style={{ width: '100%', height: '100%' }}
+            style={{ width: '90vh', height: '90vh' }}
         />
     );
 };
