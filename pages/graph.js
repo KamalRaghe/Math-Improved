@@ -80,7 +80,7 @@ const PlotlyGraph = () => {
             data={data}
             layout={layout}
             onClick={handleClick} // Handle point click
-            style={{ width: '90vh', height: '90vh' }}
+            style={{ width: '100vh', height: '100vh' }}
         />
     );
 };
