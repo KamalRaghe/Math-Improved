@@ -45,7 +45,7 @@ const PlotlyGraph = () => {
             title: 'X-Axis',
             zeroline: true,
             showgrid: true,
-            range: [-5, 5], // Set X-axis range
+            range: [-6, 6], // Set X-axis range
             dtick: 1, // Add more grid lines (spacing of 1 unit)
             titlefont: { size: 16, color: 'black' },
         },
@@ -53,7 +53,7 @@ const PlotlyGraph = () => {
             title: 'Y-Axis',
             zeroline: true,
             showgrid: true,
-            range: [-5, 5], // Set Y-axis range
+            range: [-6, 6], // Set Y-axis range
             dtick: 1, // Add more grid lines (spacing of 1 unit)
             titlefont: { size: 16, color: 'black' },
         },
@@ -73,7 +73,7 @@ const PlotlyGraph = () => {
             data={data}
             layout={layout}
             onClick={handleClick} // Handle point click
-            style={{ width: '100%', height: '100%' }}
+            style={{ width: '100vh', height: '100vh' }}
             useResizeHandler={true} // Make the graph responsive
         />
     );
