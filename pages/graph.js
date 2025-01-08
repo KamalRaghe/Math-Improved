@@ -8,6 +8,7 @@ const PlotlyGraph = () => {
             x: [2, 4], // Quadrant I
             y: [3, 5],
             mode: 'markers',
+            hoverinfo: 'none',
             type: 'scatter',
             name: 'none',
             marker: { color: 'rgba(75, 192, 192, 0.6)', size: 10 },
@@ -17,6 +18,7 @@ const PlotlyGraph = () => {
             y: [3, 5],
             mode: 'markers',
             type: 'scatter',
+            hoverinfo: 'none',
             name: 'Quadrant II',
             marker: { color: 'rgba(255, 99, 132, 0.6)', size: 10 },
         },
@@ -25,6 +27,7 @@ const PlotlyGraph = () => {
             y: [-3, -5],
             mode: 'markers',
             type: 'scatter',
+            hoverinfo: 'none',
             name: 'Quadrant III',
             marker: { color: 'rgba(153, 102, 255, 0.6)', size: 10 },
         },
