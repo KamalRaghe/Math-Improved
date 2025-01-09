@@ -6,7 +6,7 @@ import Correct from '@/components/correct';
 // Dynamically import Plotly to prevent SSR issues
 const Plotly = dynamic(() => import('react-plotly.js'), { ssr: false });
 
-const PlotlyGraph = ({x,y}) => {
+const PlotlyGraph = ({x,y,mix}) => {
     const [xAxis,setXAxis] = useState([4,-1,2,1,-2,.5,-3,-4,-5,3])
     const [yAxis,setYAxis] = useState([-1,5,-2,-3,1,-4,5,-5,3,4])
     const [correct, setCorrect] = useState(false)
@@ -51,7 +51,6 @@ const PlotlyGraph = ({x,y}) => {
     const handleClick = (event) => {
         if (event.points && event.points.length > 0) {
             const point = event.points[0];
-            console.log(`Clicked Point: x=${point.x}, y=${point.y}`);
             if(point.x === x && point.y === y){
                 CorrectA()
             }else{
@@ -62,6 +61,9 @@ const PlotlyGraph = ({x,y}) => {
 
     function CorrectA(){ 
         setCorrect(true)
+        mix()
+        setXAxis(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
+        setYAxis(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
         setTimeout(() => {
             setCorrect(false) 
         }, 1900);
