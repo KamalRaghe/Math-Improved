@@ -1,44 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
+import Wrong from '@/components/wrong';
+import Correct from '@/components/correct';
 
 // Dynamically import Plotly to prevent SSR issues
 const Plotly = dynamic(() => import('react-plotly.js'), { ssr: false });
 
-const PlotlyGraph = () => {
+const PlotlyGraph = ({x,y}) => {
+    const [xAxis,setXAxis] = useState([4,-1,2,1,-2,.5,-3,-4,-5,3])
+    const [yAxis,setYAxis] = useState([-1,5,-2,-3,1,-4,5,-5,3,4])
+    const [correct, setCorrect] = useState(false)
+    const[ wrong, setWrong] = useState(false)
     const data = [
         {
-            x: [2, 4], // Quadrant I
-            y: [3, 5],
+            x: [xAxis[1],xAxis[3],xAxis[5],xAxis[7],x], // Quadrant I
+            y: [yAxis[1],yAxis[3],yAxis[5],yAxis[7],y],
             mode: 'markers',
             hoverinfo: 'none', // Disable hover info
             type: 'scatter',
-            marker: { color: 'rgba(75, 192, 192, 0.6)', size: 10 },
+            marker: { color: 'navy', size: 10 },
         },
-        {
-            x: [-2, -4], // Quadrant II
-            y: [3, 5],
-            mode: 'markers',
-            hoverinfo: 'none', // Disable hover info
-            type: 'scatter',
-            marker: { color: 'rgba(255, 99, 132, 0.6)', size: 10 },
-        },
-        {
-            x: [-2, -4], // Quadrant III
-            y: [-3, -5],
-            mode: 'markers',
-            hoverinfo: 'none', // Disable hover info
-            type: 'scatter',
-            marker: { color: 'rgba(153, 102, 255, 0.6)', size: 10 },
-        },
-        {
-            x: [2, 4], // Quadrant IV
-            y: [-3, -5],
-            mode: 'markers',
-            hoverinfo: 'none', // Disable hover info
-            type: 'scatter',
-            marker: { color: 'rgba(255, 206, 86, 0.6)', size: 10 },
-        },
-       
     ];
 
     const layout = {
@@ -71,17 +52,45 @@ const PlotlyGraph = () => {
         if (event.points && event.points.length > 0) {
             const point = event.points[0];
             console.log(`Clicked Point: x=${point.x}, y=${point.y}`);
+            if(point.x === x && point.y === y){
+                CorrectA()
+            }else{
+                WrongA()
+            }
         }
     };
 
+    function CorrectA(){ 
+        setCorrect(true)
+        setTimeout(() => {
+            setCorrect(false) 
+        }, 1900);
+      }
+      
+      function WrongA(){
+        setWrong(true)
+            setTimeout(() => {
+                setWrong(false)
+            }, 1900); 
+      } 
+
+    useEffect(()=>{
+        setXAxis(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
+        setYAxis(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
+    },[])
+
     return (
-        <Plotly
+        <div className='center' >
+            {wrong && <Wrong></Wrong>}
+            {correct && <Correct></Correct>}
+            <Plotly
             data={data}
             layout={layout}
             onClick={handleClick} // Handle point click
             style={{ width: '400px', height: '400px' }}
             useResizeHandler={true} // Make the graph responsive
         />
+        </div>
     );
 };
 
