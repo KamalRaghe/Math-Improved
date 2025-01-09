@@ -148,6 +148,9 @@ export default function Math(){
 
             { loaded && <button onClick={() => {setCount('log')}}  className="topic">Logarithms</button >}
             { count === 'log' &&<Link href= {`/${id}/enter/Logarithm`}><button className="sub-topic zoom">Logarithms</button></Link>}
+
+            { loaded && <button style={{opacity:"0.4"}} onClick={() => {setCount('log')}}  className="topic">Function</button >}
+            { loaded && <button style={{opacity:"0.4"}} onClick={() => {setCount('log')}}  className="topic">Function</button >}
             </div>
         </div>     
     )
