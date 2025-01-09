@@ -38,22 +38,7 @@ const PlotlyGraph = () => {
             type: 'scatter',
             marker: { color: 'rgba(255, 206, 86, 0.6)', size: 10 },
         },
-        {
-            x: [0,0,0,0,0,0,0,0,0,0,0,0], // Yaxis
-            y: [-3, -5,-4,-2,-1,0,1,2,3,4,5],
-            mode: 'markers',
-            hoverinfo: 'none', // Disable hover info
-            type: 'scatter',
-            marker: { color: 'rgba(0, 0, 0, 1', size: 10 },
-        },
-        {
-            y: [0,0,0,0,0,0,0,0,0,0,0,0], // Xaxis
-            x: [-3, -5,-4,-3,-2,-1,0,1,2,3,4,5],
-            mode: 'markers',
-            hoverinfo: 'none', // Disable hover info
-            type: 'scatter',
-            marker: { color: 'rgba(0, 0, 0, 1', size: 10 },
-        },
+       
     ];
 
     const layout = {
@@ -64,6 +49,7 @@ const PlotlyGraph = () => {
             range: [-6, 6], // Set X-axis range
             dtick: 1, // Add more grid lines (spacing of 1 unit)
             titlefont: { size: 16, color: 'black' },
+            gridcolor: 'rgba(0, 0, 0, 0.5)',
         },
         yaxis: {
             title: 'Y-Axis',
@@ -72,9 +58,11 @@ const PlotlyGraph = () => {
             range: [-6, 6], // Set Y-axis range
             dtick: 1, // Add more grid lines (spacing of 1 unit)
             titlefont: { size: 16, color: 'black' },
+            gridcolor: 'rgba(0, 0, 0, 0.5)',
         },
         showlegend: false, // Disable legend
-        hovermode: false, // Disable hover mode
+        hovermode: 'closest', // Ensure hovermode is not false
+        
     };
 
     const handleClick = (event) => {
@@ -89,7 +77,7 @@ const PlotlyGraph = () => {
             data={data}
             layout={layout}
             onClick={handleClick} // Handle point click
-            style={{ width: '80vh', height: '80vh' }}
+            style={{ width: '400px', height: '400px' }}
             useResizeHandler={true} // Make the graph responsive
         />
     );
