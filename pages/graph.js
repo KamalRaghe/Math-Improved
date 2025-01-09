@@ -50,6 +50,7 @@ const PlotlyGraph = () => {
             dtick: 1, // Add more grid lines (spacing of 1 unit)
             titlefont: { size: 16, color: 'black' },
             gridcolor: 'rgba(0, 0, 0, 0.5)',
+            zerolinewidth: 3, // Thicker zero line
         },
         yaxis: {
             title: 'Y-Axis',
@@ -59,6 +60,7 @@ const PlotlyGraph = () => {
             dtick: 1, // Add more grid lines (spacing of 1 unit)
             titlefont: { size: 16, color: 'black' },
             gridcolor: 'rgba(0, 0, 0, 0.5)',
+            zerolinewidth: 3, // Thicker zero line
         },
         showlegend: false, // Disable legend
         hovermode: 'closest', // Ensure hovermode is not false
