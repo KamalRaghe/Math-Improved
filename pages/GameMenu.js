@@ -31,8 +31,8 @@ export default function Menu(){
             {  count === 3 && <button onClick={()=>{topic('Single digit multiplication')}} className="sub-topic zoom">Single digit Multiplication</button>}
             {  count === 3 && <button onClick={()=>{topic('Double digit multiplication')}} className="sub-topic zoom">Double digit Multiplication</button>}
 
-            { loaded && <button onClick={() => {setCount(4)}}  className="topic">Division</button >}
-            {  count === 4 && <button onClick={()=>{topic('Long division')}} className="sub-topic zoom">Long Division</button>}
+            {/* { loaded && <button onClick={() => {setCount(4)}}  className="topic">Division</button >}
+            {  count === 4 && <button onClick={()=>{topic('Long division')}} className="sub-topic zoom">Long Division</button>} */}
 
             {/* { loaded && <button onClick={() => {setCount(5)}}  className="topic">LCM & HCF</button >}
             {  count === 5 &&<Link href= {`/${id}/enter/Lcm`}><button className="sub-topic zoom">Lowest Common Multiple</button></Link>}
