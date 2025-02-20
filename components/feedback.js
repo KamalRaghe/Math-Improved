@@ -9,8 +9,9 @@ export default function FeedBack({close}){
     const [check, setCheck] = useState(false)
 
     function NewFeedback(){
+        const email = window.localStorage.getItem('User')
         if(post){
-            addDoc(collection(db, 'feedback'),{person: post}).then(
+            addDoc(collection(db, 'feedback'),{email: email, person: post}).then(
                 close()
             )
             console.log(post)
