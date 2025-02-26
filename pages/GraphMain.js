@@ -19,6 +19,7 @@ const PlotlyGraphPage = () => {
             {loaded && <div className='column center relative' style={{padding: '20px', textAlign: 'center' }}>
                 <div className='center relative column' style={{backgroundColor:"white",width:"400px",top:"60px",zIndex:"10"}} >
                     <h1 style={{margin:"5px",marginTop:"20px"}} >Find ({x},{y})</h1>
+                    <h2 style={{margin:"0px"}} >Example (<span style={{color:"yellow"}} >3</span>,<span style={{color:"green"}} >4</span>)</h2>
                 </div>
                 <PlotlyGraph  x = {x} y = {y} mix = {mix} />
             </div>}
