@@ -96,9 +96,13 @@ export default function DoubleAdd(){
                 <div>Score: {loaded && score}</div>
                 <div className="font" >Cube: {loaded && count} </div>
             </div><Link href={`/MIT/testCube`}><button className="green test-btn">Test</button></Link></div>
-            <div className="box">
-                <div className="double center ">𝑥 = {loaded && num1} y = {loaded && num2}</div>
-                <div>m = {loaded && slope}</div>
+            <div style={{width:"340px"}}>
+                <div className="double center column ">
+                    <div>𝑥 = {loaded && num1} y = {loaded && num2}</div>  
+                    <div>m = {loaded && slope}</div>
+                    <div>b = ?</div>
+                </div>
+                {/* <div className="double">m = {loaded && slope}</div> */}
             </div>
             <div className="box">
                 <button className="help" onClick={open}>help</button>
