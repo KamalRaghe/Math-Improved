@@ -50,9 +50,10 @@ export default function DoubleAdd(){
       } 
     function Add(){
         setTimeout(() => {
-            setNum1(Math.ceil(Math.random()*10))
-            setNum2(Math.ceil(Math.random()*10))
-            set(Math.ceil(Math.random()*10))
+            setNum1(Math.ceil(Math.random()*5))
+            setNum2(Math.ceil(Math.random()*5))
+            setNum4(Math.ceil(Math.random()*5+5))
+            setNum5(Math.ceil(Math.random()*5+5))
             mix()
             setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
         }, 1500)
@@ -100,7 +101,7 @@ export default function DoubleAdd(){
             <div style={{width:"340px"}}>
                 <div className="double center column ">
                     <div>Find the </div>
-                    <div>({num1},{num2}) ({num4},{num5})</div>  
+                    {loaded && <div>({num1},{num2})<span className="hide" >0</span>({num4},{num5})</div>}  
                 </div>
                 {/* <div className="double">m = {loaded && }</div> */}
             </div>
@@ -114,13 +115,13 @@ export default function DoubleAdd(){
             {score > 100  && <Sign2></Sign2>}
             <div className="box column">
                <div className="row ">
-                    { loaded && <Choice value ={num2-(num1)+num3[0]} answer ={num2-(num1)} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-                    { loaded && <Choice value ={num2-(num1)+num3[1]} answer ={num2-(num1)} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-                    { loaded && <Choice value ={num2-(num1)+num3[2]} answer ={num2-(num1)} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && <Choice value ={((num2-num5)/(num1-num4))+num3[0]} answer ={((num2-num5)/(num1-num4))} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && <Choice value ={((num2-num5)/(num1-num4))+num3[1]} answer ={((num2-num5)/(num1-num4))} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && <Choice value ={((num2-num5)/(num1-num4))+num3[2]} answer ={((num2-num5)/(num1-num4))} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
                </div>
                <div className="row">
-                    { loaded && <Choice value ={num2-(num1)+num3[3]} answer ={num2-(num1)} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-                    { loaded && <Choice value ={num2-(num1)+num3[4]} answer ={num2-(num1)} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && <Choice value ={((num2-num5)/(num1-num4))+num3[3]} answer ={((num2-num5)/(num1-num4))} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && <Choice value ={((num2-num5)/(num1-num4))+num3[4]} answer ={((num2-num5)/(num1-num4))} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
                </div>
             </div>
         </div>
