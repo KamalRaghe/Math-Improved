@@ -15,8 +15,7 @@ export default function DoubleAdd(){
     const[ wrong, setWrong] = useState(false)
     const [num1, setNum1] = useState(Math.ceil(Math.random()*9));
     const [num2, setNum2] = useState(Math.ceil(Math.random()*9));
-    const [num4, setNum4] = useState(Math.ceil(Math.random()*9));
-    const [num5, setNum5] = useState(Math.ceil(Math.random()*9));
+    const [slope, setSlope] = useState(Math.ceil(Math.random()*9));
     const [num3, setNum3] = useState([0,num1+num1,num1+num1+num1,-1*num1,num1])
     const router = useRouter()
     const {username} = router.query 
@@ -99,8 +98,9 @@ export default function DoubleAdd(){
             </div><Link href={`/MIT/testCube`}><button className="green test-btn">Test</button></Link></div>
             <div style={{width:"340px"}}>
                 <div className="double center column ">
-                    <div>Find the slope</div>
-                    <div>({num1},{num2}) ({num4},{num5})</div>  
+                    <div>y = m𝑥  + b</div>
+                    <div>𝑥 = {loaded && num1} <span className="hide" >0</span>y = {loaded && num2}</div>  
+                    <div>m = {loaded && slope} <span className="hide" >0</span>b = ?</div>
                 </div>
                 {/* <div className="double">m = {loaded && slope}</div> */}
             </div>
