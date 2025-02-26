@@ -98,8 +98,8 @@ export default function DoubleAdd(){
             </div><Link href={`/MIT/testCube`}><button className="green test-btn">Test</button></Link></div>
             <div style={{width:"340px"}}>
                 <div className="double center column ">
-                    <div>𝑥 = {loaded && num1} y = {loaded && num2}</div>  
-                    <div>m = {loaded && slope}</div>
+                    <div>𝑥 = {loaded && num1} <span className="hide" >0</span> y = {loaded && num2}</div>  
+                    <div>m = {loaded && slope} <span className="hide" >0</span></div>
                     <div>b = ?</div>
                 </div>
                 {/* <div className="double">m = {loaded && slope}</div> */}
