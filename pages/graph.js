@@ -107,8 +107,6 @@ const PlotlyGraph = ({x,y,mix}) => {
 
     return (
         <div className='center' style={{cursor:"pointer"}} >
-            {wrong && <Wrong></Wrong>}
-            {correct && <Correct></Correct>}
             <Plotly
             data={data}
             layout={layout}
@@ -116,6 +114,8 @@ const PlotlyGraph = ({x,y,mix}) => {
             style={{ width: '400px', height: '400px'}}
             useResizeHandler={true} // Make the graph responsive
         />
+        {wrong && <Wrong></Wrong>}
+        {correct && <Correct></Correct>}
         </div>
     );
 };
