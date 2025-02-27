@@ -115,13 +115,13 @@ export default function DoubleAdd(){
             {score > 100  && <Sign2></Sign2>} */}
             <div className="box column">
             <div className="row ">
-                    { loaded && <Choice whole={num4-num1 >= num5-num2 && Math.floor((num4-num1)/(num5-num2))} value1 ={((num5-num2)%(num4-num1)+num3[0]) } answer1 ={(num5-num2)%(num4-num1)} value2={num4-num1} answer2={num4-num1} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-                    { loaded && <Choice whole={num4-num1 >= num5-num2 && Math.floor((num4-num1)/(num5-num2))} value1 ={((num5-num2)%(num4-num1)+num3[1]) } answer1 ={(num5-num2)%(num4-num1)} value2={num4-num1} answer2={num4-num1} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-                    { loaded && <Choice whole={num4-num1 >= num5-num2 && Math.floor((num4-num1)/(num5-num2))} value1 ={((num5-num2)%(num4-num1)+num3[2]) } answer1 ={(num5-num2)%(num4-num1)} value2={num4-num1} answer2={num4-num1} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && <Choice whole={(num4-num1) >= (num5-num2) && Math.floor((num5-num2)/(num4-num1))} value1 ={((num5-num2)%(num4-num1)+num3[0]) } answer1 ={(num5-num2)%(num4-num1)} value2={num4-num1} answer2={num4-num1} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && <Choice whole={(num4-num1) >= (num5-num2) && Math.floor((num5-num2)/(num4-num1))} value1 ={((num5-num2)%(num4-num1)+num3[1]) } answer1 ={(num5-num2)%(num4-num1)} value2={num4-num1} answer2={num4-num1} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && <Choice whole={(num4-num1) >= (num5-num2) && Math.floor((num5-num2)/(num4-num1))} value1 ={((num5-num2)%(num4-num1)+num3[2]) } answer1 ={(num5-num2)%(num4-num1)} value2={num4-num1} answer2={num4-num1} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
                </div>
                <div className="row">
-                    { loaded && <Choice whole={num4-num1 >= num5-num2 && Math.floor((num4-num1)/(num5-num2))} value1 ={((num5-num2)%(num4-num1)+num3[3]) } answer1 ={(num5-num2)%(num4-num1)} value2={num4-num1} answer2={num4-num1} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-                    { loaded && <Choice whole={num4-num1 >= num5-num2 && Math.floor((num4-num1)/(num5-num2))} value1 ={((num5-num2)%(num4-num1)+num3[4]) } answer1 ={(num5-num2)%(num4-num1)} value2={num4-num1} answer2={num4-num1} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && <Choice whole={(num4-num1) >= (num5-num2) && Math.floor((num5-num2)/(num4-num1))} value1 ={((num5-num2)%(num4-num1)+num3[3]) } answer1 ={(num5-num2)%(num4-num1)} value2={num4-num1} answer2={num4-num1} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && <Choice whole={(num4-num1) >= (num5-num2) && Math.floor((num5-num2)/(num4-num1))} value1 ={((num5-num2)%(num4-num1)+num3[4]) } answer1 ={(num5-num2)%(num4-num1)} value2={num4-num1} answer2={num4-num1} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
                </div>
             </div>
         </div>
