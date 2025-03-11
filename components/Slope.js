@@ -73,7 +73,7 @@ function Slope({close, num1 , num2 , num4 , num5}){
         return(
            <div className="Help" style={{zIndex:'20', border:'10px solid orange'}}>
                 <div className='cancel' style={{width:"100%"}} ><button className='cancel-btn' onClick = {close}>X</button></div>
-                <div style={{fontSize:"32px"}} className="center" >
+                <div style={{fontSize:"32px",padding:"10px"}} className="center" >
                 (x1,y1)
                 <span className="hide" >0</span>
                 (x2,y2)</div>
@@ -85,7 +85,7 @@ function Slope({close, num1 , num2 , num4 , num5}){
                 {!y2 ? <button className="carry Green" onClick={()=>{setY2(num5)}} >{num5}</button>:num5})</div>
                <br></br>
                <div className="double center" style={{padding:"5px"}} >{!y2 ? <span>y2</span> : num5} - {!y1 ? <span>y1</span> : num2}</div>
-               <div className="center" ><div className="double center" style={{borderTop:"2px solid black",width:"128px"}} >{!x2 ? <span>x2</span> : num4} - {!x1 ? <span>x1</span> : num1}</div>
+               <div className="center" ><div className="double center" style={{borderTop:"2px solid black",width:"128px"}} >{!x2 ? <span>x2</span> : num4} - {!x1 ? <span>x1</span> : num1}</div></div>
                {!done &&<div className='center wrap absolute StepAnswer'>
                    <Step value = { num4 + number1[count] + number2[count]+arr[1]}  answer={ num4 + number1[count] + number2[count]} Count ={Count} done = {done} mistake={Nothing}/>
                    <Step value = { num4 + number1[count] + number2[count]+arr[2]}  answer={ num4 + number1[count] + number2[count]} Count ={Count} done = {done} mistake={Nothing}/>
