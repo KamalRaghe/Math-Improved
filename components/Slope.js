@@ -7,6 +7,10 @@ function Slope({close, num1 , num2 , num4 , num5}){
     const [extra, setExtra] = useState(false)
     const [step1, setStep1] = useState(true)
     const [step2, setStep2] = useState(false)
+    const [x1, setX1] = useState(false)
+    const [y1, setY1] = useState(false)
+    const [x2, setX2] = useState(false)
+    const [y2, setY2] = useState(false)
     const [number1, setNumber1] = useState([(num1 % 10),((num1-(num1%10))/10),num1])
     const [number2, setNumber2] = useState([(num2 % 10),((num2-(num2%10))/10),num2])
     const [done, setDone]= useState(false)
@@ -69,7 +73,7 @@ function Slope({close, num1 , num2 , num4 , num5}){
         return(
            <div className="Help" style={{zIndex:'20', border:'10px solid orange'}}>
                 <div className='cancel' style={{width:"100%"}} ><button className='cancel-btn' onClick = {close}>X</button></div>
-                <div className="single center" >x1<span className="hide" >0.</span>y1<span className="hide" >000000</span> <div style={{position:"relative",left:"0px"}} >x2 <span className="hide" >0</span> y2</div></div>
+                <div className="single center" ><button className="carry" >x1<span className="hide" >0.</span>y1<span className="hide" >000000</span> <div style={{position:"relative",left:"0px"}} >x2 <span className="hide" >0</span> y2</div></div>
                <div className="double center" >({num1},{num2})<span className="hide" >0</span>({num4},{num5})</div>
                <br></br>
                <div className="double center" style={{padding:"5px"}} >y2 - y1</div>
