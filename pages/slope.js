@@ -15,8 +15,8 @@ export default function DoubleAdd(){
     const[ wrong, setWrong] = useState(false)
     const [num1, setNum1] = useState(Math.ceil(Math.random()*5));
     const [num2, setNum2] = useState(Math.ceil(Math.random()*5));
-    const [num4, setNum4] = useState(Math.ceil(Math.random()*5+5));
-    const [num5, setNum5] = useState(Math.ceil(Math.random()*5+5));
+    const [num4, setNum4] = useState(Math.ceil(Math.random()*4+5));
+    const [num5, setNum5] = useState(Math.ceil(Math.random()*4+5));
     const [num3, setNum3] = useState([0,num1+num1,num1+num1+num1,-1*num1,num1])
     const router = useRouter()
     const {username} = router.query 
@@ -52,8 +52,8 @@ export default function DoubleAdd(){
         setTimeout(() => {
             setNum1(Math.ceil(Math.random()*5))
             setNum2(Math.ceil(Math.random()*5))
-            setNum4(Math.ceil(Math.random()*5+5))
-            setNum5(Math.ceil(Math.random()*5+5))
+            setNum4(Math.ceil(Math.random()*4+5))
+            setNum5(Math.ceil(Math.random()*4+5))
             mix()
             setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
         }, 1500)
