@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Choice from "@/components/FractionChoice";
 import Correct from "@/components/correct";
 import Wrong from "@/components/wrong"; 
-import HelpCube from "@/components/cubehelp";
+import Slope from "@/components/Slope";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Sign from "@/components/SignUp";
@@ -62,7 +62,6 @@ export default function DoubleAdd(){
 
     useEffect(() =>{
        mix()
-       console.log((num5-num2) >= (num4-num1),(num4-num1), (num5-num2)  )
        setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
     },[num1])
 
@@ -91,6 +90,7 @@ export default function DoubleAdd(){
      useEffect(() =>{
          if(score > 0){
          window.localStorage.setItem(`${id} score` , score)
+         console.log((num5-num2)%(num4-num1),(num5-num2),(num4-num1))
      }},[score])
 
     return(
@@ -109,7 +109,7 @@ export default function DoubleAdd(){
             <div className="box">
                 <button className="help" onClick={open}>help</button>
             </div>
-            {help && <HelpCube  num1={num1} close={close}/>}
+            {help && <Slope  num1={num1} num2={num2} num4={num4} num5={num5} close={close}/>}
             {loaded && correct && <Correct></Correct>}
             {loaded && wrong && <Wrong/> }
             {/* {count > 10 && score < 100  && <Sign></Sign>}
