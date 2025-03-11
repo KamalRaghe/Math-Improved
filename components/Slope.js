@@ -73,13 +73,13 @@ function Slope({close, num1 , num2 , num4 , num5}){
         return(
            <div className="Help" style={{zIndex:'20', border:'10px solid orange'}}>
                 <div className='cancel' style={{width:"100%"}} ><button className='cancel-btn' onClick = {close}>X</button></div>
-                <div className="single center" >x1<span className="hide" >0.</span>y1<span className="hide" >000000</span> <div style={{position:"relative",left:"0px"}} >x2 <span className="hide" >0</span> y2</div></div>
+                <div className="single center" ><div style={{position:"relative"}} >x1<span className="hide" >0.</span>y1</div><div style={{position:"relative",left:"30px"}} >x2 <span className="hide" >.</span> y2</div></div>
                <div className="double center" >
                 ({!x1 ? <button className="carry Green" onClick={()=>{setX1(true)}} >{num1}</button>:num1}
                 ,{!y1 ? <button className="carry Green" onClick={()=>{setY1(true)}} >{num2}</button>:num2})
                 <span className="hide" >0</span>
                 ({!x2 ? <button className="carry Green" onClick={()=>{setX2(true)}} >{num4}</button>:num4},
-                {!Y2 ? <button className="carry Green" onClick={()=>{setY2(true)}} >{num5}</button>:num5})</div>
+                {!y2 ? <button className="carry Green" onClick={()=>{setY2(true)}} >{num5}</button>:num5})</div>
                <br></br>
                <div className="double center" style={{padding:"5px"}} >y2 - y1</div>
                <div className="center" ><div className="double center" style={{borderTop:"2px solid black",width:"128px"}} >x2 - x1</div></div>
