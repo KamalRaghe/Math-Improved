@@ -14,8 +14,7 @@ function Slope({close, num1 , num2 , num4 , num5}){
     const [y2, setY2] = useState(false)
     const [q1, setQ1] = useState(false)
     const [q2, setQ2] = useState(false)
-    const [number1, setNumber1] = useState([(num1 % 10),((num1-(num1%10))/10),num1])
-    const [number2, setNumber2] = useState([(num2 % 10),((num2-(num2%10))/10),num2])
+    const [an setAn] = useState()
     const [done, setDone]= useState(false)
     const [carry, theOne] = useState(false)
   
@@ -48,7 +47,11 @@ function Slope({close, num1 , num2 , num4 , num5}){
    },[])
 
    useEffect(() => {
-
+    if(x1 && x2 && y1 && y2){
+        setStep1(true)
+        setQ2(num2)
+        setQ1(num5)
+      }
    },[x1,x2,y1,y2])
         return(
            <div className="Help" style={{zIndex:'20', border:'10px solid orange'}}>
@@ -72,13 +75,13 @@ function Slope({close, num1 , num2 , num4 , num5}){
                 </div>
                
                </div>
-               {<div className="center double"> {q1} - {q2} = </div> }
-               {!done &&<div className='center wrap absolute StepAnswer'>
-                   <Step value = { num4 + number1[count] + number2[count]+arr[1]}  answer={ num4 + number1[count] + number2[count]} Count ={Count} done = {done} mistake={Nothing}/>
-                   <Step value = { num4 + number1[count] + number2[count]+arr[2]}  answer={ num4 + number1[count] + number2[count]} Count ={Count} done = {done} mistake={Nothing}/>
-                   <Step value = { num4 + number1[count] + number2[count]+arr[0]}  answer={ num4 + number1[count] + number2[count]} Count ={Count} done = {done} mistake={Nothing}/>
+               {step1 && <div className="center double"> {q1} - {q2} = </div> }
+               {!done && step1 &&<div className='center wrap absolute StepAnswer'>
+                   <Step value = {an}  answer={an} Count ={Count} done = {done} mistake={Nothing}/>
+                   <Step value = {an}  answer={an} Count ={Count} done = {done} mistake={Nothing}/>
+                   <Step value = {an}  answer={an} Count ={Count} done = {done} mistake={Nothing}/>
                    {<button className="choice" style={{backgroundColor:'yellow',color:'black'}} onClick={()=>{setExtra(true);console.log(extra)}} >help</button>}
-                   <Step value = { num4 + number1[count] + number2[count]+arr[3]}  answer={ num4 + number1[count] + number2[count]} Count ={Count} done = {done} mistake={Nothing}/>
+                   <Step value = {an}  answer={an} Count ={Count} done = {done} mistake={Nothing}/>
                    {<button className="choice red" onClick={close} >Close</button>}                   
                </div>}
            </div>
