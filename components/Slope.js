@@ -47,7 +47,7 @@ function Slope({close, num1 , num2 , num4 , num5}){
         setQ2(num1)
         setAn(num4-num1)
        }if(step2){
-        
+         setExtra(true)
        }
       
    }
@@ -79,12 +79,10 @@ function Slope({close, num1 , num2 , num4 , num5}){
                <br></br>
                 {!step2 && <div className="double center" style={{padding:"5px"}}> 
                     {!y2 ? <span>y2</span> : num5} - {!y1 ? <span>y1</span> : num2}
-                </div>}{step2 && <div className="center double" >{num5-num2}</div>}
-                <div className="center" >
-                     <div className="double center" style={{borderTop:"2px solid black",width:"128px"}} >{!x2 ? <span>x2</span> : num4} - {!x1 ? <span>x1</span> : num1}
-                </div>
-               
-               </div>
+                </div>}{step2 && <div className="center Green double" >{num5-num2}</div>}
+                {!extra && <div className="center" >
+                     <div className="double center" style={{borderTop:"2px solid black",width:"128px"}} >{!x2 ? <span>x2</span> : num4} - {!x1 ? <span>x1</span> : num1}</div>
+               </div>}{extra && <div className="center Green double" >{num4-num1}</div>}
                {step1 && <div className="center double" style={{padding:"10px"}} > {q1} - {q2} = </div> }
                {!done && step1 && !extra && <div className='center wrap absolute StepAnswer'>
                    <Step value = {an}  answer={an} Count ={Count} done = {done} mistake={Nothing}/>
