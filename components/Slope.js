@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import Step from "./step"
-import HelpAdd from "./HelpAdd"
-import ExtraAdd from "./ExtraAdd"
+import HelpMinus from "./HelpMinus"
 import { set } from "firebase/database"
 
 function Slope({close, num1 , num2 , num4 , num5}){
@@ -16,7 +15,7 @@ function Slope({close, num1 , num2 , num4 , num5}){
     const [q2, setQ2] = useState(false)
     const [an, setAn] = useState()
     const [done, setDone]= useState(false)
-    const [carry, theOne] = useState(false)
+    const [help, setHelp] = useState(false)
   
     const [arr, setArr] = useState([0,Math.floor(Math.random()*3)+1,-1,Math.floor(Math.random()*3)-4])
     const [count, setCount] = useState(0)
@@ -65,6 +64,7 @@ function Slope({close, num1 , num2 , num4 , num5}){
    },[x1,x2,y1,y2])
         return(
            <div className="Help" style={{zIndex:'20', border:'10px solid orange'}}>
+                { help && <HelpMinus></HelpMinus>}
                 <div className='cancel' style={{width:"100%"}} ><button className='cancel-btn' onClick = {close}>X</button></div>
                 <div style={{fontSize:"32px",padding:"10px"}} className="center" >
                 (x1,y1)
@@ -85,11 +85,11 @@ function Slope({close, num1 , num2 , num4 , num5}){
                </div>}{extra && <div className="center Green double" ><div className="center" style={{borderTop:"2px solid green" ,width:"50px"}} >{num4-num1}</div></div>}
                {step1 && !extra && <div className="center double" style={{padding:"10px"}} > {q1} - {q2} = </div> }
                {!done && step1 && !extra && <div className='center wrap absolute StepAnswer'>
-                   <Step value = {an}  answer={an} Count ={Count} done = {done} mistake={Nothing}/>
-                   <Step value = {an}  answer={an} Count ={Count} done = {done} mistake={Nothing}/>
-                   <Step value = {an}  answer={an} Count ={Count} done = {done} mistake={Nothing}/>
-                   {<button className="choice" style={{backgroundColor:'yellow',color:'black'}} onClick={()=>{setExtra(true);console.log(extra)}} >help</button>}
-                   <Step value = {an}  answer={an} Count ={Count} done = {done} mistake={Nothing}/>
+                   <Step value = {an+arr[0]}  answer={an} Count ={Count} done = {done} mistake={Nothing}/>
+                   <Step value = {an+arr[1]}  answer={an} Count ={Count} done = {done} mistake={Nothing}/>
+                   <Step value = {an+arr[2]}  answer={an} Count ={Count} done = {done} mistake={Nothing}/>
+                   {<button className="choice" style={{backgroundColor:'yellow',color:'black'}} onClick={()=>{setHelp(true);console.log(extra)}} >help</button>}
+                   <Step value = {an+arr[3]}  answer={an} Count ={Count} done = {done} mistake={Nothing}/>
                    {<button className="choice red" onClick={close} >Close</button>}                   
                </div>}
            </div>
