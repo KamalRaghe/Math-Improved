@@ -41,7 +41,7 @@ function Slope({close, num1 , num2 , num4 , num5}){
            close()
        }
 
-       if(step1){
+       if(step1 ){
         setStep2(true)
         setQ1(num4)
         setQ2(num1)
@@ -77,7 +77,7 @@ function Slope({close, num1 , num2 , num4 , num5}){
                <br></br>
                 {!step2 && <div className="double center" style={{padding:"5px"}}> 
                     {!y2 ? <span>y2</span> : num5} - {!y1 ? <span>y1</span> : num2}
-                </div>}
+                </div>}{step2 && <div className="center double" >{num5-num2}</div>}
                 <div className="center" >
                      <div className="double center" style={{borderTop:"2px solid black",width:"128px"}} >{!x2 ? <span>x2</span> : num4} - {!x1 ? <span>x1</span> : num1}
                 </div>
