@@ -64,7 +64,7 @@ function Slope({close, num1 , num2 , num4 , num5}){
    },[x1,x2,y1,y2])
         return(
            <div className="Help" style={{zIndex:'20', border:'10px solid orange'}}>
-                { help && <HelpMinus></HelpMinus>}
+                { help && <HelpMinus num1={q1} num2={q2} ></HelpMinus>}
                 <div className='cancel' style={{width:"100%"}} ><button className='cancel-btn' onClick = {close}>X</button></div>
                 <div style={{fontSize:"32px",padding:"10px"}} className="center" >
                 (x1,y1)
