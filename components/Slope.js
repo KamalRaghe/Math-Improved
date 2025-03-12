@@ -46,26 +46,12 @@ function Slope({close, num1 , num2 , num4 , num5}){
        if(count === 2){
            close()
        }
-   
-       if((num1 % 10) + (num2 % 10) >= 10 && step1 === true){
-           theOne(true)
-           setDone(true)    
+
+       if(x1 && x2 && y1 && y2){
+        
        }
    
-       if(step1 === true && carry === false){
-           setStep2(true)
-       }     
-       if(step1 === true){
-           setStep1(false)
-           setNumber3(((num1 % 10) + (num2 % 10) )% 10)
-       }else{
-           setStep1(true)
-           setNumber3(num1 + num2)
-           setNum5()
-           setSign2()
-           setNum4(0)
-           toOne()
-       }
+      
    }
    useEffect(() =>{
     mix()
@@ -84,8 +70,13 @@ function Slope({close, num1 , num2 , num4 , num5}){
                 ({!x2 ? <button className="carry Green" onClick={()=>{setX2(num4)}} >{num4}</button>:num4},
                 {!y2 ? <button className="carry Green" onClick={()=>{setY2(num5)}} >{num5}</button>:num5})</div>
                <br></br>
-               <div className="double center" style={{padding:"5px"}} >{!y2 ? <span>y2</span> : num5} - {!y1 ? <span>y1</span> : num2}</div>
-               <div className="center" ><div className="double center" style={{borderTop:"2px solid black",width:"128px"}} >{!x2 ? <span>x2</span> : num4} - {!x1 ? <span>x1</span> : num1}</div></div>
+                <div className="double center" style={{padding:"5px"}}> 
+                    {!y2 ? <span>y2</span> : num5} - {!y1 ? <span>y1</span> : num2}
+                </div>
+                <div className="center" >
+                     <div className="double center" style={{borderTop:"2px solid black",width:"128px"}} >{!x2 ? <span>x2</span> : num4} - {!x1 ? <span>x1</span> : num1}
+                </div>
+               </div>
                {!done &&<div className='center wrap absolute StepAnswer'>
                    <Step value = { num4 + number1[count] + number2[count]+arr[1]}  answer={ num4 + number1[count] + number2[count]} Count ={Count} done = {done} mistake={Nothing}/>
                    <Step value = { num4 + number1[count] + number2[count]+arr[2]}  answer={ num4 + number1[count] + number2[count]} Count ={Count} done = {done} mistake={Nothing}/>
