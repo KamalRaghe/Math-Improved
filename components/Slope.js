@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import Step from "./step"
+import StepF from "./fractionStep"
 import HelpMinus from "./HelpMinus"
 import { set } from "firebase/database"
 
@@ -91,6 +92,13 @@ function Slope({close, num1 , num2 , num4 , num5}){
                    {<button className="choice" style={{backgroundColor:'yellow',color:'black'}} onClick={()=>{setHelp(true);console.log(extra)}} >help</button>}
                    <Step value = {an+arr[3]}  answer={an} Count ={Count} done = {done} mistake={Nothing}/>
                    {<button className="choice red" onClick={close} >Close</button>}                   
+               </div>}
+               {dextraadd && <div className='center wrap absolute StepAnswer' style={{width:'100%',top:"340px"}} >
+                   <StepF whole={Math.floor(((num1+(whole1*num2))*((num4+(whole2*num5))))/(num5*num2))} value1 = {(((num1+(whole1*num2))*((num4+(whole2*num5))))%(num5*num2))+arr[0]}  answer1={((num1+(whole1*num2))*((num4+(whole2*num5))))%(num5*num2)} value2 = {(num5*num2)}  answer2={num5*num2}  Count ={Count} mistake={Nothing}/>
+                   <StepF whole={Math.floor(((num1+(whole1*num2))*((num4+(whole2*num5))))/(num5*num2))} value1 = {(((num1+(whole1*num2))*((num4+(whole2*num5))))%(num5*num2))+arr[2]}  answer1={((num1+(whole1*num2))*((num4+(whole2*num5))))%(num5*num2)} value2 = {(num5*num2)}  answer2={num5*num2}  Count ={Count} mistake={Nothing}/>
+                   <StepF whole={Math.floor(((num1+(whole1*num2))*((num4+(whole2*num5))))/(num5*num2))} value1 = {(((num1+(whole1*num2))*((num4+(whole2*num5))))%(num5*num2))+arr[3]}  answer1={((num1+(whole1*num2))*((num4+(whole2*num5))))%(num5*num2)} value2 = {(num5*num2)}  answer2={num5*num2}  Count ={Count} mistake={Nothing}/>
+                   <StepF whole={Math.floor(((num1+(whole1*num2))*((num4+(whole2*num5))))/(num5*num2))} value1 = {(((num1+(whole1*num2))*((num4+(whole2*num5))))%(num5*num2))+arr[1]}  answer1={((num1+(whole1*num2))*((num4+(whole2*num5))))%(num5*num2)} value2 = {(num5*num2)}  answer2={num5*num2}  Count ={Count} mistake={Nothing}/>
+                   {<button className="choice" style={{backgroundColor:'yellow',color:'black'}} onClick={()=>{setExtra(true);console.log(num4+(whole2*num5))*num2}} >help</button>}
                </div>}
            </div>
         )}
