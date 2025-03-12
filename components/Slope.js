@@ -41,10 +41,7 @@ function Slope({close, num1 , num2 , num4 , num5}){
            close()
        }
 
-       setStep2(true)
-       setQ1(num4)
-       setQ2(num1)
-       setAn(num4-num1)
+      
       
    }
    useEffect(() =>{
