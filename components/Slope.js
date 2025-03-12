@@ -41,7 +41,12 @@ function Slope({close, num1 , num2 , num4 , num5}){
            close()
        }
 
-      
+       if(step1){
+        setStep2(true)
+        setQ1(num4)
+        setQ2(num1)
+        setAn(num4-num1)
+       }
       
    }
    useEffect(() =>{
@@ -78,7 +83,7 @@ function Slope({close, num1 , num2 , num4 , num5}){
                 </div>
                
                </div>
-               {step1 && <div className="center double"> {q1} - {q2} = </div> }
+               {step1 && <div className="center double" style={{padding:"10px"}} > {q1} - {q2} = </div> }
                {!done && step1 &&<div className='center wrap absolute StepAnswer'>
                    <Step value = {an}  answer={an} Count ={Count} done = {done} mistake={Nothing}/>
                    <Step value = {an}  answer={an} Count ={Count} done = {done} mistake={Nothing}/>
