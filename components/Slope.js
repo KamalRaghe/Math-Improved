@@ -14,7 +14,7 @@ function Slope({close, num1 , num2 , num4 , num5}){
     const [y2, setY2] = useState(false)
     const [q1, setQ1] = useState(false)
     const [q2, setQ2] = useState(false)
-    const [an setAn] = useState()
+    const [an, setAn] = useState()
     const [done, setDone]= useState(false)
     const [carry, theOne] = useState(false)
   
@@ -51,6 +51,7 @@ function Slope({close, num1 , num2 , num4 , num5}){
         setStep1(true)
         setQ2(num2)
         setQ1(num5)
+        setAn(num5-num2)
       }
    },[x1,x2,y1,y2])
         return(
