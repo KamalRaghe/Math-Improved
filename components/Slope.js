@@ -5,6 +5,7 @@ import HelpMinus from "./HelpMinus"
 import { set } from "firebase/database"
 import { im } from "mathjs"
 import Question1 from "./SimplifyHelp"
+import Improper from "./HelpImproper"
 
 function Slope({close, num1 , num2 , num4 , num5}){
     const [extra, setExtra] = useState(false)
@@ -67,7 +68,8 @@ function Slope({close, num1 , num2 , num4 , num5}){
    },[x1,x2,y1,y2])
         return(
            <div className="Help" style={{zIndex:'20', border:'10px solid orange'}}>
-                {extra && help && <Question1 num1={num5-num2} num2={num4-num1} close={()=>setHelp(true)} />}
+                {extra && help && num5 -num2 < num4 - num1 && <Question1 num1={num5-num2} num2={num4-num1} close={()=>setHelp(false)} />}
+                {extra && help && num5-num2 >= num4-num1 && <Improper num1={num5-num2} ></Improper>}
                 { help && !extra && <HelpMinus num1={q1} num2={q2} close={()=>{setHelp(false)}}></HelpMinus>}
                 <div className='cancel' style={{width:"100%"}} ><button className='cancel-btn' onClick = {close}>X</button></div>
                 <div style={{fontSize:"32px",padding:"10px"}} className="center" >
