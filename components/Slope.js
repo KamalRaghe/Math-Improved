@@ -68,7 +68,7 @@ function Slope({close, num1 , num2 , num4 , num5}){
    },[x1,x2,y1,y2])
         return(
            <div className="Help" style={{zIndex:'20', border:'10px solid orange'}}>
-                {extra && help && num5 -num2 <= num4 - num1 && <Question1 num1={num5-num2} num2={num4-num1} close={()=>setHelp(false)} />}
+                {extra && help && num5 -num2 < num4 - num1 && <Question1 num1={num5-num2} num2={num4-num1} close={()=>setHelp(false)} />}
                 {extra && help && num5-num2 > num4-num1 && <Improper whole={Math.floor((num5-num2)/(num4-num1))} num1={(num5-num2)%(num4-num1)} num2={num4-num1} close={()=>{setHelp(false)}}></Improper>}
                 { help && !extra && <HelpMinus num1={q1} num2={q2} close={()=>{setHelp(false)}}></HelpMinus>}
                 <div className='cancel' style={{width:"100%"}} ><button className='cancel-btn' onClick = {close}>X</button></div>
@@ -89,6 +89,7 @@ function Slope({close, num1 , num2 , num4 , num5}){
                 {!extra && <div className="center" >
                      <div className="double center" style={{borderTop:"2px solid black",width:"128px"}} >{!x2 ? <span>x2</span> : num4} - {!x1 ? <span>x1</span> : num1}</div>
                </div>}{extra && <div className="center Green double" ><div className="center" style={{borderTop:"2px solid green" ,width:"50px"}} >{num4-num1}</div></div>}
+               <div className="Green" > = 1</div>
                {step1 && !extra && <div className="center double" style={{padding:"10px"}} > {q1} - {q2} = </div> }
                {!done && step1 && !extra && <div className='center wrap absolute StepAnswer'>
                    <Step value = {an+arr[0]}  answer={an} Count ={Count} done = {done} mistake={Nothing}/>
@@ -103,7 +104,7 @@ function Slope({close, num1 , num2 , num4 , num5}){
                    <StepF whole={Math.floor((num5-num2)/(num4-num1))} value1 = {((num5-num2)%(num4-num1))+arr[2]}  answer1={(num5-num2)%(num4-num1)} value2 = {(num4-num1)}  answer2={num4-num1}  Count ={Count} mistake={Nothing}/>
                    <StepF whole={Math.floor((num5-num2)/(num4-num1))} value1 = {((num5-num2)%(num4-num1))+arr[3]}  answer1={(num5-num2)%(num4-num1)} value2 = {(num4-num1)}  answer2={num4-num1}  Count ={Count} mistake={Nothing}/>
                    <StepF whole={Math.floor((num5-num2)/(num4-num1))} value1 = {((num5-num2)%(num4-num1))+arr[1]}  answer1={(num5-num2)%(num4-num1)} value2 = {(num4-num1)}  answer2={num4-num1}  Count ={Count} mistake={Nothing}/>
-                   {<button className="choice" style={{backgroundColor:'yellow',color:'black'}} onClick={()=>{setHelp(true)}} >help</button>}
+                   { num5-num2 != num4-num1 && <button className="choice" style={{backgroundColor:'yellow',color:'black'}} onClick={()=>{setHelp(true)}} >help</button>}
                </div>}
            </div>
         )}
