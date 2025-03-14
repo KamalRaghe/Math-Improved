@@ -42,7 +42,7 @@ export default function SolveB({num1,num2,slope,close}){
 
     return (
         <div className="Help center column" style={{zIndex:'50'}}>
-            <div className='cancel' style={{width:"100%",bottom:'40px',border:"1px solid black",margin:"0px"}} ><button className='cancel-btn' onClick = {close}>X</button></div>
+            <div className='cancel' style={{width:"100%",bottom:'40px',margin:"0px"}} ><button className='cancel-btn' onClick = {close}>X</button></div>
             {extra && sign === '+' && Q1 < 10 && Q2 < 10 && <HelpAdd close={Extra} num1 ={Q1} num2 = {Q2}/>}
             {extra && sign === '+' && (Q1 >= 10 || Q2 >= 10) && <StepAdd close={Extra} num1 ={Q1} num2 = {Q2}/>}
             {extra && sign === 'x' && Q1 < 10 && Q2 < 10 && <HelpTimes close={Extra} num1 ={Q1} num2 = {Q2}/>}
