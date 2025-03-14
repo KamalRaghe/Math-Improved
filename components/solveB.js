@@ -64,7 +64,7 @@ export default function SolveB({num1,num2,slope,close}){
                <div className="double center column ">
                     {step === 1 && <div style={{margin:"20px",marginTop:"50px"}} >{y} = {m}{x} + b</div>}
                     {done & x !== '𝑥' && y !== 'y' && m !== 'm' ? <div style={{margin:"20px",marginTop:"50px"}} >{y} = <span className={Class} onClick={One2}>{slope*num1}</span> + b</div>: ''}
-                    {step === 2 && <div style={{margin:"20px",marginTop:"50px"}} >{y} - {m*num1} = b</div>}
+                    {step === 2 && <div className="center"  style={{margin:"20px",marginTop:"50px"}} >{y} - <span className="hide" >0</span> <div style={{left:"200px"}} >{m*num1}</div>= b</div>}
                     <div className="Green carry" >{x === '𝑥' && <span onClick={()=>{setX(`(${num1})`)}} >𝑥  = {num1}</span>} {y === 'y' &&<span onClick={()=>{setY(num2)}} >{x === '𝑥' &&<span className="hide" >0</span>}y = {num2}</span> } </div> 
                     { m === 'm' && <div className="Green carry" onClick={()=>{setM(slope)}}>m = {slope} </div>}
                     <div className="hide" >1</div>
