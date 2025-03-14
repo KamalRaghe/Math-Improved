@@ -13,7 +13,10 @@ export default function SolveB({num1,num2,slope,close}){
     const [extra, setExtra] = useState(false)
     const [Q1, setQ1] = useState(num1)
     const [Q2, setQ2] = useState(4)
-    const [sign ,setSign] = useState('x')
+    const [x, setX] = useState('𝑥')
+    const [y, setY] = useState('y')
+    const [m, setM] = useState('m')
+    const [sign ,setSign] = useState('')
     const [answer, setAnswer] = useState(num1*4)
     const [arr, setArr]=useState([0,Math.floor(Math.random()*1+2)+1,1,Math.floor(Math.random()*3)-4])
 
@@ -43,7 +46,7 @@ export default function SolveB({num1,num2,slope,close}){
             {extra && sign === '÷' && <HelpDiv close={Extra} num1 ={Q1} num2 = {Q2}/>}
                <div> 
                <div className="double center column ">
-                    <div style={{margin:"20px"}} >y = m𝑥  + b</div>
+                    <div style={{margin:"20px"}} >{y} = {m}{x}  + b</div>
                     <div className="Green carry" ><span>𝑥  = {num1} </span> <span><span className="hide" >0</span>y = {num2}</span>  </div> 
                     <div className="Green carry" >m = {slope} </div>
                 </div>    
