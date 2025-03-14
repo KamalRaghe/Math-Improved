@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Choice from "@/components/choice";
 import Correct from "@/components/correct";
 import Wrong from "@/components/wrong"; 
-import HelpCube from "@/components/cubehelp";
+import SolveB from "@/components/solveB";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Sign from "@/components/SignUp";
@@ -107,11 +107,11 @@ export default function DoubleAdd(){
             <div className="box">
                 <button className="help" onClick={open}>help</button>
             </div>
-            {help && <HelpCube  num1={num1} close={close}/>}
+            {help && <SolveB  num1={num1} close={close}/>}
             {loaded && correct && <Correct></Correct>}
             {loaded && wrong && <Wrong/> }
-            {count > 10 && score < 100  && <Sign></Sign>}
-            {score > 100  && <Sign2></Sign2>}
+            {/* {count > 10 && score < 100  && <Sign></Sign>}
+            {score > 100  && <Sign2></Sign2>} */}
             <div className="box column">
                <div className="row ">
                     { loaded && <Choice value ={num2-(num1*slope)+num3[0]} answer ={num2-(num1*slope)} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
