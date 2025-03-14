@@ -89,7 +89,7 @@ function Slope({close, num1 , num2 , num4 , num5}){
                 {!extra && <div className="center" >
                      <div className="double center" style={{borderTop:"2px solid black",width:"128px"}} >{!x2 ? <span>x2</span> : num4} - {!x1 ? <span>x1</span> : num1}</div>
                </div>}{extra && <div className="center Green double" ><div className="center" style={{borderTop:"2px solid green" ,width:"50px"}} >{num4-num1}</div></div>}
-               <div className="Green double center" style={{position:"relative",bottom:"70px",left:"65px"}} > = 1</div>
+               
                {step1 && !extra && <div className="center double" style={{padding:"10px"}} > {q1} - {q2} = </div> }
                {!done && step1 && !extra && <div className='center wrap absolute StepAnswer'>
                    <Step value = {an+arr[0]}  answer={an} Count ={Count} done = {done} mistake={Nothing}/>
