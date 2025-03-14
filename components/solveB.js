@@ -47,8 +47,8 @@ export default function SolveB({num1,num2,slope,close}){
                <div> 
                <div className="double center column ">
                     <div style={{margin:"20px"}} >{y} = {m}{x}  + b</div>
-                    <div className="Green carry" >{x === '𝑥' ? <span onClick={()=>{setX(num1)}} >𝑥  = {num1}</span>:x} <span><span className="hide" >0</span>y = {num2}</span>  </div> 
-                    <div className="Green carry" >m = {slope} </div>
+                    <div className="Green carry" >{x === '𝑥' && <span onClick={()=>{setX(num1)}} >𝑥  = {num1}</span>} {y === 'y' &&<span onClick={()=>{setY(num2)}} >{x === '𝑥' &&<span className="hide" >0</span>}y = {num2}</span> } </div> 
+                    { m === 'm' && <div className="Green carry" onClick={()=>{setM(slope)}}>m = {slope} </div>}
                 </div>    
                </div>
                <div className="box" ></div>
