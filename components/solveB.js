@@ -42,9 +42,10 @@ export default function SolveB({num1,num2,slope,close}){
             {extra && sign === '÷' && <HelpDiv close={Extra} num1 ={Q1} num2 = {Q2}/>}
                <div> 
                <div className="double center column ">
-                    <div>y = m𝑥  + b</div>
-                    <div>𝑥 = {num1} <span className="hide" >0</span>y = {num2}</div>  
-                    <div>m = {slope} </div>
+                    <div style={{margin:"20px"}} >y = m𝑥  + b</div>
+                    <div className="Green carry" >𝑥 = {num1} </div>
+                    <span><span className="hide" >0</span>y = {num2}</span>  
+                    <div className="Green carry" >m = {slope} </div>
                 </div>    
                </div>
                <div className="box" ></div>
