@@ -11,13 +11,15 @@ import StepMinus from "@/components/StepMinus"
 export default function SolveB({num1,num2,slope,close}){
     const [done, setDone] = useState(true)
     const [extra, setExtra] = useState(false)
-    const [Q1, setQ1] = useState(num1)
-    const [Q2, setQ2] = useState(4)
+    const [step, setStep] = useState(1)
+    const [Q1, setQ1] = useState(slope)
+    const [Q2, setQ2] = useState(num1)
     const [x, setX] = useState('𝑥')
     const [y, setY] = useState('y')
     const [m, setM] = useState('m')
+    const [Class, setClass] = useState('Red carry')
     const [sign ,setSign] = useState('x')
-    const [answer, setAnswer] = useState(num1*4)
+    const [answer, setAnswer] = useState(num1*slope)
     const [arr, setArr]=useState([0,Math.floor(Math.random()*1+2)+1,1,Math.floor(Math.random()*3)-4])
 
     useEffect(() => {
@@ -25,11 +27,19 @@ export default function SolveB({num1,num2,slope,close}){
     },[])
 
     function Count(){
-        close()
+        if(step === 1){
+            setDone(true)
+            setStep(0)
+        }
     }
 
     function Extra(){
         setExtra(false)
+   }
+
+   function One2(){
+        setDone(false)
+        setStep(2)
    }
 
     function Nothing(){}
@@ -52,7 +62,9 @@ export default function SolveB({num1,num2,slope,close}){
             {extra && sign === '÷' && <HelpDiv close={Extra} num1 ={Q1} num2 = {Q2}/>}
                <div> 
                <div className="double center column ">
-                    <div style={{margin:"20px",marginTop:"50px"}} >{y} = {m}{x}  + b</div>
+                    {step === 1 && <div style={{margin:"20px",marginTop:"50px"}} >{y} = {m}{x} + b</div>}
+                    {done & x !== '𝑥' && y !== 'y' && m !== 'm' ? <div style={{margin:"20px",marginTop:"50px"}} >{y} = <span className={Class} onClick={One2}>{slope*num1}</span> + b</div>: ''}
+                    {step === 2 && <div style={{margin:"20px",marginTop:"50px"}} >{y} - {m*num1} = b</div>}
                     <div className="Green carry" >{x === '𝑥' && <span onClick={()=>{setX(`(${num1})`)}} >𝑥  = {num1}</span>} {y === 'y' &&<span onClick={()=>{setY(num2)}} >{x === '𝑥' &&<span className="hide" >0</span>}y = {num2}</span> } </div> 
                     { m === 'm' && <div className="Green carry" onClick={()=>{setM(slope)}}>m = {slope} </div>}
                     <div className="hide" >1</div>
