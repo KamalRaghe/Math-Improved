@@ -17,7 +17,8 @@ export default function SolveB({num1,num2,slope,close}){
     const [x, setX] = useState('𝑥')
     const [y, setY] = useState('y')
     const [m, setM] = useState('m')
-    const [Class, setClass] = useState('Red carry')
+    const [Class, setClass] = useState()
+    const [ClassS, setClassS] = useState()
     const [sign ,setSign] = useState('x')
     const [answer, setAnswer] = useState(num1*slope)
     const [arr, setArr]=useState([0,Math.floor(Math.random()*1+2)+1,1,Math.floor(Math.random()*3)-4])
@@ -38,8 +39,9 @@ export default function SolveB({num1,num2,slope,close}){
    }
 
    function One2(){
-        setDone(false)
-        setStep(2)
+        // setDone(false)
+        setClass('move')
+        // setStep(2)
    }
 
     function Nothing(){}
@@ -63,8 +65,8 @@ export default function SolveB({num1,num2,slope,close}){
                <div> 
                <div className="double center column ">
                     {step === 1 && <div style={{margin:"20px",marginTop:"50px"}} >{y} = {m}{x} + b</div>}
-                    {done & x !== '𝑥' && y !== 'y' && m !== 'm' ? <div style={{margin:"20px",marginTop:"50px"}} >{y} = <span className={Class} onClick={One2}>{slope*num1}</span> + b</div>: ''}
-                    {step === 2 && <div className="center"  style={{margin:"20px",marginTop:"50px"}} >{y} - <span className="hide" >0</span> <div style={{left:"200px"}} >{m*num1}</div>= b</div>}
+                    {done & x !== '𝑥' && y !== 'y' && m !== 'm' ? <div cla ssName="center" >{y}= {slope*num1} + b</div>: ''}
+                    {step === 2 && <div className="center"  style={{margin:"20px",marginTop:"50px"}} >{y} - {m*num1} = b</div>}
                     <div className="Green carry" >{x === '𝑥' && <span onClick={()=>{setX(`(${num1})`)}} >𝑥  = {num1}</span>} {y === 'y' &&<span onClick={()=>{setY(num2)}} >{x === '𝑥' &&<span className="hide" >0</span>}y = {num2}</span> } </div> 
                     { m === 'm' && <div className="Green carry" onClick={()=>{setM(slope)}}>m = {slope} </div>}
                     <div className="hide" >1</div>
