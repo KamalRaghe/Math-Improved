@@ -50,7 +50,7 @@ export default function Algebra1({num1,num2,close}){
             {extra && sign === 'x' && Q1 < 10 && Q2 < 10 && <HelpTimes close={Extra} num1 ={Q1} num2 = {Q2}/>}
             {extra && sign === 'x' && (Q1 >= 10 || Q2 >= 10) && <StepTimes close={Extra} num1 ={Q1} num2 = {Q2}/>}
             {extra && sign === '-' && Q1 < 10 && Q2 < 10 && <HelpMinus close={Extra} num1 ={Q1>Q2 ? Q1:Q2} num2 = {Q1>Q2 ? Q2:Q1}/>}
-            {extra && sign === '-' && (Q1 >= 10 || Q2 >= 10) && <StepMinus close={Extra} num1 ={Q1} num2 = {Q2}/>}
+            {extra && sign === '-' && (Q1 >= 10 || Q2 >= 10) && <StepMinus close={Extra} num1 ={Q1>Q2 ? Q1:Q2} num2 = {Q1>Q2 ? Q2:Q1}/>}
             {extra && sign === '÷' && <HelpDiv close={Extra} num1 ={Q1} num2 = {Q2}/>}
             <div className='cancel'><button className='cancel-btn' onClick = {close}>X</button></div>
             {step1 && <div className="double center" >𝑥 + <button onClick={() => {setStep1(false);setStep2(true)}} className="carry Green" >{num1} </button> = {num2+num1}</div>}
