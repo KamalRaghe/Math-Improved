@@ -29,7 +29,6 @@ export default function SolveB({num1,num2,slope,close}){
 
     function Count(){
         if(step === 1){
-            setDone(true)
             setStep(0)
         }
     }
@@ -65,16 +64,17 @@ export default function SolveB({num1,num2,slope,close}){
                <div> 
                <div className="double center column ">
                     {step === 1 && <div style={{margin:"20px",marginTop:"50px"}} >{y} = {m}{x} + b</div>}
-                    {done & x !== '𝑥' && y !== 'y' && m !== 'm' ? <div cla ssName="center" >{y}= {slope*num1} + b</div>: ''}
+                    {step === 0 & x !== '𝑥' && y !== 'y' && m !== 'm' ? <div cla ssName="center" >{y} = {slope*num1} + b</div>: ''}
                     {step === 2 && <div className="center"  style={{margin:"20px",marginTop:"50px"}} >{y} - {m*num1} = b</div>}
                     <div className="Green carry" >{x === '𝑥' && <span onClick={()=>{setX(`(${num1})`)}} >𝑥  = {num1}</span>} {y === 'y' &&<span onClick={()=>{setY(num2)}} >{x === '𝑥' &&<span className="hide" >0</span>}y = {num2}</span> } </div> 
                     { m === 'm' && <div className="Green carry" onClick={()=>{setM(slope)}}>m = {slope} </div>}
                     <div className="hide" >1</div>
+                    {step === 0 && <div className="hide" >1</div>}
                 </div>    
                </div>
                <div className="box" ></div>
                <div className="box"></div>
-               {!done && <div className=" double center Green absolute StepQuestion">{Q1} {sign} {Q2} = </div>}  
+               {!done && step !== 0 && <div className=" double center Green absolute StepQuestion">{Q1} {sign} {Q2} = </div>}  
                {!done &&<div className='center wrap absolute StepAnswer'>
                    <Step value = {((answer))+arr[1]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
                    <Step value = {((answer))+arr[3]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
