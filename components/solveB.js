@@ -56,7 +56,7 @@ export default function SolveB({num1,num2,slope,close}){
         <div className="Help center column" style={{zIndex:'50'}}>
             <div className='cancel' style={{width:"100%",bottom:'40px',margin:"0px"}} ><button className='cancel-btn' onClick = {close}>X</button></div>
             {extra && step === 1 && <HelpTimes close={Extra} num1 ={Q1} num2 = {Q2}/>}
-            {extra && step === 0 && <Algebra1 num1 = {m*num1} num2 = {num2} close={Extra}></HelpTimes> }
+            {extra && step === 0 && <Algebra1 num1 = {m*num1} num2 = {y-(num1*m)} close={Extra}></Algebra1> }
                <div> 
                <div className="double center column ">
                     {step === 1 && <div style={{margin:"20px",marginTop:"50px"}} >{y} = {m}{x} + b</div>}
@@ -71,12 +71,20 @@ export default function SolveB({num1,num2,slope,close}){
                <div className="box" ></div>
                <div className="box"></div>
                {!done && step !== 0 && <div className=" double center Green absolute StepQuestion">{Q1} {sign} {Q2} = </div>}  
-               {!done &&<div className='center wrap absolute StepAnswer'>
+               {!done && step === 1&&<div className='center wrap absolute StepAnswer'>
                    <Step value = {((answer))+arr[1]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
                    <Step value = {((answer))+arr[3]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
                    <Step value = {((answer))+arr[0]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
                    <button className="choice" style={{backgroundColor:'yellow',color:'black'}} onClick={()=>{setExtra(true);console.log(extra)}} >help</button>
                    <Step value = {((answer))+arr[2]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
+                   <button className="choice red" onClick={close} >Close</button>
+               </div>}
+               {!done && step === 0 &&<div className='center wrap absolute StepAnswer'>
+                   <Step value = { `b=${(y-m*num1+arr[1])}`}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
+                   <Step value = { `b=${(y-m*num1+arr[3])}`}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
+                   <Step value = { `b=${(y-m*num1+arr[0])}`}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
+                   <button className="choice" style={{backgroundColor:'yellow',color:'black'}} onClick={()=>{setExtra(true);console.log(extra)}} >help</button>
+                   <Step value = { `b=${(y-m*num1+arr[2])}`}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
                    <button className="choice red" onClick={close} >Close</button>
                </div>}
 
