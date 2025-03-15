@@ -55,13 +55,8 @@ export default function SolveB({num1,num2,slope,close}){
     return (
         <div className="Help center column" style={{zIndex:'50'}}>
             <div className='cancel' style={{width:"100%",bottom:'40px',margin:"0px"}} ><button className='cancel-btn' onClick = {close}>X</button></div>
-            {extra && sign === '+' && Q1 < 10 && Q2 < 10 && <HelpAdd close={Extra} num1 ={Q1} num2 = {Q2}/>}
-            {extra && sign === '+' && (Q1 >= 10 || Q2 >= 10) && <StepAdd close={Extra} num1 ={Q1} num2 = {Q2}/>}
-            {extra && sign === 'x' && <HelpTimes close={Extra} num1 ={Q1} num2 = {Q2}/>}
-            {extra && sign === 'x' && (Q1 >= 10 || Q2 >= 10) && <StepTimes close={Extra} num1 ={Q1} num2 = {Q2}/>}
-            {extra && sign === '-' && Q1 < 10 && Q2 < 10 && <HelpMinus close={Extra} num1 ={Q1} num2 = {Q2}/>}
-            {extra && sign === '-' && (Q1 >= 10 || Q2 >= 10) && <StepMinus close={Extra} num1 ={Q1} num2 = {Q2}/>}
-            {extra && sign === '÷' && <HelpDiv close={Extra} num1 ={Q1} num2 = {Q2}/>}
+            {extra && step === 1 && <HelpTimes close={Extra} num1 ={Q1} num2 = {Q2}/>}
+            {extra && step === 0 && <Algebra1 num1 = {m*num1} num2 = {num2} close={Extra}></HelpTimes> }
                <div> 
                <div className="double center column ">
                     {step === 1 && <div style={{margin:"20px",marginTop:"50px"}} >{y} = {m}{x} + b</div>}
