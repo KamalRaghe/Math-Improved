@@ -31,7 +31,7 @@ export default function SolveB({num1,num2,slope,close}){
     function Count(){
         if(step === 1){
             setStep(0)
-        }of(step === 0){
+        }if(step === 0){
             close()
         }
     }
