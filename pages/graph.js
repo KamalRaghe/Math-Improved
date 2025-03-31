@@ -131,7 +131,7 @@ export default function CurrencyConverter() {
           >
             {currencies.map((currency) => (
               <option key={currency} value={currency}>
-                {countryNames[currency] &&  currency} } - {countryNames[currency]}
+                countryNames[currency] && {currency} - {countryNames[currency]}
               </option>
             ))}
           </select>
