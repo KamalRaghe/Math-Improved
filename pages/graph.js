@@ -1,123 +1,62 @@
-import React, { useEffect, useState } from 'react';
-import dynamic from 'next/dynamic';
-import Wrong from '@/components/wrong';
-import Correct from '@/components/correct';
+import { useState, useEffect } from "react";
 
-// Dynamically import Plotly to prevent SSR issues
-const Plotly = dynamic(() => import('react-plotly.js'), { ssr: false });
+export default function CurrencyConverter() {
+  const [currencies, setCurrencies] = useState([]);
+  const [fromCurrency, setFromCurrency] = useState("USD");
+  const [toCurrency, setToCurrency] = useState("EUR");
+  const [amount, setAmount] = useState(1);
+  const [convertedAmount, setConvertedAmount] = useState(null);
+  const [rates, setRates] = useState({});
 
-const PlotlyGraph = ({x,y,mix}) => {
-    const [xAxis,setXAxis] = useState([4,-1,2,1,-2,.5,-3,-4,-5])
-    const [yAxis,setYAxis] = useState([-1,5,-2,-3,1,-4,5,-5,3])
-    const [correct, setCorrect] = useState(false)
-    const[ wrong, setWrong] = useState(false)
-    const data = [
-        {
-            x: [xAxis[1],xAxis[3],xAxis[5],xAxis[7],x],
-            y: [yAxis[1],yAxis[3],yAxis[5],yAxis[7],y],
-            mode: 'markers',
-            hoverinfo: 'none', 
-            type: 'scatter',
-            marker: { color: 'navy', size: 10 },
-        },
-        {
-            x: [3,3,3,3],
-            y: [0,1,2,3],
-            mode: 'markers',
-            hoverinfo: 'none', 
-            type: 'scatter',
-            marker: { color: 'green', size: 10, opacity: 0.6 },
-        },
-        {
-            x: [3],
-            y: [4],
-            mode: 'markers',
-            hoverinfo: 'none', 
-            type: 'scatter',
-            marker: { color: 'green', size: 10 },
-        },
-        {
-            x: [1,2,3],
-            y: [0,0,0],
-            mode: 'markers',
-            hoverinfo: 'none', 
-            type: 'scatter',
-            marker: { color: 'gold', size: 10, opacity: 0.8 },
-        },  
-    ];
+  useEffect(() => {
+    fetch("https://api.exchangerate-api.com/v4/latest/USD")
+      .then((response) => response.json())
+      .then((data) => {
+        setRates(data.rates);
+        setCurrencies(Object.keys(data.rates));
+      });
+  }, []);
 
-    const layout = {
-        xaxis: {
-            title: 'X-Axis',
-            zeroline: true,
-            showgrid: true,
-            range: [-6, 6], // Set X-axis range
-            dtick: 1, // Add more grid lines (spacing of 1 unit)
-            titlefont: { size: 16, color: 'black' },
-            gridcolor: 'rgba(0, 0, 0, 0.5)',
-            zerolinewidth: 3, // Thicker zero line
-        },
-        yaxis: {
-            title: 'Y-Axis',
-            zeroline: true,
-            showgrid: true,
-            range: [-6, 6], // Set Y-axis range
-            dtick: 1, // Add more grid lines (spacing of 1 unit)
-            titlefont: { size: 16, color: 'black' },
-            gridcolor: 'rgba(0, 0, 0, 0.5)',
-            zerolinewidth: 3, // Thicker zero line
-        },
-        showlegend: false, // Disable legend
-        hovermode: 'closest', // Ensure hovermode is not false
-        
-    };
+  useEffect(() => {
+    if (rates[fromCurrency] && rates[toCurrency]) {
+      const conversion = (amount / rates[fromCurrency]) * rates[toCurrency];
+      setConvertedAmount(conversion.toFixed(2));
+    }
+  }, [amount, fromCurrency, toCurrency, rates]);
 
-    const handleClick = (event) => {
-        if (event.points && event.points.length > 0) {
-            const point = event.points[0];
-            if(point.x === x && point.y === y){
-                CorrectA()
-            }else{
-                WrongA()
-            }
-        }
-    };
-
-    function CorrectA(){ 
-        setCorrect(true)
-        mix()
-        setXAxis(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
-        setYAxis(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
-        setTimeout(() => {
-            setCorrect(false) 
-        }, 1900);
-      }
-      
-      function WrongA(){
-        setWrong(true)
-            setTimeout(() => {
-                setWrong(false)
-            }, 1900); 
-      } 
-
-    useEffect(()=>{
-        setXAxis(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
-        setYAxis(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
-    },[])
-
-    return (
-        <div className='center' style={{cursor:"pointer"}} >
-            <Plotly
-            data={data}
-            layout={layout}
-            onClick={handleClick} // Handle point click
-            style={{ width: '400px', height: '400px'}}
-            useResizeHandler={true} // Make the graph responsive
+  return (
+    <div className="flex flex-col items-center p-6 bg-gray-100 min-h-screen">
+      <h1 className="text-2xl font-bold mb-4">Currency Converter</h1>
+      <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col gap-4">
+        <input
+          type="number"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+          className="p-2 border rounded"
         />
-        {wrong && <Wrong></Wrong>}
-        {correct && <Correct></Correct>}
+        <div className="flex gap-4">
+          <select
+            value={fromCurrency}
+            onChange={(e) => setFromCurrency(e.target.value)}
+            className="p-2 border rounded"
+          >
+            {currencies.map((currency) => (
+              <option key={currency} value={currency}>{currency}</option>
+            ))}
+          </select>
+          <span className="self-center">➡️</span>
+          <select
+            value={toCurrency}
+            onChange={(e) => setToCurrency(e.target.value)}
+            className="p-2 border rounded"
+          >
+            {currencies.map((currency) => (
+              <option key={currency} value={currency}>{currency}</option>
+            ))}
+          </select>
         </div>
-    );
-};
-
-export default PlotlyGraph;
+        <h2 className="text-xl font-semibold">Converted Amount: {convertedAmount} {toCurrency}</h2>
+      </div>
+    </div>
+  );
+}
