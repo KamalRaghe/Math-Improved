@@ -7,6 +7,19 @@ export default function CurrencyConverter() {
   const [amount, setAmount] = useState(1);
   const [convertedAmount, setConvertedAmount] = useState(null);
   const [rates, setRates] = useState({});
+  const countryNames = {
+    USD: "United States Dollar",
+    EUR: "Euro",
+    GBP: "British Pound Sterling",
+    JPY: "Japanese Yen",
+    AUD: "Australian Dollar",
+    CAD: "Canadian Dollar",
+    CHF: "Swiss Franc",
+    CNY: "Chinese Yuan",
+    INR: "Indian Rupee",
+    BRL: "Brazilian Real",
+    ZAR: "South African Rand",
+  };
 
   useEffect(() => {
     fetch("https://api.exchangerate-api.com/v4/latest/USD")
@@ -41,7 +54,9 @@ export default function CurrencyConverter() {
             className="p-2 border rounded"
           >
             {currencies.map((currency) => (
-              <option key={currency} value={currency}>{currency}</option>
+              <option key={currency} value={currency}>
+                {currency} - {countryNames[currency] || "Unknown"}
+              </option>
             ))}
           </select>
           <span className="self-center">➡️</span>
@@ -51,7 +66,9 @@ export default function CurrencyConverter() {
             className="p-2 border rounded"
           >
             {currencies.map((currency) => (
-              <option key={currency} value={currency}>{currency}</option>
+              <option key={currency} value={currency}>
+                {currency} - {countryNames[currency] || "Unknown"}
+              </option>
             ))}
           </select>
         </div>
