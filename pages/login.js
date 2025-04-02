@@ -7,6 +7,7 @@ import { initFirebase } from "@/firebase"
 import { getFirestore } from "firebase/firestore"
 import { db , auth} from "../firebase"
 import { Resend } from 'resend';
+import axios from "axios"
 
 export default function Home() {
     const [payed, Payed] = useState(false)
@@ -213,6 +214,22 @@ export default function Home() {
         setScore((window.localStorage.getItem(`${id} score`)))
       })
 
+      useEffect(() => {
+        fetch("https://api.exchangerate-api.com/v4/latest/USD")
+          .then((response) => response.json())
+          .then((data) => {
+            setRates(data.rates);
+            setCurrencies(Object.keys(data.rates));
+          });
+      }, []);
+
+      useEffect(() => {
+        if (rates[fromCurrency] && rates[toCurrency]) {
+          const conversion = (amount / rates[fromCurrency]) * rates[toCurrency];
+          setConvertedAmount(conversion.toFixed(2));
+        }
+      }, [amount, fromCurrency, toCurrency, rates]);
+
       useEffect(()=>{
         const timer = window.localStorage.getItem('Timer')
         setId(window.localStorage.getItem('uid'))
@@ -230,23 +247,6 @@ export default function Home() {
               }
           }))
       })
-      
-      useEffect(() => {
-        fetch("https://api.exchangerate-api.com/v4/latest/USD")
-          .then((response) => response.json())
-          .then((data) => {
-            setRates(data.rates);
-            setCurrencies(Object.keys(data.rates));
-          });
-      }, []);
-    
-      useEffect(() => {
-        if (rates[fromCurrency] && rates[toCurrency]) {
-          const conversion = (amount / rates[fromCurrency]) * rates[toCurrency];
-          setConvertedAmount(conversion.toFixed(2));
-        }
-      }, [amount, fromCurrency, toCurrency, rates]);
-
       return unsubscribe
     
       },[])
