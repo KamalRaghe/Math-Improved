@@ -297,7 +297,7 @@ export default function Home() {
               </option>
             ))}
           </select>
-          <h2 className="text-xl font-semibold center"> {convertedAmount} {toCurrency}</h2>
+          <h2 className="text-xl font-semibold center"></h2>
         {!check && !free && !payed && loaded && <button className="topic" style={{backgroundColor:"yellow",color:"black",fontSize:"20px",fontWeight:"bolder",borderRadius:"20px",width:'250px', height:"40px"}} onClick={()=>{Free()}} >Start Free Trial</button>}
         {!payed && loaded && <div className="center column" ><button className="font" onClick={getCheckoutUrl} style={{color:'white',fontWeight:"bolder",borderRadius:"20px",width:'250px', height:"70px",backgroundColor:"orange"}} >
          <div>Full Access: CA$3.99</div> 
