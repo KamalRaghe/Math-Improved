@@ -155,15 +155,9 @@ export default function CurrencyConverter() {
   }, [amount, fromCurrency, toCurrency, rates]);
 
   return (
-    <div className="flex flex-col items-center p-6 bg-gray-100 min-h-screen">
+    <div className="flex flex-col items-center p-6 bg-gray-100 min-h-screen center ">
       <h1 className="text-2xl font-bold mb-4">Currency Converter</h1>
       <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col gap-4">
-        <input
-          type="number"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
-          className="p-2 border rounded"
-        />
         <div className="flex gap-4">
           <select
             value={toCurrency}
