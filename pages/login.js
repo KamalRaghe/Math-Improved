@@ -25,7 +25,7 @@ export default function Home() {
     const router = useRouter()
     const [currencies, setCurrencies] = useState([]);
     const [fromCurrency, setFromCurrency] = useState("CAD");
-    const [toCurrency, setToCurrency] = useState("EUR");
+    const [toCurrency, setToCurrency] = useState("CAD");
     const [amount, setAmount] = useState(3.99);
     const [convertedAmount, setConvertedAmount] = useState(null);
     const [rates, setRates] = useState({});
@@ -298,7 +298,7 @@ export default function Home() {
             ))}
           </select>
         {!check && !free && !payed && loaded && <button className="topic" style={{backgroundColor:"yellow",color:"black",fontSize:"20px",fontWeight:"bolder",borderRadius:"20px",width:'250px', height:"40px"}} onClick={()=>{Free()}} >Start Free Trial</button>}
-        {payed && loaded && <div className="center column" style={{marginTop:"20px"}} ><button className="font" onClick={getCheckoutUrl} style={{color:'white',fontWeight:"bolder",borderRadius:"20px",width:'250px', height:"70px",backgroundColor:"orange"}} >
+        {payed && loaded && <div className="center column" ><button className="font" onClick={getCheckoutUrl} style={{color:'white',fontWeight:"bolder",borderRadius:"20px",width:'250px', height:"70px",backgroundColor:"orange"}} >
          <div >Full Access:  {convertedAmount} {toCurrency}</div> 
         </button>
       </div>}
