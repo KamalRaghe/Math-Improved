@@ -4,7 +4,7 @@ export default function CurrencyConverter() {
   const [currencies, setCurrencies] = useState([]);
   const [fromCurrency, setFromCurrency] = useState("USD");
   const [toCurrency, setToCurrency] = useState("EUR");
-  const [amount, setAmount] = useState(1);
+  const [amount, setAmount] = useState(3.99);
   const [convertedAmount, setConvertedAmount] = useState(null);
   const [rates, setRates] = useState({});
   
