@@ -165,7 +165,6 @@ export default function CurrencyConverter() {
           className="p-2 border rounded"
         />
         <div className="flex gap-4">
-          <span className="self-center">➡️</span>
           <select
             value={toCurrency}
             onChange={(e) => setToCurrency(e.target.value)}
