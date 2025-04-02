@@ -170,7 +170,7 @@ export default function CurrencyConverter() {
             ))}
           </select>
         </div>
-        <h2 className="text-xl font-semibold"> {convertedAmount} {toCurrency}</h2>
+        <h2 className="text-xl font-semibold center"> {convertedAmount} {toCurrency}</h2>
       </div>
     </div>
   );
