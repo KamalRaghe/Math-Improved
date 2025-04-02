@@ -288,6 +288,7 @@ export default function Home() {
         
         <select
             value={toCurrency}
+            style={{marginTop:"10px"}}
             onChange={(e) => setToCurrency(e.target.value)}
             className="p-2 border rounded"
           >
