@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 export default function CurrencyConverter() {
   const [currencies, setCurrencies] = useState([]);
-  const [fromCurrency, setFromCurrency] = useState("USD");
+  const [fromCurrency, setFromCurrency] = useState("CAD");
   const [toCurrency, setToCurrency] = useState("EUR");
   const [amount, setAmount] = useState(3.99);
   const [convertedAmount, setConvertedAmount] = useState(null);
@@ -165,17 +165,6 @@ export default function CurrencyConverter() {
           className="p-2 border rounded"
         />
         <div className="flex gap-4">
-          <select
-            value={fromCurrency}
-            onChange={(e) => setFromCurrency(e.target.value)}
-            className="p-2 border rounded"
-          >
-            {currencies.map((currency) => (
-              <option key={currency} value={currency}>
-                {currency} - {countryNames[currency]}
-              </option>
-            ))}
-          </select>
           <span className="self-center">➡️</span>
           <select
             value={toCurrency}
