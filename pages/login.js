@@ -285,7 +285,18 @@ export default function Home() {
         <br></br>
         {payed && score && <div className="center" style={{fontSize:"30px",width:"330px"}} >{name && 
         name} Score: {score}</div>}
-
+        
+        <select
+            value={toCurrency}
+            onChange={(e) => setToCurrency(e.target.value)}
+            className="p-2 border rounded"
+          >
+            {currencies.map((currency) => (
+              <option key={currency} value={currency}>
+                {currency}  -  {countryNames[currency]}
+              </option>
+            ))}
+          </select>
          
         {!check && !free && !payed && loaded && <button className="topic" style={{backgroundColor:"yellow",color:"black",fontSize:"20px",fontWeight:"bolder",borderRadius:"20px",width:'250px', height:"40px"}} onClick={()=>{Free()}} >Start Free Trial</button>}
         {!payed && loaded && <div className="center column" ><button className="font" onClick={getCheckoutUrl} style={{color:'white',fontWeight:"bolder",borderRadius:"20px",width:'250px', height:"70px",backgroundColor:"orange"}} >
