@@ -231,6 +231,22 @@ export default function Home() {
           }))
       })
       
+      useEffect(() => {
+        fetch("https://api.exchangerate-api.com/v4/latest/USD")
+          .then((response) => response.json())
+          .then((data) => {
+            setRates(data.rates);
+            setCurrencies(Object.keys(data.rates));
+          });
+      }, []);
+    
+      useEffect(() => {
+        if (rates[fromCurrency] && rates[toCurrency]) {
+          const conversion = (amount / rates[fromCurrency]) * rates[toCurrency];
+          setConvertedAmount(conversion.toFixed(2));
+        }
+      }, [amount, fromCurrency, toCurrency, rates]);
+
       return unsubscribe
     
       },[])
