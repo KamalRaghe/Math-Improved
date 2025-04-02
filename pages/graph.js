@@ -156,7 +156,6 @@ export default function CurrencyConverter() {
 
   return (
     <div className="flex flex-col items-center p-6 bg-gray-100 min-h-screen center ">
-      <h1 className="text-2xl font-bold mb-4">Currency Converter</h1>
       <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col gap-4">
         <div className="flex gap-4">
           <select
@@ -171,7 +170,7 @@ export default function CurrencyConverter() {
             ))}
           </select>
         </div>
-        <h2 className="text-xl font-semibold">Converted Amount: {convertedAmount} {toCurrency}</h2>
+        <h2 className="text-xl font-semibold"> {convertedAmount} {toCurrency}</h2>
       </div>
     </div>
   );
