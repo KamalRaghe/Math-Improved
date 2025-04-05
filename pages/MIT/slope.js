@@ -76,7 +76,7 @@ export default function DoubleAdd(){
  
      useEffect(() =>{
          setLoaded(true)
-         const count = parseInt(window.localStorage.getItem(`${id} Cube`))
+         const count = parseInt(window.localStorage.getItem(`${id} slopej`))
          setCount(count ? count : 0)
          const score = parseInt(window.localStorage.getItem(`${id} score`))
          setScore(score ? score : 0)
@@ -84,7 +84,7 @@ export default function DoubleAdd(){
  
      useEffect(() =>{
          if(count > 0){
-         window.localStorage.setItem(`${id} Cube`, count)
+         window.localStorage.setItem(`${id} slope`, count)
      }},[count])
  
      useEffect(() =>{
