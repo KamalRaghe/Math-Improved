@@ -17,7 +17,6 @@ const GridGraph = () => {
           },
         ]}
         layout={{
-          title: "Grid Graph Example",
           xaxis: {
             title: "X Axis",
             showgrid: true,
