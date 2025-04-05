@@ -102,7 +102,7 @@ export default function DoubleAdd(){
                     <div>𝑥 = {loaded && num1} <span className="hide" >0</span>y = {loaded && num2}</div>  
                     <div>m = {loaded && slope} <span className="hide" >0</span>b = ?</div>
                 </div>
-                {/* <div className="double">m = {loaded && slope}</div> */}
+                
             </div>
             <div className="box">
                 <button className="help" onClick={open}>help</button>
