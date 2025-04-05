@@ -112,8 +112,6 @@ export default function DoubleAdd(){
             {help && <Slope  num1={num1} num2={num2} num4={num4} num5={num5} close={close}/>}
             {loaded && correct && <Correct></Correct>}
             {loaded && wrong && <Wrong/> }
-            {count > 10 && score < 100  && <Sign></Sign>}
-            {score > 100  && <Sign2></Sign2>}
             <div className="box column">
             <div className="row ">
                     { loaded && <Choice whole={(num5-num2) >= (num4-num1) && Math.floor((num5-num2)/(num4-num1))} value1 ={((num5-num2)%(num4-num1)+num3[0]) } answer1 ={(num5-num2)%(num4-num1)} value2={num4-num1} answer2={num4-num1} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
