@@ -104,7 +104,7 @@ export default function DoubleAdd(){
                     <div>Find the </div>
                     {loaded && <div>({num1},{num2})<span className="hide" >0</span>({num4},{num5})</div>}  
                 </div>
-                {/* <div className="double">m = {loaded && }</div> */}
+            
             </div>
             <div className="box">
                 <button className="help" onClick={open}>help</button>
