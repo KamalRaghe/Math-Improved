@@ -288,7 +288,7 @@ export default function Home() {
         
         { !payed && loaded && <div> <select
             value={toCurrency}
-            style={{margin:"10px"}}
+            style={{margin:"10px",padding:"3px",borderRadius:"5px"}}
             onChange={(e) => setToCurrency(e.target.value)}
             className="p-2 border rounded"
           >
