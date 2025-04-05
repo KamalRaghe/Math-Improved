@@ -74,7 +74,7 @@ export default function DoubleAdd(){
  
      useEffect(() =>{
          setLoaded(true)
-         const count = parseInt(window.localStorage.getItem(`${id} slope`))
+         const count = parseInt(window.localStorage.getItem(`${id} solveB`))
          setCount(count ? count : 0)
          const score = parseInt(window.localStorage.getItem(`${id} score`))
          setScore(score ? score : 0)
@@ -82,7 +82,7 @@ export default function DoubleAdd(){
  
      useEffect(() =>{
          if(count > 0){
-         window.localStorage.setItem(`${id} slope`, count)
+         window.localStorage.setItem(`${id} solveB`, count)
      }},[count])
  
      useEffect(() =>{
