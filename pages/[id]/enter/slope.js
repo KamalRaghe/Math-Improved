@@ -95,7 +95,7 @@ export default function DoubleAdd(){
             <div className="Test sb"><div className="double" >
                 <div>Score: {loaded && score}</div>
                 <div className="font" >Slope: {loaded && count} </div>
-            </div><Link href={`/MIT/testCube`}><button className="green test-btn">Test</button></Link></div>
+            </div><Link href={`/${id}/enter/SMFTest`}><button className="green test-btn">Test</button></Link></div>
             <div style={{width:"340px"}}>
                 <div className="double center column ">
                     <div>y = m𝑥  + b</div>
