@@ -4,7 +4,7 @@ export default function tikTok(){
         <div className="double column center" style={{background:"white",height:"100vh"}} >
             <div>Solve in 3s</div>
             <div style={{margin:"50px"}}> 2x - 4 = 6 </div>
-            <div>Answer <span><FaHandPointDown></FaHandPointDown></span></div>
+            <div>Answer <span style={{position:"relative",top:'10px'}} ><FaHandPointDown></FaHandPointDown></span></div>
         </div>
     )
 }
