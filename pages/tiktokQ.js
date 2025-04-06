@@ -1,6 +1,6 @@
 export default function tikTok(){
     return(
-        <div style={{background:"white"}} >
+        <div className="double center" style={{background:"white",height:"100vh"}} >
             Solve in 3s
         </div>
     )
