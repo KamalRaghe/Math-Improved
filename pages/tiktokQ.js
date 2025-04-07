@@ -11,6 +11,9 @@ export default function tikTok(){
     setTimeout(() => {
         setCount(1)
     }, 3000);
+    setTimeout(() => {
+        setCount(0)
+    }, 4000);
     return(
         <div className="double column center" style={{background:"white",height:"100vh"}} >
             <div>Solve this</div>
