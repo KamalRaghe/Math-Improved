@@ -13,7 +13,7 @@ export default function tikTok(){
         }
     }, 2000);
     setTimeout(() => {
-        setCount(1)
+        
     }, 3000);
     setTimeout(() => {
         setCount(0)
