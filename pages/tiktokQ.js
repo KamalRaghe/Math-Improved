@@ -6,7 +6,7 @@ export default function tikTok(){
         <div className="double column center" style={{background:"white",height:"100vh"}} >
             <div>Solve this</div>
             <div style={{margin:"50px"}}> 2x - 4 = 6 </div>
-            <div>Answer in 3s</div>
+            <div>Answer in {count}s</div>
         </div>
     )
 }
