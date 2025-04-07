@@ -9,6 +9,9 @@ export default function tikTok(){
     }, 1000);
     setTimeout(() => {
         setCount(2)
+        if(count === 4){
+            setCount(3)
+        }
     }, 2000);
     setTimeout(() => {
         setCount(1)
