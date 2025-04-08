@@ -16,12 +16,12 @@ export default function tikTok(){
         if(count === 2){
             setCount(1)
         }
-    }, 3000);
+    }, 2400);
     setTimeout(() => {
         if(count === 1){
             setCount(0)
         }
-    }, 4000); 
+    }, 3200); 
     return(
         <div className="double column center" style={{background:"white",height:"100vh"}} >
             <div>Solve this</div>
