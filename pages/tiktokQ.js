@@ -6,12 +6,12 @@ export default function tikTok(){
         if(count === 4){
             setCount(3)
         }
-    }, 1000); 
+    }, 800); 
     setTimeout(() => {
         if(count === 3){
             setCount(2)
         }
-    }, 2000);
+    }, 1600);
     setTimeout(() => {
         if(count === 2){
             setCount(1)
