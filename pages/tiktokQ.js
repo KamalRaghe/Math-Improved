@@ -20,8 +20,8 @@ export default function tikTok(){
     return(
         <div className="double column center" style={{background:"white",height:"100vh"}} >
             <div>Solve this</div>
-            <div style={{margin:"50px"}}> 2x - 4 = 6 </div>
-            <div>Answer in {count}s</div>
+            <div style={{margin:"50px"}}> 2x + 2 = 6 </div>
+            <div>Answer in <span className="Red" >{count}</span>s</div>
         </div>
     )
 }
