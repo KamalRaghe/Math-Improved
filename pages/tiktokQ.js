@@ -1,22 +1,23 @@
 import { useState } from "react";
 import { FaHandPointDown } from "react-icons/fa";
 export default function tikTok(){
-    const [count, setCount] = useState(3)
+    const [count, setCount] = useState(4)
+    
     setTimeout(() => {
         if(count === 3){
             setCount(2)
         }
-    }, 1000);
+    }, 2000);
     setTimeout(() => {
         if(count === 2){
             setCount(1)
         }
-    }, 2000);
+    }, 3000);
     setTimeout(() => {
         if(count === 1){
             setCount(0)
         }
-    }, 1000); 
+    }, 4000); 
     return(
         <div className="double column center" style={{background:"white",height:"100vh"}} >
             <div>Solve this</div>
