@@ -2,7 +2,11 @@ import { useState } from "react";
 import { FaHandPointDown } from "react-icons/fa";
 export default function tikTok(){
     const [count, setCount] = useState(4)
-    
+    setTimeout(() => {
+        if(count === 3){
+            setCount(2)
+        }
+    }, 2000); 
     setTimeout(() => {
         if(count === 3){
             setCount(2)
