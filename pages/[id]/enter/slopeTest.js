@@ -91,12 +91,12 @@ export default function DoubleAdd(){
         setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
     },[])
 
-    useEffect(()=>{
-        const ID = window.localStorage.getItem('ID')
-        if(!(ID === id)){
-            router.push("/")
-        }
-    },[])
+    // useEffect(()=>{
+    //     const ID = window.localStorage.getItem('ID')
+    //     if(!(ID === id)){
+    //         router.push("/")
+    //     }
+    // },[])
 
     useEffect(() =>{
         setAgain(false)
