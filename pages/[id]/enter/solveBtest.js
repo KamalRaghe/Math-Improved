@@ -12,19 +12,23 @@ import Mistake from "@/components/mistake";
 
 
 export default function DoubleAdd(){
-    const [again, setAgain] = useState(false)
+    const [help, setHelp] = useState(false)
     const [loaded, setLoaded] = useState(false)
     const [correct, setCorrect] = useState(false)
     const[ wrong, setWrong] = useState(false)
-    const [num1, setNum1] = useState(Math.ceil(Math.random()*7+2));
+    const [num1, setNum1] = useState(Math.ceil(Math.random()*9));
     const [num2, setNum2] = useState(Math.ceil(Math.random()*9));
-    const [num4, setNum4] = useState(Math.ceil(Math.random()*9));
-    const [num3, setNum3] = useState([0,1,-1,2,-2])
-    const [num5, setNum5] = useState(Math.ceil(Math.random()*7+2));
-    const [num6, setNum6] = useState(Math.ceil(Math.random()*9));
-    const [num7, setNum7] = useState(Math.ceil(Math.random()*9));
-    const [num8, setNum8] = useState(Math.ceil(Math.random()*7+2))
-    const [num9, setNum9] = useState(Math.ceil(Math.random()*7+2))
+    const [slope, setSlope] = useState(Math.ceil(Math.random()*9));
+    const [num3, setNum3] = useState([0,num1+num1,num1+num1+num1,-1*num1,num1])
+    const router = useRouter()
+    const {username} = router.query 
+    const {id} = router.query 
+
+    function mix(){
+        setNum3([0,num1+num1,num1+num1+num1,-1*num1,num1])
+    }
+    const [again, setAgain] = useState(false)
+    const [loaded, setLoaded] = useState(false)
     const [mistake, setMistake] = useState(0)
     const [count, setCount] = useState(0)
     const [time, setTime] = useState( 600000 + Date.now())
