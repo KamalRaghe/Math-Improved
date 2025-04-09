@@ -71,10 +71,6 @@ export default function DoubleAdd(){
         }, 1500)
     }
 
-    useEffect(()=>{
-        setNum8(Math.ceil(Math.random()*(num6-1)))
-    },[num6,num9])
-
     function cancel(){
         setDate(cancelAnimationFrame(date))
       }
@@ -135,21 +131,8 @@ export default function DoubleAdd(){
                 </div>   
             </div>}
                     <div className="double" style={{padding:'10px'}} >=</div>
-                    {loaded && correct && (num2*(num7/num1)) > (num4*(num7/num5)) && num6-1 !== num8 && <span className="double" style={{padding:'3px',color:'green'}} >{num6-num8-1}</span>}
-                    {loaded && wrong && (num2*(num7/num1)) > (num4*(num7/num5)) && num6-1 !== num8 && <span className="double" style={{padding:'3px',color:"red"}} >{num6-num8-1}</span>}
-                    {loaded && correct && (num2*(num7/num1)) <= (num4*(num7/num5)) && num6 !== num8 && <span className="double" style={{padding:'3px',color:'green'}} >{num6-num8}</span>}
-                    {loaded && wrong && (num2*(num7/num1)) <= (num4*(num7/num5)) && num6 !== num8 && <span className="double" style={{padding:'3px',color:"red"}} >{num6-num8}</span>}
-           
-                    {loaded && correct && (num2*(num7/num1)) !== (num4*(num7/num5)) && <div className=" Green column center" >
-                        <div className=" double center" style={{borderBottom:'2px solid green', width:'45px'}} >
-                            {(num2*(num7/num1)) > (num4*(num7/num5)) ? ((((num4*(num7/num5))+num7)-(num2*(num7/num1)))/num) :(((num4*(num7/num5))-(num2*(num7/num1)))/num)}
-                            </div>
-                    <div className="double" >{num7/num}</div></div>}
-
-                    {loaded && wrong && num7 !== (num2*(num7/num1))+(num4*(num7/num5)) && <div className=" double Red column center" >
-                        <div className="double center" style={{borderBottom:'2px solid red', width:'45px'}} >
-                            {(num2*(num7/num1)) > (num4*(num7/num5)) ? ((((num4*(num7/num5))+num7)-(num2*(num7/num1)))/num) :(((num4*(num7/num5))-(num2*(num7/num1)))/num)}</div>
-                    <div className="double" >{num7/num}</div></div>} 
+                    {correct && <div className="Green" > b = </div>} 
+                    {wrong && <div className="Red" > b = </div>} 
             </div>
             
             <div className="box">
