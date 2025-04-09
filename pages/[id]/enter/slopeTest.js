@@ -129,7 +129,7 @@ export default function DoubleAdd(){
                 <span className="hide">00000</span>
                 {loaded && <div style={{width:"340px"}}>
                 <div className="double center column ">
-                    <div>Find the </div>
+                    <div>Find the slope</div>
                     {loaded && <div>({num1},{num2})<span className="hide" >0</span>({num4},{num5})</div>}  
                 </div>
 h   

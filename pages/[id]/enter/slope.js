@@ -98,10 +98,10 @@ export default function DoubleAdd(){
             <div className="Test sb"><div className="double" >
                 <div>Score: {loaded && score}</div>
                 <div className="font" >Cube: {loaded && count} </div>
-            </div><Link href={`/MIT/slopeTest`}><button className="green test-btn">Test</button></Link></div>
+            </div><Link href={`/${id}/enter/slopeTest`}><button className="green test-btn">Test</button></Link></div>
             <div style={{width:"340px"}}>
                 <div className="double center column ">
-                    <div>Find the </div>
+                    <div>Find the slope</div>
                     {loaded && <div>({num1},{num2})<span className="hide" >0</span>({num4},{num5})</div>}  
                 </div>
             
