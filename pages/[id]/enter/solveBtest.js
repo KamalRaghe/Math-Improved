@@ -99,12 +99,6 @@ export default function DoubleAdd(){
             router.push("/")
         }
     },[])
-
-    useEffect(()=>{
-        if(num1 >= 5){
-            setNum5(Math.ceil(Math.random()*3+1))
-        }else{setNum5(Math.ceil(Math.random()*5+4))}
-    },[num1,num8,num6])
     
     useEffect(() =>{
        mix()
