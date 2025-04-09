@@ -135,22 +135,19 @@ export default function DoubleAdd(){
                     {wrong && <div className="Red" > b = </div>} 
             </div>
             
-            <div className="box">
-                
-                
-            </div>
+            <div className="box"></div>
             { time - Date.now() < 0 && <Timeout again ={Again}/>}
             {mistake === 3 && <Mistake again={Again}></Mistake>}
             {count === 20 && <Pass time ={600000 -(time-Date.now())}/>}
             <div className="box column">
                 <div className="row ">
-                    { loaded && <Choice whole={(num2*(num7/num1)) > (num4*(num7/num5))+num3[0] ? num6-num8-1 : num6-num8} value1 ={(num2*(num7/num1)) > (num4*(num7/num5)) ? (((num4*(num7/num5))+num7)-(num2*(num7/num1))+num3[0]) :((num4*(num7/num5))-(num2*(num7/num1))+num3[0])} answer1 ={(num2*(num7/num1)) > (num4*(num7/num5)) ? (((num4*(num7/num5))+num7)-(num2*(num7/num1))) :((num4*(num7/num5))-(num2*(num7/num1)))} value2={num7} answer2={num7} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-                    { loaded && <Choice whole={(num2*(num7/num1)) > (num4*(num7/num5))+num3[1] ? num6-num8-1 : num6-num8} value1 ={(num2*(num7/num1)) > (num4*(num7/num5)) ? (((num4*(num7/num5))+num7)-(num2*(num7/num1))+num3[1]) :((num4*(num7/num5))-(num2*(num7/num1))+num3[1])} answer1 ={(num2*(num7/num1)) > (num4*(num7/num5)) ? (((num4*(num7/num5))+num7)-(num2*(num7/num1))) :((num4*(num7/num5))-(num2*(num7/num1)))} value2={num7} answer2={num7} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-                    { loaded && <Choice whole={(num2*(num7/num1)) > (num4*(num7/num5))+num3[2] ? num6-num8-1 : num6-num8} value1 ={(num2*(num7/num1)) > (num4*(num7/num5)) ? (((num4*(num7/num5))+num7)-(num2*(num7/num1))+num3[2]) :((num4*(num7/num5))-(num2*(num7/num1))+num3[2])} answer1 ={(num2*(num7/num1)) > (num4*(num7/num5)) ? (((num4*(num7/num5))+num7)-(num2*(num7/num1))) :((num4*(num7/num5))-(num2*(num7/num1)))} value2={num7} answer2={num7} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && <Choice value ={num2-(num1*slope)+num3[0]} answer ={num2-(num1*slope)} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && <Choice value ={num2-(num1*slope)+num3[1]} answer ={num2-(num1*slope)} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && <Choice value ={num2-(num1*slope)+num3[2]} answer ={num2-(num1*slope)} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
                </div>
                <div className="row">
-                    { loaded && <Choice whole={(num2*(num7/num1)) > (num4*(num7/num5))+num3[3] ? num6-num8-1 : num6-num8} value1 ={(num2*(num7/num1)) > (num4*(num7/num5)) ? (((num4*(num7/num5))+num7)-(num2*(num7/num1))+num3[3]) :((num4*(num7/num5))-(num2*(num7/num1))+num3[3])} answer1 ={(num2*(num7/num1)) > (num4*(num7/num5)) ? (((num4*(num7/num5))+num7)-(num2*(num7/num1))) :((num4*(num7/num5))-(num2*(num7/num1)))} value2={num7} answer2={num7} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-                    { loaded && <Choice whole={(num2*(num7/num1)) > (num4*(num7/num5))+num3[4] ? num6-num8-1 : num6-num8} value1 ={(num2*(num7/num1)) > (num4*(num7/num5)) ? (((num4*(num7/num5))+num7)-(num2*(num7/num1))+num3[4]) :((num4*(num7/num5))-(num2*(num7/num1))+num3[4])} answer1 ={(num2*(num7/num1)) > (num4*(num7/num5)) ? (((num4*(num7/num5))+num7)-(num2*(num7/num1))) :((num4*(num7/num5))-(num2*(num7/num1)))} value2={num7} answer2={num7} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && <Choice value ={num2-(num1*slope)+num3[3]} answer ={num2-(num1*slope)} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && <Choice value ={num2-(num1*slope)+num3[4]} answer ={num2-(num1*slope)} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
                </div>
             </div>
         </div>
