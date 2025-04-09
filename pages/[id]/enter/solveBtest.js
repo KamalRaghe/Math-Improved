@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Choice from "@/components/FractionChoice";
+import Choice from "@/components/Choice";
 import { useRouter } from "next/router";
 import Heart from "@/components/heart";
 import Heart1 from "@/components/heart1";
