@@ -127,17 +127,13 @@ export default function DoubleAdd(){
 
             <div className="box">
                 <span className="hide">00000</span>
-                {loaded && <div className=" double center"><span style={{padding:'3px'}} >{num6}</span>
-                    <div className="column center" >
-                        <div className="center" style={{borderBottom:'2px solid black', width:'45px'}} >
-                            {num4}</div>
-                    {num5}</div></div>}
-                    <div className="double" style={{padding:'10px'}} >-</div>
-                    {loaded && <div className=" double center"><span style={{padding:'3px'}} >{num8}</span>
-                    <div className="column center" >
-                        <div className="center" style={{borderBottom:'2px solid black', width:'45px'}} >
-                            {num2}</div>
-                    {num1}</div></div>}
+                {loaded && <div style={{width:"340px"}}>
+                <div className="double center column ">
+                    <div>y = m𝑥  + b</div>
+                    <div>𝑥 = {loaded && num1} <span className="hide" >0</span>y = {loaded && num2}</div>  
+                    <div>m = {loaded && slope} <span className="hide" >0</span>b = ?</div>
+                </div>   
+            </div>}
                     <div className="double" style={{padding:'10px'}} >=</div>
                     {loaded && correct && (num2*(num7/num1)) > (num4*(num7/num5)) && num6-1 !== num8 && <span className="double" style={{padding:'3px',color:'green'}} >{num6-num8-1}</span>}
                     {loaded && wrong && (num2*(num7/num1)) > (num4*(num7/num5)) && num6-1 !== num8 && <span className="double" style={{padding:'3px',color:"red"}} >{num6-num8-1}</span>}
