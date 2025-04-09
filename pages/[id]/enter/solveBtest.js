@@ -42,10 +42,6 @@ export default function DoubleAdd(){
         setLoaded(true)
     }
 
-    function mix(){
-        setNum3([0,1,-1,2,-2])
-    }
-
     function update(){
         setDate(requestAnimationFrame(update))
       }
