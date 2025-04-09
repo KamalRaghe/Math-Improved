@@ -63,12 +63,12 @@ export default function DoubleAdd(){
       } 
       function Add(){
         setTimeout(() => {
-            setNum1(Math.ceil(Math.random()*7+2))
-            setNum6(Math.ceil(Math.random()*7+2))
-            setNum9(Math.ceil(Math.random()*7+2))
+            setNum1(Math.ceil(Math.random()*10))
+            setNum2(Math.ceil(Math.random()*10))
+            setSlope(Math.ceil(Math.random()*10))
             mix()
             setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
-        }, 1200)
+        }, 1500)
     }
 
     useEffect(()=>{
