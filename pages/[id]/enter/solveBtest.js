@@ -34,14 +34,6 @@ export default function DoubleAdd(){
     const [date, setDate] = useState(Date.now()) 
     const [num, setNum] = useState(1)
 
-    
-    function open(){
-        setHelp(true)
-      }
-      function close(){
-        setHelp(false)
-      }
-
     function Again(){
         setAgain(true)
         setCount(0)
