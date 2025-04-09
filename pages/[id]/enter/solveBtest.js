@@ -28,12 +28,10 @@ export default function DoubleAdd(){
         setNum3([0,num1+num1,num1+num1+num1,-1*num1,num1])
     }
     const [again, setAgain] = useState(false)
-    const [loaded, setLoaded] = useState(false)
     const [mistake, setMistake] = useState(0)
     const [count, setCount] = useState(0)
     const [time, setTime] = useState( 600000 + Date.now())
     const [date, setDate] = useState(Date.now()) 
-    const [help, setHelp] = useState(false)
     const [num, setNum] = useState(1)
 
     
