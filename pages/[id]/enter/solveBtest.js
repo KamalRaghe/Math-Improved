@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Choice from "@/components/Choice";
+import Choice from "@/components/choice";
 import { useRouter } from "next/router";
 import Heart from "@/components/heart";
 import Heart1 from "@/components/heart1";
@@ -57,6 +57,7 @@ export default function DoubleAdd(){
       function WrongA(){ 
         setMistake( mistake + 1)
         setWrong(true)
+        Add()
         setTimeout(() => {
             setWrong(false) 
         }, 1200);
@@ -121,7 +122,7 @@ export default function DoubleAdd(){
                 {Math.floor(((time - Date.now())%(1000*60))/1000)}s</div>}
             </div>
 
-            <div className="box">
+            <div>
                 <span className="hide">00000</span>
                 {loaded && <div style={{width:"340px"}}>
                 <div className="double center column ">
@@ -130,9 +131,9 @@ export default function DoubleAdd(){
                     <div>m = {loaded && slope} <span className="hide" >0</span>b = ?</div>
                 </div>   
             </div>}
-                    <div className="double" style={{padding:'10px'}} >=</div>
-                    {correct && <div className="Green" > b = </div>} 
-                    {wrong && <div className="Red" > b = </div>} 
+                    <br></br>
+                    {correct && <div className="Green center double" > b = {num2-(num1*slope)}</div>} 
+                    {wrong && <div className="Red center double" > b = {num2-(num1*slope)} </div>} 
             </div>
             
             <div className="box"></div>
