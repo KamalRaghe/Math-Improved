@@ -87,8 +87,6 @@ export default function DoubleAdd(){
     useEffect(() =>{
         setLoaded(true)
         update()
-        setNum1(Math.ceil(Math.random()*7+2))
-        setNum6(Math.ceil(Math.random()*7+2))
         mix()
         setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
     },[])
@@ -99,8 +97,6 @@ export default function DoubleAdd(){
             router.push("/")
         }
     },[])
-    
-    
 
     useEffect(() =>{
         setAgain(false)
