@@ -12,6 +12,8 @@ import Mistake from "@/components/mistake";
 
 
 export default function DoubleAdd(){
+    const [num4, setNum4] = useState(Math.ceil(Math.random()*4+5));
+    const [num5, setNum5] = useState(Math.ceil(Math.random()*4+5));
     const [help, setHelp] = useState(false)
     const [loaded, setLoaded] = useState(false)
     const [correct, setCorrect] = useState(false)
