@@ -5,8 +5,7 @@ import Wrong from "@/components/wrong";
 import SolveB from "@/components/solveB";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Sign from "@/components/SignUp";
-import Sign2 from "@/components/SignUp2";
+
 
 export default function DoubleAdd(){
     const [help, setHelp] = useState(false)
