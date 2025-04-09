@@ -131,12 +131,17 @@ export default function DoubleAdd(){
                 <div className="double center column ">
                     <div>Find the slope</div>
                     {loaded && <div>({num1},{num2})<span className="hide" >0</span>({num4},{num5})</div>}  
-                </div>
-h   
+                </div>  
             </div>}
                     <br></br>
-                    {correct && <div className="Green center double" > b = {num2-(num1*slope)}</div>} 
-                    {wrong && <div className="Red center double" > b = {num2-(num1*slope)} </div>} 
+                    {correct && <div className="Green center double" > m = <div className="column center double" >
+                        <div className="center" style={{borderBottom:'2px solid red', width:'45px'}} >
+                            {(num5-num2)%(num4-num1)}</div>
+                    {num4-num1}</div></div>} 
+                    {wrong && <div className="Red center double" > m = <div className="column center double" >
+                        <div className="center" style={{borderBottom:'2px solid red', width:'45px'}} >
+                            {(num5-num2)%(num4-num1)}</div>
+                    {num4-num1}</div> </div>} 
             </div>
             
             <div className="box"></div>
