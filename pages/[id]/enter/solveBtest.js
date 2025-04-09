@@ -35,9 +35,7 @@ export default function DoubleAdd(){
     const [date, setDate] = useState(Date.now()) 
     const [help, setHelp] = useState(false)
     const [num, setNum] = useState(1)
-    const router = useRouter()
-    const {username} = router.query 
-    const {id} = router.query
+
     
     function open(){
         setHelp(true)
