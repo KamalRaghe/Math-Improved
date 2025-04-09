@@ -100,18 +100,7 @@ export default function DoubleAdd(){
         }
     },[])
     
-    useEffect(() =>{
-       mix()
-       setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
-       setNum4(Math.ceil(Math.random()*(num5-1)))
-       setNum2(Math.ceil(Math.random()*(num1-1)))
-       for(let i=1;i<15;i++){
-        if(num1*i%num5===0){
-            setNum7(i*num1)
-            break
-        }
-    }
-    },[num8,num5,num6])
+    
 
     useEffect(() =>{
         setAgain(false)
