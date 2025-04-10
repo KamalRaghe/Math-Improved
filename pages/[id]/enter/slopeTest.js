@@ -135,13 +135,13 @@ export default function DoubleAdd(){
             </div>}
                     <br></br>
                     {correct && <div className="Green center double" > m = <div className="column center double" >
-                        <div className="center" style={{borderBottom:'2px solid red', width:'45px'}} >
-                            {(num5-num2)%(num4-num1)}</div>
-                    {num4-num1}</div></div>} 
+                        <div className="center" style={{borderBottom:'2px solid green', width:'45px'}} >
+                            {(num5-num2)%(num4-num1) && (num5-num2)%(num4-num1) }</div>
+                    {(num5-num2)%(num4-num1) && num4-num1}</div></div>} 
                     {wrong && <div className="Red center double" > m = <div className="column center double" >
                         <div className="center" style={{borderBottom:'2px solid red', width:'45px'}} >
-                            {(num5-num2)%(num4-num1)}</div>
-                    {num4-num1}</div> </div>} 
+                            {(num5-num2)%(num4-num1) && (num5-num2)%(num4-num1)}</div>
+                    {(num5-num2)%(num4-num1) && num4-num1}</div> </div>} 
             </div>
             
             <div className="box"></div>
