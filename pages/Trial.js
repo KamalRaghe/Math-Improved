@@ -16,11 +16,11 @@ export default function Math(){
     const router = useRouter() 
     const {id} = router.query 
 
-    // function close(){
-    //     if(count){
-    //         setCount(false)
-    //     }
-    // }
+    function close(){
+        if(count){
+            setCount(false)
+        }
+    }
 
     useEffect(()=>{
         const score = parseInt(window.localStorage.getItem(`${id} score`))
