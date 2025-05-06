@@ -91,8 +91,8 @@ export default function Math(){
             { count === 'angle' &&<Link href= {`/MIT/Area`}><button className="sub-topic zoom">Area</button></Link>}
 
             { loaded && <button onClick={() => {setCount('fun')}}  className="topic">Function</button >}
-            { count === 'fun' &&<Link href= {`/${id}/enter/slope`}><button className="sub-topic zoom">Slope</button></Link>}
-            { count === 'fun' &&<Link href= {`/${id}/enter/solveB`}><button className="sub-topic zoom">Solve for b</button></Link>}
+            { count === 'fun' &&<Link href= {`/MIT/slope`}><button className="sub-topic zoom">Slope</button></Link>}
+            { count === 'fun' &&<Link href= {`/MIT/solveB`}><button className="sub-topic zoom">Solve for b</button></Link>}
 
             { loaded && <button onClick={() => {setCount('log')}}  className="topic">Logarithms</button >}
             { count === 'log' &&<Link href= {`/MIT/Logarithm`}><button className="sub-topic zoom">Logarithms</button></Link>}
