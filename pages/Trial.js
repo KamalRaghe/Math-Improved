@@ -16,23 +16,23 @@ export default function Math(){
     const router = useRouter() 
     const {id} = router.query 
 
-    function close(){
-        if(count){
-            setCount(false)
-        }
-    }
+    // function close(){
+    //     if(count){
+    //         setCount(false)
+    //     }
+    // }
 
     useEffect(()=>{
         const score = parseInt(window.localStorage.getItem(`${id} score`))
         setCheck2(score > 100)
-        if(score > 100){
-            setNone('none')
-        }
+        // if(score > 100){
+        //     setNone('none')
+        // }
     },[])
 
     return (
         <div className="beige" style={{padding:"20px",paddingBottom:"50px",backgroundColor:'beige'}}>
-            {check2 && <Sign2></Sign2>} 
+            {/* {check2 && <Sign2></Sign2>}  */}
             {check && <FeedBack close={()=>{setCheck(false),setNone(''),setFlex('flex')}} />}
             {about &&<AboutUs close={()=>{setAbout(false),setNone(''),setFlex('flex')}} />}
             <div style={{display:flex,justifyContent:"space-between",width:"100vw",height:"180px"}}>
@@ -116,7 +116,9 @@ export default function Math(){
 
                 { loaded && <button onClick={() => {setCount('log')}}  className="topic">Logarithms</button >}
                 { count === 'log' &&<Link href= {`/MIT/Logarithm`}><button className="sub-topic zoom">Logarithms</button></Link>}
-                { loaded && <button style={{opacity:"0.4"}} onClick={() => {setCount('loeg')}}  className="topic">Function</button >}
+                { loaded && <button onClick={() => {setCount('fun')}}  className="topic">Function</button >}
+                { count === 'fun' &&<Link href= {`/MIT/slope`}><button className="sub-topic zoom">Slope</button></Link>}
+                { count === 'fun' &&<Link href= {`/MIT/solveB`}><button className="sub-topic zoom">Solve for b</button></Link>}
                 { loaded && <button style={{opacity:"0.4"}} onClick={() => {setCount('loge')}}  className="topic">Calculus</button >}
             </div>
         </div>     
