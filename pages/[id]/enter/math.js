@@ -149,8 +149,9 @@ export default function Math(){
             { loaded && <button onClick={() => {setCount('log')}}  className="topic">Logarithms</button >}
             { count === 'log' &&<Link href= {`/${id}/enter/Logarithm`}><button className="sub-topic zoom">Logarithms</button></Link>}
 
-            { loaded && <button onClick={() => {setCount('log')}}  className="topic">Logarithms</button >}
-            { count === 'log' &&<Link href= {`/${id}/enter/Logarithm`}><button className="sub-topic zoom">Function</button></Link>}
+            { loaded && <button onClick={() => {setCount('fun')}}  className="topic">Function</button >}
+            { count === 'fun' &&<Link href= {`/${id}/enter/slope`}><button className="sub-topic zoom">Slope</button></Link>}
+            { count === 'fun' &&<Link href= {`/${id}/enter/solveB`}><button className="sub-topic zoom">Solve for b</button></Link>}
 
             { loaded && <button style={{opacity:"0.4"}} onClick={() => {setCount('logeee')}}  className="topic">Function</button >}
             { loaded && <button style={{opacity:"0.4"}} onClick={() => {setCount('loge')}}  className="topic">Calculus</button >}
