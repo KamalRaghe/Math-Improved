@@ -3,9 +3,10 @@ import { useState } from "react";
 export default function Schedule() {
     const [days,setDays] = useState([1,2,3,4,5,6])
     return (
-      <div className="p-6">
+      <div>
+        weiofs
         {days.map(day =>{
-            <TomorrowSchedule day={day} ></TomorrowSchedule>
+           return <TomorrowSchedule day={day} ></TomorrowSchedule>
         })}
       </div>
     );
