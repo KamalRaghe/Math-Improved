@@ -11,7 +11,14 @@ export default function TomorrowSchedule() {
   
     return (
       <div className="p-6">
-        <h2 className="text-xl font-semibold mb-4">Tomorrow's Schedule (10AM - 5PM)</h2>
+        <h2 className="text-xl font-semibold mb-4">
+            {new Intl.DateTimeFormat('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+            }).format(new Date(Date.now() + 86400000))} (10AM - 5PM)
+        </h2>
         <div className="grid grid-cols-2 gap-4">
           {hours.map((hour) => (
             <button
