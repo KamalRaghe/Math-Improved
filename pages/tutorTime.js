@@ -4,9 +4,8 @@ export default function Schedule() {
     const [days,setDays] = useState([1,2,3,4,5,6])
     return (
       <div>
-        weiofs
         {days.map(day =>{
-           return <TomorrowSchedule day={day} ></TomorrowSchedule>
+            <TomorrowSchedule day={day} ></TomorrowSchedule>
         })}
       </div>
     );
