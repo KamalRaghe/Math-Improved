@@ -17,7 +17,7 @@ export default function TomorrowSchedule({day}) {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric',
-            }).format(new Date(Date.now() + 86400000))}
+            }).format(new Date(Date.now() + 86400000*day))}
         </h2>
         <div className="grid grid-cols-2 gap-4">
           {hours.map((hour) => (
