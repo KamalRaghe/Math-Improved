@@ -1,5 +1,4 @@
 
-import React from 'react';
 export default function TomorrowSchedule() {
     const hours = Array.from({ length: 8 }, (_, i) => i + 10); // [10, 11, ..., 17]
   
@@ -27,5 +26,18 @@ export default function TomorrowSchedule() {
       </div>
     );
   }
- 
+  💡 Usage
+  Import and use it in any page or layout:
   
+  jsx
+  Copy
+  Edit
+  import TomorrowSchedule from '@/components/TomorrowSchedule';
+  
+  export default function HomePage() {
+    return (
+      <main className="min-h-screen p-8">
+        <TomorrowSchedule />
+      </main>
+    );
+  }
