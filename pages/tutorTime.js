@@ -26,18 +26,3 @@ export default function TomorrowSchedule() {
       </div>
     );
   }
-  💡 Usage
-  Import and use it in any page or layout:
-  
-  jsx
-  Copy
-  Edit
-  import TomorrowSchedule from '@/components/TomorrowSchedule';
-  
-  export default function HomePage() {
-    return (
-      <main className="min-h-screen p-8">
-        <TomorrowSchedule />
-      </main>
-    );
-  }
