@@ -4,7 +4,7 @@ export default function TomorrowSchedule() {
   
     const handleClick = (hour) => {
       const tomorrow = new Date();
-      tomorrow.setDate(tomorrow.getDate() + 1);
+      tomorrow.setDate(tomorrow.getDate() + 6);
       tomorrow.setHours(hour, 0, 0, 0);
       console.log('Scheduled Time:', tomorrow.toString());
     };
