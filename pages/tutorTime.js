@@ -3,9 +3,8 @@ import React from 'react';
 export default function DateTimeButton() {
   const handleClick = () => {
     const now = new Date();
-    const Tom =  + 1000*60*60*24;
+    const Tom = 
     console.log('today', now.toString());
-    console.log("tom",Tom.toString())
   };
 
   return (
