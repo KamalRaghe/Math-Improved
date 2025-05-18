@@ -5,7 +5,7 @@ export default function Schedule() {
     return (
       <div>
         {days.map(day =>{
-            <TomorrowSchedule day={day} ></TomorrowSchedule>
+          return  <TomorrowSchedule day={day} ></TomorrowSchedule>
         })}
       </div>
     );
