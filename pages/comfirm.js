@@ -3,6 +3,15 @@ import React, { useState, useEffect } from 'react';
 export default function Confirm() {
     const [formattedDate, setFormattedDate] = useState("");
 
+     function set(){
+      const day = window.localStorage.getItem('tutorTime')
+      const usersRef = ref(rdb, `tutorTime`)
+        const AddList = push(usersRef)
+        set(AddList,{
+           user: day,
+        })
+    }
+
     useEffect(() => {
         const storedDate = window.localStorage.getItem('tutorTime');
         if (storedDate) {
@@ -24,8 +33,9 @@ export default function Confirm() {
         <div className='center column' style={{height:"100vh"}}>
             <h2>{formattedDate || "Loading date..."}</h2>
             <div>
-                <button>No</button>
-                <button>Yes</button>
+                <button className='red' >No</button>
+                <span style={{padding:"10px"}} ></span>
+                <button className='green' >Yes</button>
             </div>
         </div>
     );

@@ -5,14 +5,6 @@ import { useRouter } from "next/router";
 export default function TomorrowSchedule({day}) {
     const hours = Array.from({ length: 8 }, (_, i) => i + 10); // [10, 11, ..., 17]
     const router = useRouter()
-    function set(){
-      const day = window.localStorage.getItem('tutorTime')
-      const usersRef = ref(rdb, `tutorTime`)
-        const AddList = push(usersRef)
-        set(AddList,{
-           user: day,
-        })
-    }
     
     const handleClick = (hour) => {
       const tomorrow = new Date();
