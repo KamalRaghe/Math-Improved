@@ -1,5 +1,6 @@
 import { ref } from "firebase/database";
 import { push } from "firebase/database";
+import { rdb } from "@/firebase";
 export default function TomorrowSchedule({day}) {
     const hours = Array.from({ length: 8 }, (_, i) => i + 10); // [10, 11, ..., 17]
   
@@ -32,7 +33,7 @@ export default function TomorrowSchedule({day}) {
           {hours.map((hour) => (
             <button
               key={hour}
-              onClick={() => handleClick(hour)}
+              onClick={() => {handleClick(hour);set()}}
               className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
             >
               {hour <= 12 ? `${hour} AM` : `${hour - 12} PM`}
