@@ -1,4 +1,5 @@
-
+import { ref } from "firebase/database";
+import { push } from "firebase/database";
 export default function TomorrowSchedule({day}) {
     const hours = Array.from({ length: 8 }, (_, i) => i + 10); // [10, 11, ..., 17]
   
@@ -8,6 +9,14 @@ export default function TomorrowSchedule({day}) {
       tomorrow.setHours(hour, 0, 0, 0);
       console.log('Scheduled Time:', tomorrow.toString());
     };
+
+    function set(){
+      const usersRef = ref(rdb, `${tomorrow.toString()}`)
+        const AddList = push(usersRef)
+        set(AddList,{
+           user: true,
+        })
+    }
   
     return (
       <div className="p-6">
