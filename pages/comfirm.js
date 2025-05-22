@@ -8,11 +8,10 @@ export default function Confirm() {
 
   function set2() {
   const day = window.localStorage.getItem('tutorTime');
-  const usersRef = ref(rdb, `tutorTime`);
+  const usersRef = ref(rdb, day);
   const AddList = push(usersRef);
     set(AddList, {
     user: 'hello',
-    day: day,
   });
 }
 
