@@ -42,6 +42,5 @@ export default function TomorrowSchedule({day}) {
         </div>
           
       </div>
-      </div>
     );
   }
