@@ -11,11 +11,8 @@ export default function TomorrowSchedule({day}) {
       console.log('Scheduled Time:', tomorrow.toString());
     };
 
-    const set = (hour) => {
-      const tomorrow = new Date();
-      tomorrow.setDate(tomorrow.getDate() + day);
-      tomorrow.setHours(hour, 0, 0, 0);
-      const usersRef = ref(rdb, `${tomorrow.toString()}\`)
+    function set(){
+      const usersRef = ref(rdb, `${tomorrow.toString()}`)
         const AddList = push(usersRef)
         set(AddList,{
            user: true,
