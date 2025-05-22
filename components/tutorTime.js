@@ -16,7 +16,7 @@ export default function TomorrowSchedule({day}) {
       const tomorrow = new Date();
       tomorrow.setDate(tomorrow.getDate() + day);
       tomorrow.setHours(hour, 0, 0, 0);
-      console.log('Scheduled Time:', tomorrow.toString());
+      window.localStorage.setItem('tutorTime', tomorrow.toString());
     };
 
     return (
