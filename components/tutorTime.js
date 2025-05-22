@@ -21,7 +21,7 @@ export default function TomorrowSchedule({day}) {
 
     return (
       <div>
-        <div>Hello</div>
+        
       <div className="p-6">
         <h2 className="text-xl font-semibold mb-4">
             {new Intl.DateTimeFormat('en-US', {
