@@ -21,10 +21,12 @@ export default function Confirm() {
     }, []);
 
     return (
-        <div>
+        <div className='center column' style={{height:"100vh"}}>
             <h2>{formattedDate || "Loading date..."}</h2>
-            <button>Yes</button>
-            <button>No</button>
+            <div>
+                <button>No</button>
+                <button>Yes</button>
+            </div>
         </div>
     );
 }
