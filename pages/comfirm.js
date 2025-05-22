@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ref } from "firebase/database";
 import { push } from "firebase/database";
 import { rdb } from "@/firebase";
+import { set } from 'firebase/database';
 export default function Confirm() {
     const [formattedDate, setFormattedDate] = useState("");
 
