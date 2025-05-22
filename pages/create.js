@@ -51,7 +51,6 @@ function App() {
                         window.localStorage.setItem('GameName',usersArray[i].data.user)
                     }
                 }
-                router.push('/Host')
             }
          }).catch((error)=>{ 
             console.error(error)
