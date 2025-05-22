@@ -1,10 +1,12 @@
 import { ref } from "firebase/database";
 import { push } from "firebase/database";
 import { rdb } from "@/firebase";
+import { useRouter } from "next/router";
 export default function TomorrowSchedule({day}) {
     const hours = Array.from({ length: 8 }, (_, i) => i + 10); // [10, 11, ..., 17]
-  
-    function set(day){
+    const router = useRouter()
+    function set(){
+      const day = window.localStorage.getItem('tutorTime')
       const usersRef = ref(rdb, `tutorTime`)
         const AddList = push(usersRef)
         set(AddList,{
@@ -16,6 +18,7 @@ export default function TomorrowSchedule({day}) {
       const tomorrow = new Date();
       tomorrow.setDate(tomorrow.getDate() + day);
       tomorrow.setHours(hour, 0, 0, 0);
+      router.push('/comfirm')
       window.localStorage.setItem('tutorTime', tomorrow.toString());
     };
 
