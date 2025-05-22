@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-
+import { ref } from "firebase/database";
+import { push } from "firebase/database";
+import { rdb } from "@/firebase";
 export default function Confirm() {
     const [formattedDate, setFormattedDate] = useState("");
 
@@ -35,7 +37,7 @@ export default function Confirm() {
             <div>
                 <button className='red' >No</button>
                 <span style={{padding:"10px"}} ></span>
-                <button className='green' >Yes</button>
+                <button className='green' onClick={set} >Yes</button>
             </div>
         </div>
     );

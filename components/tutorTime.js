@@ -1,6 +1,4 @@
-import { ref } from "firebase/database";
-import { push } from "firebase/database";
-import { rdb } from "@/firebase";
+
 import { useRouter } from "next/router";
 export default function TomorrowSchedule({day}) {
     const hours = Array.from({ length: 8 }, (_, i) => i + 10); // [10, 11, ..., 17]
