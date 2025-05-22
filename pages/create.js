@@ -28,6 +28,7 @@ function App() {
     function AddList(){
         setAdd(true)
         let Code = code.join('')
+        console.log(Code)
         window.localStorage.setItem('GameRoom', Code)
         let player = window.localStorage.getItem('uid')
         const usersRef = ref(rdb, `${Code}`)
@@ -43,6 +44,14 @@ function App() {
                     id,
                     data,
                 }))
+            
+                for(let i = 0; i < usersArray.length;i++){
+                    if(usersArray[i].data.user === account.title){
+                        window.localStorage.setItem('GameId',usersArray[i].id)
+                        window.localStorage.setItem('GameName',usersArray[i].data.user)
+                    }
+                }
+                router.push('/Host')
             }
          }).catch((error)=>{ 
             console.error(error)
