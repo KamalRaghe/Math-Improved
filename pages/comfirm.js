@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react"
+import React, { useState, useEffect } from 'react';
 
-export default function Comfirm(){
-   const [formattedDate, setFormattedDate] = useState("");
+export default function Confirm() {
+    const [formattedDate, setFormattedDate] = useState("");
 
     useEffect(() => {
         const storedDate = window.localStorage.getItem('tutorTime');
@@ -19,11 +19,12 @@ export default function Comfirm(){
             setFormattedDate(formatted);
         }
     }, []);
+
     return (
         <div>
-            <h2>{day}</h2>
+            <h2>{formattedDate || "Loading date..."}</h2>
             <button>Yes</button>
             <button>No</button>
         </div>
-    )
+    );
 }
