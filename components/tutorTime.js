@@ -34,7 +34,7 @@ export default function TomorrowSchedule({day}) {
           {hours.map((hour) => (
             <button
               key={hour}
-              onClick={() => {handleClick(hour);set()}}
+              onClick={() => {handleClick(hour)}}
               className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
             >
               {hour <= 12 ? `${hour} AM` : `${hour - 12} PM`}
