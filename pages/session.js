@@ -1,9 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { ref } from "firebase/database";
-import { push } from "firebase/database";
-import { rdb } from "@/firebase";
-import { set } from 'firebase/database';
-import { Router } from 'express';
 import { useRouter } from 'next/router';
 export default function Confirm() {
     const [formattedDate, setFormattedDate] = useState("");
@@ -13,6 +8,7 @@ export default function Confirm() {
 
     useEffect(() => {
         const storedDate = window.localStorage.getItem('tutorTime');
+        const check = window.localStorage.getItem('CheckTime');
         if (storedDate) {
             const date = new Date(storedDate);
             const formatted = date.toLocaleString(undefined, {
@@ -25,9 +21,9 @@ export default function Confirm() {
             });
             setFormattedDate(formatted);
         }
-        // if(date >= check){
-        //     router.push('/tutorTime')
-        // }
+        if(date >= check){
+            router.push('/tutorTime')
+        }
     }, []);
 
     return (
