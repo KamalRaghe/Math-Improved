@@ -72,9 +72,18 @@ export default function Schedule({ dayOffset }) {
     try {
       const result = await runTransaction(slotRef, (currentData) => {
         if (currentData === null) {
+         const formatted = day.toLocaleString(undefined, {
+            weekday: 'short',   // "Mon"
+            year: 'numeric',    // "2025"
+            month: 'short',     // "Jun"
+            day: 'numeric',     // "23"
+            hour: '2-digit',    // "10 AM"
+            minute: '2-digit',  // "00"
+});
           return {
             user: "anonymous", // Replace with real user info if you have auth
-            time: day.toISOString(),
+            time: formatted
+            
           };
         } else {
           return; // Abort, slot already booked
@@ -82,15 +91,18 @@ export default function Schedule({ dayOffset }) {
       });
 
       if (result.committed) {
+        console.log(timestamp-Date.now())
+        window.localStorage.setItem('timeTutor',timestamp)
         setMessage(`✅ You successfully booked ${hour <= 12 ? `${hour} AM` : `${hour - 12} PM`}`);
         setBookedHours((prev) => [...prev, hour]); // Update UI immediately
       } else {
         setMessage("❌ Sorry, this time slot is already booked.");
-        Router.reload
+        router.reload()
       }
     } catch (err) {
       console.error(err);
       setMessage("⚠️ Something went wrong while booking.");
+      router.reload()
     }
   };
 

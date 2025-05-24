@@ -105,13 +105,13 @@ export default function DoubleAdd(){
             {loaded && wrong && <Wrong/> }
             <div className="box column">
                <div className="row ">
-                    { loaded && num2 % num1 > 0 && <Choice big={true} size={'65px'}  value ={`${((num2-(num2 % num1))/num1)-num3[0]} R${(num2%num1)}`} answer ={`${((num2-(num2 % num1))/num1)} R${(num2%num1)}`} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-                    { loaded && num2 % num1 > 0 && <Choice big={true} size={'65px'}  value ={`${((num2-(num2 % num1))/num1)-num3[1]} R${(num2%num1)}`} answer ={`${((num2-(num2 % num1))/num1)} R${(num2%num1)}`} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-                    { loaded && num2 % num1 > 0 && <Choice big={true} size={'65px'}  value ={`${((num2-(num2 % num1))/num1)-num3[2]} R${(num2%num1)}`} answer ={`${((num2-(num2 % num1))/num1)} R${(num2%num1)}`} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && num2 % num1 > 0 && <Choice big={true} size={'75px'}  value ={`${((num2-(num2 % num1))/num1)-num3[0]} R${(num2%num1)}`} answer ={`${((num2-(num2 % num1))/num1)} R${(num2%num1)}`} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && num2 % num1 > 0 && <Choice big={true} size={'75px'}  value ={`${((num2-(num2 % num1))/num1)-num3[1]} R${(num2%num1)}`} answer ={`${((num2-(num2 % num1))/num1)} R${(num2%num1)}`} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && num2 % num1 > 0 && <Choice big={true} size={'75px'}  value ={`${((num2-(num2 % num1))/num1)-num3[2]} R${(num2%num1)}`} answer ={`${((num2-(num2 % num1))/num1)} R${(num2%num1)}`} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
                </div>
                <div className="row">
-                    { loaded && num2 % num1 > 0 && <Choice big={true} size={'65px'}  value ={`${((num2-(num2 % num1))/num1)-num3[3]} R${(num2%num1)}`} answer ={`${((num2-(num2 % num1))/num1)} R${(num2%num1)}`} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-                    { loaded && num2 % num1 > 0 && <Choice big={true} size={'65px'}  value ={`${((num2-(num2 % num1))/num1)-num3[4]} R${(num2%num1)}`} answer ={`${((num2-(num2 % num1))/num1)} R${(num2%num1)}`} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && num2 % num1 > 0 && <Choice big={true} size={'75px'}  value ={`${((num2-(num2 % num1))/num1)-num3[3]} R${(num2%num1)}`} answer ={`${((num2-(num2 % num1))/num1)} R${(num2%num1)}`} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && num2 % num1 > 0 && <Choice big={true} size={'75px'}  value ={`${((num2-(num2 % num1))/num1)-num3[4]} R${(num2%num1)}`} answer ={`${((num2-(num2 % num1))/num1)} R${(num2%num1)}`} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
                </div>
                <div className="row">
                     { loaded && num2 % num1 === 0 && <Choice  value ={((num2-(num2 % num1))/num1)-num3[0]} answer ={((num2-(num2 % num1))/num1)} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
