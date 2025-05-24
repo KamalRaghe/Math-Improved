@@ -7,10 +7,28 @@ import { Router } from 'express';
 import { useRouter } from 'next/router';
 export default function Confirm() {
     const [formattedDate, setFormattedDate] = useState("");
-    
+    const [date,setDate] = useState(Date.now())
+
     const router =  useRouter()
 
-   
+    useEffect(() => {
+        const storedDate = window.localStorage.getItem('tutorTime');
+        if (storedDate) {
+            const date = new Date(storedDate);
+            const formatted = date.toLocaleString(undefined, {
+                weekday: 'short',
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+            });
+            setFormattedDate(formatted);
+        }
+        // if(date >= check){
+        //     router.push('/tutorTime')
+        // }
+    }, []);
 
     return (
         <div className='center column' style={{height:"100vh"}}>
