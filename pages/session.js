@@ -21,9 +21,9 @@ export default function Confirm() {
             });
             setFormattedDate(formatted);
         }
-        if(date >= check){
-            router.push('/tutorTime')
-        }
+        // if(date >= check){
+        //     router.push('/tutorTime')
+        // }
     }, []);
 
     return (
