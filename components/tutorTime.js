@@ -95,7 +95,7 @@ export default function Schedule({ dayOffset }) {
         window.localStorage.setItem('CheckTime',timestamp)
         setMessage(`✅ You successfully booked ${hour <= 12 ? `${hour} AM` : `${hour - 12} PM`}`);
         setBookedHours((prev) => [...prev, hour]); // Update UI immediately
-        router.push('/comfirm')
+        router.push('/session')
       } else {
         setMessage("❌ Sorry, this time slot is already booked.");
         router.reload()
