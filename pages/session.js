@@ -21,7 +21,7 @@ export default function Confirm() {
             });
             setFormattedDate(formatted);
         }
-        if(date < check){
+        if(date >= check){
             router.push('/tutorTime')
         }
     }, []);
