@@ -92,7 +92,7 @@ export default function Schedule({ dayOffset }) {
 
       if (result.committed) {
         window.localStorage.setItem('tutorTime',timestamp)
-        window.localStorage.setItem('dayTutor', day)
+        
         setMessage(`✅ You successfully booked ${hour <= 12 ? `${hour} AM` : `${hour - 12} PM`}`);
         setBookedHours((prev) => [...prev, hour]); // Update UI immediately
       } else {
