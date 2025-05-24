@@ -33,12 +33,8 @@ export default function Confirm() {
 
     return (
         <div className='center column' style={{height:"100vh"}}>
+            <h1 className='center'>Your session is on</h1>
             <h2>{formattedDate || "Loading date..."}</h2>
-            <div>
-                <button className='red' >No</button>
-                <span style={{padding:"10px"}} ></span>
-                <button className='green' onClick={set2} >Yes</button>
-            </div>
         </div>
     );
 }
