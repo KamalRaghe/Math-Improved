@@ -5,18 +5,10 @@ import { rdb } from "@/firebase";
 import { set } from 'firebase/database';
 export default function Confirm() {
     const [formattedDate, setFormattedDate] = useState("");
-
-  function set2() {
-  const day = window.localStorage.getItem('tutorTime');
-  const usersRef = ref(rdb, day);
-  const AddList = push(usersRef);
-    set(AddList, {
-    user: 'hello',
-  });
-}
-
+    
     useEffect(() => {
         const storedDate = window.localStorage.getItem('tutorTime');
+        const check = window.localStorage.getItem('checkTime')
         if (storedDate) {
             const date = new Date(storedDate);
             const formatted = date.toLocaleString(undefined, {

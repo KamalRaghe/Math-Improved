@@ -92,6 +92,7 @@ export default function Schedule({ dayOffset }) {
 
       if (result.committed) {
         window.localStorage.setItem('tutorTime',day)
+        window.localStorage.setItem('CheckTime',timestamp)
         setMessage(`✅ You successfully booked ${hour <= 12 ? `${hour} AM` : `${hour - 12} PM`}`);
         setBookedHours((prev) => [...prev, hour]); // Update UI immediately
         router.push('/comfirm')
