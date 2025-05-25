@@ -4,7 +4,7 @@ export default function Discord() {
   const [username, setUsername] = useState("");
 
   const handleSubmit = () => {
-    console.log("Discord Username:", username);
+    window.localStorage.setItem("discord", username);
     // You can add validation or submission logic here
   };
 
@@ -15,7 +15,7 @@ export default function Discord() {
         placeholder="Discord username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-        style={{ padding: "0.5rem", marginBottom: "1rem", width: "250px" }}
+        style={{marginBottom: "1rem", width: "250px" }}
       />
       <button onClick={handleSubmit}>Enter</button>
     </div>
