@@ -6,20 +6,23 @@ export default function Discord() {
 
   const handleSubmit = () => {
     window.localStorage.setItem("discord", username);
-    setEnter(true)
-    // You can add validation or submission logic here
+    if(username){
+        setEnter(true)
+    }// You can add validation or submission logic here
   };
 
   return (
     <div className="center" style={{ height: "100vh", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
-      {<input
+      {!enter  && <input
         type="text"
         placeholder="Discord username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         style={{marginBottom: "1rem", width: "250px" }}
       />}
-      {<button onClick={handleSubmit}>Enter</button>}
+      {enter && <img style={{scale:"0.1"}} src={'discord.webp'} ></img>}
+      {enter && <div></div>}
+      {!enter && <button onClick={handleSubmit}>Enter</button>}
     </div>
   );
 }
