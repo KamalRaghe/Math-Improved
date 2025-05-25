@@ -20,8 +20,6 @@ export default function Discord() {
         onChange={(e) => setUsername(e.target.value)}
         style={{marginBottom: "1rem", width: "250px" }}
       />}
-      {enter && <img style={{scale:"0.1"}} src={'discord.webp'} ></img>}
-      {enter && <div>Send a friend request to kamal#0032</div>}
       {!enter && <button onClick={handleSubmit}>Enter</button>}
     </div>
   );
