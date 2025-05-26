@@ -81,7 +81,8 @@ export default function Schedule({ dayOffset }) {
             minute: '2-digit',  // "00"
 });
           return {
-            user: window.localStorage.getItem('User'), // Replace with real user info if you have auth
+            user: window.localStorage.getItem('User'),
+            discord: window.localStorage.getItem('discord') , // Replace with real user info if you have auth
             time: formatted
             
           };
