@@ -20,6 +20,7 @@ export default function Discord() {
         onChange={(e) => setUsername(e.target.value)}
         style={{marginBottom: "1rem", width: "250px" }}
       />}
+      {enter && <div>Send a friend request to <span style={{fontWeight:"bold"}} >kamal#0032</span></div>}
       {!enter && <button onClick={handleSubmit}>Enter</button>}
     </div>
   );
