@@ -22,7 +22,9 @@ export default function Discord() {
       />}
       {enter && <div className="font" >Send a friend request to <span style={{fontWeight:"bold"}} >kamal#0032</span></div>}
       {enter && <br></br>}
-      {enter && <div><button className="choice-stretch" >Continue</button></div>}
+      {enter && <div><button className="choice-stretch" onClick={()=>{
+        router.push('/tutorTime')
+      }} >Continue</button></div>}
       {!enter && <button onClick={handleSubmit}>Enter</button>}
     </div>
   );
