@@ -1,8 +1,10 @@
+import { useRouter } from "next/router";
 import { useState } from "react";
 
 export default function Discord() {
   const [username, setUsername] = useState("");
   const [enter,setEnter] = useState(false)
+  const router = useRouter()
 
   const handleSubmit = () => {
     window.localStorage.setItem("discord", username);
@@ -22,9 +24,9 @@ export default function Discord() {
       />}
       {enter && <div className="font" >Send a friend request to <span style={{fontWeight:"bold"}} >kamal#0032</span></div>}
       {enter && <br></br>}
-      {enter && <div><button className="choice-stretch" onClick={()=>{
+      {enter && <button className="choice-stretch" onClick={()=>{
         router.push('/tutorTime')
-      }} >Continue</button></div>}
+      }} >Continue</button>}
       {!enter && <button onClick={handleSubmit}>Enter</button>}
     </div>
   );
