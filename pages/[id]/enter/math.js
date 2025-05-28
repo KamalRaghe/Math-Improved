@@ -72,8 +72,9 @@ export default function Math(){
             {check && <FeedBack close={()=>{setCheck(false)}} />}
             <div style={{display:"flex",justifyContent:'space-between'}} >
                 <h1 style={{marginLeft:'15px',paddingLeft:'15px',paddingTop:'15px', borderBottom: '2px solid black',width: '105px',height:"37px",position:"relative",bottom:"-10px"}} >Match</h1>
-                <div>
-                    <button className="sub-topic" onClick={()=>{setCheck(true)}} style={{marginRight:"5px"}} >Feedback</button><button className="sub-topic" onClick={()=>{setCheck(true)}} style={{marginRight:"5px"}} >Session</button>
+                <div className="center" >
+                    <button className="sub-topic" onClick={()=>{setCheck(true)}} style={{marginRight:"5px"}} >Feedback</button>
+                    <button className="sub-topic" onClick={()=>{setCheck(true)}} style={{marginRight:"5px"}} >Session</button>
                 </div>
             </div>
             <button onClick={()=>{router.push('/create')}} className="sub-topic green" style={{padding:"8px 43px",position:"relative",bottom:"55px"}} >Host</button>
