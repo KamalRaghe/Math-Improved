@@ -137,7 +137,7 @@ export default function Schedule({ dayOffset }) {
                 cursor: "pointer",
               }}
             >
-              {`${hour - 12} PM`}
+              {hour < 12 ? `${hour} PM` : `${hour - 12} PM`}
             </button>
           ))}
 
