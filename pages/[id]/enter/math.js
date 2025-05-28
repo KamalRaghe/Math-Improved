@@ -73,6 +73,8 @@ export default function Math(){
             <div style={{display:"flex",justifyContent:'space-between'}} >
                 <h1 style={{marginLeft:'15px',paddingLeft:'15px',paddingTop:'15px', borderBottom: '2px solid black',width: '105px',position:"relative",bottom:"30px"}} >Match</h1>
                 <button className="sub-topic" onClick={()=>{setCheck(true)}} style={{marginRight:"5px"}} >Feedback</button>
+                <br></br>
+                <button className="sub-topic" onClick={()=>{setCheck(true)}} style={{marginRight:"5px"}} >Feedback</button>
             </div>
             <button onClick={()=>{router.push('/create')}} className="sub-topic green" style={{padding:"8px 43px",position:"relative",bottom:"55px"}} >Host</button>
             <button onClick={()=>{router.push('/Enter')}} className="sub-topic green" style={{padding:"8px 43px",position:"relative",bottom:"55px"}} >Join</button>
