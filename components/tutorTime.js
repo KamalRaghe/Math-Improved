@@ -10,7 +10,7 @@ export default function Schedule({ dayOffset }) {
 
   const router = useRouter()
 
-  const hours = Array.from({ length: 8 }, (_, i) => i + 10); // 10 AM to 5 PM
+  const hours = Array.from({ length: 8 }, (_, i) => i + 12); // 10 AM to 5 PM
 
   // Calculate day start & end timestamps
   const getDayStartTimestamp = () => {
