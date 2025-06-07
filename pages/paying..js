@@ -37,9 +37,9 @@ export default function Home() {
           });
       };
   
-      // useEffect(()=>{
-      //   getCheckoutUrl()
-      // },[])
+      useEffect(()=>{
+        getCheckoutUrl()
+      },[])
       return(
         <div className='container double center'>
             <div>
