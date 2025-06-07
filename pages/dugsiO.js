@@ -38,9 +38,7 @@ export default function Home() {
       };
       return(
         <div className='container double center'>
-            <div>
-              Loading...
-            </div>
+            
         </div>
       )
 
