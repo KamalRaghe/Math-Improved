@@ -38,7 +38,7 @@ export default function Home() {
       };
       return(
         <div className='container double center'>
-            
+            <button onClick={getCheckoutUrl} >Click me</button>
         </div>
       )
 
