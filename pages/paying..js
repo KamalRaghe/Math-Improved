@@ -21,7 +21,7 @@ export default function Home() {
         );
       
         const docRef = await addDoc(checkoutSessionRef, {
-          price: 'price_1OtfM3DlcBixp6qNRoKw4xAD',
+          price: 'price_1OtfM3DlcBixp6qNRoKw4xAD', // change this
           success_url: window.location.origin,
           cancel_url: window.location.origin,
         });
