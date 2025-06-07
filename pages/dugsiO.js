@@ -36,10 +36,6 @@ export default function Home() {
             }
           });
       };
-  
-      useEffect(()=>{
-        
-      },[])
       return(
         <div className='container double center'>
             <div>
