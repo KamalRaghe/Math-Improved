@@ -45,7 +45,7 @@ export default function Home() {
             <div>
               Loading...
             </div>
-            <button>Vdvds</button>
+            <button onClick={getCheckoutUrl}>Vdvds</button>
         </div>
       )
 
