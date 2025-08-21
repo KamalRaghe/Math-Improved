@@ -38,7 +38,7 @@ export default function Math(){
     },[])
 
     return (
-        <div className="beige center column " style={{padding:"20px",paddingBottom:"50px",backgroundColor:'beige'}}>
+        <div className="beige center column " style={{padding:"20px",paddingBottom:"50px"}}>
             <img className="FrontPage" src={"/intro.jpeg"} ></img>
             <div><button className="sub-topic" onClick={()=>{router.push('/Trial')}} >Start</button></div>
         </div>     

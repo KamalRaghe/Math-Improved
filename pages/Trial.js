@@ -46,7 +46,7 @@ export default function Math(){
                     <div ><button className="sub-topic" style={{position:"relative",bottom:"40px"}} onClick={()=>{setAbout(true);setNone('none'),setFlex('none')}} >About us</button></div>
                 </div>
             </div>
-            <div className="column" style={{display:none,paddingBottom:"30px"}} onClick={close} >
+            <div className="column" style={{display:none,paddingBottom:"20px"}} onClick={close} >
                 {loaded && <button onClick={() => {setCount(1)}} className="topic">Addition</button >}
                 { count === 1 && <Link href= {`/MIT/singleAdd`}><button className="sub-topic zoom">Single digit Addition</button></Link>}
                 { count === 1 && <Link href= {`/MIT/doubleAdd`}><button className="sub-topic zoom">Double digit Addition</button></Link>}
