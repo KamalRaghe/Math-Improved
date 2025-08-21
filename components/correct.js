@@ -1,7 +1,7 @@
 function Correct(){
     return(
         <div className='center beige absolute' style={{zIndex:"100",width:"100vw"}} >
-                <img className="check" style={{borderRadius:"50%",width:'500px',height:"500px",position:"absolute",backgroundColor:"transparent"}} src={'/Green.png'} alt="Correct" />
+                <img className="check" style={{borderRadius:"50%",width:'500px',height:"500px",position:"absolute",backgroundColor:"cyan"}} src={'/Green.png'} alt="Correct" />
             </div> 
     )
      
