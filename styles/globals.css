@@ -1,6 +1,78 @@
+:root {
+  --sky-top: #6ec6ff;
+  --sky-mid: #a0e1ff;
+  --sky-bot: #e6f7ff;
+  --speed-1: 120s;
+  --speed-2: 70s;
+  --speed-3: 40s;
+}
 
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
 
+.sky {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, var(--sky-top), var(--sky-mid) 60%, var(--sky-bot));
+  z-index: -1; /* keep behind everything */
+}
 
+/* cloud layers */
+.clouds {
+  position: absolute;
+  inset: 0;
+  background-repeat: repeat-x;
+  will-change: background-position;
+}
+
+.layer-1 {
+  background-image: var(--cloud-svg-1);
+  background-size: 700px 220px;
+  background-position: 0 25%;
+  opacity: 0.75;
+  animation: drift var(--speed-1) linear infinite, bob 14s ease-in-out infinite alternate;
+}
+
+.layer-2 {
+  background-image: var(--cloud-svg-2);
+  background-size: 800px 240px;
+  background-position: 0 55%;
+  opacity: 0.8;
+  animation: drift var(--speed-2) linear infinite, bob 11s ease-in-out infinite alternate;
+}
+
+.layer-3 {
+  background-image: var(--cloud-svg-3);
+  background-size: 900px 260px;
+  background-position: 0 75%;
+  opacity: 0.95;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.06));
+  animation: drift var(--speed-3) linear infinite, bob 9s ease-in-out infinite alternate;
+}
+
+/* animations */
+@keyframes drift {
+  from { background-position-x: 0; }
+  to   { background-position-x: -2000px; }
+}
+@keyframes bob {
+  from { transform: translateY(-1.2vh); }
+  to   { transform: translateY(1.2vh); }
+}
+@keyframes tilt {
+  from { transform: rotate(-0.2deg) scale(1.02); }
+  to   { transform: rotate(0.2deg) scale(1.02); }
+}
+
+.tilt {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  animation: tilt 7s ease-in-out infinite alternate;
+}
 
 .container{
   display: flex;
