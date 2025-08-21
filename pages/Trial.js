@@ -31,7 +31,7 @@ export default function Math(){
     },[])
 
     return (
-        <div className="beige" style={{padding:"20px",paddingBottom:"50px",backgroundColor:'beige'}}>
+        <div className="beige" style={{padding:"20px",paddingBottom:"50px"}}>
             {/* {check2 && <Sign2></Sign2>}  */}
             {check && <FeedBack close={()=>{setCheck(false),setNone(''),setFlex('flex')}} />}
             {about &&<AboutUs close={()=>{setAbout(false),setNone(''),setFlex('flex')}} />}
@@ -46,7 +46,7 @@ export default function Math(){
                     <div ><button className="sub-topic" style={{position:"relative",bottom:"40px"}} onClick={()=>{setAbout(true);setNone('none'),setFlex('none')}} >About us</button></div>
                 </div>
             </div>
-            <div className="column" style={{display:none}} onClick={close} >
+            <div className="column" style={{display:none,paddingBottom:"30px"}} onClick={close} >
                 {loaded && <button onClick={() => {setCount(1)}} className="topic">Addition</button >}
                 { count === 1 && <Link href= {`/MIT/singleAdd`}><button className="sub-topic zoom">Single digit Addition</button></Link>}
                 { count === 1 && <Link href= {`/MIT/doubleAdd`}><button className="sub-topic zoom">Double digit Addition</button></Link>}
