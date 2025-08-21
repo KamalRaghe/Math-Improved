@@ -611,6 +611,10 @@
   } 
   100% {transform: scale(1)}}
 
+.beige{
+  background-color: beige;
+  height: 90vh;  
+}
 
 .sb{
   justify-content: space-between;
