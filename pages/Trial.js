@@ -37,7 +37,7 @@ export default function Math(){
             {about &&<AboutUs close={()=>{setAbout(false),setNone(''),setFlex('flex')}} />}
             <div style={{display:flex,justifyContent:"space-between",width:"100vw",height:"180px"}}>
                 <div>
-                    <div className="relative" style={{fontSize:"70px",top:"20px",color:'navy',padding:"0px"}} >Math</div>
+                    <div className="relative" style={{display:"flex",justifyContent:"start",fontSize:"70px",top:"20px",color:'navy',padding:"0px"}} >Math</div>
                     <div className="relative" style={{fontSize:"70px",color:'purple',paddingBottom:"20px"}} >Improve</div>      
                 </div>
                 <div className=" center column relative" style={{marginLeft:"50px",width:"300px",justifyContent:"end",top:"50px"}}>
