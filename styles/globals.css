@@ -1,5 +1,10 @@
 :root{
-  background-color: beige;
+  --sky-top: #6ec6ff;
+--sky-mid: #a0e1ff;
+--sky-bot: #e6f7ff;
+--speed-1: 120s; /* far clouds (slow) */
+--speed-2: 70s; /* mid clouds */
+--speed-3: 40s; /* near clouds (fast) */
 }
 
 
