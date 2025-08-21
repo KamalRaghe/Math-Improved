@@ -68,7 +68,7 @@ export default function Math(){
     },[])
 
     return (
-        <div style={{paddingBottom:"50px",height:"300vh",width:"96%"}} onClick={close} >
+        <div style={{width:"96%"}} onClick={close} >
             {check && <FeedBack close={()=>{setCheck(false)}} />}
             <div style={{display:"flex",justifyContent:'space-between'}} >
                 <h1 style={{marginLeft:'15px',paddingLeft:'15px',paddingTop:'15px', borderBottom: '2px solid black',width: '105px',height:"37px",position:"relative",bottom:"-10px"}} >Match</h1>
