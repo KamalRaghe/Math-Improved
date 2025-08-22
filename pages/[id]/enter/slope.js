@@ -102,7 +102,7 @@ export default function DoubleAdd(){
             <div style={{width:"340px"}}>
                 <div className="double center column ">
                     <div>Find the slope</div>
-                    {loaded && <div>({num1},{num2})<span className="hide" >0</span>({num4},{num5})</div>}  
+                    {loaded && <div className="center" >({num1},{num2})<div className="hide" style={{width:"10px"}} ></div>({num4},{num5})</div>}  
                 </div>
             
             </div>

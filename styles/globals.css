@@ -399,11 +399,14 @@ body::-webkit-scrollbar {
 .Help{
   position: absolute;
   z-index: 10;
-  background-color: silver;
+  background-color: black;
   border: 10px solid gold;
   width: 350px;
   border-radius: 20px;
   height: 500px;
+  background-image:
+    radial-gradient(white 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
 .timeout{
@@ -713,7 +716,7 @@ body::-webkit-scrollbar {
 }
 
 .hide{
-  color: transparent;
+  color: #a0e1ff;
 }
 
 .hideline{
