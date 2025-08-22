@@ -404,9 +404,20 @@ body::-webkit-scrollbar {
   width: 350px;
   border-radius: 20px;
   height: 500px;
-  background-image:
-    radial-gradient(white 1px, transparent 1px);
-  background-size: 20px 20px;
+  box-shadow: 
+    50px 100px white,
+    120px 200px white,
+    300px 80px white,
+    400px 150px white,
+    600px 220px white,
+    800px 90px white,
+    950px 300px white,
+    1100px 50px white,
+    1250px 180px white,
+    1400px 250px white,
+    1600px 120px white,
+    1750px 200px white,
+    1900px 60px white;
 }
 
 .timeout{
