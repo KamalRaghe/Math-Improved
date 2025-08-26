@@ -2,6 +2,10 @@
   "name": "mathimprove",
   "version": "0.1.0",
   "private": true,
+   "appId": "com.mathimprove.app",
+  "appName": "MathImprove",
+  "webDir": "out",
+  "bundledWebRuntime": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
