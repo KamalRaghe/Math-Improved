@@ -2,6 +2,10 @@
   "appId": "com.kamalraghe.mathimproved",
   "appName": "Math Improved",
   "webDir": "dist",
+   "server": {
+    "url": "https://math-improved.vercel.app",
+    "cleartext": false
+  },
   "plugins": {
     "SplashScreen": {
       "launchAutoHide": false
