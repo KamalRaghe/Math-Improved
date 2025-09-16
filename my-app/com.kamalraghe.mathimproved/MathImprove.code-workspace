@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"name": "MathImprove",
+			"path": "../../.."
+		},
+		{
+			"path": "../../../../Spdy"
+		}
+	],
+	"settings": {
+		"cSpell.words": [
+			"Plotly"
+		],
+		"liveServer.settings.multiRootWorkspaceName": "portflio"
+	}
+}
