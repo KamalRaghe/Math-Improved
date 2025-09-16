@@ -1,0 +1,10 @@
+{
+  "appId": "com.kamalraghe.mathimproved",
+  "appName": "Math Improved",
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": false
+    }
+  }
+}
