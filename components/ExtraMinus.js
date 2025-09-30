@@ -67,7 +67,7 @@ function ExtraMinus({close, num1 , num2}){
     mix()
    },[])
         return(
-           <div className="Help" style={{zIndex:'20',border:'10px solid yellow'}}>
+           <div className="Help" >
                 {extra && <HelpMinus close={Extra} num1 ={(ten+number1[count])%20} num2 = {number2[count]%10} />}
                 <div className='cancel' style={{width:"100%"}} ><button className='cancel-btn' onClick = {close}>X</button></div>
                 <span className='center'>{num1%10 + ten< num2%10 && !step2 && <button className='carry absolute Red center' style={{fontSize:"30px",left:'145px',bottom:"450px"}} onClick={click}>Click</button>}</span>
