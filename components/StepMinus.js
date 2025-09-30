@@ -68,7 +68,7 @@ function StepMinus({close, num1 , num2}){
     mix()
    },[])
         return(
-           <div className="Help" style={{zIndex:'20',border:'10px solid orange'}}>
+           <div className="Help" >
                 {extra && (number1[count] >= 10 || number2[count] >= 10) && <ExtraMinus close={Extra} num1 ={number1[count]+ten} num2 = {number2[count]}/>}
                {extra && number2[count] < 10 && number1[count] < 10 && <HelpMinus close={Extra} num1 ={number1[count]+ten} num2 = {number2[count]} />}
                <div className='cancel' style={{width:"100%"}} ><button className='cancel-btn' onClick = {close}>X</button></div>
