@@ -1,6 +1,6 @@
 export default function HelpDivision({num1,num2,num3,close}){
     return (
-        <div className="Help" style={{border:'10px solid yellow'}} >
+        <div className="Help" >
         {extra && sign == '-' && number1 <= 9 && <HelpMinus close={Extra} num1 ={number1} num2 = {number2}/>}
         {extra && sign == '-' && number1 > 9 && <StepMinus close={Extra} num1 ={number1} num2 = {number2} />}
         {extra && sign == 'x' && <HelpTimes close={Extra} num1 ={number2} num2 = {number1}/>}
