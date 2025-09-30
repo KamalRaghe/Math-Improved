@@ -399,7 +399,7 @@ body::-webkit-scrollbar {
 .Help{
   position: absolute;
   z-index: 10;
-  background-color: lightgray;
+   background: linear-gradient(to bottom, #e6f4ff, #cce7ff);
   border: 10px solid gold;
   width: 350px;
   border-radius: 20px;
