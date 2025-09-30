@@ -399,7 +399,7 @@ body::-webkit-scrollbar {
 .Help{
   position: absolute;
   z-index: 10;
-  background-color: black;
+  background-color: lightgray;
   border: 10px solid gold;
   width: 350px;
   border-radius: 20px;
