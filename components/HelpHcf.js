@@ -71,7 +71,7 @@ export default function HelpHcf({num1,num2,close}){
   },[num1])
 
   return(
-      <div className="Help" style={{border: '10px solid yellow'}} >
+      <div className="Help"  >
         <div className='cancel sb' style={{height:'50px'}} ><button className="choice red" onClick={close} >Close</button><button className='cancel-btn hide'  >X</button></div>
         <div className="sb">
           {(count1.length <= 12 || count4.length <= 12) && <div style={{height:'30px'}}></div>}
