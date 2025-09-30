@@ -399,13 +399,13 @@ body::-webkit-scrollbar {
 .Help{
   position: absolute;
   z-index: 10;
-   background: #ffffff;
-  border-radius: 50% 50% 40% 40% / 60% 60% 40% 40%; /* cloud-like base shape */
+   background: #fff;
+  border-radius: 50% 50% 40% 40% / 60% 60% 40% 40%;
   box-shadow: 
-    -60px -20px 0 0 #ffffff,
-    -30px -40px 0 0 #ffffff,
-    30px -40px 0 0 #ffffff,
-    60px -20px 0 0 #ffffff; 
+    -60px -20px 0 0 #fff,
+    -30px -40px 0 0 #fff,
+    30px -40px 0 0 #fff,
+    60px -20px 0 0 #fff; 
   width: 350px;
   border-radius: 20px;
   height: 500px;
