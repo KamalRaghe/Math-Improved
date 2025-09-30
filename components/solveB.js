@@ -55,7 +55,7 @@ export default function SolveB({num1,num2,slope,close}){
     },[x,y,m])
 
     return (
-        <div className="Help" style={{zIndex:'50',border:"10px solid orange"}}>
+        <div className="Help" >
              {extra && step === 1 && <HelpTimes close={Extra} num1 ={Q1} num2 = {Q2}/>}
              {extra && step === 0 && <Algebra1 num1 = {m*num1} num2 = {y-(num1*m)} close={Extra}></Algebra1> }
             <div className='cancel' style={{width:"100%",bottom:'40px',margin:"0px"}} ><button className='cancel-btn' onClick = {close}>X</button></div>
