@@ -77,7 +77,7 @@ export default function HelpDiv({num1,num2,close,num3}){
     },[done])
 
     return (
-        <div className="Help" style={{zIndex:'30', border:'10px solid red'}}>
+        <div className="Help">
         <button className="choice red" onClick={close} >Close</button>
         <br></br>
         <br></br>

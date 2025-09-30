@@ -1,6 +1,6 @@
 export default function HelpSquare({num1,close}){
     return (
-        <div className="Help" style={{border:'10px solid orange'}}>
+        <div className="Help">
             <div className='cancel'><button className='cancel-btn' onClick = {close}>X</button></div>
             <div style={{display:'flex'}}>
                 <div className="column" style={{width:'50%'}}>

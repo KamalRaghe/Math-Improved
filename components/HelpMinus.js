@@ -3,7 +3,7 @@ import { useState } from "react"
 function HelpMinus({num1,num2,close}){
     const [faded, setFaded] = useState("0.2")
     return(
-        <div className="Help" style={{zIndex:'30', border:'10px solid red'}}>
+        <div className="Help">
             <div className="center" style={{margin: '30px', marginTop: '140px'}}><div className="double">{num1} - {num2} =</div><button className="choice red" onClick={close} >Close</button></div>
             <div style={{margin: "10px", display:"flex"}}>
                 {num2 >= 1 && <div className="circle red font center" style={{opacity: faded }}>{1}</div>}{num1 >= 1 && num2 < 1 && <div className="circle red font center">{1}</div>}

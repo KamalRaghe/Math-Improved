@@ -1,6 +1,6 @@
 export default function HelpTimes({num1,num2,num3,close}){
     return (
-        <div className="Help" style={{zIndex:'30', border:'10px solid red'}}>
+        <div className="Help">
             <button className="choice red" onClick={close} >Close</button>
             <br></br>
             <br></br>
