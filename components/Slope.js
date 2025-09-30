@@ -67,7 +67,7 @@ function Slope({close, num1 , num2 , num4 , num5}){
       }
    },[x1,x2,y1,y2])
         return(
-           <div className="Help" style={{zIndex:'20', border:'10px solid orange'}}>
+           <div className="Help" style={{zIndex:'20'}}>
                 {extra && help && num5 -num2 < num4 - num1 && <Question1 num1={num5-num2} num2={num4-num1} close={()=>setHelp(false)} />}
                 {extra && help && num5-num2 > num4-num1 && <Improper whole={Math.floor((num5-num2)/(num4-num1))} num1={(num5-num2)%(num4-num1)} num2={num4-num1} close={()=>{setHelp(false)}}></Improper>}
                 { help && !extra && <HelpMinus num1={q1} num2={q2} close={()=>{setHelp(false)}}></HelpMinus>}
