@@ -399,8 +399,13 @@ body::-webkit-scrollbar {
 .Help{
   position: absolute;
   z-index: 10;
-   background: linear-gradient(to bottom, #e6f4ff, #cce7ff);
-   border: 6px solid #66b3ff; 
+   background: #ffffff;
+  border-radius: 50% 50% 40% 40% / 60% 60% 40% 40%; /* cloud-like base shape */
+  box-shadow: 
+    -60px -20px 0 0 #ffffff,
+    -30px -40px 0 0 #ffffff,
+    30px -40px 0 0 #ffffff,
+    60px -20px 0 0 #ffffff; 
   width: 350px;
   border-radius: 20px;
   height: 500px;

@@ -71,7 +71,7 @@ function StepAdd({close, num1 , num2}){
     mix()
    },[])
         return(
-           <div className="Help" style={{zIndex:'20', border:'10px solid orange'}}>
+           <div className="Help" >
                {extra && (number1[count] >= 10 || number2[count] >= 10) && <ExtraAdd close={Extra} num1 ={number1[count]+num5} num2 = {number2[count]}/>}
                {extra && number2[count] < 10 && number1[count] < 10 && <HelpAdd close={Extra} num1 ={number1[count]%10} num2 = {number2[count]%10} num3={num4} />}
                <div className='cancel absolute' style={{width:"100%"}} ><button className='cancel-btn' onClick = {close}>X</button></div>
