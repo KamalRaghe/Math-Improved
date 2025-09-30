@@ -71,7 +71,7 @@ export default function Question1({num1,num2,whole, close}){
 
     function Nothing(){}
     return (
-        <div className="Help" style={{border:'10px solid orange'}} >
+        <div className="Help"  >
             {extra && sign === 'and' && <HelpHcf close={Extra} num1 ={Q1} num2 = {Q2}/>}
             {extra && sign === '÷' && Q1 <= Q2*9 && <HelpDiv close={Extra} num1 ={Q1} num2 = {Q2}/>}
             {extra && sign === '÷' && Q1 > 99 && Q2 < 10  && <LongDivisionHelp close={Extra} num1 ={Q2} num2 = {Q1}/>}
