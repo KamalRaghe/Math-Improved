@@ -178,7 +178,7 @@ function Extra(){
     setExtra(false)
 }
      return(
-        <div className="Help" style={{zIndex:'20',border:'10px solid yellow'}}>
+        <div className="Help" style={{zIndex:'20'}}>
             {extra && (step1||step2||step3||step4) && <HelpTimes close={Extra} num1 ={number1[count]} num2 = {number2[count]} num3={num5 || num7 || num9} />}
             {extra && !(step1||step2||step3||step4||step7) && <HelpAdd close={Extra} num1 ={number1[count]} num2 = {number2[count]} num3={num8} />}
             {extra && step7 && number2[count] <= 9 && <HelpAdd close={Extra} num1 ={number1[count]} num2 = {number2[count]} num3={num8} />}
