@@ -1,7 +1,7 @@
 function HelpLcm({close, num1 , num2,answer}){
 
     return(
-        <div className="Help" style={{border: '10px solid yellow'}}>
+        <div className="Help">
             <div><button className="choice red" onClick={close} >Close</button></div>
             <div className="double center ">Multiple</div>
             <div className="center sb" style={{padding:'15px'}}>

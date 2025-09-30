@@ -119,7 +119,7 @@ export default function Improper({num1,num2,whole,close}){
 
     function Nothing(){}
     return (
-        <div className="Help" style={{border:'10px solid purple'}}>
+        <div className="Help" >
             {extra && sign === 'and' && <HelpHcf close={Extra} num1 ={Q1} num2 = {Q2}/>}
             {extra && sign === 'x' && <HelpTimes close={Extra} num1 ={Q2} num2 = {Q1}/>}
             {extra && sign === '-' && Q1 < 10 && Q2 < 10 && <HelpMinus close={Extra} num1 ={Q1} num2 = {Q2}/>}
