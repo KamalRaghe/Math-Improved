@@ -400,7 +400,7 @@ body::-webkit-scrollbar {
   position: absolute;
   z-index: 10;
    background: linear-gradient(to bottom, #e6f4ff, #cce7ff);
-  border: 10px solid gold;
+   border: 6px solid #66b3ff; 
   width: 350px;
   border-radius: 20px;
   height: 500px;
