@@ -1,7 +1,7 @@
 
 export default function HelpAdd({num1,num2,num3,close}){
     return(
-        <div className="Help column">
+        <div className="Help column" style={{position:"relative",bottom:"0px"}}>
             
             <div style={{margin: "10px",marginTop:'30px',marginLeft:'30px', display:"flex"}}>
                 {num3 == 1 && <div className="circle green font center">{1}</div>}

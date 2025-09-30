@@ -108,10 +108,10 @@ export default function DoubleAdd(){
                 <div className="box column">
                     <div className="double">{loaded && num1} + {loaded && num2} =</div>
                 </div>
+                {help && <HelpAdd num1 ={num1} num2={num2} close={close}/>}
                 <div className="box column" style={{height:"30px",paddingBottom:"20px"}}>
                     {count%5 != 0 && <button className="help" onClick={open}>help</button>}
                 </div>
-                {help && <HelpAdd num1 ={num1} num2={num2} close={close}/>}
                 {loaded && correct && <Correct></Correct>}
                 {loaded && wrong && <Wrong/> }
                 <div style={{height:"30px"}} ></div>
