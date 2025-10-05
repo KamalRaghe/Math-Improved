@@ -13,10 +13,10 @@ export default function DoubleAdd(){
     const [loaded, setLoaded] = useState(false)
     const [correct, setCorrect] = useState(false)
     const[ wrong, setWrong] = useState(false)
-    const [num1, setNum1] = useState(Math.ceil(Math.random()*9));
-    const [num2, setNum2] = useState(Math.ceil(Math.random()*9));
-    const [num5, setNum5] = useState(Math.ceil(Math.random()*9));
-    const [num4, setNum4] = useState(Math.ceil(Math.random()*9));
+    const [num1, setNum1] = useState(Math.ceil(Math.random()*8+1));
+    const [num2, setNum2] = useState(Math.ceil(Math.random()*8+1));
+    const [num5, setNum5] = useState(Math.ceil(Math.random()*8+1));
+    const [num4, setNum4] = useState(Math.ceil(Math.random()*8+1));
     const [num1E, setNum1E] = useState(Math.ceil(Math.random()*8+1));
     const [num2E, setNum2E] = useState(Math.ceil(Math.random()*8+1));
     const [num5E, setNum5E] = useState(Math.ceil(Math.random()*8+1));
@@ -104,7 +104,7 @@ export default function DoubleAdd(){
             <div className=" box">
                 <div className="double center ">{loaded && num1}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{num1E}</span>
                 <span style={{padding:"4px"}} className="double center" >+</span>
-                <div className="double center ">{loaded && num2}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{num2E}</span>
+                <div className="double center ">{loaded && num2}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{num8+1E}</span>
                 <span style={{padding:"4px"}} className="double center" >+</span>
                 <div className="double center ">{loaded && num5}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{num5E}</span>
                 <span style={{padding:"4px"}} className="double center" >+</span>
