@@ -188,7 +188,7 @@ function sup(num) {
   const map = { 1: "", 2: "²", 3: "³", 4: "⁴", 5: "⁵" };
   return (
     <span style={{ fontSize: "40px", position: "relative", top: "-8px" }}>
-      {map[num] || `${num}`}
+      {map[num] || map[num]}
     </span>
   );
 }
