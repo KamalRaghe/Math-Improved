@@ -2,6 +2,7 @@ function Choice({value, answer, doSomething, Correct, Wrong,big, size ,title}){
    
 
     function Do(){
+         console.log(value, answer)
         if(answer === value){
             Correct() 
             doSomething()

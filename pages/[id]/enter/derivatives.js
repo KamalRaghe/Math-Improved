@@ -28,7 +28,7 @@ export default function DoubleAdd(){
     const {id} = router.query 
 
     function mix(){
-        setNum3([0,num1+num1,num1+num1+num1,-1*num1,num1])
+        setNum3([0,1,-1])
     }
 
     function open(){
@@ -110,7 +110,15 @@ export default function DoubleAdd(){
                 <div>Score: {loaded && score}</div>
                 <div className="font" >Cube: {loaded && count} </div>
             </div><Link href={`/${id}/enter/testCube`}><button className="green test-btn">Test</button></Link></div>
-            {question1}
+                <div className=" box">
+                    <div className="double center ">{loaded && num1}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{loaded && num1E}</span>
+                    <span style={{padding:"4px"}} className="double center" >+</span>
+                    <div className="double center ">{loaded && num2}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{loaded && num2E}</span>
+                    <span style={{padding:"4px"}} className="double center" >+</span>
+                    <div className="double center ">{loaded && num5}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{loaded && num5E}</span>
+                    <span style={{padding:"4px"}} className="double center" >+</span>
+                    <div className="double center ">{loaded && num4}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{loaded && num4E}</span>
+                </div>
             <div className="box">
                 <button className="help" onClick={open}>help</button>
             </div>
