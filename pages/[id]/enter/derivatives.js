@@ -24,6 +24,7 @@ export default function DoubleAdd(){
     const [num4E, setNum4E] = useState(Math.ceil(Math.random()*2+1));
     const [num3, setNum3] = useState([0,1,-1])
     const router = useRouter()
+    const [answer, setAnswer] = useState()
     const {username} = router.query 
     const {id} = router.query 
 
@@ -72,6 +73,10 @@ export default function DoubleAdd(){
     useEffect(() =>{
        mix()
        setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
+       setAnswer(
+        num1*num1E+'𝑥'  
+        )
+
     },[num1])
 
     useEffect(() =>{
@@ -127,7 +132,7 @@ export default function DoubleAdd(){
             {loaded && wrong && <Wrong/> }
             <div className="box column">
                <div className="row ">
-                    { loaded && <Choice size={'130px'} big={true}  
+                    { loaded && <Choice size={'130px'} big={true}  title = {answer}
                     value ={num3[0]} answer ={0} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
                     { loaded && <Choice size={'130px'} big={true}  
                     value ={num3[1]} answer ={0} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
