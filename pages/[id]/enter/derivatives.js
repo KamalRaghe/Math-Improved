@@ -29,10 +29,10 @@ export default function DerivativeDiffExp() {
 
     // Ensure we include exponents 2–5 range, last fixed at 2
  while (newTerms.length < 3) {
-  const exp = Math.ceil(Math.random() * 8 + 2); // 2–9
+  const exp = Math.ceil(Math.random() * 7 + 2); // 2–9
   if (!usedExponents.has(exp)) {
     usedExponents.add(exp);
-    const coeff = Math.ceil(Math.random() * 8 + 1);
+    const coeff = Math.ceil(Math.random() * 7 + 1);
     newTerms.push({ coeff, exp });
   }
 }
@@ -139,7 +139,7 @@ export default function DerivativeDiffExp() {
 
       {/* Question */}
       {loaded && terms.length > 0 && (
-        <div style={{margin:"8px"}} className="center">
+        <div style={{marginTop:"8px"}} className="center">
           <div className="double center">
             {terms.map((t, i) => (
               <span key={i}>
@@ -152,7 +152,7 @@ export default function DerivativeDiffExp() {
       )}
 
       <div className="box">
-        <button className="help" onClick={open}>help</button>
+        <button style={{marginBottom:"16px"}} className="help" onClick={open}>help</button>
       </div>
 
       {help && <HelpCube close={close} />}
@@ -185,7 +185,7 @@ export default function DerivativeDiffExp() {
 
 // Superscript for JSX
 function sup(num) {
-  const map = { 1: "", 2: "²", 3: "³", 4: "⁴", 5: "⁵" };
+  const map = { 1: "", 2: "²", 3: "³", 4: "⁴", 5: "⁵", 6: "⁶", 7 : "⁷", 8: "⁸", 9: "⁹" };
   return (
     <span style={{ fontSize: "40px", position: "relative", top: "-8px" }}>
       {map[num] || map[num]}
@@ -195,6 +195,6 @@ function sup(num) {
 
 // Superscript for string display
 function supString(num) {
-  const map = { 1: "", 2: "²", 3: "³", 4: "⁴", 5: "⁵" };
+  const map =  { 1: "", 2: "²", 3: "³", 4: "⁴", 5: "⁵", 6: "⁶", 7 : "⁷", 8: "⁸", 9: "⁹" };
   return map[num] || map[num];
 }
