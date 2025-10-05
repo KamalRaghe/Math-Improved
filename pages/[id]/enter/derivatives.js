@@ -13,7 +13,7 @@ export default function DoubleAdd(){
     const [loaded, setLoaded] = useState(false)
     const [correct, setCorrect] = useState(false)
     const[ wrong, setWrong] = useState(false)
-    const [question, setQ] = useState()
+    const [question, setQuestion] = useState()
     const [num1, setNum1] = useState(Math.ceil(Math.random()*8+1));
     const [num2, setNum2] = useState(Math.ceil(Math.random()*8+1));
     const [num5, setNum5] = useState(Math.ceil(Math.random()*8+1));
@@ -75,7 +75,17 @@ export default function DoubleAdd(){
     },[num1])
 
     useEffect(() =>{
-        
+        setQuestion(
+            <div className=" box">
+                <div className="double center ">{loaded && num1}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{loaded && num1E}</span>
+                <span style={{padding:"4px"}} className="double center" >+</span>
+                <div className="double center ">{loaded && num2}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{loaded && num2E}</span>
+                <span style={{padding:"4px"}} className="double center" >+</span>
+                <div className="double center ">{loaded && num5}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{loaded && num5E}</span>
+                <span style={{padding:"4px"}} className="double center" >+</span>
+                <div className="double center ">{loaded && num4}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{loaded && num4E}</span>
+            </div>
+        )
         setLoaded(true)
         // const ID = window.localStorage.getItem('ID')
         // if(!(ID === id)){
@@ -110,15 +120,7 @@ export default function DoubleAdd(){
                 <div>Score: {loaded && score}</div>
                 <div className="font" >Cube: {loaded && count} </div>
             </div><Link href={`/${id}/enter/testCube`}><button className="green test-btn">Test</button></Link></div>
-            <div className=" box">
-                <div className="double center ">{loaded && num1}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{loaded && num1E}</span>
-                <span style={{padding:"4px"}} className="double center" >+</span>
-                <div className="double center ">{loaded && num2}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{loaded && num2E}</span>
-                <span style={{padding:"4px"}} className="double center" >+</span>
-                <div className="double center ">{loaded && num5}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{loaded && num5E}</span>
-                <span style={{padding:"4px"}} className="double center" >+</span>
-                <div className="double center ">{loaded && num4}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{loaded && num4E}</span>
-            </div>
+            {question}
             <div className="box">
                 <button className="help" onClick={open}>help</button>
             </div>
