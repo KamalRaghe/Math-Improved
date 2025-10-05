@@ -104,11 +104,11 @@ export default function DoubleAdd(){
             <div className=" box">
                 <div className="double center ">{loaded && num1}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{num1E}</span>
                 <span style={{padding:"4px"}} className="double center" >+</span>
-                <div className="double center ">{loaded && num1}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{num1E}</span>
+                <div className="double center ">{loaded && num2}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{num2E}</span>
                 <span style={{padding:"4px"}} className="double center" >+</span>
-                <div className="double center ">{loaded && num1}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{num1E}</span>
+                <div className="double center ">{loaded && num5}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{num5E}</span>
                 <span style={{padding:"4px"}} className="double center" >+</span>
-                <div className="double center ">{loaded && num1}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{num1E}</span>
+                <div className="double center ">{loaded && num4}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{num4E}</span>
             </div>
             <div className="box">
                 <button className="help" onClick={open}>help</button>
