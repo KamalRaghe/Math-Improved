@@ -54,7 +54,14 @@ export default function DoubleAdd(){
       } 
     function Add(){
         setTimeout(() => {
-            setNum1(Math.ceil(Math.random()*10))
+            setNum1(Math.ceil(Math.random()*8+1))
+            setNum2(Math.ceil(Math.random()*8+1))
+            setNum5(Math.ceil(Math.random()*8+1))
+            setNum4(Math.ceil(Math.random()*8+1))
+            setNum1E(Math.ceil(Math.random()*8+1))
+            setNum2E(Math.ceil(Math.random()*8+1))
+            setNum5E(Math.ceil(Math.random()*8+1))
+            setNum4E(Math.ceil(Math.random()*8+1))
             mix()
             setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
         }, 1500)
@@ -104,7 +111,7 @@ export default function DoubleAdd(){
             <div className=" box">
                 <div className="double center ">{loaded && num1}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{num1E}</span>
                 <span style={{padding:"4px"}} className="double center" >+</span>
-                <div className="double center ">{loaded && num2}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{num8+1E}</span>
+                <div className="double center ">{loaded && num2}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{num2E}</span>
                 <span style={{padding:"4px"}} className="double center" >+</span>
                 <div className="double center ">{loaded && num5}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{num5E}</span>
                 <span style={{padding:"4px"}} className="double center" >+</span>
