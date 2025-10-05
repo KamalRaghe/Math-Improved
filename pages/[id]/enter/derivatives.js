@@ -125,13 +125,12 @@ export default function DoubleAdd(){
             {loaded && wrong && <Wrong/> }
             <div className="box column">
                <div className="row ">
-                    { loaded && <Choice value ={num1*num1*num1+num3[0]} answer ={num1*num1*num1} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-                    { loaded && <Choice value ={num1*num1*num1+num3[1]} answer ={num1*num1*num1} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-                    { loaded && <Choice value ={num1*num1*num1+num3[2]} answer ={num1*num1*num1} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && <Choice size={'130px'}  value ={num1*num1*num1+num3[0]} answer ={num1*num1*num1} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && <Choice size={'160px'}  value ={num1*num1*num1+num3[1]} answer ={num1*num1*num1} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
                </div>
                <div className="row">
-                    { loaded && <Choice value ={num1*num1*num1+num3[3]} answer ={num1*num1*num1} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-                    { loaded && <Choice value ={num1*num1*num1+num3[4]} answer ={num1*num1*num1} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && <Choice size={'160px'}  value ={num1*num1*num1+num3[3]} answer ={num1*num1*num1} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                   
                </div>
             </div>
         </div>
