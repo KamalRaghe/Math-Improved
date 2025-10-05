@@ -17,10 +17,10 @@ export default function DoubleAdd(){
     const [num2, setNum2] = useState(Math.ceil(Math.random()*9));
     const [num5, setNum5] = useState(Math.ceil(Math.random()*9));
     const [num4, setNum4] = useState(Math.ceil(Math.random()*9));
-    const [num1E, setNum1E] = useState(Math.ceil(Math.random()*9));
-    const [num2E, setNum2E] = useState(Math.ceil(Math.random()*9));
-    const [num5E, setNum5E] = useState(Math.ceil(Math.random()*9));
-    const [num4E, setNum4E] = useState(Math.ceil(Math.random()*9));
+    const [num1E, setNum1E] = useState(Math.ceil(Math.random()*8+1));
+    const [num2E, setNum2E] = useState(Math.ceil(Math.random()*8+1));
+    const [num5E, setNum5E] = useState(Math.ceil(Math.random()*8+1));
+    const [num4E, setNum4E] = useState(Math.ceil(Math.random()*8+1));
     const [num3, setNum3] = useState([0,num1+num1,num1+num1+num1,-1*num1,num1])
     const router = useRouter()
     const {username} = router.query 
@@ -102,7 +102,7 @@ export default function DoubleAdd(){
                 <div className="font" >Cube: {loaded && count} </div>
             </div><Link href={`/${id}/enter/testCube`}><button className="green test-btn">Test</button></Link></div>
             <div className="box">
-                <div className="double center ">{loaded && num1}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>3</span>
+                <div className="double center ">{loaded && num1}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{num1E}</span>
             </div>
             <div className="box">
                 <button className="help" onClick={open}>help</button>
