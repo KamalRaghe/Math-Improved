@@ -6,13 +6,22 @@ import HelpCube from "@/components/cubehelp";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-export default function DerivativeSameExp() {
+export default function DerivativeAdd() {
   const [help, setHelp] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [correct, setCorrect] = useState(false);
   const [wrong, setWrong] = useState(false);
 
-  const [terms, setTerms] = useState([]);
+  const [num1, setNum1] = useState(Math.ceil(Math.random() * 8 + 1));
+  const [num2, setNum2] = useState(Math.ceil(Math.random() * 8 + 1));
+  const [num3, setNum3] = useState(Math.ceil(Math.random() * 8 + 1));
+  const [num4, setNum4] = useState(Math.ceil(Math.random() * 8 + 1));
+
+  const [exp1, setExp1] = useState(Math.ceil(Math.random() * 3 + 1));
+  const [exp2, setExp2] = useState(Math.ceil(Math.random() * 3 + 1));
+  const [exp3, setExp3] = useState(Math.ceil(Math.random() * 3 + 1));
+  const [exp4, setExp4] = useState(Math.ceil(Math.random() * 3 + 1));
+
   const [choices, setChoices] = useState([]);
   const [answer, setAnswer] = useState("");
 
@@ -22,54 +31,33 @@ export default function DerivativeSameExp() {
   const [score, setScore] = useState(0);
   const [count, setCount] = useState(0);
 
-  // 🎲 Generate random polynomial (4 terms, same exponent)
-  function generatePolynomial() {
-    const exponent = Math.random() < 0.5 ? 2 : 3; // all same exponent: 2 or 3
-    const t = [];
+  // 🧮 Compute derivative and generate choices
+  function generateQuestion() {
+    // derivative: n * coeff * x^(n-1)
+    const term1 = `${num1 * exp1}x${supString(exp1 - 1)}`;
+    const term2 = `${num2 * exp2}x${supString(exp2 - 1)}`;
+    const term3 = `${num3 * exp3}x${supString(exp3 - 1)}`;
+    const term4 = `${num4 * exp4}x${supString(exp4 - 1)}`;
+    const correctAnswer = `${term1} + ${term2} + ${term3} + ${term4}`;
+    setAnswer(correctAnswer);
 
-    for (let i = 0; i < 4; i++) {
-      const coeff = Math.ceil(Math.random() * 8 + 1);
-      t.push({ coeff, exp: exponent });
-    }
-
-    setTerms(t);
-  }
-
-  // 🧮 Compute derivative & choices
-  function generateChoices(t) {
-    if (t.length === 0) return;
-
-    const exp = t[0].exp;
-    const totalCoeff = t.reduce((sum, { coeff }) => sum + coeff, 0);
-
-    const correct =
-      exp === 1
-        ? `${totalCoeff}`
-        : `${totalCoeff * exp}x${supString(exp - 1)}`;
-
-    setAnswer(correct);
-
-    // generate 3 wrong choices (slightly off)
+    // generate wrong answers by small random changes
     const wrongs = [];
     for (let i = 0; i < 3; i++) {
-      const wrongCoeff = totalCoeff * exp + (Math.random() < 0.5 ? -exp : exp);
-      const wrong =
-        exp === 1
-          ? `${wrongCoeff}`
-          : `${wrongCoeff}x${supString(exp - 1)}`;
-      wrongs.push(wrong);
+      const delta = () => (Math.random() < 0.5 ? -1 : 1) * Math.ceil(Math.random() * 2);
+      const t1 = `${(num1 + delta()) * exp1}x${supString(exp1 - 1)}`;
+      const t2 = `${(num2 + delta()) * exp2}x${supString(exp2 - 1)}`;
+      const t3 = `${(num3 + delta()) * exp3}x${supString(exp3 - 1)}`;
+      const t4 = `${(num4 + delta()) * exp4}x${supString(exp4 - 1)}`;
+      wrongs.push(`${t1} + ${t2} + ${t3} + ${t4}`);
     }
 
-    const mixed = [correct, ...wrongs].sort(() => Math.random() - 0.5);
+    const mixed = [correctAnswer, ...wrongs].sort(() => Math.random() - 0.5);
     setChoices(mixed);
   }
 
-  function open() {
-    setHelp(true);
-  }
-  function close() {
-    setHelp(false);
-  }
+  function open() { setHelp(true); }
+  function close() { setHelp(false); }
 
   function CorrectA() {
     setCorrect(true);
@@ -85,11 +73,18 @@ export default function DerivativeSameExp() {
 
   function nextQuestion() {
     setTimeout(() => {
-      generatePolynomial();
+      setNum1(Math.ceil(Math.random() * 8 + 1));
+      setNum2(Math.ceil(Math.random() * 8 + 1));
+      setNum3(Math.ceil(Math.random() * 8 + 1));
+      setNum4(Math.ceil(Math.random() * 8 + 1));
+      setExp1(Math.ceil(Math.random() * 3 + 1));
+      setExp2(Math.ceil(Math.random() * 3 + 1));
+      setExp3(Math.ceil(Math.random() * 3 + 1));
+      setExp4(Math.ceil(Math.random() * 3 + 1));
     }, 1000);
   }
 
-  // 📦 Local storage
+  // localStorage tracking
   useEffect(() => {
     const c = parseInt(window.localStorage.getItem(`${id} Cube`));
     const s = parseInt(window.localStorage.getItem(`${id} score`));
@@ -106,14 +101,9 @@ export default function DerivativeSameExp() {
     if (score > 0) window.localStorage.setItem(`${id} score`, score);
   }, [score]);
 
-  // generate choices when polynomial changes
   useEffect(() => {
-    if (loaded && terms.length > 0) generateChoices(terms);
-  }, [terms, loaded]);
-
-  useEffect(() => {
-    if (loaded) generatePolynomial();
-  }, [loaded]);
+    if (loaded) generateQuestion();
+  }, [num1, num2, num3, num4, exp1, exp2, exp3, exp4, loaded]);
 
   return (
     <div className="beige container column">
@@ -121,34 +111,27 @@ export default function DerivativeSameExp() {
         <div className="double">
           <div className="font">{username}</div>
           <div>Score: {score}</div>
-          <div className="font">Derivatives: {count}</div>
+          <div className="font">Cube: {count}</div>
         </div>
-        <Link href={`/${id}/enter/testCalc`}>
+        <Link href={`/${id}/enter/testCube`}>
           <button className="green test-btn">Test</button>
         </Link>
       </div>
 
-      {/* Question */}
-      {loaded && terms.length > 0 && (
+      {/* Equation */}
+      {loaded && (
         <div className="box center">
           <div className="double center">
-            {terms.map((t, i) => (
-              <span key={i}>
-                {i > 0 && " + "}
-                {t.coeff}x{sup(t.exp)}
-              </span>
-            ))}
+            {num1}x{sup(exp1)} + {num2}x{sup(exp2)} + {num3}x{sup(exp3)} + {num4}x{sup(exp4)}
           </div>
         </div>
       )}
 
       <div className="box">
-        <button className="help" onClick={open}>
-          help
-        </button>
+        <button className="help" onClick={open}>help</button>
       </div>
 
-      {help && <HelpCube close={close} />}
+      {help && <HelpCube num1={num1} close={close} />}
       {correct && <Correct />}
       {wrong && <Wrong />}
 
@@ -176,7 +159,7 @@ export default function DerivativeSameExp() {
   );
 }
 
-// Helper: JSX superscript
+// helper for exponent rendering in JSX
 function sup(num) {
   if (num === 0) return "";
   return (
@@ -186,7 +169,7 @@ function sup(num) {
   );
 }
 
-// Helper: string superscript
+// helper for text exponents (used in string answer comparisons)
 function supString(num) {
   if (num === 0) return "";
   return num === 1 ? "" : num === 2 ? "²" : num === 3 ? "³" : `^${num}`;
