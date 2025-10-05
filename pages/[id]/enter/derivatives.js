@@ -103,6 +103,9 @@ export default function DoubleAdd(){
             </div><Link href={`/${id}/enter/testCube`}><button className="green test-btn">Test</button></Link></div>
             <div className="box">
                 <div className="double center ">{loaded && num1}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{num1E}</span>
+                <div className="double center ">{loaded && num1}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{num1E}</span>
+                <div className="double center ">{loaded && num1}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{num1E}</span>
+                <div className="double center ">{loaded && num1}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{num1E}</span>
             </div>
             <div className="box">
                 <button className="help" onClick={open}>help</button>
