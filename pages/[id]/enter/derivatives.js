@@ -140,7 +140,7 @@ export default function DerivativeDiffExp() {
 
       {/* Question */}
       {loaded && terms.length > 0 && (
-        <div className=" center">
+        <div style={{margin:"8px"}} className="center">
           <div className="double center">
             {terms.map((t, i) => (
               <span key={i}>
@@ -152,7 +152,7 @@ export default function DerivativeDiffExp() {
         </div>
       )}
 
-      <div className="box">
+      <div style={{marginBottom:"8px"}} className="box">
         <button className="help" onClick={open}>help</button>
       </div>
 
