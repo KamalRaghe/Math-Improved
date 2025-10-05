@@ -5,144 +5,149 @@ import Wrong from "@/components/wrong";
 import HelpCube from "@/components/cubehelp";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
-import { db } from "@/firebase";
 
-export default function DoubleAdd(){
-    const [help, setHelp] = useState(false)
-    const [loaded, setLoaded] = useState(false)
-    const [correct, setCorrect] = useState(false)
-    const[ wrong, setWrong] = useState(false)
-    const [question1, setQuestion1] = useState()
-    const [num1, setNum1] = useState(Math.ceil(Math.random()*8+1));
-    const [num2, setNum2] = useState(Math.ceil(Math.random()*8+1));
-    const [num5, setNum5] = useState(Math.ceil(Math.random()*8+1));
-    const [num4, setNum4] = useState(Math.ceil(Math.random()*8+1));
-    const [num1E, setNum1E] = useState(Math.ceil(Math.random()*2+7));
-    const [num2E, setNum2E] = useState(Math.ceil(Math.random()*2+5));
-    const [num5E, setNum5E] = useState(Math.ceil(Math.random()*2+3));
-    const [num4E, setNum4E] = useState(Math.ceil(Math.random()*2+1));
-    const [num3, setNum3] = useState([0,1,-1])
-    const router = useRouter()
-    const [answer, setAnswer] = useState()
-    const {username} = router.query 
-    const {id} = router.query 
+export default function DoubleAdd() {
+  const [help, setHelp] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+  const [correct, setCorrect] = useState(false);
+  const [wrong, setWrong] = useState(false);
 
-    function mix(){
-        setNum3([0,1,-1])
-    }
+  const [num1, setNum1] = useState(Math.ceil(Math.random() * 8 + 1));
+  const [num2, setNum2] = useState(Math.ceil(Math.random() * 8 + 1));
+  const [num3, setNum3] = useState(Math.ceil(Math.random() * 8 + 1));
+  const [num4, setNum4] = useState(Math.ceil(Math.random() * 8 + 1));
 
-    function open(){
-        setHelp(true)
-      }
-      function close(){
-        setHelp(false)
-      }
+  const [ex1, setEx1] = useState(Math.ceil(Math.random() * 2 + 1));
+  const [ex2, setEx2] = useState(Math.ceil(Math.random() * 2 + 1));
+  const [ex3, setEx3] = useState(Math.ceil(Math.random() * 2 + 1));
+  const [ex4, setEx4] = useState(Math.ceil(Math.random() * 2 + 1));
 
-    function CorrectA(){ 
-        setCorrect(true)
-        setTimeout(() => {
-            setCorrect(false) 
-        }, 1900);
-        setCount(count+1)
-        setScore(score+1)
-      }
-  
-      function WrongA(){ 
-        setWrong(true)
-        setTimeout(() => {
-            setWrong(false) 
-        }, 1900);
-      } 
-    function Add(){
-        setTimeout(() => {
-            setNum1(Math.ceil(Math.random()*8+1))
-            setNum2(Math.ceil(Math.random()*8+1))
-            setNum5(Math.ceil(Math.random()*8+1))
-            setNum4(Math.ceil(Math.random()*8+1))
-            setNum1E(Math.ceil(Math.random()*2+7))
-            setNum2E(Math.ceil(Math.random()*2+5))
-            setNum5E(Math.ceil(Math.random()*2+3))
-            setNum4E(Math.ceil(Math.random()*2+1))
-            mix()
-            setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
-        }, 1500)
-    }
+  const [choices, setChoices] = useState([]);
+  const [answer, setAnswer] = useState("");
+  const router = useRouter();
+  const { username, id } = router.query;
 
+  const [score, setScore] = useState(0);
+  const [count, setCount] = useState(0);
 
-    useEffect(() =>{
-       mix()
-       setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
-       setAnswer(
-        num1*num1E+'𝑥'  
-        )
+  // ✅ Calculate correct total and generate choices
+  function generateQuestion() {
+    const total = num1 + num2 + num3 + num4;
+    const exp = ex1; // all same for simplicity
 
-    },[num1])
+    const correctAnswer = `${total}𝑥${exp > 1 ? `ⁿ(${exp})` : ""}`; 
+    setAnswer(correctAnswer);
 
-    useEffect(() =>{
-   
-        setLoaded(true)
-        // const ID = window.localStorage.getItem('ID')
-        // if(!(ID === id)){
-        //     router.push("/")
-        // }
-    },[])
+    // make 3 random offsets
+    const wrong1 = `${total + (Math.floor(Math.random() * 3) + 1)}𝑥${exp > 1 ? `ⁿ(${exp})` : ""}`;
+    const wrong2 = `${total - (Math.floor(Math.random() * 3) + 1)}𝑥${exp > 1 ? `ⁿ(${exp})` : ""}`;
+    const wrong3 = `${total + (Math.floor(Math.random() * 4) - 2)}𝑥${exp > 1 ? `ⁿ(${exp})` : ""}`;
 
-    const [score, setScore] =useState(0)
-    const [count, setCount] =useState(0)
- 
-     useEffect(() =>{
-         setLoaded(true)
-         const count = parseInt(window.localStorage.getItem(`${id} Cube`))
-         setCount(count ? count : 0)
-         const score = parseInt(window.localStorage.getItem(`${id} score`))
-         setScore(score ? score : 0)
-     },[])
- 
-     useEffect(() =>{
-         if(count > 0){
-         window.localStorage.setItem(`${id} Cube`, count)
-     }},[count])
- 
-     useEffect(() =>{
-         if(score > 0){
-         window.localStorage.setItem(`${id} score` , score)
-     }},[score])
+    const mixed = [correctAnswer, wrong1, wrong2, wrong3].sort(() => Math.random() - 0.5);
+    setChoices(mixed);
+  }
 
-    return(
-        <div className="beige container column">
-            <div className="Test sb"><div className="double" >
-                <div>Score: {loaded && score}</div>
-                <div className="font" >Cube: {loaded && count} </div>
-            </div><Link href={`/${id}/enter/testCube`}><button className="green test-btn">Test</button></Link></div>
-                <div className=" box">
-                    <div className="double center ">{loaded && num1}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{loaded && num1E}</span>
-                    <span style={{padding:"4px"}} className="double center" >+</span>
-                    <div className="double center ">{loaded && num2}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{loaded && num2E}</span>
-                    <span style={{padding:"4px"}} className="double center" >+</span>
-                    <div className="double center ">{loaded && num5}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{loaded && num5E}</span>
-                    <span style={{padding:"4px"}} className="double center" >+</span>
-                    <div className="double center ">{loaded && num4}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{loaded && num4E}</span>
-                </div>
-            <div className="box">
-                <button className="help" onClick={open}>help</button>
-            </div>
-            {help && <HelpCube  num1={num1} close={close}/>}
-            {loaded && correct && <Correct></Correct>}
-            {loaded && wrong && <Wrong/> }
-            <div className="box column">
-               <div className="row ">
-                    { loaded && <Choice size={'130px'} big={true}  title = {answer}
-                    value ={num3[0]} answer ={0} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-                    { loaded && <Choice size={'130px'} big={true}  
-                    value ={num3[1]} answer ={0} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-               </div>
-               <div className="row">
-                    { loaded && <Choice size={'130px'} big={true}  
-                    value ={num3[2]} answer ={0} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-                   
-               </div>
-            </div>
+  function open() { setHelp(true); }
+  function close() { setHelp(false); }
+
+  function CorrectA() {
+    setCorrect(true);
+    setTimeout(() => setCorrect(false), 1500);
+    setCount(prev => prev + 1);
+    setScore(prev => prev + 1);
+  }
+
+  function WrongA() {
+    setWrong(true);
+    setTimeout(() => setWrong(false), 1500);
+  }
+
+  // next question
+  function nextQuestion() {
+    setTimeout(() => {
+      setNum1(Math.ceil(Math.random() * 8 + 1));
+      setNum2(Math.ceil(Math.random() * 8 + 1));
+      setNum3(Math.ceil(Math.random() * 8 + 1));
+      setNum4(Math.ceil(Math.random() * 8 + 1));
+      setEx1(Math.ceil(Math.random() * 2 + 1));
+      setEx2(Math.ceil(Math.random() * 2 + 1));
+      setEx3(Math.ceil(Math.random() * 2 + 1));
+      setEx4(Math.ceil(Math.random() * 2 + 1));
+    }, 1200);
+  }
+
+  // localStorage tracking
+  useEffect(() => {
+    const c = parseInt(window.localStorage.getItem(`${id} Cube`));
+    const s = parseInt(window.localStorage.getItem(`${id} score`));
+    setCount(c ? c : 0);
+    setScore(s ? s : 0);
+    setLoaded(true);
+  }, [id]);
+
+  useEffect(() => {
+    if (count > 0) window.localStorage.setItem(`${id} Cube`, count);
+  }, [count]);
+
+  useEffect(() => {
+    if (score > 0) window.localStorage.setItem(`${id} score`, score);
+  }, [score]);
+
+  useEffect(() => {
+    if (loaded) generateQuestion();
+  }, [num1, num2, num3, num4, ex1, ex2, ex3, ex4]);
+
+  return (
+    <div className="beige container column">
+      <div className="Test sb">
+        <div className="double">
+          <div className="font">{username}</div>
+          <div>Score: {score}</div>
+          <div className="font">Cube: {count}</div>
         </div>
-    )
+        <Link href={`/${id}/enter/testCube`}>
+          <button className="green test-btn">Test</button>
+        </Link>
+      </div>
+
+      {/* Equation */}
+      {loaded && <div className="box">
+        <div className="double center">
+          {num1}𝑥{sup(ex1)} + {num2}𝑥{sup(ex2)} + {num3}𝑥{sup(ex3)} + {num4}𝑥{sup(ex4)}
+        </div>
+      </div>}
+
+      <div className="box">
+        <button className="help" onClick={open}>help</button>
+      </div>
+
+      {help && <HelpCube num1={num1} close={close} />}
+      {correct && <Correct />}
+      {wrong && <Wrong />}
+
+      {/* Choices */}
+      {<div className="box column">
+        <div className="row wrap">
+          {choices.map((choice, index) => (
+            <Choice
+              key={index}
+              size="130px"
+              big
+              title={choice}
+              value={choice}
+              answer={answer}
+              doSomething={nextQuestion}
+              Correct={CorrectA}
+              Wrong={WrongA}
+            />
+          ))}
+        </div>
+      </div>}
+    </div>
+  );
+}
+
+// helper to render exponent
+function sup(num) {
+  return <span style={{ fontSize: "20px", position: "relative", top: "-10px" }}>{num}</span>;
 }
