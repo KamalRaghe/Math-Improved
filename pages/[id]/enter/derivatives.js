@@ -14,6 +14,13 @@ export default function DoubleAdd(){
     const [correct, setCorrect] = useState(false)
     const[ wrong, setWrong] = useState(false)
     const [num1, setNum1] = useState(Math.ceil(Math.random()*9));
+    const [num2, setNum2] = useState(Math.ceil(Math.random()*9));
+    const [num5, setNum5] = useState(Math.ceil(Math.random()*9));
+    const [num4, setNum4] = useState(Math.ceil(Math.random()*9));
+    const [num1E, setNum1E] = useState(Math.ceil(Math.random()*9));
+    const [num2E, setNum2E] = useState(Math.ceil(Math.random()*9));
+    const [num5E, setNum5E] = useState(Math.ceil(Math.random()*9));
+    const [num4E, setNum4E] = useState(Math.ceil(Math.random()*9));
     const [num3, setNum3] = useState([0,num1+num1,num1+num1+num1,-1*num1,num1])
     const router = useRouter()
     const {username} = router.query 
