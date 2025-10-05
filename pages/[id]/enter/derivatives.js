@@ -28,13 +28,13 @@ export default function DerivativeDiffExp() {
     const newTerms = [];
 
     // Ensure we include exponents 2–5 range, last fixed at 2
-    while (newTerms.length < 3) {
-      const exp = Math.ceil(Math.random() * 3 + 2); // 3–5
-      if (!usedExponents.has(exp) && exp !== 2) {
-        usedExponents.add(exp);
-        const coeff = Math.ceil(Math.random() * 8 + 1);
-        newTerms.push({ coeff, exp });
-      }
+   while (newTerms.length < 3) {
+    const exp = Math.ceil(Math.random() * 8 + 2); // 2–9
+    if (!usedExponents.has(exp) && exp !== 2) {
+            usedExponents.add(exp);
+            const coeff = Math.ceil(Math.random() * 8 + 1);
+            newTerms.push({ coeff, exp });
+        }
     }
 
     // Add last term with exponent 2
@@ -188,7 +188,7 @@ export default function DerivativeDiffExp() {
 function sup(num) {
   const map = { 1: "", 2: "²", 3: "³", 4: "⁴", 5: "⁵" };
   return (
-    <span style={{ fontSize: "18px", position: "relative", top: "-8px" }}>
+    <span style={{ fontSize: "40px", position: "relative", top: "-8px" }}>
       {map[num] || `^${num}`}
     </span>
   );
