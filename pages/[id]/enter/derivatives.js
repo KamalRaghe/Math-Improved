@@ -13,7 +13,7 @@ export default function DoubleAdd(){
     const [loaded, setLoaded] = useState(false)
     const [correct, setCorrect] = useState(false)
     const[ wrong, setWrong] = useState(false)
-    const [question, setQuestion] = useState()
+    const [question1, setQuestion1] = useState()
     const [num1, setNum1] = useState(Math.ceil(Math.random()*8+1));
     const [num2, setNum2] = useState(Math.ceil(Math.random()*8+1));
     const [num5, setNum5] = useState(Math.ceil(Math.random()*8+1));
@@ -70,7 +70,7 @@ export default function DoubleAdd(){
 
 
     useEffect(() =>{
-        setQuestion(
+        setQuestion1(
             <div className=" box">
                 <div className="double center ">{loaded && num1}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{loaded && num1E}</span>
                 <span style={{padding:"4px"}} className="double center" >+</span>
@@ -121,7 +121,7 @@ export default function DoubleAdd(){
                 <div>Score: {loaded && score}</div>
                 <div className="font" >Cube: {loaded && count} </div>
             </div><Link href={`/${id}/enter/testCube`}><button className="green test-btn">Test</button></Link></div>
-            {question}
+            {question1}
             <div className="box">
                 <button className="help" onClick={open}>help</button>
             </div>
