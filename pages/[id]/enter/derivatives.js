@@ -70,11 +70,6 @@ export default function DoubleAdd(){
 
 
     useEffect(() =>{
-       mix()
-       setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
-    },[num1])
-
-    useEffect(() =>{
         setQuestion(
             <div className=" box">
                 <div className="double center ">{loaded && num1}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{loaded && num1E}</span>
@@ -86,6 +81,12 @@ export default function DoubleAdd(){
                 <div className="double center ">{loaded && num4}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{loaded && num4E}</span>
             </div>
         )
+       mix()
+       setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
+    },[num1])
+
+    useEffect(() =>{
+   
         setLoaded(true)
         // const ID = window.localStorage.getItem('ID')
         // if(!(ID === id)){
@@ -129,8 +130,7 @@ export default function DoubleAdd(){
             {loaded && wrong && <Wrong/> }
             <div className="box column">
                <div className="row ">
-                    { loaded && <Choice size={'130px'} big={true} 
-                    title ={<div>𝑥<span style={{fontSize:'15px',position:'relative',padding:"2px", top:"-7px"}}>2</span></div>} 
+                    { loaded && <Choice size={'130px'} big={true}  
                     value ={num3[0]} answer ={0} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
                     { loaded && <Choice size={'130px'} big={true}  
                     value ={num3[1]} answer ={0} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
