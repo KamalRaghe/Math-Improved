@@ -70,17 +70,6 @@ export default function DoubleAdd(){
 
 
     useEffect(() =>{
-        setQuestion1(
-            <div className=" box">
-                <div className="double center ">{loaded && num1}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{loaded && num1E}</span>
-                <span style={{padding:"4px"}} className="double center" >+</span>
-                <div className="double center ">{loaded && num2}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{loaded && num2E}</span>
-                <span style={{padding:"4px"}} className="double center" >+</span>
-                <div className="double center ">{loaded && num5}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{loaded && num5E}</span>
-                <span style={{padding:"4px"}} className="double center" >+</span>
-                <div className="double center ">{loaded && num4}𝑥</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>{loaded && num4E}</span>
-            </div>
-        )
        mix()
        setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
     },[num1])
