@@ -13,6 +13,7 @@ export default function DoubleAdd(){
     const [loaded, setLoaded] = useState(false)
     const [correct, setCorrect] = useState(false)
     const[ wrong, setWrong] = useState(false)
+    const [question, setQ] = useState()
     const [num1, setNum1] = useState(Math.ceil(Math.random()*8+1));
     const [num2, setNum2] = useState(Math.ceil(Math.random()*8+1));
     const [num5, setNum5] = useState(Math.ceil(Math.random()*8+1));
@@ -21,7 +22,7 @@ export default function DoubleAdd(){
     const [num2E, setNum2E] = useState(Math.ceil(Math.random()*2+5));
     const [num5E, setNum5E] = useState(Math.ceil(Math.random()*2+3));
     const [num4E, setNum4E] = useState(Math.ceil(Math.random()*2+1));
-    const [num3, setNum3] = useState([0,num1+num1,num1+num1+num1,-1*num1,num1])
+    const [num3, setNum3] = useState([0,1,-1])
     const router = useRouter()
     const {username} = router.query 
     const {id} = router.query 
@@ -74,6 +75,7 @@ export default function DoubleAdd(){
     },[num1])
 
     useEffect(() =>{
+        
         setLoaded(true)
         // const ID = window.localStorage.getItem('ID')
         // if(!(ID === id)){
@@ -125,11 +127,15 @@ export default function DoubleAdd(){
             {loaded && wrong && <Wrong/> }
             <div className="box column">
                <div className="row ">
-                    { loaded && <Choice size={'130px'}  value ={num1*num1*num1+num3[0]} answer ={num1*num1*num1} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-                    { loaded && <Choice size={'160px'}  value ={num1*num1*num1+num3[1]} answer ={num1*num1*num1} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && <Choice size={'130px'} big={true} 
+                    title ={<div>𝑥<span style={{fontSize:'15px',position:'relative',padding:"2px", top:"-7px"}}>2</span></div>} 
+                    value ={num3[0]} answer ={0} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && <Choice size={'130px'} big={true}  
+                    value ={num3[1]} answer ={0} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
                </div>
                <div className="row">
-                    { loaded && <Choice size={'160px'}  value ={num1*num1*num1+num3[3]} answer ={num1*num1*num1} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && <Choice size={'130px'} big={true}  
+                    value ={num3[2]} answer ={0} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
                    
                </div>
             </div>
