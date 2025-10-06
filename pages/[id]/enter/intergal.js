@@ -28,7 +28,7 @@ export default function IntegralDiffExp() {
     const newTerms = [];
 
     while (newTerms.length < 3) {
-      const exp = Math.ceil(Math.random() * 7 + 2); // 2–9
+      const exp = Math.ceil(Math.random() * 8 + 2); // 2–9
       if (!usedExponents.has(exp)) {
         usedExponents.add(exp);
         const coeff = (Math.ceil(Math.random() * 5 + 1)) * (exp + 1); // multiple of exp+1
@@ -174,12 +174,12 @@ export default function IntegralDiffExp() {
 
 // Superscript for JSX
 function sup(num) {
-  const map = { 1: "", 2: "²", 3: "³", 4: "⁴", 5: "⁵", 6: "⁶", 7 : "⁷", 8: "⁸", 9: "⁹" };
+  const map = { 1: "", 2: "²", 3: "³", 4: "⁴", 5: "⁵", 6: "⁶", 7 : "⁷", 8: "⁸", 9: "⁹", 10: "¹⁰" };
   return <span style={{ fontSize: "40px", position: "relative", top: "-8px" }}>{map[num] || map[num]}</span>;
 }
 
 // Superscript for string display
 function supString(num) {
-  const map = { 1: "", 2: "²", 3: "³", 4: "⁴", 5: "⁵", 6: "⁶", 7 : "⁷", 8: "⁸", 9: "⁹" };
+  const map = { 1: "", 2: "²", 3: "³", 4: "⁴", 5: "⁵", 6: "⁶", 7 : "⁷", 8: "⁸", 9: "⁹", 10: "¹⁰" };
   return map[num] || map[num];
 }
