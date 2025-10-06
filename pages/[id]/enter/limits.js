@@ -162,41 +162,38 @@ export default function LimitDiffExp() {
       {correct && <Correct />}
       {wrong && <Wrong />}
 
-      {/* Choices */}
-      {/* Choices (2 rows layout) */}
-        {loaded && (
-        <div className="box column center">
-            {/* Top row */}
-            <div className="row">
-            {choices.slice(0, 3).map((choice, index) => (
-                <Choice
-                key={index}
-                value={choice}
-                title={choice}
-                answer={answer}
-                doSomething={nextQuestion}
-                Correct={CorrectA}
-                Wrong={WrongA}
-                />
-            ))}
-            </div>
+    {/* Choices (2 rows, 5 total) */}
+{loaded && (
+  <div className="box column center">
+    <div className="row">
+      {choices.slice(0, 3).map((choice, index) => (
+        <Choice
+          key={index}
+          title={choice}
+          value={choice}
+          answer={answer}
+          doSomething={nextQuestion}
+          Correct={CorrectA}
+          Wrong={WrongA}
+        />
+      ))}
+    </div>
+    <div className="row">
+      {choices.slice(3, 5).map((choice, index) => (
+        <Choice
+          key={index + 3}
+          title={choice}
+          value={choice}
+          answer={answer}
+          doSomething={nextQuestion}
+          Correct={CorrectA}
+          Wrong={WrongA}
+        />
+      ))}
+    </div>
+  </div>
+)}
 
-            {/* Bottom row */}
-            <div className="row">
-            {choices.slice(3, 5).map((choice, index) => (
-                <Choice
-                key={index + 3}
-                value={choice}
-                title={choice}
-                answer={answer}
-                doSomething={nextQuestion}
-                Correct={CorrectA}
-                Wrong={WrongA}
-                />
-            ))}
-            </div>
-        </div>
-        )}
     </div>
   );
 }
