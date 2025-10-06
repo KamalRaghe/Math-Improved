@@ -139,7 +139,7 @@ export default function DerivativeDiffExp() {
       {loaded && terms.length > 0 && (
         <div style={{ marginTop: "8px" }} className="center">
           <div className="double center" style={{ fontSize: "40px" }}>
-            f(x) = <span >0</span> {" "}
+            f(x) = <div style={{marginRight:"8px"}} ></div> {" "}
             {terms.map((t, i) => (
               <span key={i}>
                 {i > 0 && " + "}
