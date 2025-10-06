@@ -22,22 +22,19 @@ export default function DerivativeDiffExp() {
   const [score, setScore] = useState(0);
   const [count, setCount] = useState(0);
 
-  // 🎲 Generate polynomial (4 terms, last exponent = 2)
+  // 🎲 Generate polynomial (3 terms)
   function generatePolynomial() {
     const usedExponents = new Set();
     const newTerms = [];
 
-    // Ensure we include exponents 2–5 range, last fixed at 2
- while (newTerms.length < 3) {
-  const exp = Math.ceil(Math.random() * 7 + 2); // 2–9
-  if (!usedExponents.has(exp)) {
-    usedExponents.add(exp);
-    const coeff = Math.ceil(Math.random() * 7 + 1);
-    newTerms.push({ coeff, exp });
-  }
-}
-    // Add last term with exponent 2
-    newTerms.push({ coeff: Math.ceil(Math.random() * 8 + 1), exp: 2 });
+    while (newTerms.length < 3) {
+      const exp = Math.ceil(Math.random() * 7 + 2); // 2–9
+      if (!usedExponents.has(exp)) {
+        usedExponents.add(exp);
+        const coeff = Math.ceil(Math.random() * 7 + 1); // 1–8
+        newTerms.push({ coeff, exp });
+      }
+    }
 
     // Sort descending by exponent
     newTerms.sort((a, b) => b.exp - a.exp);
@@ -57,13 +54,14 @@ export default function DerivativeDiffExp() {
     };
 
     const derivative = t.map(({ coeff, exp }) => deriveTerm(coeff, exp)).join(" + ");
-    setAnswer(derivative);
+    const correctAnswer = `f'(x) = ${derivative}`;
+    setAnswer(correctAnswer);
 
     const wrongs = [];
     for (let i = 0; i < 3; i++) {
       const variant = t
         .map(({ coeff, exp }) => {
-          const offset = Math.floor(Math.random() * 3) - 1;
+          const offset = Math.floor(Math.random() * 3) - 1; // small variation
           const newCoeff = (coeff + offset) * exp;
           const newExp = exp - 1;
           if (newExp === 0) return `${newCoeff}`;
@@ -71,10 +69,10 @@ export default function DerivativeDiffExp() {
           return `${newCoeff}x${supString(newExp)}`;
         })
         .join(" + ");
-      wrongs.push(variant);
+      wrongs.push(`f'(x) = ${variant}`);
     }
 
-    const allChoices = [derivative, ...wrongs].sort(() => Math.random() - 0.5);
+    const allChoices = [correctAnswer, ...wrongs].sort(() => Math.random() - 0.5);
     setChoices(allChoices);
   }
 
@@ -139,8 +137,9 @@ export default function DerivativeDiffExp() {
 
       {/* Question */}
       {loaded && terms.length > 0 && (
-        <div style={{marginTop:"8px"}} className="center">
-          <div className="double center">
+        <div style={{ marginTop: "8px" }} className="center">
+          <div className="double center" style={{ fontSize: "40px" }}>
+            f(x) = <span >0</span> {" "}
             {terms.map((t, i) => (
               <span key={i}>
                 {i > 0 && " + "}
@@ -152,10 +151,12 @@ export default function DerivativeDiffExp() {
       )}
 
       <div className="box">
-        <button style={{marginBottom:"16px"}} className="help" onClick={open}>help</button>
+        <button style={{ marginBottom: "16px" }} className="help" onClick={open}>
+          help
+        </button>
       </div>
 
-      {help && <ExtraDerivative  />}
+      {help && <ExtraDerivative close={close} />}
       {correct && <Correct />}
       {wrong && <Wrong />}
 
@@ -185,16 +186,22 @@ export default function DerivativeDiffExp() {
 
 // Superscript for JSX
 function sup(num) {
-  const map = { 1: "", 2: "²", 3: "³", 4: "⁴", 5: "⁵", 6: "⁶", 7 : "⁷", 8: "⁸", 9: "⁹" };
+  const map = { 
+    1: "", 2: "²", 3: "³", 4: "⁴", 5: "⁵", 
+    6: "⁶", 7: "⁷", 8: "⁸", 9: "⁹" 
+  };
   return (
-    <span style={{ fontSize: "40px", position: "relative", top: "-8px" }}>
-      {map[num] || map[num]}
+    <span style={{ fontSize: "34px", position: "relative", top: "-8px" }}>
+      {map[num] || num}
     </span>
   );
 }
 
 // Superscript for string display
 function supString(num) {
-  const map =  { 1: "", 2: "²", 3: "³", 4: "⁴", 5: "⁵", 6: "⁶", 7 : "⁷", 8: "⁸", 9: "⁹" };
-  return map[num] || map[num];
+  const map = { 
+    1: "", 2: "²", 3: "³", 4: "⁴", 5: "⁵", 
+    6: "⁶", 7: "⁷", 8: "⁸", 9: "⁹" 
+  };
+  return map[num] || num;
 }
