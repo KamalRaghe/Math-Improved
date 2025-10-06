@@ -126,7 +126,7 @@ export default function LimitDiffExp() {
       {/* Question */}
     {loaded && terms.length > 0 && (
   <div style={{ marginTop: "8px" }} className="center">
-    <div className="double center" style={{ fontSize: "40px" }}>
+    <div className="center" style={{ fontSize: "30px" }}>
       <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
         <span style={{ fontSize: "40px"}}>lim</span>
         <span
@@ -169,7 +169,7 @@ export default function LimitDiffExp() {
             {choices.map((choice, index) => (
               <Choice
                 key={index}
-                size="250px"
+                size="50px"
                 big
                 title={choice}
                 value={choice}
