@@ -11,22 +11,19 @@ export default function IntegralDiffExp() {
   const [loaded, setLoaded] = useState(false);
   const [correct, setCorrect] = useState(false);
   const [wrong, setWrong] = useState(false);
-
   const [terms, setTerms] = useState([]);
   const [choices, setChoices] = useState([]);
   const [answer, setAnswer] = useState("");
 
   const router = useRouter();
   const { username, id } = router.query;
-
   const [score, setScore] = useState(0);
   const [count, setCount] = useState(0);
 
-  // 🎲 Generate polynomial (4 terms, last exponent = 2)
+  // 🎲 Generate 3-term polynomial
   function generatePolynomial() {
     const usedExponents = new Set();
     const newTerms = [];
-
     while (newTerms.length < 3) {
       const exp = Math.ceil(Math.random() * 8 + 2); // 2–9
       if (!usedExponents.has(exp)) {
@@ -35,43 +32,38 @@ export default function IntegralDiffExp() {
         newTerms.push({ coeff, exp });
       }
     }
-
-    // Last term exponent = 2
-    const lastExp = 2;
-    const lastCoeff = (Math.ceil(Math.random() * 5 + 1)) * (lastExp + 1);
-    newTerms.push({ coeff: lastCoeff, exp: lastExp });
-
-    // Sort descending by exponent
     newTerms.sort((a, b) => b.exp - a.exp);
     setTerms(newTerms);
   }
 
-  // 🧮 Compute integral + wrong answers
+  // 🧮 Generate correct integral + wrong answers
   function generateChoices(t) {
     if (t.length === 0) return;
 
     const integrateTerm = (c, e) => {
       const newExp = e + 1;
-      const newCoeff = c / newExp; // integer guaranteed
+      const newCoeff = c / newExp;
       if (newExp === 1) return `${newCoeff}x`;
       return `${newCoeff}x${supString(newExp)}`;
     };
 
-    const integral = t.map(({ coeff, exp }) => integrateTerm(coeff, exp)).join(" + ") + " + C";
+    const integral = "f(x) = " + t.map(({ coeff, exp }) => integrateTerm(coeff, exp)).join(" + ") + " + C";
     setAnswer(integral);
 
-    // Generate 3 wrong options (integer safe)
     const wrongs = [];
     for (let i = 0; i < 3; i++) {
-      const variant = t
-        .map(({ coeff, exp }) => {
-          const newExp = exp + 1;
-          const offset = Math.floor(Math.random() * 3) - 1; // -1,0,1
-          const newCoeff = (coeff + offset * newExp) / newExp; // still integer
-          if (newExp === 1) return `${newCoeff}x`;
-          return `${newCoeff}x${supString(newExp)}`;
-        })
-        .join(" + ") + " + C";
+      const variant =
+        "f(x) = " +
+        t
+          .map(({ coeff, exp }) => {
+            const newExp = exp + 1;
+            const offset = Math.floor(Math.random() * 3) - 1;
+            const newCoeff = (coeff + offset * newExp) / newExp;
+            if (newExp === 1) return `${newCoeff}x`;
+            return `${newCoeff}x${supString(newExp)}`;
+          })
+          .join(" + ") +
+        " + C";
       wrongs.push(variant);
     }
 
@@ -79,6 +71,7 @@ export default function IntegralDiffExp() {
     setChoices(allChoices);
   }
 
+  // ✅ Buttons and feedback
   function open() { setHelp(true); }
   function close() { setHelp(false); }
 
@@ -130,6 +123,7 @@ export default function IntegralDiffExp() {
       {loaded && terms.length > 0 && (
         <div style={{ marginTop: "8px" }} className="center">
           <div className="double center">
+            <b>∫ f(x) dx = </b>&nbsp;
             {terms.map((t, i) => (
               <span key={i}>
                 {i > 0 && " + "}
@@ -155,7 +149,7 @@ export default function IntegralDiffExp() {
             {choices.map((choice, index) => (
               <Choice
                 key={index}
-                size="250px"
+                size="260px"
                 big
                 title={choice}
                 value={choice}
@@ -172,14 +166,13 @@ export default function IntegralDiffExp() {
   );
 }
 
-// Superscript for JSX
+// Superscript display
 function sup(num) {
-  const map = { 1: "", 2: "²", 3: "³", 4: "⁴", 5: "⁵", 6: "⁶", 7 : "⁷", 8: "⁸", 9: "⁹", 10: "¹⁰" };
+  const map = { 1: "", 2: "²", 3: "³", 4: "⁴", 5: "⁵", 6: "⁶", 7: "⁷", 8: "⁸", 9: "⁹", 10: "¹⁰" };
   return <span style={{ fontSize: "40px", position: "relative", top: "-8px" }}>{map[num] || map[num]}</span>;
 }
 
-// Superscript for string display
 function supString(num) {
-  const map = { 1: "", 2: "²", 3: "³", 4: "⁴", 5: "⁵", 6: "⁶", 7 : "⁷", 8: "⁸", 9: "⁹", 10: "¹⁰" };
+  const map = { 1: "", 2: "²", 3: "³", 4: "⁴", 5: "⁵", 6: "⁶", 7: "⁷", 8: "⁸", 9: "⁹", 10: "¹⁰" };
   return map[num] || map[num];
 }
