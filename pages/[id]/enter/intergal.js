@@ -25,7 +25,7 @@ export default function IntegralDiffExp() {
     const usedExponents = new Set();
     const newTerms = [];
     while (newTerms.length < 3) {
-      const exp = Math.ceil(Math.random() * 8 + 2); // 2–9
+      const exp = Math.ceil(Math.random() * 7 + 2); // 2–9
       if (!usedExponents.has(exp)) {
         usedExponents.add(exp);
         const coeff = (Math.ceil(Math.random() * 5 + 1)) * (exp + 1); // multiple of exp+1
@@ -122,8 +122,8 @@ export default function IntegralDiffExp() {
       {/* Question */}
       {loaded && terms.length > 0 && (
         <div style={{ marginTop: "8px" }} className="center">
-          <div className="double center">
-            <b>∫ f(x) dx = </b>&nbsp;
+          <div style={{fontSize:"28px"}} className="double center">
+            ∫ f(x) dx = &nbsp;
             {terms.map((t, i) => (
               <span key={i}>
                 {i > 0 && " + "}
