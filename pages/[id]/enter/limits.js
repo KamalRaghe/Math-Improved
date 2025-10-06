@@ -51,18 +51,18 @@ export default function LimitDiffExp() {
     if (t.length === 0) return;
 
     const fx = t.reduce((sum, { coeff, exp }) => sum + coeff * Math.pow(x, exp), 0);
-    const correctAnswer = `L = ${fx}`;
+    const correctAnswer = `${fx}`; // ✅ just the number, no "L ="
     setAnswer(correctAnswer);
 
-    const wrongs = [];
-    for (let i = 0; i < 3; i++) {
-      const variation = fx + Math.floor(Math.random() * 8 - 4); // ±4 offset
-      wrongs.push(`L = ${variation}`);
+    const wrongs = new Set();
+    while (wrongs.size < 4) { // ✅ 4 wrong + 1 correct = 5 total
+        const variation = fx + Math.floor(Math.random() * 10 - 5); // ±5 range
+        if (variation !== fx) wrongs.add(`${variation}`);
     }
 
-    const allChoices = [correctAnswer, ...wrongs].sort(() => Math.random() - 0.5);
+    const allChoices = [correctAnswer, ...Array.from(wrongs)].sort(() => Math.random() - 0.5);
     setChoices(allChoices);
-  }
+    }
 
   function open() { setHelp(true); }
   function close() { setHelp(false); }
@@ -163,25 +163,40 @@ export default function LimitDiffExp() {
       {wrong && <Wrong />}
 
       {/* Choices */}
-      {loaded && (
-        <div className="box column">
-          <div className="row wrap">
-            {choices.map((choice, index) => (
-              <Choice
+      {/* Choices (2 rows layout) */}
+        {loaded && (
+        <div className="box column center">
+            {/* Top row */}
+            <div className="row">
+            {choices.slice(0, 3).map((choice, index) => (
+                <Choice
                 key={index}
-                size="50px"
-                big
-                title={choice}
                 value={choice}
+                title={choice}
                 answer={answer}
                 doSomething={nextQuestion}
                 Correct={CorrectA}
                 Wrong={WrongA}
-              />
+                />
             ))}
-          </div>
+            </div>
+
+            {/* Bottom row */}
+            <div className="row">
+            {choices.slice(3, 5).map((choice, index) => (
+                <Choice
+                key={index + 3}
+                value={choice}
+                title={choice}
+                answer={answer}
+                doSomething={nextQuestion}
+                Correct={CorrectA}
+                Wrong={WrongA}
+                />
+            ))}
+            </div>
         </div>
-      )}
+        )}
     </div>
   );
 }
