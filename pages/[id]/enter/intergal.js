@@ -122,7 +122,7 @@ export default function IntegralDiffExp() {
       {/* Question */}
       {loaded && terms.length > 0 && (
         <div style={{ marginTop: "8px" }} className="center">
-          <div style={{fontSize:"28px"}} className="double center">
+          <div style={{fontSize:"28px"}} className="center">
             ∫ f(x) dx = &nbsp;
             {terms.map((t, i) => (
               <span key={i}>
@@ -169,7 +169,7 @@ export default function IntegralDiffExp() {
 // Superscript display
 function sup(num) {
   const map = { 1: "", 2: "²", 3: "³", 4: "⁴", 5: "⁵", 6: "⁶", 7: "⁷", 8: "⁸", 9: "⁹", 10: "¹⁰" };
-  return <span style={{ fontSize: "40px", position: "relative", top: "-8px" }}>{map[num] || map[num]}</span>;
+  return <span style={{ fontSize: "30px", position: "relative", top: "-8px" }}>{map[num] || map[num]}</span>;
 }
 
 function supString(num) {
