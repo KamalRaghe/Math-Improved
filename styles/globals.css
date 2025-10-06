@@ -724,7 +724,7 @@ body::-webkit-scrollbar {
 }
 
 .hide{
-  color: #a0e1ff;
+  margin-right:"8px"
 }
 
 .hideline{
