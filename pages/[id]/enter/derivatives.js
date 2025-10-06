@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Choice from "@/components/choice";
 import Correct from "@/components/correct";
 import Wrong from "@/components/wrong";
-import HelpCube from "@/components/cubehelp";
+import ExtraDerivative from "@/components/derivatives";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -155,7 +155,7 @@ export default function DerivativeDiffExp() {
         <button style={{marginBottom:"16px"}} className="help" onClick={open}>help</button>
       </div>
 
-      {help && <HelpCube close={close} />}
+      {help && <ExtraDerivative  />}
       {correct && <Correct />}
       {wrong && <Wrong />}
 
