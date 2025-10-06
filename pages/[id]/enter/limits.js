@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Choice from "@/components/choice";
 import Correct from "@/components/correct";
 import Wrong from "@/components/wrong";
-import ExtraLimits from "@/components/limits"; // 👈 you'll create this like your ExtraDerivative
+ // 👈 you'll create this like your ExtraDerivative
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -124,20 +124,33 @@ export default function LimitDiffExp() {
       </div>
 
       {/* Question */}
-      {loaded && terms.length > 0 && (
-        <div style={{ marginTop: "8px" }} className="center">
-          <div className="double center" style={{ fontSize: "40px" }}>
-            lim₍ₓ→{xValue}₎{" "}
-            <div style={{ marginRight: "8px" }}></div>
-            {terms.map((t, i) => (
-              <span key={i}>
-                {i > 0 && " + "}
-                {t.coeff}x{sup(t.exp)}
-              </span>
-            ))}
-          </div>
-        </div>
-      )}
+    {loaded && terms.length > 0 && (
+  <div style={{ marginTop: "8px" }} className="center">
+    <div className="double center" style={{ fontSize: "40px" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+        <span style={{ fontSize: "40px"}}>lim</span>
+        <span
+          style={{
+            fontSize: "26px",
+            position: "relative",
+            top: "6px",
+            fontWeight: "500",
+          }}
+        >
+          (x → {xValue})
+        </span>
+        <span style={{ marginLeft: "8px" }}>
+          {terms.map((t, i) => (
+            <span key={i}>
+              {i > 0 && " + "}
+              {t.coeff}x{sup(t.exp)}
+            </span>
+          ))}
+        </span>
+      </div>
+    </div>
+  </div>
+)}
 
       <div className="box">
         <button style={{ marginBottom: "16px" }} className="help" onClick={open}>
@@ -145,7 +158,7 @@ export default function LimitDiffExp() {
         </button>
       </div>
 
-      {help && <ExtraLimits close={close} />}
+     
       {correct && <Correct />}
       {wrong && <Wrong />}
 
