@@ -122,8 +122,8 @@ export default function IntegralDiffExp() {
       {/* Question */}
       {loaded && terms.length > 0 && (
         <div style={{ marginTop: "8px" }} className="center">
-          <div style={{fontSize:"28px"}} className="center">
-            ∫ f(x) dx = &nbsp;
+          <div style={{fontSize:"25px"}} className="center">
+            ∫f(x)dx = &nbsp;
             {terms.map((t, i) => (
               <span key={i}>
                 {i > 0 && " + "}
