@@ -119,7 +119,7 @@ export default function LimitTest() {
   }, [terms, xValue]);
 
   useEffect(() => {
-    if (mistake >= 3 || time - Date.now() < 0 || count >= 25) {
+    if (mistake >= 3 || time - Date.now() < 0 || count >= 10) {
       setLoaded(false);
       cancel();
     }
@@ -131,7 +131,7 @@ export default function LimitTest() {
 
   return (
     <div className="beige container column">
-      <div className="double">Questions left: {15 - count}</div>
+      <div className="double">Questions left: {10 - count}</div>
 
       <div className="inTest">
         <div className="Red relative">
@@ -140,7 +140,7 @@ export default function LimitTest() {
           {mistake === 2 && <Heart2 />}
           {mistake === 3 && <Heart3 />}
         </div>
-        {loaded && time - Date.now() > 0 && count < 15 && (
+        {loaded && time - Date.now() > 0 && count < 10 && (
           <div>
             {Math.floor(((time - Date.now()) % (1000 * 60 * 60)) / 1000 / 60)}m{" "}
             {Math.floor(((time - Date.now()) % (1000 * 60)) / 1000)}s
@@ -188,7 +188,7 @@ export default function LimitTest() {
       {wrong && <div className="Red center bold">❌ Wrong</div>}
       {time - Date.now() < 0 && <Timeout again={Again} />}
       {mistake === 3 && <Mistake again={Again} />}
-      {count === 15 && <Pass time={300000 - (time - Date.now())} />}
+      {count === 10 && <Pass time={300000 - (time - Date.now())} />}
 
       {/* Choices */}
       <div className="box column center">
