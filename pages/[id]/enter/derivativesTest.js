@@ -169,7 +169,7 @@ export default function DerivativeTest() {
       )}
 
       <div className="box">
-        <button className="help" onClick={open}>Help</button>
+        
       </div>
 
      
