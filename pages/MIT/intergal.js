@@ -137,7 +137,6 @@ export default function IntegralDiffExp() {
         <button style={{ marginBottom: "16px" }} className="help" onClick={open}>help</button>
       </div>
 
-      {help && <HelpCube close={close} />}
       {correct && <Correct />}
       {wrong && <Wrong />}
 
