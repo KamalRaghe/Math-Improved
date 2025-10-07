@@ -3,10 +3,16 @@ import Choice from "@/components/choice";
 import Correct from "@/components/correct";
 import Wrong from "@/components/wrong";
 import ExtraDerivative from "@/components/derivatives";
-import Link from "next/link";
+import Timeout from "@/components/timeout";
+import Pass from "@/components/pass";
+import Mistake from "@/components/mistake";
+import Heart from "@/components/heart";
+import Heart1 from "@/components/heart1";
+import Heart2 from "@/components/heart2";
+import Heart3 from "@/components/heart3";
 import { useRouter } from "next/router";
 
-export default function DerivativeDiffExp() {
+export default function DerivativeTest() {
   const [help, setHelp] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [correct, setCorrect] = useState(false);
@@ -16,17 +22,20 @@ export default function DerivativeDiffExp() {
   const [choices, setChoices] = useState([]);
   const [answer, setAnswer] = useState("");
 
-  const router = useRouter();
-  const { username, id } = router.query;
-
   const [score, setScore] = useState(0);
   const [count, setCount] = useState(0);
+  const [mistake, setMistake] = useState(0);
+
+  const [xTime, setXTime] = useState(300000 + Date.now()); // 5 min timer
+  const [date, setDate] = useState(Date.now());
+
+  const router = useRouter();
+  const { username, id } = router.query;
 
   // 🎲 Generate polynomial (3 terms)
   function generatePolynomial() {
     const usedExponents = new Set();
     const newTerms = [];
-
     while (newTerms.length < 3) {
       const exp = Math.ceil(Math.random() * 7 + 2); // 2–9
       if (!usedExponents.has(exp)) {
@@ -35,13 +44,11 @@ export default function DerivativeDiffExp() {
         newTerms.push({ coeff, exp });
       }
     }
-
-    // Sort descending by exponent
     newTerms.sort((a, b) => b.exp - a.exp);
     setTerms(newTerms);
   }
 
-  // 🧮 Compute derivative + wrong answers
+  // 🧮 Generate derivative choices
   function generateChoices(t) {
     if (t.length === 0) return;
 
@@ -58,7 +65,7 @@ export default function DerivativeDiffExp() {
     setAnswer(correctAnswer);
 
     const wrongs = [];
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 4; i++) {
       const variant = t
         .map(({ coeff, exp }) => {
           const offset = Math.floor(Math.random() * 3) - 1; // small variation
@@ -76,71 +83,82 @@ export default function DerivativeDiffExp() {
     setChoices(allChoices);
   }
 
-  function open() { setHelp(true); }
-  function close() { setHelp(false); }
-
+  // ✅ Correct
   function CorrectA() {
     setCorrect(true);
-    setTimeout(() => setCorrect(false), 1200);
+    setTimeout(() => setCorrect(false), 1000);
     setCount((p) => p + 1);
     setScore((p) => p + 1);
+    nextQuestion();
   }
 
+  // ❌ Wrong
   function WrongA() {
     setWrong(true);
-    setTimeout(() => setWrong(false), 1200);
+    setMistake((m) => m + 1);
+    setTimeout(() => setWrong(false), 1000);
+    nextQuestion();
   }
 
   function nextQuestion() {
     setTimeout(() => {
       generatePolynomial();
-    }, 1000);
+    }, 800);
   }
 
-  // 🗂 localStorage tracking
+  // Timer
   useEffect(() => {
-    const c = parseInt(window.localStorage.getItem(`${id} Cube`));
-    const s = parseInt(window.localStorage.getItem(`${id} score`));
-    setCount(c || 0);
-    setScore(s || 0);
+    const interval = setInterval(() => setDate(Date.now()), 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Setup
+  useEffect(() => {
     setLoaded(true);
-  }, [id]);
-
-  useEffect(() => {
-    if (count > 0) window.localStorage.setItem(`${id} Cube`, count);
-  }, [count]);
-
-  useEffect(() => {
-    if (score > 0) window.localStorage.setItem(`${id} score`, score);
-  }, [score]);
+  }, []);
 
   useEffect(() => {
     if (loaded) generatePolynomial();
   }, [loaded]);
 
   useEffect(() => {
-    if (terms.length > 0 && loaded) generateChoices(terms);
-  }, [terms, loaded]);
+    if (terms.length > 0) generateChoices(terms);
+  }, [terms]);
+
+  // End conditions
+  useEffect(() => {
+    if (mistake >= 3 || xTime - Date.now() < 0 || count >= 10) {
+      setLoaded(false);
+    }
+  }, [mistake, count, xTime]);
+
+  function open() { setHelp(true); }
+  function close() { setHelp(false); }
 
   return (
     <div className="beige container column">
-      <div className="Test sb">
-        <div className="double">
-          <div className="font">{username}</div>
-          <div>Score: {score}</div>
-          <div className="font">Derivatives: {count}</div>
+      <div className="double">Questions left: {10 - count}</div>
+
+      <div className="inTest">
+        <div className="Red relative">
+          {mistake === 0 && <Heart />}
+          {mistake === 1 && <Heart1 />}
+          {mistake === 2 && <Heart2 />}
+          {mistake === 3 && <Heart3 />}
         </div>
-        <Link href={`/${id}/enter/derivativesTest`}>
-          <button className="green test-btn">Test</button>
-        </Link>
+        {loaded && xTime - Date.now() > 0 && count < 10 && (
+          <div>
+            {Math.floor(((xTime - Date.now()) % (1000 * 60 * 60)) / 1000 / 60)}m{" "}
+            {Math.floor(((xTime - Date.now()) % (1000 * 60)) / 1000)}s
+          </div>
+        )}
       </div>
 
       {/* Question */}
       {loaded && terms.length > 0 && (
         <div style={{ marginTop: "8px" }} className="center">
-          <div className="double center" style={{ fontSize: "40px" }}>
-            f(x) = <div style={{marginRight:"8px"}} ></div> {" "}
-            {terms.map((t, i) => (
+          <div className="center" style={{ fontSize: "30px" }}>
+            f(x) = {terms.map((t, i) => (
               <span key={i}>
                 {i > 0 && " + "}
                 {t.coeff}x{sup(t.exp)}
@@ -151,57 +169,47 @@ export default function DerivativeDiffExp() {
       )}
 
       <div className="box">
-        <button style={{ marginBottom: "16px" }} className="help" onClick={open}>
-          help
-        </button>
+        <button className="help" onClick={open}>Help</button>
       </div>
 
       {help && <ExtraDerivative close={close} />}
       {correct && <Correct />}
       {wrong && <Wrong />}
+      {xTime - Date.now() < 0 && <Timeout again={() => setLoaded(true)} />}
+      {mistake >= 3 && <Mistake again={() => {
+        setMistake(0);
+        setCount(0);
+        setScore(0);
+        setLoaded(true);
+        setXTime(300000 + Date.now());
+      }} />}
+      {count >= 10 && <Pass time={300000 - (xTime - Date.now())} />}
 
       {/* Choices */}
-      {loaded && (
-        <div className="box column">
-          <div className="row wrap">
-            {choices.map((choice, index) => (
-              <Choice
-                key={index}
-                size="250px"
-                big
-                title={choice}
-                value={choice}
-                answer={answer}
-                doSomething={nextQuestion}
-                Correct={CorrectA}
-                Wrong={WrongA}
-              />
-            ))}
-          </div>
+      <div className="box column center">
+        <div className="row wrap">
+          {loaded && choices.map((choice, i) => (
+            <Choice
+              key={i}
+              value={choice}
+              answer={answer}
+              doSomething={nextQuestion}
+              Correct={CorrectA}
+              Wrong={WrongA}
+            />
+          ))}
         </div>
-      )}
+      </div>
     </div>
   );
 }
 
-// Superscript for JSX
+// Superscript helpers
 function sup(num) {
-  const map = { 
-    1: "", 2: "²", 3: "³", 4: "⁴", 5: "⁵", 
-    6: "⁶", 7: "⁷", 8: "⁸", 9: "⁹" 
-  };
-  return (
-    <span style={{ fontSize: "34px", position: "relative", top: "-8px" }}>
-      {map[num] || num}
-    </span>
-  );
+  const map = {1:"",2:"²",3:"³",4:"⁴",5:"⁵",6:"⁶",7:"⁷",8:"⁸",9:"⁹"};
+  return <span style={{ fontSize:"26px", top:"-6px", position:"relative" }}>{map[num] || num}</span>;
 }
-
-// Superscript for string display
 function supString(num) {
-  const map = { 
-    1: "", 2: "²", 3: "³", 4: "⁴", 5: "⁵", 
-    6: "⁶", 7: "⁷", 8: "⁸", 9: "⁹" 
-  };
+  const map = {1:"",2:"²",3:"³",4:"⁴",5:"⁵",6:"⁶",7:"⁷",8:"⁸",9:"⁹"};
   return map[num] || num;
 }
