@@ -175,7 +175,13 @@ export default function DerivativeTest() {
      
       {correct && <Correct />}
       {wrong && <Wrong />}
-      {xTime - Date.now() < 0 && <Timeout again={() => setLoaded(true)} />}
+      {xTime - Date.now() < 0 && <Timeout again={() =>{
+        setMistake(0);
+        setCount(0);
+        setScore(0);
+        setLoaded(true);
+        setTime(300000 + Date.now())
+      }} />}
       {mistake >= 3 && <Mistake again={() => {
         setMistake(0);
         setCount(0);
