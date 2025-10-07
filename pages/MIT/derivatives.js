@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Choice from "@/components/choice";
 import Correct from "@/components/correct";
 import Wrong from "@/components/wrong";
-import ExtraDerivative from "@/components/derivatives";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -156,7 +155,6 @@ export default function DerivativeDiffExp() {
         </button>
       </div>
 
-      {help && <ExtraDerivative close={close} />}
       {correct && <Correct />}
       {wrong && <Wrong />}
 
