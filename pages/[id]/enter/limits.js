@@ -126,7 +126,7 @@ export default function LimitDiffExp() {
 
       {/* Question */}
     {loaded && terms.length > 0 && (
-  <div style={{ marginTop: "8px" }} className="center">
+    <div style={{ marginTop: "8px" }} className="center">
     <div className="center" style={{ fontSize: "30px" }}>
       <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
         <span style={{ fontSize: "40px"}}>lim</span>

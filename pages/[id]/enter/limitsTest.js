@@ -131,7 +131,7 @@ export default function LimitTest() {
 
   return (
     <div className="beige container column">
-      <div className="double">Questions left: {25 - count}</div>
+      <div className="double">Questions left: {15 - count}</div>
 
       <div className="inTest">
         <div className="Red relative">
@@ -140,7 +140,7 @@ export default function LimitTest() {
           {mistake === 2 && <Heart2 />}
           {mistake === 3 && <Heart3 />}
         </div>
-        {loaded && time - Date.now() > 0 && count < 25 && (
+        {loaded && time - Date.now() > 0 && count < 15 && (
           <div>
             {Math.floor(((time - Date.now()) % (1000 * 60 * 60)) / 1000 / 60)}m{" "}
             {Math.floor(((time - Date.now()) % (1000 * 60)) / 1000)}s
@@ -149,21 +149,30 @@ export default function LimitTest() {
       </div>
 
       {/* Question */}
-    {loaded && terms.length > 0 && (
-  <div className="center" style={{ marginTop: "12px", textAlign: "center" }}>
-    <div style={{ fontSize: "42px", fontWeight: "600", lineHeight: "1" }}>
-      lim
-    </div>
-    <div style={{ fontSize: "26px", marginTop: "-6px" }}>
-      (x → {xValue})
-    </div>
-    <div style={{ fontSize: "34px", marginTop: "6px" }}>
-      {terms.map((t, i) => (
-        <span key={i}>
-          {i > 0 && " + "}
-          {t.coeff}x{sup(t.exp)}
+   {loaded && terms.length > 0 && (
+    <div style={{ marginTop: "8px" }} className="center">
+    <div className="center" style={{ fontSize: "30px" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+        <span style={{ fontSize: "40px"}}>lim</span>
+        <span
+          style={{
+            fontSize: "26px",
+            position: "relative",
+            top: "6px",
+            fontWeight: "500",
+          }}
+        >
+          (x → {xValue})
         </span>
-      ))}
+        <span style={{ marginLeft: "8px" }}>
+          {terms.map((t, i) => (
+            <span key={i}>
+              {i > 0 && " + "}
+              {t.coeff}x{sup(t.exp)}
+            </span>
+          ))}
+        </span>
+      </div>
     </div>
   </div>
 )}
@@ -181,7 +190,7 @@ export default function LimitTest() {
       {wrong && <div className="Red center bold">❌ Wrong</div>}
       {time - Date.now() < 0 && <Timeout again={Again} />}
       {mistake === 3 && <Mistake again={Again} />}
-      {count === 25 && <Pass time={300000 - (time - Date.now())} />}
+      {count === 15 && <Pass time={300000 - (time - Date.now())} />}
 
       {/* Choices */}
       <div className="box column center">
