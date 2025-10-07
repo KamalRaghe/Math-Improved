@@ -119,7 +119,7 @@ export default function LimitDiffExp() {
           <div>Score: {score}</div>
           <div className="font">Limits: {count}</div>
         </div>
-        <Link href={`/${id}/enter/limitsTest`}>
+        <Link href={`/MIT/limitsTest`}>
           <button className="green test-btn">Test</button>
         </Link>
       </div>
