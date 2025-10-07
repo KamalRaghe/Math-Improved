@@ -181,7 +181,7 @@ export default function LimitTest() {
         
       </div>
 
-      {help && <StepLimit close={close} terms={terms} xValue={xValue} />}
+      
 
       {/* Feedback overlays */}
       {correct && <div className="Green center bold">✅ Correct</div>}
