@@ -107,7 +107,7 @@ export default function DerivativeDiffExp() {
   }, [id]);
 
   useEffect(() => {
-    if (count > 0) window.localStorage.setItem(`${id} Cube`, count);
+    if (count > 0) window.localStorage.setItem(`${id} derivatives`, count);
   }, [count]);
 
   useEffect(() => {
@@ -306,7 +306,7 @@ export default function DerivativeDiffExp() {
 
   // 🗂 localStorage tracking
   useEffect(() => {
-    const c = parseInt(window.localStorage.getItem(`${id} Cube`));
+    const c = parseInt(window.localStorage.getItem(`${id} derivatives`));
     const s = parseInt(window.localStorage.getItem(`${id} score`));
     setCount(c || 0);
     setScore(s || 0);
@@ -314,7 +314,7 @@ export default function DerivativeDiffExp() {
   }, [id]);
 
   useEffect(() => {
-    if (count > 0) window.localStorage.setItem(`${id} Cube`, count);
+    if (count > 0) window.localStorage.setItem(`${id} derivatives`, count);
   }, [count]);
 
   useEffect(() => {
