@@ -107,7 +107,7 @@ export default function DerivativeDiffExp() {
   }, [id]);
 
   useEffect(() => {
-    if (count > 0) window.localStorage.setItem(`${id} der`, count);
+    if (count > 0) window.localStorage.setItem(`${id} derivatives`, count);
   }, [count]);
 
   useEffect(() => {
