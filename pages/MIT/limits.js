@@ -88,7 +88,7 @@ export default function LimitDiffExp() {
 
   // 🗂 localStorage tracking
   useEffect(() => {
-    const c = parseInt(window.localStorage.getItem(`${id} LimitCube`));
+    const c = parseInt(window.localStorage.getItem(`${id} Limit`));
     const s = parseInt(window.localStorage.getItem(`${id} LimitScore`));
     setCount(c || 0);
     setScore(s || 0);
@@ -96,7 +96,7 @@ export default function LimitDiffExp() {
   }, [id]);
 
   useEffect(() => {
-    if (count > 0) window.localStorage.setItem(`${id} LimitCube`, count);
+    if (count > 0) window.localStorage.setItem(`${id} Limit`, count);
   }, [count]);
 
   useEffect(() => {

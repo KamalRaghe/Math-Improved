@@ -92,14 +92,14 @@ export default function IntegralDiffExp() {
 
   // 🗂 localStorage tracking
   useEffect(() => {
-    const c = parseInt(window.localStorage.getItem(`${id} Cube`));
+    const c = parseInt(window.localStorage.getItem(`${id} intergal`));
     const s = parseInt(window.localStorage.getItem(`${id} score`));
     setCount(c || 0);
     setScore(s || 0);
     setLoaded(true);
   }, [id]);
 
-  useEffect(() => { if (count > 0) window.localStorage.setItem(`${id} Cube`, count); }, [count]);
+  useEffect(() => { if (count > 0) window.localStorage.setItem(`${id} intergal`, count); }, [count]);
   useEffect(() => { if (score > 0) window.localStorage.setItem(`${id} score`, score); }, [score]);
 
   useEffect(() => { if (loaded) generatePolynomial(); }, [loaded]);
