@@ -172,7 +172,7 @@ export default function DerivativeTest() {
         <button className="help" onClick={open}>Help</button>
       </div>
 
-      {help && <ExtraDerivative close={close} />}
+     
       {correct && <Correct />}
       {wrong && <Wrong />}
       {xTime - Date.now() < 0 && <Timeout again={() => setLoaded(true)} />}
