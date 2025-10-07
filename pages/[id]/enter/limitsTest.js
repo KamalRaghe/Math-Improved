@@ -178,9 +178,7 @@ export default function LimitTest() {
 )}
 
       <div className="box">
-        <button className="help" onClick={open}>
-          help
-        </button>
+        
       </div>
 
       {help && <StepLimit close={close} terms={terms} xValue={xValue} />}
