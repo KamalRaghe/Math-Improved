@@ -165,7 +165,7 @@ export default function IntegralTest() {
       )}
 
       <div className="box">
-        <button style={{ marginBottom: "16px" }} className="help" onClick={open}>help</button>
+      
       </div>
 
       {correct && <Correct />}
