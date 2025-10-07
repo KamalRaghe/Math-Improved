@@ -99,7 +99,7 @@ export default function DerivativeDiffExp() {
 
   // 🗂 localStorage tracking
   useEffect(() => {
-    const c = parseInt(window.localStorage.getItem(`${id} Cube`));
+    const c = parseInt(window.localStorage.getItem(`${id} derivatives`));
     const s = parseInt(window.localStorage.getItem(`${id} score`));
     setCount(c || 0);
     setScore(s || 0);
