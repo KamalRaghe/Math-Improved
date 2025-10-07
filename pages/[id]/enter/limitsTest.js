@@ -17,7 +17,6 @@ export default function LimitTest() {
   const [mistake, setMistake] = useState(0);
   const [count, setCount] = useState(0);
   const [score, setScore] = useState(0);
-  const [help, setHelp] = useState(false);
   const [again, setAgain] = useState(false);
 
   const [terms, setTerms] = useState([]);
@@ -100,9 +99,6 @@ export default function LimitTest() {
     setTime(300000 + Date.now());
     setLoaded(true);
   }
-
-  function open() { setHelp(true); }
-  function close() { setHelp(false); }
 
   // 🧠 Setup
   useEffect(() => {
