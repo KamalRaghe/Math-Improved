@@ -1,119 +1,414 @@
 import { useEffect, useState } from "react";
 import Choice from "@/components/choice";
 import Correct from "@/components/correct";
-import Wrong from "@/components/wrong"; 
-import HelpCube from "@/components/cubehelp";
+import Wrong from "@/components/wrong";
+import ExtraDerivative from "@/components/derivatives";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
-import { db } from "@/firebase";
 
-export default function DoubleAdd(){
-    const [help, setHelp] = useState(false)
-    const [loaded, setLoaded] = useState(false)
-    const [correct, setCorrect] = useState(false)
-    const[ wrong, setWrong] = useState(false)
-    const [num1, setNum1] = useState(Math.ceil(Math.random()*9));
-    const [num3, setNum3] = useState([0,num1+num1,num1+num1+num1,-1*num1,num1])
-    const router = useRouter()
-    const {username} = router.query 
-    const {id} = router.query 
+export default function DerivativeDiffExp() {
+  const [help, setHelp] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+  const [correct, setCorrect] = useState(false);
+  const [wrong, setWrong] = useState(false);
 
-    function mix(){
-        setNum3([0,num1+num1,num1+num1+num1,-1*num1,num1])
+  const [terms, setTerms] = useState([]);
+  const [choices, setChoices] = useState([]);
+  const [answer, setAnswer] = useState("");
+
+  const router = useRouter();
+  const { username, id } = router.query;
+
+  const [score, setScore] = useState(0);
+  const [count, setCount] = useState(0);
+
+  // 🎲 Generate polynomial (3 terms)
+  function generatePolynomial() {
+    const usedExponents = new Set();
+    const newTerms = [];
+
+    while (newTerms.length < 3) {
+      const exp = Math.ceil(Math.random() * 7 + 2); // 2–9
+      if (!usedExponents.has(exp)) {
+        usedExponents.add(exp);
+        const coeff = Math.ceil(Math.random() * 7 + 1); // 1–8
+        newTerms.push({ coeff, exp });
+      }
     }
 
-    function open(){
-        setHelp(true)
-      }
-      function close(){
-        setHelp(false)
-      }
+    // Sort descending by exponent
+    newTerms.sort((a, b) => b.exp - a.exp);
+    setTerms(newTerms);
+  }
 
-    function CorrectA(){ 
-        setCorrect(true)
-        setTimeout(() => {
-            setCorrect(false) 
-        }, 1900);
-        setCount(count+1)
-        setScore(score+1)
-      }
-  
-      function WrongA(){ 
-        setWrong(true)
-        setTimeout(() => {
-            setWrong(false) 
-        }, 1900);
-      } 
-    function Add(){
-        setTimeout(() => {
-            setNum1(Math.ceil(Math.random()*10))
-            mix()
-            setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
-        }, 1500)
+  // 🧮 Compute derivative + wrong answers
+  function generateChoices(t) {
+    if (t.length === 0) return;
+
+    const deriveTerm = (c, e) => {
+      const newCoeff = c * e;
+      const newExp = e - 1;
+      if (newExp === 0) return `${newCoeff}`;
+      if (newExp === 1) return `${newCoeff}x`;
+      return `${newCoeff}x${supString(newExp)}`;
+    };
+
+    const derivative = t.map(({ coeff, exp }) => deriveTerm(coeff, exp)).join(" + ");
+    const correctAnswer = `f'(x) = ${derivative}`;
+    setAnswer(correctAnswer);
+
+    const wrongs = [];
+    for (let i = 0; i < 3; i++) {
+      const variant = t
+        .map(({ coeff, exp }) => {
+          const offset = Math.floor(Math.random() * 3) - 1; // small variation
+          const newCoeff = (coeff + offset) * exp;
+          const newExp = exp - 1;
+          if (newExp === 0) return `${newCoeff}`;
+          if (newExp === 1) return `${newCoeff}x`;
+          return `${newCoeff}x${supString(newExp)}`;
+        })
+        .join(" + ");
+      wrongs.push(`f'(x) = ${variant}`);
     }
 
+    const allChoices = [correctAnswer, ...wrongs].sort(() => Math.random() - 0.5);
+    setChoices(allChoices);
+  }
 
-    useEffect(() =>{
-       mix()
-       setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
-    },[num1])
+  function open() { setHelp(true); }
+  function close() { setHelp(false); }
 
-    useEffect(() =>{
-        setLoaded(true)
-        const ID = window.localStorage.getItem('ID')
-        if(!(ID === id)){
-            router.push("/")
-        }
-    },[])
+  function CorrectA() {
+    setCorrect(true);
+    setTimeout(() => setCorrect(false), 1200);
+    setCount((p) => p + 1);
+    setScore((p) => p + 1);
+  }
 
-    const [score, setScore] =useState(0)
-    const [count, setCount] =useState(0)
- 
-     useEffect(() =>{
-         setLoaded(true)
-         const count = parseInt(window.localStorage.getItem(`${id} Cube`))
-         setCount(count ? count : 0)
-         const score = parseInt(window.localStorage.getItem(`${id} score`))
-         setScore(score ? score : 0)
-     },[])
- 
-     useEffect(() =>{
-         if(count > 0){
-         window.localStorage.setItem(`${id} Cube`, count)
-     }},[count])
- 
-     useEffect(() =>{
-         if(score > 0){
-         window.localStorage.setItem(`${id} score` , score)
-     }},[score])
+  function WrongA() {
+    setWrong(true);
+    setTimeout(() => setWrong(false), 1200);
+  }
 
-    return(
-        <div className="beige container column">
-            <div className="Test sb"><div className="double" >
-                <div>Score: {loaded && score}</div>
-                <div className="font" >Cube: {loaded && count} </div>
-            </div><Link href={`/${id}/enter/testCube`}><button className="green test-btn">Test</button></Link></div>
-            <div className="box">
-                <div className="double center ">{loaded && num1}</div><span style={{fontSize:'20px',position:'relative', top:"-13px"}}>3</span>
-            </div>
-            <div className="box">
-                <button className="help" onClick={open}>help</button>
-            </div>
-            {help && <HelpCube  num1={num1} close={close}/>}
-            {loaded && correct && <Correct></Correct>}
-            {loaded && wrong && <Wrong/> }
-            <div className="box column">
-               <div className="row ">
-                    { loaded && <Choice value ={num1*num1*num1+num3[0]} answer ={num1*num1*num1} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-                    { loaded && <Choice value ={num1*num1*num1+num3[1]} answer ={num1*num1*num1} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-                    { loaded && <Choice value ={num1*num1*num1+num3[2]} answer ={num1*num1*num1} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-               </div>
-               <div className="row">
-                    { loaded && <Choice value ={num1*num1*num1+num3[3]} answer ={num1*num1*num1} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-                    { loaded && <Choice value ={num1*num1*num1+num3[4]} answer ={num1*num1*num1} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-               </div>
-            </div>
+  function nextQuestion() {
+    setTimeout(() => {
+      generatePolynomial();
+    }, 1000);
+  }
+
+  // 🗂 localStorage tracking
+  useEffect(() => {
+    const c = parseInt(window.localStorage.getItem(`${id} Cube`));
+    const s = parseInt(window.localStorage.getItem(`${id} score`));
+    setCount(c || 0);
+    setScore(s || 0);
+    setLoaded(true);
+  }, [id]);
+
+  useEffect(() => {
+    if (count > 0) window.localStorage.setItem(`${id} Cube`, count);
+  }, [count]);
+
+  useEffect(() => {
+    if (score > 0) window.localStorage.setItem(`${id} score`, score);
+  }, [score]);
+
+  useEffect(() => {
+    if (loaded) generatePolynomial();
+  }, [loaded]);
+
+  useEffect(() => {
+    if (terms.length > 0 && loaded) generateChoices(terms);
+  }, [terms, loaded]);
+
+  return (
+    <div className="beige container column">
+      <div className="Test sb">
+        <div className="double">
+          <div className="font">{username}</div>
+          <div>Score: {score}</div>
+          <div className="font">Derivatives: {count}</div>
         </div>
-    )
+        <Link href={`/${id}/enter/derivativesTest`}>
+          <button className="green test-btn">Test</button>
+        </Link>
+      </div>
+
+      {/* Question */}
+      {loaded && terms.length > 0 && (
+        <div style={{ marginTop: "8px" }} className="center">
+          <div className="double center" style={{ fontSize: "40px" }}>
+            f(x) = <div style={{marginRight:"8px"}} ></div> {" "}
+            {terms.map((t, i) => (
+              <span key={i}>
+                {i > 0 && " + "}
+                {t.coeff}x{sup(t.exp)}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <div className="box">
+        <button style={{ marginBottom: "16px" }} className="help" onClick={open}>
+          help
+        </button>
+      </div>
+
+      {help && <ExtraDerivative close={close} />}
+      {correct && <Correct />}
+      {wrong && <Wrong />}
+
+      {/* Choices */}
+      {loaded && (
+        <div className="box column">
+          <div className="row wrap">
+            {choices.map((choice, index) => (
+              <Choice
+                key={index}
+                size="250px"
+                big
+                title={choice}
+                value={choice}
+                answer={answer}
+                doSomething={nextQuestion}
+                Correct={CorrectA}
+                Wrong={WrongA}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// Superscript for JSX
+function sup(num) {
+  const map = { 
+    1: "", 2: "²", 3: "³", 4: "⁴", 5: "⁵", 
+    6: "⁶", 7: "⁷", 8: "⁸", 9: "⁹" 
+  };
+  return (
+    <span style={{ fontSize: "34px", position: "relative", top: "-8px" }}>
+      {map[num] || num}
+    </span>
+  );
+}
+
+// Superscript for string display
+function supString(num) {
+  const map = { 
+    1: "", 2: "²", 3: "³", 4: "⁴", 5: "⁵", 
+    6: "⁶", 7: "⁷", 8: "⁸", 9: "⁹" 
+  };
+  return map[num] || num;
+}
+import { useEffect, useState } from "react";
+import Choice from "@/components/choice";
+import Correct from "@/components/correct";
+import Wrong from "@/components/wrong";
+import ExtraDerivative from "@/components/derivatives";
+import Link from "next/link";
+import { useRouter } from "next/router";
+
+export default function DerivativeDiffExp() {
+  const [help, setHelp] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+  const [correct, setCorrect] = useState(false);
+  const [wrong, setWrong] = useState(false);
+
+  const [terms, setTerms] = useState([]);
+  const [choices, setChoices] = useState([]);
+  const [answer, setAnswer] = useState("");
+
+  const router = useRouter();
+  const { username, id } = router.query;
+
+  const [score, setScore] = useState(0);
+  const [count, setCount] = useState(0);
+
+  // 🎲 Generate polynomial (3 terms)
+  function generatePolynomial() {
+    const usedExponents = new Set();
+    const newTerms = [];
+
+    while (newTerms.length < 3) {
+      const exp = Math.ceil(Math.random() * 7 + 2); // 2–9
+      if (!usedExponents.has(exp)) {
+        usedExponents.add(exp);
+        const coeff = Math.ceil(Math.random() * 7 + 1); // 1–8
+        newTerms.push({ coeff, exp });
+      }
+    }
+
+    // Sort descending by exponent
+    newTerms.sort((a, b) => b.exp - a.exp);
+    setTerms(newTerms);
+  }
+
+  // 🧮 Compute derivative + wrong answers
+  function generateChoices(t) {
+    if (t.length === 0) return;
+
+    const deriveTerm = (c, e) => {
+      const newCoeff = c * e;
+      const newExp = e - 1;
+      if (newExp === 0) return `${newCoeff}`;
+      if (newExp === 1) return `${newCoeff}x`;
+      return `${newCoeff}x${supString(newExp)}`;
+    };
+
+    const derivative = t.map(({ coeff, exp }) => deriveTerm(coeff, exp)).join(" + ");
+    const correctAnswer = `f'(x) = ${derivative}`;
+    setAnswer(correctAnswer);
+
+    const wrongs = [];
+    for (let i = 0; i < 3; i++) {
+      const variant = t
+        .map(({ coeff, exp }) => {
+          const offset = Math.floor(Math.random() * 3) - 1; // small variation
+          const newCoeff = (coeff + offset) * exp;
+          const newExp = exp - 1;
+          if (newExp === 0) return `${newCoeff}`;
+          if (newExp === 1) return `${newCoeff}x`;
+          return `${newCoeff}x${supString(newExp)}`;
+        })
+        .join(" + ");
+      wrongs.push(`f'(x) = ${variant}`);
+    }
+
+    const allChoices = [correctAnswer, ...wrongs].sort(() => Math.random() - 0.5);
+    setChoices(allChoices);
+  }
+
+  function open() { setHelp(true); }
+  function close() { setHelp(false); }
+
+  function CorrectA() {
+    setCorrect(true);
+    setTimeout(() => setCorrect(false), 1200);
+    setCount((p) => p + 1);
+    setScore((p) => p + 1);
+  }
+
+  function WrongA() {
+    setWrong(true);
+    setTimeout(() => setWrong(false), 1200);
+  }
+
+  function nextQuestion() {
+    setTimeout(() => {
+      generatePolynomial();
+    }, 1000);
+  }
+
+  // 🗂 localStorage tracking
+  useEffect(() => {
+    const c = parseInt(window.localStorage.getItem(`${id} Cube`));
+    const s = parseInt(window.localStorage.getItem(`${id} score`));
+    setCount(c || 0);
+    setScore(s || 0);
+    setLoaded(true);
+  }, [id]);
+
+  useEffect(() => {
+    if (count > 0) window.localStorage.setItem(`${id} Cube`, count);
+  }, [count]);
+
+  useEffect(() => {
+    if (score > 0) window.localStorage.setItem(`${id} score`, score);
+  }, [score]);
+
+  useEffect(() => {
+    if (loaded) generatePolynomial();
+  }, [loaded]);
+
+  useEffect(() => {
+    if (terms.length > 0 && loaded) generateChoices(terms);
+  }, [terms, loaded]);
+
+  return (
+    <div className="beige container column">
+      <div className="Test sb">
+        <div className="double">
+          <div className="font">{username}</div>
+          <div>Score: {score}</div>
+          <div className="font">Derivatives: {count}</div>
+        </div>
+        <Link href={`/MIT/derivativesTest`}>
+          <button className="green test-btn">Test</button>
+        </Link>
+      </div>
+
+      {/* Question */}
+      {loaded && terms.length > 0 && (
+        <div style={{ marginTop: "8px" }} className="center">
+          <div className="double center" style={{ fontSize: "40px" }}>
+            f(x) = <div style={{marginRight:"8px"}} ></div> {" "}
+            {terms.map((t, i) => (
+              <span key={i}>
+                {i > 0 && " + "}
+                {t.coeff}x{sup(t.exp)}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <div className="box">
+        <button style={{ marginBottom: "16px" }} className="help" onClick={open}>
+          help
+        </button>
+      </div>
+
+      {help && <ExtraDerivative close={close} />}
+      {correct && <Correct />}
+      {wrong && <Wrong />}
+
+      {/* Choices */}
+      {loaded && (
+        <div className="box column">
+          <div className="row wrap">
+            {choices.map((choice, index) => (
+              <Choice
+                key={index}
+                size="250px"
+                big
+                title={choice}
+                value={choice}
+                answer={answer}
+                doSomething={nextQuestion}
+                Correct={CorrectA}
+                Wrong={WrongA}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// Superscript for JSX
+function sup(num) {
+  const map = { 
+    1: "", 2: "²", 3: "³", 4: "⁴", 5: "⁵", 
+    6: "⁶", 7: "⁷", 8: "⁸", 9: "⁹" 
+  };
+  return (
+    <span style={{ fontSize: "34px", position: "relative", top: "-8px" }}>
+      {map[num] || num}
+    </span>
+  );
+}
+
+// Superscript for string display
+function supString(num) {
+  const map = { 
+    1: "", 2: "²", 3: "³", 4: "⁴", 5: "⁵", 
+    6: "⁶", 7: "⁷", 8: "⁸", 9: "⁹" 
+  };
+  return map[num] || num;
 }
