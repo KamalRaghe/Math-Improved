@@ -187,6 +187,8 @@ export default function IntegralTest() {
           {loaded && choices.map((choice, i) => (
             <Choice
               key={i}
+              big
+              size={'250px'}
               value={choice}
               answer={answer}
               doSomething={nextQuestion}
