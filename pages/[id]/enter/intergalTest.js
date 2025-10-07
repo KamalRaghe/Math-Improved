@@ -3,10 +3,16 @@ import Choice from "@/components/choice";
 import Correct from "@/components/correct";
 import Wrong from "@/components/wrong";
 import HelpCube from "@/components/cubehelp";
-import Link from "next/link";
+import Timeout from "@/components/timeout";
+import Pass from "@/components/pass";
+import Mistake from "@/components/mistake";
+import Heart from "@/components/heart";
+import Heart1 from "@/components/heart1";
+import Heart2 from "@/components/heart2";
+import Heart3 from "@/components/heart3";
 import { useRouter } from "next/router";
 
-export default function IntegralDiffExp() {
+export default function IntegralTest() {
   const [help, setHelp] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [correct, setCorrect] = useState(false);
@@ -14,11 +20,14 @@ export default function IntegralDiffExp() {
   const [terms, setTerms] = useState([]);
   const [choices, setChoices] = useState([]);
   const [answer, setAnswer] = useState("");
+  const [score, setScore] = useState(0);
+  const [count, setCount] = useState(0);
+  const [mistake, setMistake] = useState(0);
+  const [time, setTime] = useState(300000 + Date.now()); // 5 min timer
+  const [date, setDate] = useState(Date.now());
 
   const router = useRouter();
   const { username, id } = router.query;
-  const [score, setScore] = useState(0);
-  const [count, setCount] = useState(0);
 
   // 🎲 Generate 3-term polynomial
   function generatePolynomial() {
@@ -36,7 +45,7 @@ export default function IntegralDiffExp() {
     setTerms(newTerms);
   }
 
-  // 🧮 Generate correct integral + wrong answers
+  // 🧮 Generate integral choices
   function generateChoices(t) {
     if (t.length === 0) return;
 
@@ -51,7 +60,7 @@ export default function IntegralDiffExp() {
     setAnswer(integral);
 
     const wrongs = [];
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 4; i++) {
       const variant =
         "f(x) = " +
         t
@@ -71,52 +80,73 @@ export default function IntegralDiffExp() {
     setChoices(allChoices);
   }
 
-  // ✅ Buttons and feedback
-  function open() { setHelp(true); }
-  function close() { setHelp(false); }
-
+  // ✅ Correct
   function CorrectA() {
     setCorrect(true);
-    setTimeout(() => setCorrect(false), 1200);
+    setTimeout(() => setCorrect(false), 1000);
     setCount((p) => p + 1);
     setScore((p) => p + 1);
+    nextQuestion();
   }
 
+  // ❌ Wrong
   function WrongA() {
     setWrong(true);
-    setTimeout(() => setWrong(false), 1200);
+    setMistake((m) => m + 1);
+    setTimeout(() => setWrong(false), 1000);
+    nextQuestion();
   }
 
   function nextQuestion() {
-    setTimeout(() => generatePolynomial(), 1000);
+    setTimeout(() => generatePolynomial(), 800);
   }
 
-  // 🗂 localStorage tracking
+  // Timer
   useEffect(() => {
-    const c = parseInt(window.localStorage.getItem(`${id} Cube`));
-    const s = parseInt(window.localStorage.getItem(`${id} score`));
-    setCount(c || 0);
-    setScore(s || 0);
+    const interval = setInterval(() => setDate(Date.now()), 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Setup
+  useEffect(() => {
     setLoaded(true);
-  }, [id]);
+  }, []);
 
-  useEffect(() => { if (count > 0) window.localStorage.setItem(`${id} Cube`, count); }, [count]);
-  useEffect(() => { if (score > 0) window.localStorage.setItem(`${id} score`, score); }, [score]);
+  useEffect(() => {
+    if (loaded) generatePolynomial();
+  }, [loaded]);
 
-  useEffect(() => { if (loaded) generatePolynomial(); }, [loaded]);
-  useEffect(() => { if (terms.length > 0 && loaded) generateChoices(terms); }, [terms, loaded]);
+  useEffect(() => {
+    if (terms.length > 0) generateChoices(terms);
+  }, [terms]);
+
+  // End conditions
+  useEffect(() => {
+    if (mistake >= 3 || time - Date.now() < 0 || count >= 10) {
+      setLoaded(false);
+    }
+  }, [mistake, count, time]);
+
+  function open() { setHelp(true); }
+  function close() { setHelp(false); }
 
   return (
     <div className="beige container column">
-      <div className="Test sb">
-        <div className="double">
-          <div className="font">{username}</div>
-          <div>Score: {score}</div>
-          <div className="font">Integrals: {count}</div>
+      <div className="double">Questions left: {10 - count}</div>
+
+      <div className="inTest">
+        <div className="Red relative">
+          {mistake === 0 && <Heart />}
+          {mistake === 1 && <Heart1 />}
+          {mistake === 2 && <Heart2 />}
+          {mistake === 3 && <Heart3 />}
         </div>
-        <Link href={`/${id}/enter/intergalTest`}>
-          <button className="green test-btn">Test</button>
-        </Link>
+        {loaded && time - Date.now() > 0 && count < 10 && (
+          <div>
+            {Math.floor(((time - Date.now()) % (1000 * 60 * 60)) / 1000 / 60)}m{" "}
+            {Math.floor(((time - Date.now()) % (1000 * 60)) / 1000)}s
+          </div>
+        )}
       </div>
 
       {/* Question */}
@@ -141,38 +171,41 @@ export default function IntegralDiffExp() {
       {help && <HelpCube close={close} />}
       {correct && <Correct />}
       {wrong && <Wrong />}
+      {time - Date.now() < 0 && <Timeout again={() => setLoaded(true)} />}
+      {mistake >= 3 && <Mistake again={() => {
+        setMistake(0);
+        setCount(0);
+        setScore(0);
+        setLoaded(true);
+        setTime(300000 + Date.now());
+      }} />}
+      {count >= 10 && <Pass time={300000 - (time - Date.now())} />}
 
       {/* Choices */}
-      {loaded && (
-        <div className="box column">
-          <div className="row wrap">
-            {choices.map((choice, index) => (
-              <Choice
-                key={index}
-                size="260px"
-                big
-                title={choice}
-                value={choice}
-                answer={answer}
-                doSomething={nextQuestion}
-                Correct={CorrectA}
-                Wrong={WrongA}
-              />
-            ))}
-          </div>
+      <div className="box column center">
+        <div className="row wrap">
+          {loaded && choices.map((choice, i) => (
+            <Choice
+              key={i}
+              value={choice}
+              answer={answer}
+              doSomething={nextQuestion}
+              Correct={CorrectA}
+              Wrong={WrongA}
+            />
+          ))}
         </div>
-      )}
+      </div>
     </div>
   );
 }
 
-// Superscript display
+// Superscript helpers
 function sup(num) {
-  const map = { 1: "", 2: "²", 3: "³", 4: "⁴", 5: "⁵", 6: "⁶", 7: "⁷", 8: "⁸", 9: "⁹", 10: "¹⁰" };
-  return <span style={{ fontSize: "30px", position: "relative", top: "-8px" }}>{map[num] || map[num]}</span>;
+  const map = {1:"",2:"²",3:"³",4:"⁴",5:"⁵",6:"⁶",7:"⁷",8:"⁸",9:"⁹",10:"¹⁰"};
+  return <span style={{ fontSize:"26px", position:"relative", top:"-6px" }}>{map[num] || num}</span>;
 }
-
 function supString(num) {
-  const map = { 1: "", 2: "²", 3: "³", 4: "⁴", 5: "⁵", 6: "⁶", 7: "⁷", 8: "⁸", 9: "⁹", 10: "¹⁰" };
-  return map[num] || map[num];
+  const map = {1:"",2:"²",3:"³",4:"⁴",5:"⁵",6:"⁶",7:"⁷",8:"⁸",9:"⁹",10:"¹⁰"};
+  return map[num] || num;
 }
