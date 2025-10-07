@@ -170,7 +170,13 @@ export default function IntegralTest() {
 
       {correct && <Correct />}
       {wrong && <Wrong />}
-      {time - Date.now() < 0 && <Timeout again={() => setLoaded(true)} />}
+      {time - Date.now() < 0 && <Timeout again={() => {
+        setMistake(0);
+        setCount(0);
+        setScore(0);
+        setLoaded(true);
+        setTime(300000 + Date.now())
+      }} />}
       {mistake >= 3 && <Mistake again={() => {
         setMistake(0);
         setCount(0);
