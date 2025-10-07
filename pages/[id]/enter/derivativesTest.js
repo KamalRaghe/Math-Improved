@@ -190,6 +190,9 @@ export default function DerivativeTest() {
         <div className="row wrap">
           {loaded && choices.map((choice, i) => (
             <Choice
+              title={choice}
+               size="250px"
+               big  
               key={i}
               value={choice}
               answer={answer}
