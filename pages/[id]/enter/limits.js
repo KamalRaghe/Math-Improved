@@ -5,6 +5,7 @@ import Wrong from "@/components/wrong";
  // 👈 you'll create this like your ExtraDerivative
 import Link from "next/link";
 import { useRouter } from "next/router";
+import StepLimit from "@/components/limits";
 
 export default function LimitDiffExp() {
   const [help, setHelp] = useState(false);
@@ -118,7 +119,7 @@ export default function LimitDiffExp() {
           <div>Score: {score}</div>
           <div className="font">Limits: {count}</div>
         </div>
-        <Link href={`/${id}/enter/testCalc`}>
+        <Link href={`/${id}/enter/limitsTest`}>
           <button className="green test-btn">Test</button>
         </Link>
       </div>
@@ -158,7 +159,7 @@ export default function LimitDiffExp() {
         </button>
       </div>
 
-     
+      {help && <StepLimit close={close} terms={terms} xValue={xValue} />}
       {correct && <Correct />}
       {wrong && <Wrong />}
 
