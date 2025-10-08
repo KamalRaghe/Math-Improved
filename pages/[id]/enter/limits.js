@@ -175,7 +175,7 @@ export default function LimitDiffExp() {
         </button>
       </div>
 
-      {help && <Limits close={close} c = {arrayC}} e = {arrayE} />}
+      {help && <Limits close={close} c = {arrayC} e = {arrayE} />}
       {correct && <Correct />}
       {wrong && <Wrong />}
 
