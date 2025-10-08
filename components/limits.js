@@ -41,13 +41,7 @@ export default function Pm({c1,c2,c3,e1,e2,e3,close}){
             {extra && sign === '-' && (Q1 >= 10 || Q2 >= 10) && <StepMinus close={Extra} num1 ={Q1} num2 = {Q2}/>}
             {extra && sign === '÷' && <HelpDiv close={Extra} num1 ={Q1} num2 = {Q2}/>}
                <div> 
-               <div className="double relative" style={{top:"75px",left:"25px",color:'white'}} >P =</div>
-                    <div className="double" style={{width:'100px', height:"100px",border:"3px solid black",backgroundColor:'black'}}>
-                    <div className="relative center Green" style={{top:"-30px",fontSize:'20px'}} >{num1}</div>
-                    <div className="relative center Green" style={{top:"85px",fontSize:'20px'}} >{num1}</div>
-                    <div className="relative center Green" style={{top:'-7px', left:"-70px",fontSize:'20px'}} >{num1}</div>
-                    <div className="relative center Green" style={{top:'-30px',left:"70px",fontSize:'20px'}} >{num1}</div>
-                </div>    
+               
                </div>
                <div className="box" ></div>
                <div className="box"></div>
