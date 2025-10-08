@@ -7,7 +7,7 @@ import StepTimes from "@/components/stepTimes"
 import HelpMinus from "@/components/HelpMinus"
 import StepAdd from "@/components/StepAdd"
 import StepMinus from "@/components/StepMinus"
-import ExponentMiniCalc from "@/limitCalc"
+import ExponentCalculator from "@/limitCalc"
 
 export default function Limits({c,e,x,close}){
     const [done, setDone] = useState(false)
@@ -60,8 +60,8 @@ export default function Limits({c,e,x,close}){
                 + {c[1]}x <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[1]}</span>
                 + {c[2]}x <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[2]}</span>
                </div>
-               <div className="box center" >
-                <ExponentMiniCalc></ExponentMiniCalc>
+               <div className="box border" >
+                <ExponentCalculator></ExponentCalculator>
                </div>
                <div className="box"></div>
                {!done && <div className=" double center Green absolute StepQuestion">{Q1} {sign} {Q2} = </div>}  
