@@ -16,7 +16,9 @@ export default function Limits({c,e,x,close}){
     const [steps,setSteps] = useState(0)
     const [sign ,setSign] = useState('x')
     const [answer, setAnswer] = useState(4)
-    const [arr, setArr]=useState([0,Math.floor(Math.random()*1+2)+1,1,Math.floor(Math.random()*3)-4])
+    const [arr, setArr]= useState([0,Math.floor(Math.random()*1+2)+1,1,Math.floor(Math.random()*3)-4])
+    const [color, setColor] = useState('green')
+    const [Begin,setBegin] = useState('carry') 
 
     useEffect(() => {
         setArr(prevChange => prevChange.sort((a,b)=>Math.random()-0.5)) 
@@ -42,7 +44,7 @@ export default function Limits({c,e,x,close}){
             {extra && sign === '-' && Q1 < 10 && Q2 < 10 && <HelpMinus close={Extra} num1 ={Q1} num2 = {Q2}/>}
             {extra && sign === '-' && (Q1 >= 10 || Q2 >= 10) && <StepMinus close={Extra} num1 ={Q1} num2 = {Q2}/>}
             {extra && sign === '÷' && <HelpDiv close={Extra} num1 ={Q1} num2 = {Q2}/>}
-               <div style={{fontSize:"30px",color:"black"}} > 
+               <div className={Begin} onClick={()=>{setBegin(),setColor('black')}} style={{fontSize:"30px",color:color}} > 
                 <span style={{ fontSize: "40px"}}>lim</span>
                   <span
                     style={{
