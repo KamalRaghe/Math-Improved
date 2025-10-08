@@ -33,7 +33,7 @@ export default function LimitDiffExp() {
     const newTerms = [];
 
     while (newTerms.length < 3) {
-      const exp = Math.ceil(Math.random() * 3 + 1); // 2–4 power range
+      const exp = Math.ceil(Math.random() * 7 + 1); // 2–4 power range
       if (!usedExponents.has(exp)) {
         usedExponents.add(exp);
         const coeff = Math.ceil(Math.random() * 8); // 1–8
@@ -175,7 +175,7 @@ export default function LimitDiffExp() {
         </button>
       </div>
 
-      {help && <Limits close={close} c = {arrayC} e = {arrayE} />}
+      {help && <Limits close={close} c = {arrayC} e = {arrayE} x =  {xValue}/>}
       {correct && <Correct />}
       {wrong && <Wrong />}
 

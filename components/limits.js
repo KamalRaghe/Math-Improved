@@ -8,13 +8,13 @@ import HelpMinus from "@/components/HelpMinus"
 import StepAdd from "@/components/StepAdd"
 import StepMinus from "@/components/StepMinus"
 
-export default function Limits({c1,c2,c3,e1,e2,e3,close}){
+export default function Limits({c,e,x,close}){
     const [done, setDone] = useState(false)
     const [extra, setExtra] = useState(false)
-    const [Q1, setQ1] = useState(num1)
+    const [Q1, setQ1] = useState()
     const [Q2, setQ2] = useState(4)
     const [sign ,setSign] = useState('x')
-    const [answer, setAnswer] = useState(num1*4)
+    const [answer, setAnswer] = useState(4)
     const [arr, setArr]=useState([0,Math.floor(Math.random()*1+2)+1,1,Math.floor(Math.random()*3)-4])
 
     useEffect(() => {
@@ -32,7 +32,8 @@ export default function Limits({c1,c2,c3,e1,e2,e3,close}){
     function Nothing(){}
 
     return (
-        <div className="Help center column" style={{zIndex:'50'}}>
+        <div className="Help column" style={{zIndex:'50'}}>
+          <div className='cancel'><button className='cancel-btn' onClick = {close}>X</button></div>
             {extra && sign === '+' && Q1 < 10 && Q2 < 10 && <HelpAdd close={Extra} num1 ={Q1} num2 = {Q2}/>}
             {extra && sign === '+' && (Q1 >= 10 || Q2 >= 10) && <StepAdd close={Extra} num1 ={Q1} num2 = {Q2}/>}
             {extra && sign === 'x' && Q1 < 10 && Q2 < 10 && <HelpTimes close={Extra} num1 ={Q1} num2 = {Q2}/>}
@@ -40,8 +41,20 @@ export default function Limits({c1,c2,c3,e1,e2,e3,close}){
             {extra && sign === '-' && Q1 < 10 && Q2 < 10 && <HelpMinus close={Extra} num1 ={Q1} num2 = {Q2}/>}
             {extra && sign === '-' && (Q1 >= 10 || Q2 >= 10) && <StepMinus close={Extra} num1 ={Q1} num2 = {Q2}/>}
             {extra && sign === '÷' && <HelpDiv close={Extra} num1 ={Q1} num2 = {Q2}/>}
-               <div> 
-               
+               <div style={{fontSize:"30px"}} > 
+                <span style={{ fontSize: "40px"}}>lim</span>
+                  <span
+                    style={{
+                      fontSize: "26px",
+                      position: "relative",
+                      top: "6px",
+                      fontWeight: "500",
+                    }}
+                  >
+                    (x → {x})
+                  </span> {c[0]}x <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[0]}</span>
+                + {c[1]}x <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[1]}</span>
+                + {c[2]}x <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[2]}</span>
                </div>
                <div className="box" ></div>
                <div className="box"></div>
