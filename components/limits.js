@@ -20,6 +20,7 @@ export default function Limits({c,e,x,close}){
     const [arr, setArr]= useState([0,Math.floor(Math.random()*1+2)+1,1,Math.floor(Math.random()*3)-4])
     const [color, setColor] = useState('green')
     const [Begin,setBegin] = useState('carry') 
+    const [calc, setCalc] = useState(false)
 
     useEffect(() => {
         setArr(prevChange => prevChange.sort((a,b)=>Math.random()-0.5)) 
