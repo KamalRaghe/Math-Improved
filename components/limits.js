@@ -13,6 +13,7 @@ export default function Limits({c,e,x,close}){
     const [extra, setExtra] = useState(false)
     const [Q1, setQ1] = useState()
     const [Q2, setQ2] = useState(4)
+    const [xc,setx] = useState()
     const [sign ,setSign] = useState('x')
     const [answer, setAnswer] = useState(4)
     const [arr, setArr]=useState([0,Math.floor(Math.random()*1+2)+1,1,Math.floor(Math.random()*3)-4])
@@ -52,7 +53,9 @@ export default function Limits({c,e,x,close}){
                     }}
                   >
                     (x → {x})
-                  </span> {c[0]}x <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[0]}</span>
+                  </span> 
+                  
+                  {c[0]}x <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[0]}</span>
                 + {c[1]}x <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[1]}</span>
                 + {c[2]}x <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[2]}</span>
                </div>
