@@ -159,7 +159,7 @@ export default function LimitDiffExp() {
         </button>
       </div>
 
-      {help && <StepLimit close={close} terms={terms} xValue={xValue} />}
+      
       {correct && <Correct />}
       {wrong && <Wrong />}
 
