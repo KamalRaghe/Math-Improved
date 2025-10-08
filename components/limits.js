@@ -8,7 +8,7 @@ import HelpMinus from "@/components/HelpMinus"
 import StepAdd from "@/components/StepAdd"
 import StepMinus from "@/components/StepMinus"
 
-export default function Pm({num1,num2,close}){
+export default function Pm({c1,c2,c3,e1,e2,e3,close}){
     const [done, setDone] = useState(false)
     const [extra, setExtra] = useState(false)
     const [Q1, setQ1] = useState(num1)
