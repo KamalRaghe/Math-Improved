@@ -13,7 +13,7 @@ export default function Limits({c,e,x,close}){
     const [extra, setExtra] = useState(false)
     const [Q1, setQ1] = useState()
     const [Q2, setQ2] = useState(4)
-    const [xc,setx] = useState()
+    const [steps,setSteps] = useState(0)
     const [sign ,setSign] = useState('x')
     const [answer, setAnswer] = useState(4)
     const [arr, setArr]=useState([0,Math.floor(Math.random()*1+2)+1,1,Math.floor(Math.random()*3)-4])
@@ -42,7 +42,7 @@ export default function Limits({c,e,x,close}){
             {extra && sign === '-' && Q1 < 10 && Q2 < 10 && <HelpMinus close={Extra} num1 ={Q1} num2 = {Q2}/>}
             {extra && sign === '-' && (Q1 >= 10 || Q2 >= 10) && <StepMinus close={Extra} num1 ={Q1} num2 = {Q2}/>}
             {extra && sign === '÷' && <HelpDiv close={Extra} num1 ={Q1} num2 = {Q2}/>}
-               <div style={{fontSize:"30px"}} > 
+               <div style={{fontSize:"30px",color:"black"}} > 
                 <span style={{ fontSize: "40px"}}>lim</span>
                   <span
                     style={{
@@ -52,10 +52,8 @@ export default function Limits({c,e,x,close}){
                       fontWeight: "500",
                     }}
                   >
-                    (x → {x})
-                  </span> 
-                  
-                  {c[0]}x <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[0]}</span>
+                    (x → {steps == 0 ? <div className="carry">{x}</div> :x})
+                  </span> {c[0]} <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[0]}</span>
                 + {c[1]}x <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[1]}</span>
                 + {c[2]}x <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[2]}</span>
                </div>
