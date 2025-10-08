@@ -20,7 +20,7 @@ export default function Limits({c,e,x,close}){
     const [arr, setArr]= useState([0,Math.floor(Math.random()*1+2)+1,1,Math.floor(Math.random()*3)-4])
     const [color, setColor] = useState('green')
     const [Begin,setBegin] = useState('carry') 
-    const [calc, setCalc] = useState(false)
+    const [calc, setCalc] = useState(true)
 
     useEffect(() => {
         setArr(prevChange => prevChange.sort((a,b)=>Math.random()-0.5)) 
@@ -61,8 +61,8 @@ export default function Limits({c,e,x,close}){
                 + {c[1]}x <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[1]}</span>
                 + {c[2]}x <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[2]}</span>
                </div>
-               <div className="box center" style={{width:"100%",height:"100%",alignItems:"start"}} >
-                <ExponentCalculator></ExponentCalculator>
+               <div className="box center" style={{width:"100%",height:"60%",alignItems:"end"}} >
+                {calc && <ExponentCalculator close={()=> {setCalc(false)}} ></ExponentCalculator>}
                </div>
                <div className="box"></div>
                {!done && <div className=" double center Green absolute StepQuestion">{Q1} {sign} {Q2} = </div>}  
