@@ -6,6 +6,7 @@ import Wrong from "@/components/wrong";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import StepLimit from "@/components/limits";
+import Limits from "@/components/limits";
 
 export default function LimitDiffExp() {
   const [help, setHelp] = useState(false);
@@ -170,7 +171,7 @@ export default function LimitDiffExp() {
         </button>
       </div>
 
-      {help && <StepLimit close={close} terms={terms} xValue={xValue} />}
+      {help && <Limit close={close} c1 = {c1} c2 = {c2} c3 = {c3} e1 = {e1} e2 = {e2} e3 = {e3} />}
       {correct && <Correct />}
       {wrong && <Wrong />}
 

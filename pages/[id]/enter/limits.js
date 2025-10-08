@@ -5,7 +5,7 @@ import Wrong from "@/components/wrong";
  // 👈 you'll create this like your ExtraDerivative
 import Link from "next/link";
 import { useRouter } from "next/router";
-import StepLimit from "@/components/limits";
+import Limits from "@/components/limits";
 
 export default function LimitDiffExp() {
   const [help, setHelp] = useState(false);
@@ -23,6 +23,9 @@ export default function LimitDiffExp() {
   const [score, setScore] = useState(0);
   const [count, setCount] = useState(0);
   const [xValue, setXValue] = useState(0);
+
+  const [arrayC, setArrayC] = useState([])
+  const [arrayE, setArrayE] = useState([])
 
   // 🎲 Generate polynomial and limit point
   function generatePolynomial() {
@@ -118,7 +121,8 @@ export default function LimitDiffExp() {
     const { coeff: c2, exp: e2 } = t2;
     const { coeff: c3, exp: e3 } = t3;
 
-    console.log(c1, e1, c2, e2, c3, e3);
+    setArrayC([c1,c2,c3])
+    setArrayE([e1,e2,e3])
   }
 }, [terms]);
 
@@ -171,7 +175,7 @@ export default function LimitDiffExp() {
         </button>
       </div>
 
-      
+      {help && <Limits close={close} c = {arrayC}} e = {arrayE} />}
       {correct && <Correct />}
       {wrong && <Wrong />}
 
