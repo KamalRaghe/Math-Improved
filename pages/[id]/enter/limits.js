@@ -111,6 +111,18 @@ export default function LimitDiffExp() {
     if (terms.length > 0 && loaded) generateChoices(terms, xValue);
   }, [terms, xValue, loaded]);
 
+  useEffect(() => {
+  if (terms.length > 0) {
+    const [t1, t2, t3] = terms;
+    const { coeff: c1, exp: e1 } = t1;
+    const { coeff: c2, exp: e2 } = t2;
+    const { coeff: c3, exp: e3 } = t3;
+
+    console.log(c1, e1, c2, e2, c3, e3);
+  }
+}, [terms]);
+
+
   return (
     <div className="beige container column">
       <div className="Test sb">
