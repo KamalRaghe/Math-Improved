@@ -12,7 +12,7 @@ import ExponentCalculator from "@/limitCalc"
 export default function Limits({c,e,x,close}){
     const [done, setDone] = useState(false)
     const [extra, setExtra] = useState(false)
-    const [Q1, setQ1] = useState()
+    const [Q1, setQ1] = useState(e[0])
     const [Q2, setQ2] = useState(c[0])
     const [steps,setSteps] = useState(0)
     const [sign ,setSign] = useState()
@@ -70,7 +70,7 @@ export default function Limits({c,e,x,close}){
                 {calc && <ExponentCalculator close={()=> {setCalc(false)}} ></ExponentCalculator>}
                </div>
                <div className="box"></div>
-               {!done && <div className=" double center Green absolute StepQuestion">{Q1} {sign} {Q2} = </div>}  
+               {!done && steps > 0 && <div className=" double center Green absolute StepQuestion">{Q2} <span style={{fontSize:'20px',position:'relative',left:'0px', top:"-13px"}}>{Q1}</span> = </div>}  
                {!done &&<div className='center wrap absolute StepAnswer'>
                    <Step value = {((answer))+arr[1]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
                    <Step value = {((answer))+arr[3]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
