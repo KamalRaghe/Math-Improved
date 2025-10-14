@@ -62,9 +62,9 @@ export default function Limits({c,e,x,close}){
                 + {c[2]}x <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[2]}</span>
                </div>
               { steps > 0 && <div className="double" style={{margin:"20px",color:"black"}}>
-               =    {c[0]}x <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[0]}</span>
-                    + {c[1]}x <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[1]}</span>
-                    + {c[2]}x <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[2]}</span>
+               =    {c[0]}{`(${x})`} <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[0]}</span>
+                    + {c[1]}{`(${x})`} <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[1]}</span>
+                    + {c[2]}{`(${x})`} <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[2]}</span>
                </div>}
                <div className="box center" style={{width:"100%",height:"60%",alignItems:"end"}} >
                 {calc && <ExponentCalculator close={()=> {setCalc(false)}} ></ExponentCalculator>}
