@@ -27,7 +27,13 @@ export default function Limits({c,e,x,close}){
     },[])
 
     function Count(){
-      setSteps(2)
+      if(steps == 1){
+        setSteps(2)
+        setAnswer(x**e[1])
+        setQ1(e[1])
+        setQ2[c[1]]
+      }
+      
     }
 
     function Extra(){
@@ -66,8 +72,8 @@ export default function Limits({c,e,x,close}){
                     + {c[1]}{`(${x})`} <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[1]}</span>
                     + {c[2]}{`(${x})`} <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[2]}</span>
                </div>}
-                 {steps > 1 && <div style={{fontSize:"30px"}} >
-                   = {c[0]}{`(${x})`} <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[0]}</span>
+                 {steps > 1 && <div style={{color:"black",fontSize:"30px"}} >
+                   = {x**e[0]} {steps > 2 && <span>+ {x**e[0]}</span> }
                 </div>}
                <div className="box center" style={{width:"100%",height:"60%",alignItems:"end"}} >
                 {calc && <ExponentCalculator close={()=> {setCalc(false)}} ></ExponentCalculator>}
