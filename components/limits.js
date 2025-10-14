@@ -13,14 +13,14 @@ export default function Limits({c,e,x,close}){
     const [done, setDone] = useState(false)
     const [extra, setExtra] = useState(false)
     const [Q1, setQ1] = useState()
-    const [Q2, setQ2] = useState(4)
+    const [Q2, setQ2] = useState(c[0])
     const [steps,setSteps] = useState(0)
-    const [sign ,setSign] = useState('x')
-    const [answer, setAnswer] = useState(4)
+    const [sign ,setSign] = useState()
+    const [answer, setAnswer] = useState(c[0]**3)
     const [arr, setArr]= useState([0,Math.floor(Math.random()*1+2)+1,1,Math.floor(Math.random()*3)-4])
     const [color, setColor] = useState('green')
     const [Begin,setBegin] = useState('carry') 
-    const [calc, setCalc] = useState(true)
+    const [calc, setCalc] = useState(false)
 
     useEffect(() => {
         setArr(prevChange => prevChange.sort((a,b)=>Math.random()-0.5)) 
@@ -61,7 +61,7 @@ export default function Limits({c,e,x,close}){
                 + {c[1]}x <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[1]}</span>
                 + {c[2]}x <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[2]}</span>
                </div>
-              { steps > 0 && <div className="double" style={{margin:"20px",color:"black"}}>
+              { steps > 0 && <div className="double" style={{margin:"20px",fontSize:"30px",color:"black"}}>
                =    {c[0]}{`(${x})`} <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[0]}</span>
                     + {c[1]}{`(${x})`} <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[1]}</span>
                     + {c[2]}{`(${x})`} <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[2]}</span>
