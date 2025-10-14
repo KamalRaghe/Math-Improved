@@ -13,7 +13,7 @@ export default function Limits({c,e,x,close}){
     const [done, setDone] = useState(false)
     const [extra, setExtra] = useState(false)
     const [Q1, setQ1] = useState(e[0])
-    const [Q2, setQ2] = useState(c[0])
+    const [Q2, setQ2] = useState(x)
     const [steps,setSteps] = useState(0)
     const [sign ,setSign] = useState()
     const [answer, setAnswer] = useState(c[0]**3)
@@ -75,7 +75,7 @@ export default function Limits({c,e,x,close}){
                    <Step value = {((answer))+arr[1]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
                    <Step value = {((answer))+arr[3]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
                    <Step value = {((answer))+arr[0]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
-                   <button className="choice" style={{backgroundColor:'yellow',color:'black'}} onClick={()=>{setExtra(true);console.log(extra)}} >help</button>
+                   <button className="choice" style={{backgroundColor:'yellow',color:'black'}} onClick={()=>{setCalc(true)}} >help</button>
                    <Step value = {((answer))+arr[2]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
                    <button className="choice red" onClick={close} >Close</button>
                </div>}
