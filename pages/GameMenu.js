@@ -17,7 +17,7 @@ export default function Menu(){
     }
 
     return (
-        <div className="beige menu" style={{height:'300vh',backgroundColor:'beige'}}>
+        <div className="menu" style={{height:'300vh',backgroundColor:''}}>
             <h1 style={{marginLeft:'35px',paddingLeft:'15px',margin:"20px",paddingTop:'15px', borderBottom: '2px solid black',width:'95px'}} >Topic</h1>
             {loaded && <button onClick={() => {setCount(1)}} className="topic">Addition</button >}
             { count === 1 && <button onClick={()=>{topic('Single digit addition')}}className="sub-topic zoom">Single digit Addition</button>}
