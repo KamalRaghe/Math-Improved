@@ -22,8 +22,8 @@ function App() {
         const usersRef = ref(rdb, `${code.title}`)
         let player = window.localStorage.getItem('uid')
         get(usersRef).then((snapshot)=>{
-            console.log('click')
             if(snapshot.exists()){
+                console.log('click')
                 const usersArray = Object.entries(snapshot.val()).map(([id,data])=>({
                     id,
                     data,
