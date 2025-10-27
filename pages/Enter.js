@@ -28,12 +28,12 @@ function App() {
                     data,
                 }))
                 window.localStorage.setItem('GameRoom', code.title)
-                for(let i = 0; i < usersArray.length;i++){
-                    if(usersArray[i].data.player === player){
-                        setStayOut(true)
-                        console.log('fstbgd')
-                    }
-                }
+                // for(let i = 0; i < usersArray.length;i++){
+                //     if(usersArray[i].data.player === player){
+                //         setStayOut(true)
+                //         console.log('fstbgd')
+                //     }
+                // }
                 setAdd(true)
             }
         })

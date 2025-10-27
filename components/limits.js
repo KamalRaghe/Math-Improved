@@ -39,6 +39,12 @@ export default function Limits({c,e,x,close}){
         setQ1(e[2])
         setQ2[c[2]]
       }
+       if(steps == 2){
+        setSteps(4)
+        setAnswer(x**e[2])
+        setQ1(e[2])
+        setQ2[c[2]]
+      }
     }
 
     function Extra(){
@@ -75,13 +81,13 @@ export default function Limits({c,e,x,close}){
               { steps > 0 && <div style={{marginTop:"20px",width:"100%",fontSize:"25px",color:"black"}}>
                =    {steps > 1 ? <span style={{margin:"5px"}} > {c[0]}{`(${x**e[0]})`}</span> : <span>{c[0]}{`(${x})`} <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[0]}</span></span>}
                     + {steps > 2 ? <span style={{margin:"5px"}} > {c[1]}{`(${x**e[1]})`}</span> : <span>{c[1]}{`(${x})`} <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[1]}</span></span> }
-                    + {steps > 2 ? <span style={{margin:"5px"}} > {c[2]}{`(${x**e[2]})`}</span> : <span> {c[2]}{`(${x})`} <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[2]}</span></span>}
+                    + {steps > 3 ? <span style={{margin:"5px"}} > {c[2]}{`(${x**e[2]})`}</span> : <span> {c[2]}{`(${x})`} <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[2]}</span></span>}
                </div>}
                <div className="box center" style={{width:"100%",height:"60%",alignItems:"end"}} >
                 {calc && <ExponentCalculator close={()=> {setCalc(false)}} ></ExponentCalculator>}
                </div>
                <div className="box"></div>
-               {!done && steps > 0 && <div className=" double center Green absolute StepQuestion">{Q2} <span style={{fontSize:'20px',position:'relative',left:'0px', top:"-13px"}}>{Q1}</span> = </div>}  
+               {!done && steps > 0 && steps < 3 &&<div className=" double center Green absolute StepQuestion">{Q2} <span style={{fontSize:'20px',position:'relative',left:'0px', top:"-13px"}}>{Q1}</span> = </div>}  
                {!done &&<div className='center wrap absolute StepAnswer'>
                    <Step value = {((answer))+arr[1]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
                    <Step value = {((answer))+arr[3]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
