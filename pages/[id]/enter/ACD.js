@@ -103,7 +103,7 @@ export default function DoubleAdd(){
      }},[score])
 
     return(
-        <div className="container column">
+        <div className="beige container column">
             <div className="Test sb"><div className="double" >
                 <div className="font" >{username}</div>
                 <div>Score: {loaded && score}</div>
