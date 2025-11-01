@@ -10,7 +10,7 @@ export default function WrongRoom({code,close,remove}){
         setCheck(window.localStorage.getItem('Check'))
     })
     return(
-        <div className="center zoom" style={{backgroundColor:"beige",zIndex:"200",width:"100%",height:"100%",position:"absolute"}} >
+        <div className="center zoom" style={{zIndex:"200",width:"100%",height:"100%",position:"absolute"}} >
             <div className=" column center" style={{borderRadius:"20px",padding:"20px",border:'2px solid brown',backgroundColor:"beige"}}>
                 <div style={{marginBottom:"5px"}} >Is this the Code</div>
                 <div className="double" >{code}</div>
