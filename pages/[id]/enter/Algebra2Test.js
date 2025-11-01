@@ -108,7 +108,7 @@ export default function DoubleAdd(){
     })
 
     return(
-        <div className="beige container column">
+        <div className="container column">
            <div className="double">Question left : {10 - count}</div>
            <div className="inTest">
             
