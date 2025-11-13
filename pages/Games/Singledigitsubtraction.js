@@ -133,7 +133,7 @@ export default function DoubleAdd(){
                 {loaded && <button className="help" onClick={open}>help</button>}
             </div>
             {help && <HelpMinus num1 ={num1} num2={num2} close={close}/>}
-            <div className="box column">
+             {!wrong && !correct && <div className="box column">
                <div className="row ">
                     { loaded && <Choice value ={num1-num2+num3[0]} answer ={num1-num2} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
                     { loaded && <Choice value ={num1-num2+num3[1]} answer ={num1-num2} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
@@ -143,7 +143,7 @@ export default function DoubleAdd(){
                     { loaded && <Choice value ={num1-num2+num3[3]} answer ={num1-num2} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
                     { loaded && <Choice value ={num1-num2+num3[4]} answer ={num1-num2} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
                </div>
-            </div>
+            </div>}
         </div>
     )
 }
