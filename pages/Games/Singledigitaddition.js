@@ -134,7 +134,7 @@ export default function DoubleAdd(){
                 {<div className="countStart" >{start}</div>}
                 {loaded && <button className="help" style={{zIndex:"20"}} onClick={open}>help</button>}
                 <div style={{height:"30px"}} ></div>
-                <div className="box column">
+                 {!wrong && !correct && <div className="box column">
                 <div className="row ">
                         { loaded && <Choice value ={num1+num2+num3[0]} answer ={num1+num2} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
                         { loaded && <Choice value ={num1+num2+num3[1]} answer ={num1+num2} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
@@ -144,7 +144,7 @@ export default function DoubleAdd(){
                         { loaded && <Choice value ={num1+num2+num3[3]} answer ={num1+num2} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
                         { loaded && <Choice value ={num1+num2+num3[4]} answer ={num1+num2} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
                 </div>
-                </div>
+                </div>}
             </div>}
         </div>
     )
