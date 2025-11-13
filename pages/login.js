@@ -270,7 +270,7 @@ export default function Home() {
 
   return (
     <div className="center beige column">
-      <button onClick={router.push('/Join')}></button>
+      <button onClick={() => router.push('/Join')}></button>
       <div className="center column" style={{alignItems:"start"}}>
         <div className="relative" style={{fontSize:"70px",top:"20px",color:'navy',padding:"0px"}} >Math</div>
         <div className="relative" style={{fontSize:"70px",color:'purple',paddingBottom:"20px"}} >Improve</div>
