@@ -15,7 +15,7 @@ export default function Limits({c,e,x,close}){
     const [Q1, setQ1] = useState(e[0])
     const [Q2, setQ2] = useState(x)
     const [steps,setSteps] = useState(0)
-    const [sign ,setSign] = useState()
+    const [sign ,setSign] = useState('x')
     const [answer, setAnswer] = useState(x**e[0])
     const [arr, setArr]= useState([0,Math.floor(Math.random()*1+2)+1,1,Math.floor(Math.random()*3)-4])
     const [color, setColor] = useState('green')
