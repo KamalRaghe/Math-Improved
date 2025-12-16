@@ -88,7 +88,7 @@ export default function Limits({c,e,x,close}){
                </div>
                <div className="box"></div>
                {!done && steps > 0 && steps < 3 &&<div className=" double center Green absolute StepQuestion">{Q2} <span style={{fontSize:'20px',position:'relative',left:'0px', top:"-13px"}}>{Q1}</span> = </div>}  
-               {!done && steps > 0 && steps >= 3 && <div>{Q1} {sign} {Q2}</div>}
+              
                {!done &&<div className='center wrap absolute StepAnswer'>
                    <Step value = {((answer))+arr[1]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
                    <Step value = {((answer))+arr[3]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
