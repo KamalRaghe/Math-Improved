@@ -41,7 +41,7 @@ export default function Limits({c,e,x,close}){
       }
        if(steps == 3){
         setSteps(4)
-        setAnswer(c[2]*x**e[2])
+        setAnswer(x**e[2])
         setQ1(x**e[2])
         setQ2[c[2]]
       }
