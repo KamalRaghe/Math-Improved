@@ -43,7 +43,7 @@ export default function Limits({c,e,x,close}){
         setSteps(4)
         setAnswer(x**e[3])
         setQ1(x**e[3])
-        setQ2[c[2]]
+        setQ2[c[3]]
       }
     }
 
@@ -87,7 +87,7 @@ export default function Limits({c,e,x,close}){
                 {calc && <ExponentCalculator close={()=> {setCalc(false)}} ></ExponentCalculator>}
                </div>
                <div className="box"></div>
-               {!done && steps > 0 && steps < 3 &&<div className=" double center Green absolute StepQuestion">{Q2} <span style={{fontSize:'20px',position:'relative',left:'0px', top:"-13px"}}>{Q1}</span> = </div>}  
+               {!done && steps > 0 && steps <= 3 &&<div className=" double center Green absolute StepQuestion">{Q2} <span style={{fontSize:'20px',position:'relative',left:'0px', top:"-13px"}}>{Q1}</span> = </div>}  
               
                {!done &&<div className='center wrap absolute StepAnswer'>
                    <Step value = {((answer))+arr[1]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
