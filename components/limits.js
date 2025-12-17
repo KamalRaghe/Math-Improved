@@ -41,14 +41,14 @@ export default function Limits({c,e,x,close}){
       }
        if(steps == 3){
         setSteps(4)
-        setAnswer(x**e[2])
-        setQ1(x**e[2]+'ho00')
-        setQ2(c[3])
+        setAnswer(c[0]*x**e[0])
+        setQ1(c[0])
+        setQ2(x**e[0])
       }if(steps == 4){
          setSteps(5)
-        setAnswer(x**e[1])
+        setAnswer(x**e[0])
         setQ1('ho')
-        setQ2(x**e[1])
+        setQ2(x**e[0])
       }
     }
 
