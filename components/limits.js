@@ -41,14 +41,14 @@ export default function Limits({c,e,x,close}){
       }
        if(steps == 3){
         setSteps(4)
-        setAnswer(x**e[3])
-        setQ1(x**e[3])
-        setQ2[c[3]]
+        setAnswer(x**e[2])
+        setQ1(x**e[2]+'ho00')
+        setQ2(c[3])
       }if(steps == 4){
          setSteps(5)
-        setAnswer(c[1]*x*e[1])
-        setQ1(c[1])
-        setQ2[x**e[1]]
+        setAnswer(x**e[1])
+        setQ1('ho')
+        setQ2(x**e[1])
       }
     }
 
@@ -93,7 +93,7 @@ export default function Limits({c,e,x,close}){
                </div>
                <div className="box"></div>
                {!done && steps > 0 && steps <= 3 &&<div className=" double center Green absolute StepQuestion">{Q2} <span style={{fontSize:'20px',position:'relative',left:'0px', top:"-13px"}}>{Q1}</span> = </div>}  
-              {!done && steps > 0 && steps > 3 && <div>{Q1} {sign} {Q2}</div>}
+              {!done && steps > 0 && steps > 3 && <div className=" double center Green absolute StepQuestion" >{Q1} {sign} {Q2}</div>}
                {!done &&<div className='center wrap absolute StepAnswer'>
                    <Step value = {((answer))+arr[1]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
                    <Step value = {((answer))+arr[3]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
