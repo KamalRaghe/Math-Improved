@@ -45,10 +45,10 @@ export default function Limits({c,e,x,close}){
         setQ1(c[0])
         setQ2(x**e[0])
       }if(steps == 4){
-         setSteps(5)
-        setAnswer(x**e[0])
-        setQ1('ho')
-        setQ2(x**e[0])
+        setSteps(5)
+        setAnswer(c[1]*x**e[1])
+        setQ1(c[1])
+        setQ2(x**e[1])
       }
     }
 
