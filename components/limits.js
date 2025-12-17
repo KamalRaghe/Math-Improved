@@ -47,7 +47,7 @@ export default function Limits({c,e,x,close}){
       }if(steps == 4){
         setSteps(5)
         setAnswer(c[1]*x**e[1])
-        setQ1(c[1])
+        setQ1(c[1]+'sts')
         setQ2(x**e[1])
       }
     }
