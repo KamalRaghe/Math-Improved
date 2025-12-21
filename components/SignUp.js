@@ -10,8 +10,8 @@ export default function Sign(){
         setCheck(window.localStorage.getItem('Check'))
     })
     return(
-        <div className="center zoom" style={{background:"beige",zIndex:"200",width:"100%",height:"100%",position:"fixed"}} >
-            <div className=" column center" style={{borderRadius:"20px",padding:"20px",border:'2px solid brown'}}>
+        <div className="center zoom" style={{zIndex:"200",width:"100%",height:"100%",position:"fixed"}} >
+            <div className=" column center" style={{background:"beige",borderRadius:"20px",padding:"20px",border:'2px solid brown'}}>
                 <div className="font" > You reach the limit for this topic</div>
                 <br></br>
                 <div className="font">Try a new topic </div>
