@@ -91,7 +91,7 @@ export default function Limits({c,e,x,close}){
                {steps > 4 && <div style={{marginTop:"20px",width:"100%",fontSize:"25px",color:"black"}}>
                =    {steps > 4 && <span style={{margin:"5px"}} > {c[0]*(x**e[0])}</span>}
                     + {steps > 4 && <span style={{margin:"5px"}} > {c[0]*(x**e[0])}</span>}
-                    + {steps > 3 ? <span style={{margin:"5px"}} > {c[2]}{`(${x**e[2]})`}</span> : <span> {c[2]}{`(${x})`} <span style={{fontSize:'20px',position:'relative',left:'-5px', top:"-13px"}}>{e[2]}</span></span>}
+                    + {steps > 4 && <span style={{margin:"5px"}} > {c[0]*(x**e[0])}</span>}
                </div>}
                <div className="box center" style={{width:"100%",height:"60%",alignItems:"end"}} >
                 {calc && <ExponentCalculator close={()=> {setCalc(false)}} ></ExponentCalculator>}
