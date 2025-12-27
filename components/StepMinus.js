@@ -11,7 +11,7 @@ function StepMinus({close, num1 , num2}){
     const [number2, setNumber2] = useState([(num2 % 10),((num2-(num2%10))/10),num2])
     const [done, setDone]= useState(num1%10 < num2%10)
     const [slice, setSlice] = useState(false)
-    const [redNum,setRedNum] = useState('158px')
+    const [redNum,setRedNum] = useState('178px')
     const [red, setRed] = useState('150px')
     const [ten, setTen] = useState(0)
     const [sign2, setSign2] = useState()
@@ -73,8 +73,8 @@ function StepMinus({close, num1 , num2}){
                {extra && number2[count] < 10 && number1[count] < 10 && <HelpMinus close={Extra} num1 ={number1[count]+ten} num2 = {number2[count]} />}
                <div className='cancel' style={{width:"100%"}} ><button className='cancel-btn' onClick = {close}>X</button></div>
                <span className='center'>{num1%10 + ten< num2%10 && !step2 && <button className='carry absolute Red center' style={{fontSize:"30px",left:'165px',bottom:"420px"}} onClick={click}>Click</button>}</span>
-               <span className='center'>{num1%10 + ten< num2%10 && !step2 && <button className='carry  absolute Red' style={{left:'188px',top:"70px"}} onClick={click}>{'-'}</button>}</span>
-               <span className='center'>{slice && <button className=' back2Step2 absolute Red' style={{left: redNum}} onClick={click}>{Math.floor(num1/10)-1}</button>}</span>
+               <span className='center'>{num1%10 + ten< num2%10 && !step2 && <button className='carry  absolute Red' style={{left:'188px',top:"80px"}} onClick={click}>{'-'}</button>}</span>
+               <span className='center'>{slice && <button className=' back2Step2 absolute Red' style={{left: redNum,top:"75px"}} onClick={click}>{Math.floor(num1/10)-1}</button>}</span>
                <div className='double top-number center'>
                     {slice && <span className="absolute Red bold" style={{left: red}}>/</span>}                
                    {step2 ? <span className='Green'>{(num1-(num1%10))/10}</span>:<span>{(num1-(num1%10))/10}</span>} 
