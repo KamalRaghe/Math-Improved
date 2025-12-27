@@ -12,7 +12,7 @@ function StepMinus({close, num1 , num2}){
     const [done, setDone]= useState(num1%10 < num2%10)
     const [slice, setSlice] = useState(false)
     const [redNum,setRedNum] = useState('178px')
-    const [red, setRed]=useState('20px')
+    const [red, setRed]=useState('150px')
     const [ten, setTen] = useState(0)
     const [sign2, setSign2] = useState()
     const [number3, setNumber3] = useState()
@@ -53,7 +53,7 @@ function StepMinus({close, num1 , num2}){
            setStep1(false)
            setStep2(true)
            setNumber3(((num1 % 10 + ten) - (num2 % 10) ))
-           setRed("100px")
+           setRed("160px")
            setRedNum("188px")
            
        }else{
