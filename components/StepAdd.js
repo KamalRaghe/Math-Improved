@@ -74,10 +74,9 @@ function StepAdd({close, num1 , num2}){
            <div className="Help" >
                {extra && (number1[count] >= 10 || number2[count] >= 10) && <ExtraAdd close={Extra} num1 ={number1[count]+num5} num2 = {number2[count]}/>}
                {extra && number2[count] < 10 && number1[count] < 10 && <HelpAdd close={Extra} num1 ={number1[count]%10} num2 = {number2[count]%10} num3={num4} />}
-               <div className='cancel absolute' style={{width:"100%"}} ><button className='cancel-btn' onClick = {close}>X</button></div>
-               <div className='cancel'><button className='cancel-btn hide'>X</button></div>
-               <span className='center'>{carry && done && <button className='carry absolute Green center' style={{fontSize:"30px",left:'145px',bottom:"450px"}} onClick={click}>Click</button>}</span>
-               <span className='center'>{carry && done && <button className='carry absolute Green' style={{left:'162px'}} onClick={click}>{sign}</button>}</span>
+               <div className='cancel'><button className='cancel-btn' onClick={close}>X</button></div>
+               <span className='center'>{carry && done && <button className='carry absolute Green center' style={{fontSize:"30px",left:'165px',bottom:"450px"}} onClick={click}>Click</button>}</span>
+               <span className='center'>{carry && done && <button className='carry absolute Green' style={{left:'182px',top:"75px"}} onClick={click}>{sign}</button>}</span>
                <span className='center'>{carry && !done && <button className=' back2Step2 absolute Green' style={{left:'165px'}} onClick={click}>{sign}</button>}</span>
                <div className='double top-number center'>
                    {step2 ? <span className='Green'>{(num1-(num1%10))/10}</span>:<span>{(num1-(num1%10))/10}</span>} 
