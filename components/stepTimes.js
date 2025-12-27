@@ -186,8 +186,8 @@ function Extra(){
             <div className='cancel' style={{width:"100%"}} ><button className='cancel-btn' onClick = {close}>X</button></div>
             <div className='center absolute' style={{left:'155px', top: '60px'}}>
                 <span className='hide'>0</span>
-                {carry && !stop && !step3 ? <button className='carry Green' onClick={click}>{sign}</button>:null}
-                {stop ? <button className=' back2Step2 Green' onClick={click}>{sign}</button>:null}
+                {carry && !stop && !step3 ? <button className='carry Green relative' style={{left:"20px",top:"15px"}} onClick={click}>{sign}</button>:null}
+                {stop ? <button className=' back2Step2 Green relative' style={{left:"20px",top:"15px"}} onClick={click}>{sign}</button>:null}
                 {stop1 ? <button className=' back2Step2 Green' onClick={click}>{sign5}</button>:null}
                 {(num1%10)*((num2-(num2%10))/10)>10 && step4===true && !stop1? <button className='carry Green' onClick={click2}>{sign5}</button>:null}
             </div>
