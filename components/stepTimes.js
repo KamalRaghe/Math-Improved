@@ -201,8 +201,8 @@ function Extra(){
                     {step1 || step2 || step8  ? <span className='Green bottom-number'>{num2%10}</span>:<span className='bottom-number'>{num2%10}</span>}
                 </div>
             </div>
-            {step7 && (Math.floor(number3/10))%10+(Math.floor(number4/10))%10 >= 10 && !last? <span className='center' style={{width:'308px'}}><button className='carry Green' onClick={click3}>{sign4}</button></span>:null}
-            {last ? <span className='center' style={{width:'295px'}}><button className='back2Step2 Green' onClick={click3}>{sign4}</button></span>:null}
+            {step7 && (Math.floor(number3/10))%10+(Math.floor(number4/10))%10 >= 10 && !last? <span className='center relative' style={{width:'308px'}}><button className='carry Green'  style={{left:"20px",top:"15px"}} onClick={click3}>{sign4}</button></span>:null}
+            {last ? <span className='center' style={{width:'295px'}}><button className='back2Step2 Green relative' style={{left:"20px",top:"15px"}} onClick={click3}>{sign4}</button></span>:null}
             <div className='double center' style={{width: move2}} > 
                 {step7 && (Math.floor(number3/10))%10+(Math.floor(number4/10))%10 >= 10 && last && <span className='Green relative' style={{paddingRight: "5px",top:'7px'}} >+</span>}
                 {!add ? <span className='lower-number'>{number3}</span>:<span></span>}
