@@ -77,7 +77,7 @@ function StepAdd({close, num1 , num2}){
                <div className='cancel'><button className='cancel-btn' onClick={close}>X</button></div>
                <span className='center'>{carry && done && <button className='carry absolute Green center' style={{fontSize:"30px",left:'165px',bottom:"450px"}} onClick={click}>Click</button>}</span>
                <span className='center'>{carry && done && <button className='carry absolute Green' style={{left:'182px',top:"75px"}} onClick={click}>{sign}</button>}</span>
-               <span className='center'>{carry && !done && <button className=' back2Step2 absolute Green' style={{left:'165px'}} onClick={click}>{sign}</button>}</span>
+               <span className='center'>{carry && !done && <button className=' back2Step2 absolute Green' style={{left:'185px',top:'75px'}} onClick={click}>{sign}</button>}</span>
                <div className='double top-number center'>
                    {step2 ? <span className='Green'>{(num1-(num1%10))/10}</span>:<span>{(num1-(num1%10))/10}</span>} 
                    {step1 ? <span className='Green'>{num1%10}</span>:<span>{num1%10}</span>}
