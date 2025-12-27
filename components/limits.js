@@ -104,7 +104,7 @@ export default function Limits({c,e,x,close}){
                      {steps > 5 && <span style={{margin:"5px"}} >+ {c[1]*(x**e[1])}</span>}
                      {steps > 6 && <span style={{margin:"5px"}} >+ {c[2]*(x**e[2])}</span>}
                </div>}
-               <div className="box center" style={{width:"100%",height:"60%",alignItems:"end"}} >
+               <div className="box center" style={{width:"100%",height:"10%",alignItems:"center"}} >
                 {calc && steps < 4 && <ExponentCalculator close={()=> {setCalc(false)}} ></ExponentCalculator>}
                </div>
                <div className="box"></div>
@@ -117,6 +117,8 @@ export default function Limits({c,e,x,close}){
                    <button className="choice" style={{backgroundColor:'yellow',color:'black'}} onClick={()=>{
                     if(steps < 4){
                       setCalc(true) 
+                    }else{
+                      setExtra(true)
                     }
                     }}>help</button>
                    <Step value = {((answer))+arr[2]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
