@@ -24,7 +24,7 @@ export default function Limits({c,e,x,close}){
 
     useEffect(() => {
         setArr(prevChange => prevChange.sort((a,b)=>Math.random()-0.5)) 
-    },[])
+    },[steps])
 
     function Count(){
       if(steps == 1){
@@ -56,9 +56,10 @@ export default function Limits({c,e,x,close}){
         setQ2(x**e[2])
       }if(steps == 6){
         setSteps(7)
-        setAnswer(c[2]*x**e[2])
-        setQ1(c[2])
-        setQ2(x**e[2])
+        setAnswer((c[0]*x**e[0])+(c[1]*x**e[1]))
+        setSign('+')
+        setQ1((c[0]*x**e[0]))
+        setQ2((c[1]*x**e[1]))
       }
     }
 
@@ -104,7 +105,7 @@ export default function Limits({c,e,x,close}){
                      {steps > 6 && <span style={{margin:"5px"}} >+ {c[2]*(x**e[2])}</span>}
                </div>}
                <div className="box center" style={{width:"100%",height:"60%",alignItems:"end"}} >
-                {calc && <ExponentCalculator close={()=> {setCalc(false)}} ></ExponentCalculator>}
+                {calc && steps < 4 && <ExponentCalculator close={()=> {setCalc(false)}} ></ExponentCalculator>}
                </div>
                <div className="box"></div>
                {!done && steps > 0 && steps <= 3 &&<div className=" double center Green absolute StepQuestion">{Q2} <span style={{fontSize:'20px',position:'relative',left:'0px', top:"-13px"}}>{Q1}</span> = </div>}  
@@ -113,13 +114,14 @@ export default function Limits({c,e,x,close}){
                    <Step value = {((answer))+arr[1]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
                    <Step value = {((answer))+arr[3]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
                    <Step value = {((answer))+arr[0]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
-                   <button className="choice" style={{backgroundColor:'yellow',color:'black'}} onClick={()=>{setCalc(true)}} >help</button>
+                   <button className="choice" style={{backgroundColor:'yellow',color:'black'}} onClick={()=>{
+                    if(steps < 4){
+                      setCalc(true) 
+                    }
+                    }}>help</button>
                    <Step value = {((answer))+arr[2]}  answer={(answer)} Count ={Count} done = {done} mistake={Nothing}/>
                    <button className="choice red" onClick={close} >Close</button>
-               </div>}
-
-           
-           
+               </div>}       
         </div>
     )
 }
