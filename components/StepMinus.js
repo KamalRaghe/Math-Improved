@@ -12,7 +12,6 @@ function StepMinus({close, num1 , num2}){
     const [done, setDone]= useState(num1%10 < num2%10)
     const [slice, setSlice] = useState(false)
     const [redNum,setRedNum] = useState('178px')
-    const [red, setRed] = useState('150px')
     const [ten, setTen] = useState(0)
     const [sign2, setSign2] = useState()
     const [number3, setNumber3] = useState()
@@ -54,7 +53,7 @@ function StepMinus({close, num1 , num2}){
            setStep2(true)
            setNumber3(((num1 % 10 + ten) - (num2 % 10) ))
            setRed("160px")
-           setRedNum("168px")
+           setRedNum("188px")
            
        }else{
            setStep1(true)
@@ -76,7 +75,7 @@ function StepMinus({close, num1 , num2}){
                <span className='center'>{num1%10 + ten< num2%10 && !step2 && <button className='carry  absolute Red' style={{left:'188px',top:"80px"}} onClick={click}>{'-'}</button>}</span>
                <span className='center'>{slice && <button className=' back2Step2 absolute Red' style={{left: redNum,top:"75px"}} onClick={click}>{Math.floor(num1/10)-1}</button>}</span>
                <div className='double top-number center'>
-                    {slice && <span className="absolute Red bold" style={{left: red}}>/</span>}                
+                    {slice && <span className="absolute Red bold" style={{left: redNum}}>/</span>}                
                    {step2 ? <span className='Green'>{(num1-(num1%10))/10}</span>:<span>{(num1-(num1%10))/10}</span>} 
                    {step1 ? <span className='Green'>{num1%10+ten}</span>:<span>{num1%10}</span>}
                </div>
