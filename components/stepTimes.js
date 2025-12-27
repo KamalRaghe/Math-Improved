@@ -178,7 +178,7 @@ function Extra(){
     setExtra(false)
 }
      return(
-        <div className="Help" style={{zIndex:'20'}}>
+        <div className="Help" style={{zIndex:'20',color:"black"}}>
             {extra && (step1||step2||step3||step4) && <HelpTimes close={Extra} num1 ={number1[count]} num2 = {number2[count]} num3={num5 || num7 || num9} />}
             {extra && !(step1||step2||step3||step4||step7) && <HelpAdd close={Extra} num1 ={number1[count]} num2 = {number2[count]} num3={num8} />}
             {extra && step7 && number2[count] <= 9 && <HelpAdd close={Extra} num1 ={number1[count]} num2 = {number2[count]} num3={num8} />}
@@ -188,8 +188,8 @@ function Extra(){
                 <span className='hide'>0</span>
                 {carry && !stop && !step3 ? <button className='carry Green relative' style={{left:"20px",top:"15px"}} onClick={click}>{sign}</button>:null}
                 {stop ? <button className=' back2Step2 Green relative' style={{left:"20px",top:"15px"}} onClick={click}>{sign}</button>:null}
-                {stop1 ? <button className=' back2Step2 Green'style={{left:"20px",top:"15px"}}  onClick={click}>{sign5}</button>:null}
-                {(num1%10)*((num2-(num2%10))/10)>10 && step4===true && !stop1? <button className='carry Green' onClick={click2}>{sign5}</button>:null}
+                {stop1 ? <button className=' back2Step2 Green relative' style={{left:"23px",top:"15px"}} onClick={click}>{sign5}</button>:null}
+                {(num1%10)*((num2-(num2%10))/10)>10 && step4===true && !stop1? <button className='carry Green relative' style={{left:"20px",top:"15px"}} onClick={click2}>{sign5}</button>:null}
             </div>
             <div className='double center top-number'>
                 {step2 || step4 || step8 ? <span className='Green'>{(num1-(num1%10))/10}</span>:<span>{(num1-(num1%10))/10}</span>} 
@@ -201,8 +201,8 @@ function Extra(){
                     {step1 || step2 || step8  ? <span className='Green bottom-number'>{num2%10}</span>:<span className='bottom-number'>{num2%10}</span>}
                 </div>
             </div>
-            {step7 && (Math.floor(number3/10))%10+(Math.floor(number4/10))%10 >= 10 && !last? <span className='center relative' style={{width:'308px'}}><button className='carry Green'  style={{left:"20px",top:"15px"}} onClick={click3}>{sign4}</button></span>:null}
-            {last ? <span className='center' style={{width:'295px'}}><button className='back2Step2 Green relative' style={{left:"20px",top:"15px"}} onClick={click3}>{sign4}</button></span>:null}
+            {step7 && (Math.floor(number3/10))%10+(Math.floor(number4/10))%10 >= 10 && !last? <span className='center' style={{width:'308px'}}><button className='carry Green' onClick={click3}>{sign4}</button></span>:null}
+            {last ? <span className='center' style={{width:'295px'}}><button className='back2Step2 Green' onClick={click3}>{sign4}</button></span>:null}
             <div className='double center' style={{width: move2}} > 
                 {step7 && (Math.floor(number3/10))%10+(Math.floor(number4/10))%10 >= 10 && last && <span className='Green relative' style={{paddingRight: "5px",top:'7px'}} >+</span>}
                 {!add ? <span className='lower-number'>{number3}</span>:<span></span>}
