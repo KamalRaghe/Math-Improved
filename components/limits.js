@@ -54,6 +54,11 @@ export default function Limits({c,e,x,close}){
         setAnswer(c[2]*x**e[2])
         setQ1(c[2])
         setQ2(x**e[2])
+      }if(steps == 5){
+        setSteps(6)
+        setAnswer(c[2]*x**e[2])
+        setQ1(c[2])
+        setQ2(x**e[2])
       }
     }
 
