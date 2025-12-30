@@ -102,7 +102,7 @@ export default function Limits({c,e,x,close}){
                </div>}
                <div className="box center" style={{width:"100%",height:"10%",alignItems:"center"}} >
                 {extra && sign == 'x' && <TimesCalculator></TimesCalculator>}
-                {extra && sign == 'x' && <TimesCalculator></TimesCalculator>}
+                {extra && sign == '+' && <AddCalculator></AddCalculator>}
                 {calc && steps < 4 && <ExponentCalculator close={()=> {setCalc(false)}} ></ExponentCalculator>}
                </div>
                <div className="box"></div>
