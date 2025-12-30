@@ -19,7 +19,9 @@ export default function AddCalculator({close}) {
       width: "240px",
       boxShadow: "0 0 10px rgba(0,0,0,0.1)",
       textAlign: "center",
-      zIndex:"19"
+      zIndex:"19",
+      position:"relative",
+      top:"20px"
     }}>
        <div className='cancel'><button style={{background:"none",border:"none"}} onClick = {close}>X</button></div>
       
