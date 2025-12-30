@@ -32,7 +32,7 @@ export default function AddCalculator({close}) {
           placeholder="Base"
           style={{ width: "70px", padding: "6px", textAlign: "center" }}
         />
-        <span style={{ fontSize: "22px", position: "relative", top: "-4px" }}>^</span>
+        <span style={{ fontSize: "22px", position: "relative", top: "-4px" }}>+</span>
         <input
           type="number"
           value={exponent}
