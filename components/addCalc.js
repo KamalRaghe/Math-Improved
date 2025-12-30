@@ -29,15 +29,15 @@ export default function AddCalculator({close}) {
           type="number"
           value={base}
           onChange={(e) => setBase(e.target.value)}
-          placeholder="Base"
+          placeholder=""
           style={{ width: "70px", padding: "6px", textAlign: "center" }}
         />
-        <span style={{ fontSize: "22px", position: "relative", top: "-4px" }}>+</span>
+        <span style={{ fontSize: "22px", position: "relative", top: "4px" }}>+</span>
         <input
           type="number"
           value={exponent}
           onChange={(e) => setExponent(e.target.value)}
-          placeholder="Exp"
+          placeholder=""
           style={{ width: "70px", padding: "6px", textAlign: "center" }}
         />
       </div>
@@ -59,7 +59,7 @@ export default function AddCalculator({close}) {
 
       {result !== null && (
         <div style={{ marginTop: "10px", fontSize: "18px", fontWeight: "bold" }}>
-          Result: {result}
+          Answer: {result}
         </div>
       )}
     </div>
