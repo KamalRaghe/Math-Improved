@@ -9,6 +9,7 @@ import StepAdd from "@/components/StepAdd"
 import StepMinus from "@/components/StepMinus"
 import ExponentCalculator from "@/limitCalc"
 import AddCalculator from "./addCalc"
+import timesCalculator from "./timeCalc"
 
 export default function Limits({c,e,x,close}){
     const [done, setDone] = useState(false)
