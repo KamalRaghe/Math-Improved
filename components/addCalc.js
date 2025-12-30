@@ -21,7 +21,7 @@ export default function AddCalculator({close}) {
       textAlign: "center",
       zIndex:"19",
       position:"relative",
-      top:"20px"
+      top:"-20px"
     }}>
        <div className='cancel'><button style={{background:"none",border:"none"}} onClick = {close}>X</button></div>
       
