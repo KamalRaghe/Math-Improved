@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function timesCalculator({close}) {
+export default function TimesCalculator({close}) {
   const [base, setBase] = useState("");
   const [exponent, setExponent] = useState("");
   const [result, setResult] = useState(null);

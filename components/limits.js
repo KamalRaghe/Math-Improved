@@ -9,7 +9,7 @@ import StepAdd from "@/components/StepAdd"
 import StepMinus from "@/components/StepMinus"
 import ExponentCalculator from "@/limitCalc"
 import AddCalculator from "./addCalc"
-import timesCalculator from "./timeCalc"
+import TimesCalculator from "./timeCalc"
 
 export default function Limits({c,e,x,close}){
     const [done, setDone] = useState(false)
@@ -107,7 +107,7 @@ export default function Limits({c,e,x,close}){
                      {steps > 6 && <span style={{margin:"5px"}} >+ {c[2]*(x**e[2])}</span>}
                </div>}
                <div className="box center" style={{width:"100%",height:"10%",alignItems:"center"}} >
-                <timesCalculator/>
+                <TimesCalculator></TimesCalculator>
                 {calc && steps < 4 && <ExponentCalculator close={()=> {setCalc(false)}} ></ExponentCalculator>}
                </div>
                <div className="box"></div>
