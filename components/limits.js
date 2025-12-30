@@ -29,6 +29,7 @@ export default function Limits({c,e,x,close}){
     },[steps])
 
     function Count(){
+      setExtra(false)
       if(steps == 1){
         setSteps(2)
         setAnswer(x**e[1])
