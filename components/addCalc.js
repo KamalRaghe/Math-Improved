@@ -22,7 +22,7 @@ export default function AddCalculator({close}) {
       zIndex:"19"
     }}>
        <div className='cancel'><button style={{background:"none",border:"none"}} onClick = {close}>X</button></div>
-      <h3 style={{ marginBottom: "10px" }}>Exponent Calculator</h3>
+      
       
       <div style={{ display: "flex", justifyContent: "center", gap: "8px" }}>
         <input
