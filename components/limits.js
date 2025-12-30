@@ -73,13 +73,7 @@ export default function Limits({c,e,x,close}){
 
     return (
         <div className="Help column" style={{zIndex:'50'}}>
-            {extra && sign === '+' && Q1 < 10 && Q2 < 10 && <HelpAdd close={Extra} num1 ={Q1} num2 = {Q2}/>}
-            {extra && sign === '+' && (Q1 >= 10 || Q2 >= 10) && <StepAdd close={Extra} num1 ={Q1} num2 = {Q2}/>}
-            {extra && sign === 'x' && Q1 < 10 && Q2 < 10 && <HelpTimes close={Extra} num1 ={Q1} num2 = {Q2}/>}
-            {extra && sign === 'x' && (Q1 >= 10 || Q2 >= 10) && <StepTimes close={Extra} num1 ={Q1} num2 = {Q2}/>}
-            {extra && sign === '-' && Q1 < 10 && Q2 < 10 && <HelpMinus close={Extra} num1 ={Q1} num2 = {Q2}/>}
-            {extra && sign === '-' && (Q1 >= 10 || Q2 >= 10) && <StepMinus close={Extra} num1 ={Q1} num2 = {Q2}/>}
-            {extra && sign === '÷' && <HelpDiv close={Extra} num1 ={Q1} num2 = {Q2}/>}
+          
             <div className='cancel'><button className='cancel-btn' onClick = {close}>X</button></div>
                <div className={Begin} onClick={()=>{setBegin(),setColor('black'),setSteps(1)}} style={{fontSize:"30px",color:color}} > 
                 <span style={{ fontSize: "40px"}}>lim</span>
