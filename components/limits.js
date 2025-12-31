@@ -113,7 +113,7 @@ export default function Limits({c,e,x,close}){
                =    {steps > 4 && steps < 8 && <span style={{margin:"5px"}} > {c[0]*(x**e[0])}</span>}
                      {steps > 5 && steps < 8 && <span style={{margin:"5px"}} >+ {c[1]*(x**e[1])}</span>}
                      {steps == 8 && <span style={{margin:"5px"}} > {c[0]*(x**e[0])+c[1]*(x**e[1])}</span>}
-                     {steps == 9 && <span style={{margin:"5px"}} > {c[0]*(x**e[0])+c[1]*(x**e[1])+c[0]*(x**e[0])+c[1]*(x**e[1])}</span>}
+                     {steps == 9 && <span style={{margin:"5px"}} > {c[0]*(x**e[0])+c[1]*(x**e[1])+c[2]*(x**e[2])}</span>}
                      {steps > 6 && steps < 9 && <span style={{margin:"5px"}} >+ {c[2]*(x**e[2])}</span>}
                </div>}
                <div className="box center" style={{width:"100%",height:"10%",alignItems:"center"}} >
