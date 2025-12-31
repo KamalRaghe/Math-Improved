@@ -64,6 +64,12 @@ export default function Limits({c,e,x,close}){
         setSign('+')
         setQ1((c[0]*x**e[0]))
         setQ2((c[1]*x**e[1]))
+      }if(steps == 7){
+        setSteps(8)
+        setAnswer((c[0]*x**e[0])+(c[1]*x**e[1])(c[2]*x**e[2]))
+        setSign('+')
+        setQ1((c[0]*x**e[0])+(c[1]*x**e[1]))
+        setQ2((c[2]*x**e[2]))
       }
     }
 
