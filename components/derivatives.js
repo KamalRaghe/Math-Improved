@@ -1,133 +1,176 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import Step from "./step";
 
-function ExtraDerivative({ close }) {
-  const [question, setQuestion] = useState("");
-  const [answer, setAnswer] = useState("");
-  const [options, setOptions] = useState([]);
-  const [count, setCount] = useState(0);
+export default function DerivativeHelp({ terms, close }) {
+  /**
+   * terms = [{ coeff, exp }, ...]
+   */
 
-  const expMap = {
-    1: "",
-    2: "²",
-    3: "³",
-    4: "⁴",
-    5: "⁵",
-    6: "⁶",
-    7: "⁷",
-    8: "⁸",
-    9: "⁹",
-  };
+  const [step, setStep] = useState(0);        // step inside one term
+  const [index, setIndex] = useState(0);      // which term
+  const [choices, setChoices] = useState([]); // MCQ choices
 
-  // Create polynomial
-  function generateQuestion() {
-    const terms = [];
-    const used = new Set();
-    while (terms.length < 4) {
-      const exp = Math.floor(Math.random() * 8) + 2; // 2–9
-      if (!used.has(exp)) {
-        used.add(exp);
-        const coeff = Math.floor(Math.random() * 9) + 1; // 1–9
-        terms.push({ coeff, exp });
-      }
+  const term = terms[index];
+
+  // -----------------------------
+  // Derived values (IMPORTANT)
+  // -----------------------------
+  const correctAnswer = useMemo(() => {
+    if (!term) return null;
+
+    switch (step) {
+      case 1:
+        return term.exp;
+      case 2:
+        return term.coeff * term.exp;
+      case 3:
+        return term.exp - 1;
+      case 4:
+        return {
+          coeff: term.coeff * term.exp,
+          exp: term.exp - 1,
+        };
+      default:
+        return null;
     }
-    terms.sort((a, b) => b.exp - a.exp);
-    setQuestion(formatPoly(terms));
+  }, [step, term]);
 
-    const correct = derivative(terms);
-    const correctStr = formatPoly(correct);
-    setAnswer(correctStr);
-    makeOptions(correct);
-  }
+  // -----------------------------
+  // Question text
+  // -----------------------------
+  function questionText() {
+    if (!term) return "";
 
-  // Turn terms into string
-  function formatPoly(terms) {
-    return terms
-      .map(
-        (t, i) =>
-          `${i !== 0 ? " + " : ""}${t.coeff}x${expMap[t.exp] || ""}`
-      )
-      .join("");
-  }
-
-  // Derivative rule: d/dx(axⁿ) = a·n·xⁿ⁻¹
-  function derivative(terms) {
-    return terms.map((t) => ({
-      coeff: t.coeff * t.exp,
-      exp: t.exp - 1,
-    }));
-  }
-
-  // Random options
-  function makeOptions(correct) {
-    const correctStr = formatPoly(correct);
-    const wrongs = [];
-
-    for (let i = 0; i < 3; i++) {
-      const offset = Math.floor(Math.random() * 3) - 1;
-      const wrong = correct.map((t) => ({
-        coeff: Math.max(1, t.coeff + offset),
-        exp: t.exp,
-      }));
-      wrongs.push(formatPoly(wrong));
-    }
-
-    const all = [correctStr, ...wrongs].sort(() => Math.random() - 0.5);
-    setOptions(all);
-  }
-
-  function handleSelect(opt) {
-    if (opt === answer) {
-      alert("✅ Correct!");
-      if (count >= 2) close();
-      else {
-        setCount(count + 1);
-        generateQuestion();
-      }
-    } else {
-      alert("❌ Try again!");
+    switch (step) {
+      case 0:
+        return "Click to start derivative steps";
+      case 1:
+        return `What is the exponent of ${term.coeff}x^${term.exp}?`;
+      case 2:
+        return `${term.coeff} × ${term.exp} = ?`;
+      case 3:
+        return `${term.exp} − 1 = ?`;
+      case 4:
+        return "Final derivative of this term:";
+      default:
+        return "";
     }
   }
 
+  // -----------------------------
+  // Generate MCQ choices
+  // -----------------------------
   useEffect(() => {
-    generateQuestion();
-  }, []);
+    if (step === 0 || step === 4) return;
 
+    const correct =
+      typeof correctAnswer === "number" ? correctAnswer : null;
+
+    if (correct === null) return;
+
+    const wrongs = new Set();
+
+    while (wrongs.size < 3) {
+      const offset = Math.floor(Math.random() * 5) - 2;
+      if (offset !== 0) wrongs.add(correct + offset);
+    }
+
+    setChoices(
+      [correct, ...Array.from(wrongs)].sort(() => Math.random() - 0.5)
+    );
+  }, [step, correctAnswer]);
+
+  // -----------------------------
+  // Step progression
+  // -----------------------------
+  function nextStep() {
+    if (step < 4) {
+      setStep(step + 1);
+    } else {
+      if (index < terms.length - 1) {
+        setIndex(index + 1);
+        setStep(1);
+      } else {
+        close(); // done with all terms
+      }
+    }
+  }
+
+  // -----------------------------
+  // Handle answer click
+  // -----------------------------
+  function handleChoice(val) {
+    if (val === correctAnswer) {
+      nextStep();
+    }
+  }
+
+  // -----------------------------
+  // Formatting helpers
+  // -----------------------------
+  function formatTerm(t) {
+    if (t.exp === 0) return `${t.coeff}`;
+    if (t.exp === 1) return `${t.coeff}x`;
+    return `${t.coeff}x${sup(t.exp)}`;
+  }
+
+  // -----------------------------
+  // Render
+  // -----------------------------
   return (
-    <div className="Help">
-      <div className="cancel" style={{ width: "100%" }}>
-        <button className="cancel-btn" onClick={close}>X</button>
-      </div>
-
-      <div className="center" style={{ fontSize: "36px", margin: "20px" }}>
-        <strong>Find the derivative of:</strong>
-        <br />
-        <span style={{ fontSize: "42px", color: "green" }}>{question}</span>
-      </div>
-
-      <div className="center">
-        {options.map((opt, i) => (
-          <button
-            key={i}
-            className="choice"
-            style={{
-              display: "block",
-              margin: "10px auto",
-              fontSize: "22px",
-              padding: "10px 20px",
-              borderRadius: "10px",
-            }}
-            onClick={() => handleSelect(opt)}
-          >
-            {opt}
-          </button>
-        ))}
-
-        <button className="choice red" onClick={close}>
-          Close
+    <div className="Help column" style={{ zIndex: 50 }}>
+      <div className="cancel">
+        <button className="cancel-btn" onClick={close}>
+          X
         </button>
       </div>
+
+      {/* Current term */}
+      <div className="center" style={{ fontSize: "32px", marginBottom: "15px" }}>
+        d/dx&nbsp;
+        <span style={{ color: "green" }}>
+          {term && `${term.coeff}x${sup(term.exp)}`}
+        </span>
+      </div>
+
+      {/* Question */}
+      <div className="center Green StepQuestion">
+        {questionText()}
+      </div>
+
+      {/* Step 4: show final derivative term */}
+      {step === 4 && (
+        <div className="center" style={{ fontSize: "30px", marginTop: "15px" }}>
+          = {formatTerm(correctAnswer)}
+        </div>
+      )}
+
+      {/* Choices */}
+      {step > 0 && step < 4 && (
+        <div className="center wrap StepAnswer">
+          {choices.map((c, i) => (
+            <Step
+              key={i}
+              value={c}
+              answer={correctAnswer}
+              Count={() => handleChoice(c)}
+              done={false}
+              mistake={() => {}}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Start button */}
+      {step === 0 && (
+        <button
+          className="choice"
+          onClick={() => setStep(1)}
+          style={{ marginTop: "20px" }}
+        >
+          Start
+        </button>
+      )}
     </div>
   );
 }
-
-export default ExtraDerivative;
