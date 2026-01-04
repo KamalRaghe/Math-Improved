@@ -3,7 +3,7 @@ import { addDoc, collection } from "firebase/firestore"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 
-export default function FeedBack({close}){
+export default function Code({close}){
     const router = useRouter()
     const [post, setPost] = useState()
     const [check, setCheck] = useState(false)
