@@ -12,6 +12,7 @@ export default function Code({close}){
         const email = window.localStorage.getItem('User')
         if(post){
           window.localStorage.setItem('code',post)
+          close()
         }else{
             close()
         }    
@@ -23,7 +24,7 @@ export default function Code({close}){
                  <div className='cancel' style={{width:"100%"}} >
                  <button className='cancel-btn' style={{fontSize:"25px",margin:"0px",position:"relative",left:"6px",bottom:"10px",alignItems:"end",zIndex:"100"}}  onClick={()=>close()}>X</button>
                 </div>
-                 <textarea placeholder="Feedback" onChange={(e)=>{setPost(e.target.value)}} ></textarea>
+                 <textarea placeholder="Code" onChange={(e)=>{setPost(e.target.value)}} ></textarea>
                  <br></br>
                  <button onClick={NewFeedback}>Submit</button>
             </div>
