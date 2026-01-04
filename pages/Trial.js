@@ -40,11 +40,11 @@ export default function Math(){
                     <div className="relative" style={{display:"flex",justifyContent:"start",fontSize:"70px",top:"20px",color:'navy',padding:"0px"}} >Math</div>
                     <div className="relative" style={{fontSize:"70px",color:'purple',paddingBottom:"20px"}} >Improve</div>      
                 </div>
-                <div className=" center column relative" style={{marginLeft:"50px",width:"300px",justifyContent:"end",top:"50px"}}>
+                <div className=" center column relative" style={{marginLeft:"50px",width:"300px",justifyContent:"end",top:"130px"}}>
                     <div ><button className="sub-topic" onClick={()=>{router.push('/Sign')}}>Sign in</button></div>
                     <div ><button className="sub-topic" onClick={()=>{setAbout(true);setNone('none'),setFlex('none')}} >About us</button></div>
-                    <div><button className="sub-topic" style={{position:"relative",bottom:"20px"}} onClick={()=>{setCheck(true);setNone('none'),setFlex('none')}} >Feedback</button></div>
-                    <div ><button className="sub-topic" style={{position:"relative",bottom:"40px"}} onClick={()=>{setAbout(true);setNone('none'),setFlex('none')}} >About us</button></div>
+                    <div><button className="sub-topic" style={{position:"relative",bottom:"0px"}} onClick={()=>{setCheck(true);setNone('none'),setFlex('none')}} >Feedback</button></div>
+                    <div ><button className="sub-topic" style={{position:"relative",bottom:"60px"}} onClick={()=>{setAbout(true);setNone('none'),setFlex('none')}} >About us</button></div>
                 </div>
             </div>
             <div className="column" style={{display:none,paddingBottom:"20px"}} onClick={close} >
