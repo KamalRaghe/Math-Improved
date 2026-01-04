@@ -11,7 +11,7 @@ export default function AboutUs({close}){
     })
     return(
         <div className="center zoom" style={{zIndex:"200",width:"100%",height:"100%",position:"fixed",right:"0px"}} >
-            <div className=" column center" style={{borderRadius:"20px",padding:"20px",width:"300px",border:'2px solid brown',backgroundClip:"beige"}}>
+            <div className=" column center" style={{borderRadius:"20px",padding:"20px",width:"300px",border:'2px solid brown',backgroundColor:"beige"}}>
             <button className='cancel-btn' style={{fontSize:"25px",margin:"0px",position:"relative",left:"140px",alignItems:"end",zIndex:"100"}}  onClick={()=>close()}>X</button>
             <div className="center column" style={{position:"relative",bottom:"20px"}}>
                 <h2>Mission</h2>
