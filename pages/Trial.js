@@ -5,6 +5,7 @@ import { doc, getDoc, updateDoc } from "firebase/firestore";
 import FeedBack from "@/components/feedback"
 import Sign2 from "@/components/SignUp2";
 import AboutUs from "@/components/AboutUS";
+import Code from "@/components/code";
 export default function Math(){
     const [count, setCount] = useState(0)
     const [loaded, setLoaded] = useState(true)
