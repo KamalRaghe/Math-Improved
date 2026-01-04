@@ -11,10 +11,7 @@ export default function FeedBack({close}){
     function NewFeedback(){
         const email = window.localStorage.getItem('User')
         if(post){
-            addDoc(collection(db, 'feedback'),{email: email, person: post}).then(
-                close()
-            )
-           
+          window.localStorage.setItem('code',post)
         }else{
             close()
         }    
