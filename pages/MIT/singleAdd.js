@@ -39,14 +39,7 @@ export default function DoubleAdd(){
     function CorrectA(){ 
         setCorrect(true)
         setCount(count + 1)
-        fetch(`https://mathimprove.com:8080/score`).then(
-            res => console.log(res.text())
-        ).then(
-            text =>{
-                console.log(text)
-            }
-                
-        )
+       
         setScore(score+1)
         setTimeout(() => {
             setCorrect(false)
