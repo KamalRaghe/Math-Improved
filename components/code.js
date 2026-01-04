@@ -14,7 +14,7 @@ export default function FeedBack({close}){
             addDoc(collection(db, 'feedback'),{email: email, person: post}).then(
                 close()
             )
-            console.log(post)
+           
         }else{
             close()
         }    
