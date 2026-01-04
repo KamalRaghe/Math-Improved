@@ -32,7 +32,6 @@ export default function Math(){
 
     return (
         <div className="beige" style={{padding:"20px",paddingBottom:"50px"}}>
-            {/* {check2 && <Sign2></Sign2>}  */}
             {check && <FeedBack close={()=>{setCheck(false),setNone(''),setFlex('flex')}} />}
             {about &&<AboutUs close={()=>{setAbout(false),setNone(''),setFlex('flex')}} />}
             <div style={{display:flex,justifyContent:"space-between",width:"100vw",height:"180px"}}>

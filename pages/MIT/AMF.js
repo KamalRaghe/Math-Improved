@@ -142,7 +142,7 @@ export default function DoubleAdd(){
             {loaded && correct && <Correct></Correct>}
             {loaded && wrong && <Wrong/> }
             {count > 10 && score < 100  && <Sign></Sign>}
-            {/* {score > 100  && <Sign2></Sign2>} */}
+            {score > 100  && <Sign2></Sign2>}
             <div className="box column">
                <div className="row ">
                     { loaded && <Choice whole={(num2*(num7/num1))+(num4*(num7/num5))+num3[0] >= num7 ? 1+num6+num8 : num6+num8} value1 ={((num2*(num7/num1))+(num4*(num7/num5))+num3[0])% num7 } answer1 ={((num4*(num7/num5))+(num2*(num7/num1)))%num7} value2={num7} answer2={num7} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
