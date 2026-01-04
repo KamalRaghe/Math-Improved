@@ -42,9 +42,9 @@ export default function Math(){
                 </div>
                 <div className=" center column relative" style={{marginLeft:"50px",width:"300px",justifyContent:"end",top:"130px"}}>
                     <div ><button className="sub-topic" onClick={()=>{router.push('/Sign')}}>Sign in</button></div>
-                    <div ><button className="sub-topic" style={{position:"relative",bottom:"15px"}} onClick={()=>{setAbout(true);setNone('none'),setFlex('none')}} >About us</button></div>
-                    <div><button className="sub-topic" style={{position:"relative",bottom:"30px"}} onClick={()=>{setCheck(true);setNone('none'),setFlex('none')}} >Feedback</button></div>
-                    <div ><button className="sub-topic" style={{position:"relative",bottom:"45px"}} onClick={()=>{setAbout(true);setNone('none'),setFlex('none')}} >Code</button></div>
+                    <div ><button className="sub-topic" style={{position:"relative",bottom:"25px"}} onClick={()=>{setAbout(true);setNone('none'),setFlex('none')}} >About us</button></div>
+                    <div><button className="sub-topic" style={{position:"relative",bottom:"50px"}} onClick={()=>{setCheck(true);setNone('none'),setFlex('none')}} >Feedback</button></div>
+                    <div ><button className="sub-topic" style={{position:"relative",bottom:"75px"}} onClick={()=>{setAbout(true);setNone('none'),setFlex('none')}} >Code</button></div>
                 </div>
             </div>
             <div className="column" style={{display:none,paddingBottom:"20px"}} onClick={close} >
