@@ -10,7 +10,9 @@ export default function Sign2(){
         setCheck(window.localStorage.getItem('Check'))
     })
     return(
-      
+      <div>
+        
+      </div>
     )
     
    
