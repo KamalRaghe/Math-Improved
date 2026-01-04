@@ -37,6 +37,7 @@ export default function Math(){
 
             {check && <FeedBack close={()=>{setCheck(false),setNone(''),setFlex('flex')}} />}
             {about &&<AboutUs close={()=>{setAbout(false),setNone(''),setFlex('flex')}} />}
+            {code &&<Code close={()=>{setAbout(false),setNone(''),setFlex('flex')}} />}
             <div style={{display:flex,justifyContent:"space-between",width:"100vw",height:"180px"}}>
                 <div>
                     <div className="relative" style={{display:"flex",justifyContent:"start",fontSize:"70px",top:"20px",color:'navy',padding:"0px"}} >Math</div>
