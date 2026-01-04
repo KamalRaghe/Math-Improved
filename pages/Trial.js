@@ -44,7 +44,7 @@ export default function Math(){
                     <div ><button className="sub-topic" onClick={()=>{router.push('/Sign')}}>Sign in</button></div>
                     <div ><button className="sub-topic" style={{position:"relative",bottom:"20px"}} onClick={()=>{setAbout(true);setNone('none'),setFlex('none')}} >About us</button></div>
                     <div><button className="sub-topic" style={{position:"relative",bottom:"40px"}} onClick={()=>{setCheck(true);setNone('none'),setFlex('none')}} >Feedback</button></div>
-                    <div ><button className="sub-topic" style={{position:"relative",bottom:"60px"}} onClick={()=>{setAbout(true);setNone('none'),setFlex('none')}} >About us</button></div>
+                    <div ><button className="sub-topic" style={{position:"relative",bottom:"60px"}} onClick={()=>{setAbout(true);setNone('none'),setFlex('none')}} >Code</button></div>
                 </div>
             </div>
             <div className="column" style={{display:none,paddingBottom:"20px"}} onClick={close} >
