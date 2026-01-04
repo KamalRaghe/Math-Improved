@@ -167,7 +167,7 @@ export default function DerivativeDiffExp() {
         </button>
       </div>
 
-      {help && <ExtraDerivative close={close} />}
+      {help && <ExtraDerivative terms = {terms} close={close} />}
       {correct && <Correct />}
       {wrong && <Wrong />}
 
