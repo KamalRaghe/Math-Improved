@@ -16,6 +16,7 @@ export default function Math(){
     const [flex, setFlex] = useState('flex')
     const router = useRouter() 
     const {id} = router.query 
+    const [code, setCode] = useState(false)
 
     function close(){
         if(count){
