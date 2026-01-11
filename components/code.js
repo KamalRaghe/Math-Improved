@@ -28,6 +28,7 @@ export default function Code({close}){
                  <textarea placeholder="Code" onChange={(e)=>{setPost(e.target.value)}} ></textarea>
                  <br></br>
                  <button onClick={NewFeedback}>Submit</button>
+                 <br></br>
                  <div>Score before sign up are temporary </div>
             </div>
         </div>
