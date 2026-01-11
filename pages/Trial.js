@@ -41,7 +41,7 @@ export default function Math(){
             <div style={{display:flex,justifyContent:"space-between",width:"100vw",height:"180px"}}>
                 <div>
                     <div className="relative" style={{display:"flex",justifyContent:"start",fontSize:"70px",top:"20px",color:'navy',padding:"0px"}} >Math</div>
-                    <div className="relative" style={{fontSize:"70px",color:'purple',marginBottom:"20px", borderBottom:"3px solid purple"}} >Improve</div>      
+                    <div className="relative" style={{fontSize:"70px",color:'purple',marginBottom:"20px"}} >Improve</div>      
                 </div>
                 <div className=" center column relative" style={{marginLeft:"50px",width:"300px",justifyContent:"end",top:"130px"}}>
                     <div ><button className="sub-topic" onClick={()=>{router.push('/Sign')}}>Sign in</button></div>
