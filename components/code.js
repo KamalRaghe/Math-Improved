@@ -25,6 +25,7 @@ export default function Code({close}){
                  <button className='cancel-btn' style={{fontSize:"25px",margin:"0px",position:"relative",left:"6px",bottom:"10px",alignItems:"end",zIndex:"100"}}  onClick={()=>close()}>X</button>
                 </div>
                 <div className="Red" >FREE UNTIL JUNE</div>
+                <br></br>
                  <textarea placeholder="Code" onChange={(e)=>{setPost(e.target.value)}} ></textarea>
                  <br></br>
                  <button onClick={NewFeedback}>Submit</button>
