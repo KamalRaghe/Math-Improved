@@ -123,22 +123,7 @@ body::-webkit-scrollbar {
   margin: 0;
 }
 
-.arrow-underline {
-  position: relative;
-  display: inline-block;
-  padding-bottom: 12px;
-  color: #8b007a;
-}
 
-.arrow-underline::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 4px;
-  width: 100%;
-  background: #8b007a;
-}
 
 .arrow-underline::before {
   content: "";
