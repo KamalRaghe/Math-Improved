@@ -10,11 +10,11 @@ export default function Sign2(){
         setFree(window.localStorage.getItem('userId'))
         setCheck(window.localStorage.getItem('Check'))
         setCode(window.localStorage.getItem('code'))
-        console.log(window.localStorage.getItem('code') != 'nile123')
+        console.log(window.localStorage.getItem('code') == 'nile123')
     })
     return(
       <div className="center" >
-          {code == 'nile123' && <div className="center zoom" style={{zIndex:"200",width:"100%",height:"100%",position:"fixed"}} >
+          {code != 'nile123' && <div className="center zoom" style={{zIndex:"200",width:"100%",height:"100%",position:"fixed"}} >
             <div className=" column center" style={{background:"beige",borderRadius:"20px",padding:"20px",border:'2px solid brown'}}>
                 <div className="font" > You reach the limit</div>
                 <div><button className="sub-topic" onClick={()=>{router.push('/Sign')}} >Sign up</button></div>
