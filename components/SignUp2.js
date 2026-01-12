@@ -10,6 +10,7 @@ export default function Sign2(){
         setFree(window.localStorage.getItem('userId'))
         setCheck(window.localStorage.getItem('Check'))
         setCode(window.localStorage.getItem('code'))
+        console.log
     })
     return(
       <div className="center" >
