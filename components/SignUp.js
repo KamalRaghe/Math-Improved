@@ -8,6 +8,7 @@ export default function Sign(){
     useEffect(()=>{
         setFree(window.localStorage.getItem('userId'))
         setCheck(window.localStorage.getItem('Check'))
+        setCode(window.localStorage.getItem('code'))
     })
     return(
         <div className="center zoom" style={{zIndex:"200",width:"100%",height:"100%",position:"fixed"}} >
