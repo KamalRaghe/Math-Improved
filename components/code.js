@@ -13,6 +13,7 @@ export default function Code({close}){
         if(post){
           window.localStorage.setItem('code',post)
           close()
+          console.log(post)
         }else{
             close()
         }    
