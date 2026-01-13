@@ -11,7 +11,7 @@ export default function Sign2(){
         setCheck(window.localStorage.getItem('Check'))
         setCode(window.localStorage.getItem('code'))
     })
-    if(code != 'nile123'){
+    if(code != 'nile123'&& false){
         return(
         <div className="center" >
           <div className="center zoom" style={{zIndex:"200",width:"100%",height:"100%",position:"fixed"}} >

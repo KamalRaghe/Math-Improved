@@ -11,7 +11,7 @@ export default function Sign(){
         setCheck(window.localStorage.getItem('Check'))
         setCode(window.localStorage.getItem('code'))
     })
-    if(code != 'nile123'){
+    if(code != 'nile123' && false){
         return(
             <div className="center zoom" style={{zIndex:"200",width:"100%",height:"100%",position:"fixed"}} >
             <div className=" column center" style={{background:"beige",borderRadius:"20px",padding:"20px",border:'2px solid brown'}}>
