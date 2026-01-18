@@ -50,6 +50,7 @@ export default function Math(){
                     <div ><button className="sub-topic" style={{position:"relative",bottom:"75px"}} onClick={()=>{setCode(true);setNone('none'),setFlex('none')}} >Code</button></div>
                 </div>
             </div>
+            
             <div className="column" style={{display:none,paddingBottom:"20px"}} onClick={close} >
                 {loaded && <button onClick={() => {setCount(1)}} className="topic">Addition</button >}
                 { count === 1 && <Link href= {`/MIT/singleAdd`}><button className="sub-topic zoom">Single digit Addition</button></Link>}
