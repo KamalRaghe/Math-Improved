@@ -34,7 +34,7 @@ export default function Home() {
   function Forgot(){
     const email = account.title
     if(email){
-      sendPasswordResetEmail(auth, email).then(()=>{alert('Check your email and span')})
+      sendPasswordResetEmail(auth, email).then(()=>{alert('Check your email and spam')})
     }else{
       alert('Put in your email') 
     }
