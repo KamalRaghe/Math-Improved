@@ -18,6 +18,9 @@ export default function Math(){
     const {id} = router.query 
     const [code, setCode] = useState(false)
 
+    const [array, setArray] = useState([{type: 'hello', number:"0"}])
+
+    console.log(array)
     function close(){
         if(count){
             setCount(false)
