@@ -13,22 +13,33 @@ export default function Home() {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "16px",
-        fontSize: "24px",
-      }}
-    >
-      {/* Math tied to page number */}
-      <div>
-        {page} + 1 = {page + 1}
-      </div>
+    <div style={{ maxWidth: "300px", margin: "40px auto", textAlign: "center" }}>
+      {/* List */}
+      <ul style={{ listStyle: "none", padding: 0 }}>
+        {Array.from({ length: maxPage }, (_, i) => {
+          const n = i + 1;
+          const isActive = n === page;
+
+          return (
+            <li
+              key={n}
+              style={{
+                padding: "8px",
+                marginBottom: "4px",
+                fontSize: "20px",
+                background: isActive ? "#dbeafe" : "#f3f4f6",
+                fontWeight: isActive ? "bold" : "normal",
+                borderRadius: "6px",
+              }}
+            >
+              {n} + 1 = {n + 1}
+            </li>
+          );
+        })}
+      </ul>
 
       {/* Controls */}
-      <div style={{ display: "flex", gap: "12px" }}>
+      <div style={{ display: "flex", justifyContent: "center", gap: "12px" }}>
         <button onClick={prevPage} disabled={page === 1}>
           ◀
         </button>
