@@ -83,10 +83,8 @@ export default function Math(){
             <h1 style={{marginLeft:'35px',paddingLeft:'15px',margin:"20px",paddingTop:'15px', borderBottom: '2px solid black',width: '125px'}} >Practice</h1>
             
             {loaded && <button onClick={() => {setCount(1)}} className="topic">Addition</button >}
-            <span className = 'center' style = {{justifyContent:"start"}} >
             { count === 1 && <Link href= {`/${id}/enter/singleAdd`}><button className="sub-topic zoom">Single digit Addition</button></Link>}
             { count === 1 && <Link href= {`/${id}/enter/singleAdd`}><button className="sub-topic zoom green">Memersois</button></Link>}
-            </span>
             { count === 1 && <Link href= {`/${id}/enter/doubleAdd`}><button className="sub-topic zoom">Double digit Addition</button></Link>}
             
             { loaded && <button onClick={() => {setCount(2)}}  className="topic">Subtraction</button >}
