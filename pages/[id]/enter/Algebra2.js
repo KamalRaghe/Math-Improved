@@ -117,7 +117,7 @@ export default function DoubleAdd(){
             <div className="box">
                 <button className="help" onClick={open}>help</button>
             </div>
-            {help && <TwoVar num1 ={num1} num2={num2} num4={num4} num5 ={num5} num6={num6} num7={num7} close={close}/>}
+            {/* {help && <TwoVar num1 ={num1} num2={num2} num4={num4} num5 ={num5} num6={num6} num7={num7} close={close}/>} */}
             {loaded && correct && <Correct></Correct>}
             {loaded && wrong && <Wrong/> }
             <div className="box column">
