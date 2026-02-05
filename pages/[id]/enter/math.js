@@ -85,7 +85,7 @@ export default function Math(){
             {loaded && <button onClick={() => {setCount(1)}} className="topic">Addition</button >}
             { count === 1 && <Link href= {`/${id}/enter/singleAdd`}><button className="sub-topic zoom">Single digit Addition</button></Link>}
             { count === 1 && <Link href= {`/${id}/enter/MAdd`}><button className="sub-topic relative zoom green" style ={{bottom:"60px"}} >Memersois</button></Link>}
-            { count === 1 && <Link href= {`/${id}/enter/doubleAdd`}><button className="sub-topic zoom">Double digit Addition</button></Link>}
+            { count === 1 && <Link href= {`/${id}/enter/doubleAdd`}><button className="sub-topic zoom" style ={{bottom:"60px"}} >Double digit Addition</button></Link>}
             
             { loaded && <button onClick={() => {setCount(2)}}  className="topic">Subtraction</button >}
             {  count === 2 &&<Link href= {`/${id}/enter/singleMinus`}><button className="sub-topic zoom">Single digit Subtraction</button></Link>}
