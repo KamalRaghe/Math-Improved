@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Choice from "@/components/choice";
 import Correct from "@/components/correct";
 import Wrong from "@/components/wrong"; 
-import TwoVar from "@/Algebra2.js/TwoVar";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
