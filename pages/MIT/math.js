@@ -17,7 +17,7 @@ export default function Math(){
     },[])
 
     return (
-        <div className="beige menu" style={{height: '300vh',backgroundColor:'beige'}}>
+        <div className="beige menu" style={{height: '300vh'}}>
             <h1 style={{marginLeft:'35px',paddingLeft:'15px',paddingTop:'15px', borderBottom: '2px solid black',width: '105px'}} >Match</h1>
             <button onClick={()=>{router.push('/MIT')}} className="sub-topic green" style={{padding:"8px 43px"}} >Join</button>
             <button onClick={()=>{router.push('/create')}} className="sub-topic green">Create</button>
