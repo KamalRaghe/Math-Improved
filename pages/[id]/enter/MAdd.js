@@ -23,7 +23,7 @@ export default function Home() {
               key={n}
               style={{
                 padding: "6px",
-                fontSize: "18px",
+                fontSize: "30px",
               }}
             >
               {n} + {page} = {n + page}
