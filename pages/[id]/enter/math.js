@@ -85,7 +85,7 @@ export default function Math(){
             {loaded && <button onClick={() => {setCount(1)}} className="topic">Addition</button >}
             { count === 1 && <div style={{margin:"0",padding:"0",display:"flex"}} >
                 <Link href= {`/${id}/enter/singleAdd`}><button className="sub-topic zoom" >Single digit Addition</button></Link>
-                <Link href= {`/${id}/enter/MAdd`}><button className="sub-topic zoom green" >Memersois</button></Link>
+                <Link href= {`/${id}/enter/MAdd`}><button className="sub-topic zoom green" style={{}} >Memersois</button></Link>
             </div>}
             { count === 1 && <Link href= {`/${id}/enter/doubleAdd`}><button className="sub-topic zoom" style ={{bottom:"60px"}} >Double digit Addition</button></Link>}
             
