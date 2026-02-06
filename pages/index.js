@@ -57,7 +57,7 @@ export default function Math(){
         
         <button style={{position:"relative",top:"-70px",left:"105px"}} 
         className=" choice" onClick={()=>router.push('Trial')} >Start</button>
-        <div className="Red" style={{position:"relative",top:"-50px",fontSize:"15px"}}  >Click start to continue</div>
+        <div className="Red" style={{position:"relative",top:"-50px",fontSize:"15px"}}  >Click start to begin learning</div>
       {/* REAL TEXT FOR GOOGLE */}
       <main className="center column relative" style={{bottom:"30px",color:"black",width:"350px",margin:"0px"}} >
         <h1 style={{margin:"0px"}} >Unlock New Math Potential Step by Step</h1>
