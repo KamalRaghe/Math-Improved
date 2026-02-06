@@ -60,9 +60,9 @@ export default function Math(){
 
       {/* REAL TEXT FOR GOOGLE */}
       <main className="center column" style={{color:"black",width:"350px",margin:"0px"}} >
-        <h1 className="border" style={{margin:"0px"}} >Unlock New Math Potential Step by Step</h1>
-
-        <p style={{width:"400px",margin:"0px"}} >
+        <h1 style={{margin:"0px"}} >Unlock New Math Potential Step by Step</h1>
+        <br></br>
+        <p style={{width:"400px",margin:"0px",fontSize:'19px'}} >
          MathImprove is the best place to explore new math topics at your own pace.
         Whether a student is ahead and ready to go further, or behind and needs to catch up, 
         our step-by-step approach helps every learner grow with confidence.
