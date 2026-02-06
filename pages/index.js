@@ -55,13 +55,13 @@ export default function Math(){
         width={400}
         height={400}
         priority
-        style={{margin:"10px"}}
+        style={{marginTop:"10px"}}
       />
         
-        <button className="choice" >Start</button>
+        <button style={{position:"relative",top:"-80px",left:"90px"}} className="choice" >Start</button>
 
       {/* REAL TEXT FOR GOOGLE */}
-      <main className="center column" style={{color:"black",width:"350px",margin:"0px"}} >
+      <main className="center column " style={{color:"black",width:"350px",margin:"0px"}} >
         <h1 style={{margin:"0px"}} >Unlock New Math Potential Step by Step</h1>
         <br></br>
         <p style={{width:"400px",margin:"0px",fontSize:'19px'}} >
