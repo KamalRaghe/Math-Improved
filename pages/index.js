@@ -50,16 +50,16 @@ export default function Math(){
 
       {/* Your image stays */}
       <Image
-        src="/Intro.png"
+        src="/Intro.jpeg"
         alt="MathImprove helping students improve math skills"
-        width={800}
-        height={500}
+        width={400}
+        height={400}
         priority
       />
 
       {/* REAL TEXT FOR GOOGLE */}
-      <main>
-        <h1>Fix Math Gaps Step by Step</h1>
+      <main style={{color:"black"}} >
+        <h1>Unlock New Math Potential Step by Step</h1>
 
         <p>
           MathImprove helps students of all ages unlock their full math
