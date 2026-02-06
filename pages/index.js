@@ -61,9 +61,10 @@ export default function Math(){
       <main style={{color:"black"}} >
         <h1>Unlock New Math Potential Step by Step</h1>
 
-        <p>
-          MathImprove helps students of all ages unlock their full math
-          potential by rebuilding missing skills instead of pushing them forward.
+        <p className="border" >
+         MathImprove is the best place to explore new math topics at your own pace.
+        Whether a student is ahead and ready to go further, or behind and needs to catch up, 
+        our step-by-step approach helps every learner grow with confidence.
         </p>
 
         <ul>
