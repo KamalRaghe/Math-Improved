@@ -5,6 +5,8 @@ import { doc, getDoc, updateDoc } from "firebase/firestore";
 import FeedBack from "@/components/feedback"
 import Sign2 from "@/components/SignUp2";
 import AboutUs from "@/components/AboutUS";
+import Head from "next/head";
+import Image from "next/image";
 export default function Math(){
     const [count, setCount] = useState(0)
     const [loaded, setLoaded] = useState(true)
@@ -46,8 +48,7 @@ export default function Math(){
  } 
 
 
- import Head from "next/head";
-import Image from "next/image";
+
 
 export default function Home() {
   return (
