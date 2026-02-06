@@ -40,20 +40,7 @@ export default function Math(){
     },[])
 
     return (
-        <div className="beige center column " style={{padding:"20px",paddingBottom:"50px"}}>
-            <img className="FrontPage" src={"/intro.jpeg"} ></img>
-            <div><button className="sub-topic" onClick={()=>{router.push('/Trial')}} >Start</button></div>
-        </div>     
-    )
- } 
-
-
-
-
-export default function Home() {
-  return (
-    <>
-      <Head>
+    <> <Head>
         <title>MathImprove – Fix Math Gaps Step by Step</title>
         <meta
           name="description"
@@ -86,6 +73,13 @@ export default function Home() {
           <li>Study from home at your own pace</li>
         </ul>
       </main>
-    </>
-  );
-}
+    </>   
+    )
+ } 
+
+
+
+
+
+    
+  
