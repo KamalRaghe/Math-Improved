@@ -40,20 +40,19 @@ export default function Math(){
     },[])
 
     return (
-    <> <Head>
+    <> 
         <title>MathImprove – Fix Math Gaps Step by Step</title>
         <meta
           name="description"
           content="MathImprove helps students fix missing math skills with step-by-step explanations and guided practice."
         />
-      </Head>
+    
 
       {/* Your image stays */}
       <Image
-        src="/hero.png"
+        src="/Intro.png"
         alt="MathImprove helping students improve math skills"
-        width={800}
-        height={500}
+    
         priority
       />
 
