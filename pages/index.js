@@ -49,17 +49,15 @@ export default function Math(){
     
 
       {/* Your image stays */}
-      <img
-        src="/Intro.jpeg"
+     <img
+        src="/intro.jpeg"
         alt="MathImprove helping students improve math skills"
-        width={400}
-        height={400}
-        priority
-        style={{marginTop:"10px"}}
+        style={{ marginTop: "10px", width: 400, height: 400 }}
       />
         
-        <button style={{position:"relative",top:"-70px",left:"90px"}} className="choice" >Start</button>
-        <div className="Red" >Click start to continue</div>
+        <button style={{position:"relative",top:"-70px",left:"105px"}} 
+        className=" choice" onClick={()=>router.push('Trial')} >Start</button>
+        <div className="Red" style={{position:"relative",top:"-50px",fontSize:"15px"}}  >Click start to continue</div>
       {/* REAL TEXT FOR GOOGLE */}
       <main className="center column relative" style={{bottom:"30px",color:"black",width:"350px",margin:"0px"}} >
         <h1 style={{margin:"0px"}} >Unlock New Math Potential Step by Step</h1>
