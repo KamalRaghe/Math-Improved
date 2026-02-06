@@ -68,7 +68,7 @@ export default function Math(){
         our step-by-step approach helps every learner grow with confidence.
         </p>
 
-        <ul style={{fontSize:"18px",marginBottom:"20px"}} >
+        <ul className="center" style={{fontSize:"18px",marginBottom:"20px",justifyContent:"center"}} >
           <li>Identify missing math fundamentals</li>
           <li>Learn concepts step by step</li>
           <li>Practice with guided explanations</li>
