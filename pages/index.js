@@ -58,7 +58,7 @@ export default function Math(){
       />
 
       {/* REAL TEXT FOR GOOGLE */}
-      <main style={{color:"black"}} >
+      <main className="center" style={{color:"black"}} >
         <h1>Unlock New Math Potential Step by Step</h1>
 
         <p className="border" style={{width:"200px"}} >
