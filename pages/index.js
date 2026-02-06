@@ -50,10 +50,10 @@ export default function Math(){
 
       {/* Your image stays */}
       <Image
-        src="/Intro.jpeg"
+        src="/Intro.png"
         alt="MathImprove helping students improve math skills"
         width={400}
-        height={400}
+        height={200}
         priority
       />
 
