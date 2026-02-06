@@ -57,6 +57,8 @@ export default function Math(){
         priority
         style={{margin:"10px"}}
       />
+        
+        <button className="choice" >Start</button>
 
       {/* REAL TEXT FOR GOOGLE */}
       <main className="center column" style={{color:"black",width:"350px",margin:"0px"}} >
@@ -68,7 +70,7 @@ export default function Math(){
         our step-by-step approach helps every learner grow with confidence.
         </p>
 
-        <ul>
+        <ul style={{fontSize:"18px",marginBottom:"20px"}} >
           <li>Identify missing math fundamentals</li>
           <li>Learn concepts step by step</li>
           <li>Practice with guided explanations</li>
