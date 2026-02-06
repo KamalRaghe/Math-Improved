@@ -68,11 +68,13 @@ export default function Math(){
         our step-by-step approach helps every learner grow with confidence.
         </p>
 
-        <ul className="center column " style={{fontSize:"18px",marginBottom:"20px",justifyContent:"center"}} >
-          <li>Identify missing math fundamentals</li>
-          <li>Learn concepts step by step</li>
-          <li>Practice with guided explanations</li>
-          <li>Study from home at your own pace</li>
+        <h2 style={{borderBottom:"2px solid black"}} > What MathImprove Does</h2>
+
+        <ul className="center column relative" style={{bottom:"30px",fontSize:"18px",marginBottom:"20px",padding:"0px",alignItems:"start"}} >
+          <div>- Identify missing math fundamentals</div>
+          <div>- Learn concepts step by step</div>
+          <div>- Practice with guided explanations</div>
+          <div>- Study from home at your own pace</div>
         </ul>
       </main>
     </>   
