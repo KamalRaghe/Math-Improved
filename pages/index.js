@@ -55,6 +55,7 @@ export default function Math(){
         width={400}
         height={400}
         priority
+        style={{margin:"10px"}}
       />
 
       {/* REAL TEXT FOR GOOGLE */}
