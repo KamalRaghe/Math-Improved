@@ -59,8 +59,8 @@ export default function Math(){
       />
 
       {/* REAL TEXT FOR GOOGLE */}
-      <main className="center column" style={{color:"black",width:"350px"}} >
-        <h1>Unlock New Math Potential Step by Step</h1>
+      <main className="center column" style={{color:"black",width:"350px",margin:"0px"}} >
+        <h1 className="border" style={{margin:"0px"}} >Unlock New Math Potential Step by Step</h1>
 
         <p className="border" style={{width:"400px"}} >
          MathImprove is the best place to explore new math topics at your own pace.
