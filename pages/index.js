@@ -44,3 +44,47 @@ export default function Math(){
         </div>     
     )
  } 
+
+
+ import Head from "next/head";
+import Image from "next/image";
+
+export default function Home() {
+  return (
+    <>
+      <Head>
+        <title>MathImprove – Fix Math Gaps Step by Step</title>
+        <meta
+          name="description"
+          content="MathImprove helps students fix missing math skills with step-by-step explanations and guided practice."
+        />
+      </Head>
+
+      {/* Your image stays */}
+      <Image
+        src="/hero.png"
+        alt="MathImprove helping students improve math skills"
+        width={800}
+        height={500}
+        priority
+      />
+
+      {/* REAL TEXT FOR GOOGLE */}
+      <main>
+        <h1>Fix Math Gaps Step by Step</h1>
+
+        <p>
+          MathImprove helps students of all ages unlock their full math
+          potential by rebuilding missing skills instead of pushing them forward.
+        </p>
+
+        <ul>
+          <li>Identify missing math fundamentals</li>
+          <li>Learn concepts step by step</li>
+          <li>Practice with guided explanations</li>
+          <li>Study from home at your own pace</li>
+        </ul>
+      </main>
+    </>
+  );
+}
