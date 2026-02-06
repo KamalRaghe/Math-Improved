@@ -52,7 +52,8 @@ export default function Math(){
       <Image
         src="/Intro.png"
         alt="MathImprove helping students improve math skills"
-    
+        width={800}
+        height={500}
         priority
       />
 
