@@ -52,7 +52,7 @@ export default function Math(){
      <img
         src="/intro.jpeg"
         alt="MathImprove helping students improve math skills"
-        style={{ marginTop: "10px", width: 400, height: 400 }}
+        style={{ marginTop: "10px", width: 380, height: 380 }}
       />
         
         <button style={{position:"relative",top:"-70px",left:"105px"}} 
@@ -62,7 +62,7 @@ export default function Math(){
       <main className="center column relative" style={{bottom:"30px",color:"black",width:"350px",margin:"0px"}} >
         <h1 style={{margin:"0px"}} >Unlock New Math Potential Step by Step</h1>
         <br></br>
-        <p style={{width:"400px",margin:"0px",fontSize:'19px'}} >
+        <p style={{width:"380px",margin:"0px",fontSize:'19px'}} >
          MathImprove is the best place to explore new math topics at your own pace.
         Whether a student is ahead and ready to go further, or behind and needs to catch up, 
         our step-by-step approach helps every learner grow with confidence.
