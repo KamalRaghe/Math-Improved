@@ -263,40 +263,40 @@ export default function Quad2({num1,num2,close}){
                     {Math.sqrt(((num2-num1)*(num2-num1))+(4*num1*num2))}
                 </div>}
                 {split && !done && <div className="center relative" style={{top:"-20px",left:"30px"}} ><div className="center double" style={{borderTop:"2px solid",width:'150px'}} >2</div></div>}
-                {split && !done && <div className="relative double" style={{top:'-90px',left:"65px"}} >𝑥 =</div>}
+                {split && !done && <div className="relative double" style={{top:'-90px',left:"-85px"}} >𝑥 =</div>}
 
                 {split && done && <div className="center relative double" style={{top:"30px"}}>
                    -{c1}<div style={{paddingRight:"10px",paddingLeft:"10px"}} >{ step11 ? <button className="carry Green" onClick={()=>{setStep11(false);setStep12(true);setStep(false)}} >±</button> :<div>±</div>}</div>
                     {Math.sqrt(((num1-num2)*(num1-num2))+(4*num1*num2))}
                 </div>}
                 {split && done && <div className="center relative" style={{top:"30px"}} ><div className="center double" style={{borderTop:"2px solid",width:'100px'}} >2</div></div>}
-                {split && done && <div className="relative double" style={{top:'-40px',left:"65px"}} >𝑥 =</div>}
+                {split && done && <div className="relative double" style={{top:'-40px',left:"-85px"}} >𝑥 =</div>}
 
                 {step12 && <div className="center relative double Green" style={{top:"-50px",left:"30px"}}>
                    -{c1}<div style={{paddingRight:"10px",paddingLeft:"10px"}} >+</div>
                     {Math.sqrt(((num1-num2)*(num1-num2))+(4*num1*num2))}
                 </div>}
                 {step12 && <div className="center relative" style={{top:"-50px",left:"30px"}} ><div className="center double" style={{borderTop:"2px solid",width:'150px'}} >2</div></div>}
-                {step12 && <div className="relative double" style={{top:'-120px',left:"65px"}} >𝑥 =</div>}
+                {step12 && <div className="relative double" style={{top:'-120px',left:"-85px"}} >𝑥 =</div>}
 
                 {step13 && <div className="center relative Green double" style={{top:"-50px",left:"-10px"}}>
                    {num2-num1+Math.sqrt(((num1-num2)*(num1-num2))+(4*num1*num2))}
                 </div>}
                 {step13 && <div className="center relative Green" style={{top:"-50px",left:"-10px"}} ><div className="center double" style={{borderTop:"2px solid",width:'50px'}} >2</div></div>}
-                {step13 && <div className="relative double" style={{top:'-120px',left:"65px"}} >𝑥 =</div>}
+                {step13 && <div className="relative double" style={{top:'-120px',left:"-85px"}} >𝑥 =</div>}
 
                 {step14 && <div className="center relative double Green" style={{top:"-50px",left:"30px"}}>
                    {num2-num1}<div style={{paddingRight:"10px",paddingLeft:"10px"}} >-</div>
                     {Math.sqrt(((num1-num2)*(num1-num2))+(4*num1*num2))}
                 </div>}
                 {step14 && <div className="center relative" style={{top:"-50px",left:"30px"}} ><div className="center double" style={{borderTop:"2px solid",width:'150px'}} >2</div></div>}
-                {step14 && <div className="relative double" style={{top:'-120px',left:"65px"}} >𝑥 =</div>}
+                {step14 && <div className="relative double" style={{top:'-120px',left:"-85px"}} >𝑥 =</div>}
 
                 {step15 && <div className="center relative double Green" style={{top:"-50px",left:"-15px"}}>
                    {num2-num1-Math.sqrt(((num1-num2)*(num1-num2))+(4*num1*num2))}
                 </div>}
                 {step15 && <div className="center relative Green" style={{top:"-50px",left:"-10px"}} ><div className="center double" style={{borderTop:"2px solid",width:'50px'}} >2</div></div>}
-                {step15 && <div className="relative double" style={{top:'-120px',left:"65px"}} >𝑥 =</div>}
+                {step15 && <div className="relative double" style={{top:'-120px',left:"-85px"}} >𝑥 =</div>}
                 
                 {done && <div className="Green center double" >𝑥 = {-1*num1} or 𝑥 = {num2}</div>}
 

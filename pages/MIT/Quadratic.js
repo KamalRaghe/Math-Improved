@@ -69,6 +69,7 @@ export default function DoubleAdd(){
 
     useEffect(() =>{
         setLoaded(true)
+        console.log(num)
     },[])
 
     useEffect(()=>{
