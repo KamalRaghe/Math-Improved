@@ -6,7 +6,7 @@ export default function Home() {
       <header className="mi-nav">
         <div className="mi-logo">MathImprove</div>
         <a href="/Trial" className="mi-nav-btn">
-          Start Learning Free
+          Start Learning 
         </a>
       </header>
 
