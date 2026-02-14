@@ -928,3 +928,9 @@ body::-webkit-scrollbar {
     padding: 30px;
   }
 }
+
+@media (max-width: 400px) {
+  .mi-nav {
+    display: none;
+  }
+}
