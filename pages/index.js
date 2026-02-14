@@ -76,6 +76,10 @@ export default function Home() {
         </p>
       </section>
 
+     <a href="/Trial" className="mi-primary-btn">
+          Start Learning Free
+        </a>
+
       {/* Footer */}
       <footer className="mi-footer">
         © 2026 MathImprove.com — Free Online K–8 Math Platform
