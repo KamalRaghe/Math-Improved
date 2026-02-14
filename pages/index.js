@@ -1,89 +1,86 @@
-import { useState ,useEffect, use } from "react";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
-import FeedBack from "@/components/feedback"
-import Sign2 from "@/components/SignUp2";
-import AboutUs from "@/components/AboutUS";
-import Head from "next/head";
-import Image from "next/image";
-export default function Math(){
-    const [count, setCount] = useState(0)
-    const [loaded, setLoaded] = useState(true)
-    const [check, setCheck] = useState(false)
-    const [check2, setCheck2] = useState(false)
-    const [about, setAbout] = useState(false)
-    const [none, setNone] = useState('')
-    const [flex, setFlex] = useState('flex')
-    const router = useRouter() 
-    const {id} = router.query 
+export default function Home() {
+  return (
+    <main className="mi-wrapper">
 
-    function close(){
-        if(count){
-            setCount(false)
-        }
-    }
+      {/* Navigation */}
+      <header className="mi-nav">
+        <div className="mi-logo">MathImprove</div>
+        <a href="/learn" className="mi-nav-btn">
+          Start Learning Free
+        </a>
+      </header>
 
-    useEffect(()=>{
-        const score = parseInt(window.localStorage.getItem(`${id} score`))
-        setCheck2(score > 100)
-        if(score > 100){
-            setNone('none')
-        }
-        let main =  window.localStorage.getItem('uid')
-        let me =  window.localStorage.getItem('tag')
-        if(main){
-            router.push('/login')
-        }if(!(me === 'Kamal')){
-            router.push('https://mathimprove.com/')
-        }
-    },[])
+      {/* Hero Section */}
+      <section className="mi-hero">
+        <h1>
+          Free K–8 Math Learning Platform That Fixes Gaps Instantly
+        </h1>
 
-    return (
-    <> 
-        <title>MathImprove – Fix Math Gaps Step by Step</title>
-        <meta
-          name="description"
-          content="MathImprove helps students fix missing math skills with step-by-step explanations and guided practice."
-        />
-    
-
-      {/* Your image stays */}
-     <img
-        src="/intro.jpeg"
-        alt="MathImprove helping students improve math skills"
-        style={{ marginTop: "10px", width: 380, height: 380 }}
-      />
-        
-        <button style={{position:"relative",top:"-70px",left:"105px"}} 
-        className=" choice" onClick={()=>router.push('Trial')} >Start</button>
-        <div className="Green" style={{position:"relative",top:"-50px",fontSize:"17px"}} >Click start to begin learning</div>
-      {/* REAL TEXT FOR GOOGLE */}
-      <main className="center column relative" style={{bottom:"30px",color:"black",width:"350px",margin:"0px"}} >
-        <h1 style={{margin:"0px"}} >Unlock New Math Potential Step by Step</h1>
-        <br></br>
-        <p style={{width:"380px",margin:"0px",fontSize:'19px'}} >
-         MathImprove is the best place to explore new math topics at your own pace.
-        Whether a student is ahead and ready to go further, or behind and needs to catch up, 
-        our step-by-step approach helps every learner grow with confidence.
+        <p>
+          MathImprove is a structured K–8 math platform designed to help
+          students move forward step by step. If a student struggles with
+          a foundational concept like division while learning algebra,
+          the system provides immediate support — without forcing them
+          to go back an entire grade.
         </p>
 
-        <h2 style={{borderBottom:"2px solid black"}} > What MathImprove Does</h2>
+        <a href="/learn" className="mi-primary-btn">
+          Start Learning Free
+        </a>
 
-        <ul className="center column relative" style={{bottom:"30px",fontSize:"18px",marginBottom:"20px",padding:"0px",alignItems:"start"}} >
-          <div>- Identify missing math fundamentals</div>
-          <div>- Learn concepts step by step</div>
-          <div>- Practice with guided explanations</div>
-          <div>- Study from home at your own pace</div>
-        </ul>
-      </main>
-    </>   
-    )
- } 
+        <div className="mi-free-note">
+          100% Free Until June 2026
+        </div>
+      </section>
 
+      {/* Section 1 */}
+      <section className="mi-section">
+        <h2>Fix Foundational Math Gaps Without Falling Behind</h2>
+        <p>
+          Many students fall behind because small gaps grow over time.
+          MathImprove identifies missing foundations instantly and
+          repairs them in context — so students continue progressing
+          without losing confidence.
+        </p>
+      </section>
 
+      {/* Section 2 */}
+      <section className="mi-section">
+        <h2>Advanced Students Are Not Limited By Grade Level</h2>
+        <p>
+          Students who are passionate about math should not be held back.
+          A Grade 5 student can explore algebra, patterns, and functions
+          early in a structured and understandable way.
+        </p>
+      </section>
 
+      {/* Section 3 */}
+      <section className="mi-section">
+        <h2>Structured K–8 Curriculum Connected Like Puzzle Pieces</h2>
+        <p>
+          Math topics are connected logically. Fractions connect to ratios.
+          Ratios connect to algebra. Algebra connects to functions.
+          Students understand how ideas build together instead of
+          memorizing isolated procedures.
+        </p>
+      </section>
 
+      {/* Section 4 */}
+      <section className="mi-section mi-highlight">
+        <h2>Building Deeper Thinkers — Not Just Test Takers</h2>
+        <p>
+          MathImprove helps students develop reasoning skills,
+          pattern recognition, and structured thinking.
+          Our goal is long-term mathematical confidence —
+          not short-term memorization.
+        </p>
+      </section>
 
-    
-  
+      {/* Footer */}
+      <footer className="mi-footer">
+        © 2026 MathImprove.com — Free Online K–8 Math Platform
+      </footer>
+
+    </main>
+  );
+}

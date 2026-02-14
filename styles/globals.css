@@ -775,3 +775,157 @@ body::-webkit-scrollbar {
   border-radius: 50%;
   margin: 10px;
 }
+
+/* ============================= */
+/* MathImprove Homepage Styles   */
+/* ============================= */
+
+.mi-wrapper {
+  position: relative;
+  z-index: 5;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px 100px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  text-align: center;
+}
+
+.mi-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.mi-logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #063970;
+}
+
+.mi-nav-btn {
+  background: #063970;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.mi-nav-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* HERO */
+
+.mi-hero {
+  margin-bottom: 110px;
+}
+
+.mi-hero h1 {
+  font-size: 48px;
+  line-height: 1.15;
+  color: #063970;
+  margin-bottom: 25px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mi-hero p {
+  font-size: 20px;
+  max-width: 750px;
+  margin: 0 auto 35px;
+  color: #084a63;
+}
+
+.mi-primary-btn {
+  background: #0a4c6a;
+  color: white;
+  padding: 14px 30px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.2s ease;
+}
+
+.mi-primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+}
+
+.mi-free-note {
+  margin-top: 18px;
+  font-weight: 600;
+  color: #0a4c6a;
+}
+
+/* SECTIONS */
+
+.mi-section {
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+.mi-section h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #063970;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mi-section p {
+  font-size: 19px;
+  max-width: 800px;
+  line-height: 1.7;
+  margin-left: auto;
+  margin-right: auto;
+  color: #084a63;
+}
+
+/* Highlight Box */
+
+.mi-highlight {
+  background: rgba(255,255,255,0.75);
+  padding: 50px;
+  border-radius: 30px;
+  backdrop-filter: blur(10px);
+  max-width: 950px;
+  margin: 0 auto 120px auto;
+}
+
+/* Footer */
+
+.mi-footer {
+  text-align: center;
+  margin-top: 120px;
+  font-size: 14px;
+  color: #063970;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .mi-hero h1 {
+    font-size: 32px;
+  }
+
+  .mi-section h2 {
+    font-size: 24px;
+  }
+
+  .mi-nav {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .mi-highlight {
+    padding: 30px;
+  }
+}
