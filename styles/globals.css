@@ -921,7 +921,6 @@ body::-webkit-scrollbar {
   }
 
   .mi-nav {
-    flex-direction: column;
     gap: 20px;
   }
 
