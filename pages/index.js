@@ -5,7 +5,7 @@ export default function Home() {
       {/* Navigation */}
       <header className="mi-nav">
         <div className="mi-logo">MathImprove</div>
-        <a href="/learn" className="mi-nav-btn">
+        <a href="/Trial" className="mi-nav-btn">
           Start Learning Free
         </a>
       </header>
@@ -24,7 +24,7 @@ export default function Home() {
           to go back an entire grade.
         </p>
 
-        <a href="/learn" className="mi-primary-btn">
+        <a href="/Trial" className="mi-primary-btn">
           Start Learning Free
         </a>
 
