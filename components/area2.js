@@ -50,7 +50,7 @@ export default function Area2({num1,num2,close}){
             {extra && sign === '-' && (Q1 >= 10 || Q2 >= 10) && <StepMinus close={Extra} num1 ={Q1} num2 = {Q2}/>}
             {extra && sign === '÷' && <HelpDiv close={Extra} num1 ={Q1} num2 = {Q2}/>}
                <div> 
-                    <div className="double relative" style={{top:'100px',left:"20px",color:'white',zIndex:'0'}} >A =</div>
+                    <div className="double relative" style={{top:'100px',left:"-10px",color:'white',zIndex:'0'}} >A =</div>
                     <div><div><div className="double" style={{borderBottom:"100px solid black",borderRight:'100px solid transparent'}}></div>
                     <div className="relative center" style={{fontSize:'20px'}} >{num2*2}</div>
                     <div className="relative center" style={{top:"-80px",left:"-60px",fontSize:'20px'}} >{num1}</div>
