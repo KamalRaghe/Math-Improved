@@ -144,10 +144,10 @@ export default function DoubleAdd(){
             <div className="box">
                 <button className="help" onClick={open}>help</button>
             </div>
-            {help && num4 === 0 && <Pm num1 ={num1} num2={num2} close={close}/>}
-            {help && num4 === 1 && <Pm1 num1 ={num1} num2={num2} close={close}/>}
-            {help && num4 === 2 && <Pm2 num1 ={num1} num2={num2} close={close}/>}
-            {help && num4 === 3 && <Pm3 num1 ={num1} num2={num2} close={close}/>}
+            {help && num4 === true && <Pm num1 ={num1} num2={num2} close={close}/>}
+            {help && num4 === false && <Pm1 num1 ={num1} num2={num2} close={close}/>}
+            {help && num4 === false && <Pm2 num1 ={num1} num2={num2} close={close}/>}
+            {help && num4 === false && <Pm3 num1 ={num1} num2={num2} close={close}/>}
             {loaded && correct && <Correct></Correct>}
             {loaded && wrong && <Wrong/> }
             <div className="box column">
