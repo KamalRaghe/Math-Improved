@@ -42,7 +42,7 @@ export default function Area({num1,num2,close}){
             {extra && sign === '÷' && <HelpDiv close={Extra} num1 ={Q1} num2 = {Q2}/>}
             <div className='cancel' style={{width:"100%"}}><button className='cancel-btn' onClick = {close}>X</button></div>
                <div className="relative" style={{top:'-50px'}}> 
-               <div className="double relative" style={{top:"75px",left:"25px",color:'white'}} >A =</div>
+               <div className="double relative" style={{top:"75px",color:'white'}} >A =</div>
                     <div className="double" style={{width:'100px', height:"100px",border:"3px solid black",backgroundColor:'black'}}>
                     <div className="relative center Green" style={{top:"-30px",fontSize:'20px'}} >{num1}</div>
                     <div className="relative center Green" style={{top:"85px",fontSize:'20px'}} >{num1}</div>
