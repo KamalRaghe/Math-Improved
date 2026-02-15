@@ -50,7 +50,7 @@ export default function Pm3({num1,num2,close}){
             {extra && sign === '-' && (Q1 >= 10 || Q2 >= 10) && <StepMinus close={Extra} num1 ={Q1} num2 = {Q2}/>}
             {extra && sign === '÷' && <HelpDiv close={Extra} num1 ={Q1} num2 = {Q2}/>}
                <div> 
-               {<div className="double relative" style={{top:'100px',left:'25px',color:'white',zIndex:'10'}} >P =</div>}
+               {<div className="double relative" style={{top:'100px',left:'5px',color:'white',zIndex:'10'}} >P =</div>}
                 {<div><div className="double" style={{borderBottom:"100px solid black",borderRight:'50px solid transparent',borderLeft:'50px solid transparent'}}></div>
                     <div className="relative center" style={{top:'5px',fontSize:'20px'}} >{step1 ? num1:<span className="Green" >{num1}</span>}</div>
                     <div className="relative center Green " style={{top:"-90px",left:"40px",fontSize:'20px'}} >{ num2+num1}</div>
