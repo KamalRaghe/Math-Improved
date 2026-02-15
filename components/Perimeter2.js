@@ -51,7 +51,7 @@ export default function Pm2({num1,num2,close}){
             {extra && sign === '÷' && <HelpDiv close={Extra} num1 ={Q1} num2 = {Q2}/>}
             <button className=" absolute choice red"  style={{top:'0',left:'0px'}} onClick={close}>Close</button>
                <div> 
-                    <div className="double relative" style={{top:'50px',left:"20px",color:'white',zIndex:'10'}} >P =</div>
+                    <div className="double relative" style={{top:'50px',left:"3px",color:'white',zIndex:'10'}} >P =</div>
                     <div><div className="double" style={{borderBottom:"100px solid black",borderRight:'100px solid transparent',rotate:'120deg'}}></div>
                     <div className="relative center" style={{top:"-45px",fontSize:'20px'}} >{step1 ? num1+num2-1: <span className="Green" >{num1+num2-1}</span> }</div>
                     <div className="relative center Green" style={{top:"-140px",left:"30px",fontSize:'20px'}} >{ num2}</div>
