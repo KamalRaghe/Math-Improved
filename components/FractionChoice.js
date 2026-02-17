@@ -33,20 +33,20 @@ function Choice({value1, answer1, whole,whole2,value2, answer2, doSomething, Cor
     return(
         <div>
             <button className='choice-stretch center' style={{padding:'30px 10px'}} onClick={()=>{Do()}}>
-                {whole > 0 && !(beginning === true)? <div style={{paddingRight:'2px'}}>{whole}</div>:null}
+                {whole > 0 && !(beginning === true)? <div style={{paddingRight:'2px',color:"white"}}>{whole}</div>:null}
                 {!(whole > 0) && whole2 > 0 && !(beginning === true) && <div style={{paddingRight:'2px'}}>{whole2}</div> }
                 {!(whole > 0) && !(whole2 > 0) && !(beginning === true)&& (value1 === 0) && 0}
                 <div className="column center" >
-                    { !(value1 === 0) && !(beginning === true) && <div className="center" style={{borderBottom:'2px solid white', width:'30px'}} >
+                    { !(value1 === 0) && !(beginning === true) && <div className="center" style={{borderBottom:'2px solid white', width:'30px',color:"white"}} >
                         { show1 > 0 && show1}
                         {show1 <= 0 && show1+answer1+3}
                     </div>}
-                    { !(value1 === 0) && !(beginning === true) && <div>{show2 <= 1 && answer2+num1}{show2 > 1 && show2}</div>}
-                    {answer1 > 0 && beginning === true &&<div className="center" style={{borderBottom:'2px solid white', width:'30px'}} >
+                    { !(value1 === 0) && !(beginning === true) && <div style={{color:"white"}} >{show2 <= 1 && answer2+num1}{show2 > 1 && show2}</div>}
+                    {answer1 > 0 && beginning === true &&<div className="center" style={{borderBottom:'2px solid white', width:'30px',color:"white"}} >
                         {show1 > 0 && show1}
                         {show1 < 0 && answer1+show1}{show1 === 0 && answer1+3}
                     </div>}
-                    {answer1 > 0 && beginning === true && <div>{show2 <= 1 && num1+show2}{show2 > 1 && show2}</div>}
+                    {answer1 > 0 && beginning === true && <div style={{color:"white"}}>{show2 <= 1 && num1+show2}{show2 > 1 && show2}</div>}
                 </div>
             </button>
         </div>

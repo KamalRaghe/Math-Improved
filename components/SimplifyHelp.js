@@ -24,6 +24,7 @@ export default function Question1({num1,num2,whole, close}){
 
     function Extra(){
         setExtra(false)
+        console.log('LJHG8OU    3')
    }
 
     function Count(){
@@ -69,14 +70,18 @@ export default function Question1({num1,num2,whole, close}){
         setArr(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
       },[count])
 
+      useEffect(() => {
+        console.log(extra);
+     }, [extra]);
+
     function Nothing(){}
     return (
         <div className="Help"  >
-            {extra && sign === 'and' && <HelpHcf close={Extra} num1 ={Q1} num2 = {Q2}/>}
-            {extra && sign === '÷' && Q1 <= Q2*9 && <HelpDiv close={Extra} num1 ={Q1} num2 = {Q2}/>}
-            {extra && sign === '÷' && Q1 > 99 && Q2 < 10  && <LongDivisionHelp close={Extra} num1 ={Q2} num2 = {Q1}/>}
-            {extra && sign === '÷' && Q1 > 99 && Q2 >= 10  && <ShortDivisionHelp close={Extra} num1 ={Q2} num2 = {Q1}/>}
-            {extra && sign === '÷' && Q1 < 100 && Q2 < 10  && <ShortDivisionHelp close={Extra} num1 ={Q2} num2 = {Q1}/>}
+            {extra && sign === 'and' && <HelpHcf close={ () => Extra()} num1 ={Q1} num2 = {Q2}/>}
+            {extra && sign === '÷' && Q1 <= Q2*9 && <HelpDiv close={ () => Extra()} num1 ={Q1} num2 = {Q2}/>}
+            {extra && sign === '÷' && Q1 > 99 && Q2 < 10  && <LongDivisionHelp close={ () => Extra()} num1 ={Q2} num2 = {Q1}/>}
+            {extra && sign === '÷' && Q1 > 99 && Q2 >= 10  && <ShortDivisionHelp close={ () => Extra()} num1 ={Q2} num2 = {Q1}/>}
+            {extra && sign === '÷' && Q1 < 100 && Q2 < 10  && <ShortDivisionHelp close={ () => Extra()} num1 ={Q2} num2 = {Q1}/>}
             <div className='cancel'><button className='cancel-btn' onClick = {close}>X</button></div>
             <div className=" double center"><div className="Green" style={{padding:'5px'}} >{whole > 0 && whole}</div>
                     <div className="column center" >
@@ -102,12 +107,12 @@ export default function Question1({num1,num2,whole, close}){
             {!done && sign === 'and' && <div className=" double center" >{num1> 0 ? num1:-1*num1} and {num2 > 0 ? num2:-1*num2} </div>}
             {!done && sign !== 'and' && <div className=" double center Green absolute StepQuestion">{Q1} {sign} {Q2} = </div>}  
             {!done &&<div className='center wrap absolute StepAnswer'>
-                   {(sign === 'x' && (Q1 >= 10 || Q2 >= 10)) && <button className="choice" style={{backgroundColor:'yellow',color:'black'}} onClick={()=>{setExtra(true);console.log(extra)}} >help</button>}
+                   {(sign === 'x' && (Q1 >= 10 || Q2 >= 10)) && <button className="choice" style={{backgroundColor:'yellow',color:'black'}} onClick={()=>{setExtra(true)}} >help</button>}
                    <Step value = {answer+arr[0]}  answer={answer} Count ={Count} done = {done} mistake={Nothing}/>
                    {(sign === 'x' && (Q1 >= 10 || Q2 >= 10)) && <button className="choice red" onClick={close} >Close</button>} 
                    <Step value = {answer+arr[2]}  answer={answer} Count ={Count} done = {done} mistake={Nothing}/>
                    <Step value = {answer+arr[3]}  answer={answer} Count ={Count} done = {done} mistake={Nothing}/>
-                   {!(sign === 'x' && (Q1 >= 10 || Q2 >= 10)) && <button className="choice" style={{backgroundColor:'yellow',color:'black'}} onClick={()=>{setExtra(true);console.log(extra)}} >help</button>}
+                   {!(sign === 'x' && (Q1 >= 10 || Q2 >= 10)) && <button className="choice" style={{backgroundColor:'yellow',color:'black'}} onClick={()=>{setExtra(true)}} >help</button>}
                    <Step value = {answer+arr[1]}  answer={answer} Count ={Count} done = {done} mistake={Nothing}/>
                    {!(sign === 'x' && (Q1 >= 10 || Q2 >= 10)) && <button className="choice red" onClick={close} >Close</button>} 
                </div>}

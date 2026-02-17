@@ -1,3 +1,7 @@
+*{
+  color: black
+}
+
 :root {
   --sky-top: #6ec6ff;
   --sky-mid: #a0e1ff;

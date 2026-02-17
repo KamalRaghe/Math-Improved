@@ -184,7 +184,7 @@ useEffect(()=>{
              {extra && !minus && <HelpTimes close={Extra} num1 ={num1} num2 = {number4}  />}
              {extra && minus &&  number5 >= 10 && <StepMinus close={Extra} num1 ={number5} num2 = {number6}  />}
              {extra && minus && number5 < 10 && <HelpMinus close={Extra} num1 ={number5} num2 = {number6}/>}
-            <div className='cancel'><button className='cancel-btn' onClick={close} >X</button></div>
+            <div className='cancel'><button className='cancel-btn' onClick={()=>close()} >X</button></div>
             {(!remainder || num2%num1 === 0)  && <span className="center absolute Green"  style={{fontSize: '30px',width:'106%',top:'65px'}}>{num1 >= 10 &&<span className="hide" >{main > 9 && 0}00.</span>}{digit && 0}{main}</span>}
             { remainder && num2%num1 != 0 && <span className="center absolute Green"  style={{fontSize:'30px',width:'120%',top:'65px'}}>{num1 > 9 && <span className="hide" >00.</span>}{digit && 0}{main} R {num2%num1}</span>}
             <div className="center" style={{fontSize: '30px'}}>
