@@ -82,6 +82,9 @@ export default function TWH({close}){
                         →
                     </button>
                 </div>
+                <div className="center" >
+                     Help: <button className="help" >On</button><button className="help green" >Off</button>
+                </div>
             </div>
         </div>
     )
