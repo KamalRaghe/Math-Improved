@@ -1,5 +1,5 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
+import { initializeApp, getApps, getApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { getDatabase } from 'firebase/database';
@@ -21,7 +21,9 @@ const firebaseConfig = {
 
  //  Disable two step verification strip backup code: gvpv-rehn-nuoj-qnoi-bxam
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+const app = !getApps().length
+  ? initializeApp(firebaseConfig)
+  : getApp();
 const db = getFirestore(app);
 const auth = getAuth(app);
 const rdb = getDatabase(app)
@@ -31,4 +33,5 @@ export {db}
 export const initFirebase = () => {
   return app;
 };
+
 export {rdb}

@@ -6,6 +6,7 @@ import FeedBack from "@/components/feedback"
 import Sign2 from "@/components/SignUp2";
 import AboutUs from "@/components/AboutUS";
 import Code from "@/components/code";
+import TWH from "@/components/HwT";
 export default function Math(){
     const [count, setCount] = useState(0)
     const [loaded, setLoaded] = useState(true)
@@ -39,18 +40,18 @@ export default function Math(){
         <div className="beige" style={{padding:"20px",paddingBottom:"50px"}}>
 
             {check && <FeedBack close={()=>{setCheck(false),setNone(''),setFlex('flex')}} />}
-            {about &&<AboutUs close={()=>{setAbout(false),setNone(''),setFlex('flex')}} />}
-            {code &&<Code close={()=>{setCode(false),setNone(''),setFlex('flex')}} />}
+            {about && <AboutUs close={()=>{setAbout(false),setNone(''),setFlex('flex')}} />}
+            {code && <TWH close={()=>{setCode(false),setNone(''),setFlex('flex')}} />}   
             <div style={{display:flex,justifyContent:"space-between",width:"100vw",height:"180px"}}>
                 <div>
                     <div className="relative" style={{display:"flex",justifyContent:"start",fontSize:"70px",top:"20px",color:'navy',padding:"0px"}} >Math</div>
                     <div className="relative arrow-underline" style={{fontSize:"70px",color:'purple',marginBottom:"20px"}}>Improve</div>      
                 </div>
                 <div className=" center column relative" style={{marginLeft:"50px",width:"300px",justifyContent:"end",top:"130px"}}>
-                    <div ><button className="sub-topic" onClick={()=>{router.push('/Sign')}}>Sign in</button></div>
-                    <div ><button className="sub-topic" style={{position:"relative",bottom:"25px"}} onClick={()=>{setAbout(true);setNone('none'),setFlex('none')}} >About us</button></div>
+                    <div><button className="sub-topic" onClick={()=>{router.push('/Sign')}}>Sign in</button></div>
+                    <div><button className="sub-topic" style={{position:"relative",bottom:"25px"}} onClick={()=>{setAbout(true);setNone('none'),setFlex('none')}} >About us</button></div>
                     <div><button className="sub-topic" style={{position:"relative",bottom:"50px"}} onClick={()=>{setCheck(true);setNone('none'),setFlex('none')}} >Feedback</button></div>
-                    <div ><button className="sub-topic" style={{position:"relative",bottom:"75px"}} onClick={()=>{setCode(true);setNone('none'),setFlex('none')}} >Code</button></div>
+                    <div><button className="sub-topic" style={{position:"relative",bottom:"75px",backgroundColor:"yellow",color:"black"}} onClick={()=>{setCode(true);setNone('none'),setFlex('none')}} >Homework</button></div>
                 </div>
             </div>
             

@@ -12,7 +12,7 @@ function Choice({value, answer, doSomething, Correct, Wrong,big, size ,title}){
     }
     return(
         <div className="center" >
-            {big ? <button className='choice-stretch' onClick={()=>{Do()}}><div style={{width: size }} >{title ? title:value}</div></button> 
+            {big ? <button className='choice-stretch' onClick={()=>{Do()}}><div style={{width: size, color:"white"}} >{title ? title:value}</div></button> 
             :<button className='choice center' onClick={()=>{Do()}}>{value}</button>}
         </div>
         

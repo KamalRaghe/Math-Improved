@@ -8,17 +8,18 @@ export default function FeedBack({close}){
     const [post, setPost] = useState()
     const [check, setCheck] = useState(false)
 
-    function NewFeedback(){
-        const email = window.localStorage.getItem('User')
-        if(post){
-            addDoc(collection(db, 'feedback'),{email: email, person: post}).then(
-                close()
-            )
-            console.log(post)
-        }else{
-            close()
-        }    
+  async function NewFeedback() {
+  try {
+    const docRef = await addDoc(collection(db, "11AFeedback"), { person: post });
+    if(docRef.id){
+        console.log(docRef.id)
+        close()
     }
+    
+  } catch (error) {
+    console.error("Error adding feedback:", error);
+  }
+}
     
     return(
         <div className="center zoom" style={{zIndex:"200",width:"100%",height:"100%",position:"fixed",right:"0px"}} >
