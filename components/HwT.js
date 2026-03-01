@@ -83,7 +83,7 @@ export default function TWH({close}){
                     </button>
                 </div>
                 <div className="center" >
-                     Help: <button className="help" >On</button><button className="help green" >Off</button>
+                     Help: <button className="help" style={{margin:"20px 10px 20px 35px"}} >On</button><button className="help green" >Off</button>
                 </div>
             </div>
         </div>
