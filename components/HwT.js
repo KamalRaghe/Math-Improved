@@ -8,6 +8,15 @@ export default function TWH({close}){
     const [post, setPost] = useState()
     const [check, setCheck] = useState(false)
     const [value, setValue] = useState(2);
+    const [fade1,setFade1] = useState(1)
+    const [fade2,setFade2] = useState(0.6)
+    const [help, setHelp] = useState(true) 
+
+    function on(){
+        setFade1(1)
+        setFade2(0.6)
+        setHelp(false)
+    }
 
      const increase = () => {
     setValue((prev) => prev + 1);
@@ -83,7 +92,9 @@ export default function TWH({close}){
                     </button>
                 </div>
                 <div className="center" >
-                     Help: <button className="help" style={{margin:"20px 10px 20px 35px"}} >On</button><button className="help green" >Off</button>
+                     Help: 
+                     <button className="help" style={{margin:"20px 10px 20px 35px",opacity:"0.6"}} >On</button>
+                     <button className="help green" >Off</button>
                 </div>
             </div>
         </div>
