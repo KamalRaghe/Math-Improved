@@ -18,9 +18,9 @@ export default function TWH({close}){
         setHelp(true)
     }
 
-     function on(){
-        setFade1(1)
-        setFade2(0.6)
+     function off(){
+        setFade2(1)
+        setFade1(0.6)
         setHelp(false)
     }
      const increase = () => {
@@ -98,8 +98,11 @@ export default function TWH({close}){
                 </div>
                 <div className="center" >
                      Help: 
-                     <button className="help" style={{margin:"20px 10px 20px 35px",opacity:"0.6"}} >On</button>
-                     <button className="help green" >Off</button>
+                     <button className="help" 
+                     style={{margin:"20px 10px 20px 35px",opacity:"0.6"}}
+                     onClick={on} >On</button>
+                     <button className="help green" 
+                     >Off</button>
                 </div>
             </div>
         </div>
