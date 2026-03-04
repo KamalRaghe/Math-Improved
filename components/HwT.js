@@ -99,10 +99,10 @@ export default function TWH({close}){
                 <div className="center" >
                      Help: 
                      <button className="help" 
-                     style={{margin:"20px 10px 20px 35px",opacity:"0.6"}}
+                     style={{margin:"20px 10px 20px 35px",opacity:fade1}}
                      onClick={on} >On</button>
-                     <button className="help green" 
-                     >Off</button>
+                     <button className="help green" style={{opacity:fade2}}
+                     onClick={off}>Off</button>
                 </div>
             </div>
         </div>
