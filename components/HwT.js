@@ -15,9 +15,14 @@ export default function TWH({close}){
     function on(){
         setFade1(1)
         setFade2(0.6)
-        setHelp(false)
+        setHelp(true)
     }
 
+     function on(){
+        setFade1(1)
+        setFade2(0.6)
+        setHelp(false)
+    }
      const increase = () => {
     setValue((prev) => prev + 1);
   };
