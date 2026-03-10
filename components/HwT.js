@@ -1,5 +1,5 @@
 import { db } from "@/firebase"
-import { addDoc, collection } from "firebase/firestore"
+import { addDoc, collection, updateDoc,setDoc, doc, getDocs } from "firebase/firestore"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 
@@ -31,19 +31,30 @@ export default function TWH({close}){
     setValue((prev) => (prev - 1 >= 0 ? prev - 1 : 0));
   };
 
+  const [custom, SetCustom] =  useState('just try again')
+ 
+  async function NewFeedback(){
+    const snapshot = await getDocs(collection(db, "11AFeedback"));
 
-  async function NewFeedback() {
+    // snapshot.forEach(async (docSnap) => {
+    // await updateDoc(docSnap.ref, {
+    //     active: 'it workes'  });
+    // });
+    const name = window.localStorage.getItem('Name')
+    console.log(name)
   try {
-    const docRef = await addDoc(collection(db, "11AFeedback"), { person: post });
-    if(docRef.id){
-        console.log(docRef.id)
-        close()
-    }
-    
-  } catch (error) {
-    console.error("Error adding feedback:", error);
+    await setDoc(doc(db, "11AFeedback", custom), {
+      person: value
+    });
+
+    console.log("created with id:", custom);
+    close();
+
+  } catch (err) {
+    console.log(err);
   }
 }
+    
 
     return(
         <div className="center zoom" style={{zIndex:"200",width:"100%",height:"100%",position:"fixed",right:"0px"}} >
@@ -100,7 +111,7 @@ export default function TWH({close}){
                      Help: 
                      <button className="help" 
                      style={{margin:"20px 10px 20px 35px",opacity:fade1}}
-                     onClick={on} >On</button>
+                     onClick={()=>{on();NewFeedback()}} >On</button>
                      <button className="help green" style={{opacity:fade2}}
                      onClick={off}>Off</button>
                 </div>
