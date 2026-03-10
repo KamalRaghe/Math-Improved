@@ -23,7 +23,7 @@ export default function Math(){
             { count === 1 && <div style={{margin:"0",padding:"0",display:"flex"}} >
                 <button onClick = {() => {setUrl('singleADD'),setTopic('Single digit Addition')}} className="sub-topic zoom" style={{margin:"0 20px 0 40px"}}>Single digit Addition</button>
             </div>}
-            { count === 1 && <Link href= {`/${id}/enter/doubleAdd`}><button className="sub-topic zoom" style ={{bottom:"60px"}} >Double digit Addition</button></Link>}
+            { count === 1 && <button onClick = {() => {setUrl('doubleleADD'),setTopic('Double digit Addition')}} className="sub-topic zoom" style ={{bottom:"60px"}} >Double digit Addition</button>}
             
             { loaded && <button onClick={() => {setCount(2)}}  className="topic">Subtraction</button >}
             {  count === 2 &&<Link href= {`/${id}/enter/singleMinus`}><button className="sub-topic zoom">Single digit Subtraction</button></Link>}
