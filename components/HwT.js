@@ -1,5 +1,5 @@
 import { db } from "@/firebase"
-import { addDoc, collection, updateDoc,setDoc, doc, getDocs } from "firebase/firestore"
+import { setDoc, doc } from "firebase/firestore"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 
@@ -33,19 +33,16 @@ export default function TWH({close,topic,url}){
     setValue((prev) => (prev - 1 >= 0 ? prev - 1 : 0));
   };
 
-  const [custom, SetCustom] =  useState('just try again')
+  const [custom, SetCustom] =  useState('teacher')
  
   async function NewFeedback(){
-    const snapshot = await getDocs(collection(db, name));
   try {
-    await setDoc(doc(db,name, custom), {
+    await setDoc(doc(db,name,custom), {
       amount: value,
       help: help,
       topic: topic,
       url: url
     });
-
-    console.log("created with id:", custom);
     close();
 
   } catch (err) {
@@ -88,7 +85,7 @@ useEffect(()=>{
                         <button onClick={saveName}>Enter</button>
                     </div> }
                 <div className="center">
-                        <div style={{margin:'0px 10px'}} >Amount/:</div>
+                        <div style={{margin:'0px 25px 0px 0px'}} >Amount:</div>
                         <button
                         onClick={decrease}
                         style={{
