@@ -7,24 +7,28 @@ export default function JoinClass(){
 
     const [teacher,setTeacher] = useState()
     const [name, setName] = useState()
-    const [n, setN] = useState()
-    const [Try, seTry] = useState()
+    const [n, setN] = useState('n')
+    const [Try, setTry] = useState()
+    const [data, setData] = useState()
     const router = useRouter()
 
     async function saveName(){
-    const ref = doc(db, n , "teacher") // ✅ MUST use doc()
-    const snap = await getDoc(ref)
+        const ref = doc(db,n,"teacher")
+        const snap = await getDoc(ref)
         
         if (snap.exists()) {
-            console.log("Data:", snap.data())
+            window.localStorage.setItem('TeacherName',n)
+            setName(n)
+            setTeacher(n)
+            setData(snap.data())
         } else {
-            console.log("No such document")
-        }
+           if(Try == 'Try again'){
+                setTry("Please try again")
+           }else{
+                setTry('Try again')
+           }
     }
-    
-    useEffect(()=>{
-        const teach = window.localStorage.getItem('TeacherName')
-    },[teacher])
+}
 
     return(
         <div className="center">
@@ -35,20 +39,25 @@ export default function JoinClass(){
                     fontSize:"25px",
                     margin:"0px",
                     position:"relative",
-                    left:"0px",
                     bottom:"10px",
                     alignItems:"end",
                     zIndex:"100",
                     padding:"5px"
                 }}  
-                    onClick={()=>{router.push('Trial'),saveName()}}>X</button>
+                    onClick={()=>{router.push('Trial')}}>X</button>
                  <input
                     onChange={(e) => setN(e.target.value)} 
                     style={{width:"140px", margin:"10px"}} placeholder="Teacher's name"></input>
                 <button style={{height:"20px",position:"relative",top:"10px"}} onClick={saveName}>Enter</button>
-                </div>
-            </div>:<div>
-                {teacher}
+                </div> 
+                {Try && <div style={{color:"red"}} >{Try}</div>}
+            </div>:<div className="center double column">
+               Class: {teacher}
+               <br></br>
+               Topic: {data.topic}
+               <br></br>
+               amount: {data.amount}
+                <button className="choice green" onClick={()=>{router.push(`/MIT/${data.url}`)}} >Start</button>
             </div>}
         </div>
     )
