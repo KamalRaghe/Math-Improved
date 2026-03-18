@@ -1,6 +1,7 @@
 import { useRouter } from "next/router"
 import { doc, getDoc } from "firebase/firestore"
 import { useEffect, useState } from "react"
+import { db } from "@/firebase"
 
 export default function JoinClass(){
 
@@ -11,13 +12,14 @@ export default function JoinClass(){
     const router = useRouter()
 
     async function saveName(){
-    const snap = await getDoc(db, n , "teacher")
+    const ref = doc(db, "Kamal", "teacher") // ✅ MUST use doc()
+    const snap = await getDoc(ref)
         
-  if (snap.exists()) {
-    console.log("Data:", snap.data())
-  } else {
-    console.log("No such document")
-  }
+        if (snap.exists()) {
+            console.log("Data:", snap.data())
+        } else {
+            console.log("No such document")
+        }
     }
     
     useEffect(()=>{
