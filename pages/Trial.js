@@ -7,6 +7,7 @@ import Sign2 from "@/components/SignUp2";
 import AboutUs from "@/components/AboutUS";
 import Code from "@/components/code";
 import TWH from "@/components/HwT";
+import Class from "@/components/EnterClass";
 export default function Math(){
     const [count, setCount] = useState(0)
     const [loaded, setLoaded] = useState(true)
@@ -41,7 +42,7 @@ export default function Math(){
 
             {check && <FeedBack close={()=>{setCheck(false),setNone(''),setFlex('flex')}} />}
             {about && <AboutUs close={()=>{setAbout(false),setNone(''),setFlex('flex')}} />}
-            {code && <TWH close={()=>{setCode(false),setNone(''),setFlex('flex')}} />}   
+            {code && <Class close={()=>{setCode(false),setNone(''),setFlex('flex')}} />}   
             <div style={{display:flex,justifyContent:"space-between",width:"100vw",height:"180px"}}>
                 <div>
                     <div className="relative" style={{display:"flex",justifyContent:"start",fontSize:"70px",top:"20px",color:'navy',padding:"0px"}} >Math</div>
@@ -51,7 +52,7 @@ export default function Math(){
                     <div><button className="sub-topic" onClick={()=>{router.push('/Sign')}}>Sign in</button></div>
                     <div><button className="sub-topic" style={{position:"relative",bottom:"25px"}} onClick={()=>{setAbout(true);setNone('none'),setFlex('none')}} >About us</button></div>
                     <div><button className="sub-topic" style={{position:"relative",bottom:"50px"}} onClick={()=>{setCheck(true);setNone('none'),setFlex('none')}} >Feedback</button></div>
-                    <div><button className="sub-topic" style={{position:"relative",bottom:"75px",backgroundColor:"yellow",color:"black"}} onClick={()=>{router.push('homework');setNone('none'),setFlex('none')}} >Homework</button></div>
+                    <div><button className="sub-topic" style={{position:"relative",bottom:"75px",backgroundColor:"yellow",color:"black"}} onClick={()=>{setCode('homework');setNone('none'),setFlex('none')}} >Homework</button></div>
                 </div>
             </div>
             
