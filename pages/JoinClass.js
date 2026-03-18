@@ -12,7 +12,7 @@ export default function JoinClass(){
     const router = useRouter()
 
     async function saveName(){
-    const ref = doc(db, "Kamal", "teacher") // ✅ MUST use doc()
+    const ref = doc(db, n , "teacher") // ✅ MUST use doc()
     const snap = await getDoc(ref)
         
         if (snap.exists()) {
