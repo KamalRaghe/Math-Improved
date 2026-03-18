@@ -24,7 +24,12 @@ export default function Class({close}){
     return(
         <div className="center zoom" style={{zIndex:"200",width:"100%",height:"100%",position:"fixed",right:"0px"}} >
             <div className=" column center" style={{borderRadius:"20px",padding:"20px",border:'2px solid brown',backgroundColor:"beige"}}>
-               <button className="choice help" style={{color:"black"}} >Manage Class</button>
+                 <div className='cancel' style={{width:"100%"}} >
+                 <button className='cancel-btn' style={{fontSize:"25px",margin:"0px",position:"relative",left:"6px",bottom:"10px",alignItems:"end",zIndex:"100"}}  onClick={()=>close()}>X</button>
+                </div>
+                 <textarea placeholder="Feedback" onChange={(e)=>{setPost(e.target.value)}} ></textarea>
+                 <br></br>
+                 <button onClick={NewFeedback}>Submit</button>
             </div>
         </div>
     )
