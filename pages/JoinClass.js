@@ -3,6 +3,8 @@ import { useEffect, useState } from "react"
 export default function JoinClass(){
 
     const [teacher,setTeacher] = useState()
+    const [name, setName] = useState()
+    const [n, setN] = useState()
 
 
     function saveName(){
@@ -17,8 +19,10 @@ export default function JoinClass(){
 
     return(
         <div className="center">
-            <div className=" column center" style={{borderRadius:"20px",padding:"20px",border:'2px solid brown',backgroundColor:"beige"}}>
-                 {!teacher && <div className='cancel' style={{width:"100%"}} >
+            <div className=" column center" 
+            style={{borderRadius:"20px",padding:"20px",
+            border:'2px solid brown',backgroundColor:"beige"}}></div>
+            {!teacher && <div className='cancel' style={{width:"100%"}} >
                  <button className='cancel-btn' 
                  style={{
                     fontSize:"25px",
@@ -34,7 +38,6 @@ export default function JoinClass(){
                     style={{width:"140px", margin:"10px"}} placeholder="Teacher's name"></input>
                 <button onClick={saveName}>Enter</button>
                 </div>}
-            </div>
         </div>
     )
 }
