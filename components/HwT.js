@@ -41,7 +41,8 @@ export default function TWH({close,topic,url}){
     await setDoc(doc(db,name, custom), {
       amount: value,
       help: help,
-      topic: topic
+      topic: topic,
+      url: url
     });
 
     console.log("created with id:", custom);
