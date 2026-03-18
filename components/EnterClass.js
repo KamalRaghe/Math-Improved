@@ -28,7 +28,7 @@ export default function Class({close}){
                  <button className='cancel-btn' style={{fontSize:"25px",margin:"0px",position:"relative",left:"6px",bottom:"10px",alignItems:"end",zIndex:"100"}}  onClick={()=>close()}>X</button>
                 </div>
                  <button className="choice help" style={{color:"black",width:"180px"}} >Manage Class</button>
-                 <button className="choice green" style={{color:"black",width:"180px"}} >Join class</button>
+                 <button className="choice green" style={{width:"180px"}} >Join class</button>
             </div>
         </div>
     )
