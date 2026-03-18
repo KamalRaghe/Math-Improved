@@ -63,6 +63,7 @@ useEffect(()=>{
     const nam = window.localStorage.getItem('Name')
     if(nam){
         setCheck(true)
+        setName(nam)
     }
 },[])
     
@@ -74,11 +75,11 @@ useEffect(()=>{
                  <button className='cancel-btn' style={{fontSize:"25px",margin:"0px",position:"relative",left:"6px",bottom:"10px",alignItems:"end",zIndex:"100"}}  onClick={()=>close()}>X</button>
                 </div>
                  <div className="center" ><button className="sub-topic" style={{margin:"0px"}} >{topic}</button></div>   
-                {!(check && name) && <div style={{color:"red",position:"relative", top:"7px"}} >Enter name</div>}
-                {check && name ? <div className="center" style={{margin:"17px",width:"185px",justifyContent:"space-between"}}>
+                {!(name) && <div style={{color:"red",position:"relative", top:"7px"}} >Enter name</div>}
+                { name ? <div className="center" style={{margin:"17px",width:"185px",justifyContent:"space-between"}}>
                     {name}
                     <button className="help" style={{display:"flex",backgroundColor:"cyan"}}
-                    onClick={()=>setCheck()} >Change</button> 
+                    onClick={()=>setName()} >Change</button> 
                     </div>:
                      <div>
                         <input
@@ -87,7 +88,7 @@ useEffect(()=>{
                         <button onClick={saveName}>Enter</button>
                     </div> }
                 <div className="center">
-                        <div style={{margin:'0px 10px'}} >Homework:</div>
+                        <div style={{margin:'0px 10px'}} >Amount/:</div>
                         <button
                         onClick={decrease}
                         style={{
