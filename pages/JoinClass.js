@@ -15,12 +15,12 @@ export default function JoinClass(){
     useEffect(()=>{
         const teach = window.localStorage.getItem('TeacherName')
         setTeacher(teach)
-    },[])
+    },[teacher])
 
     return(
         <div className="center">
-            <div className=" column center" style={{borderRadius:"20px",padding:"20px",border:'2px solid brown',backgroundColor:"beige"}}>
-                 {!teacher && <div className='cancel' style={{width:"100%"}} >
+            {!teacher && <div className=" column center" style={{borderRadius:"20px",padding:"20px",border:'2px solid brown',backgroundColor:"beige"}}>
+                 <div className='cancel' style={{width:"100%"}} >
                  <button className='cancel-btn' 
                  style={{
                     fontSize:"25px",
@@ -32,13 +32,13 @@ export default function JoinClass(){
                     zIndex:"100",
                     padding:"5px"
                 }}  
-                    onClick={()=>close()}>X</button>
+                    onClick={()=>{close(),saveName()}}>X</button>
                  <input
                      onChange={(e) => setN(e.target.value)} 
                     style={{width:"140px", margin:"10px"}} placeholder="Teacher's name"></input>
                 <button style={{height:"20px",position:"relative",top:"10px"}} onClick={saveName}>Enter</button>
-                </div>}
-            </div>
+                </div>
+            </div>}
         </div>
     )
 }
