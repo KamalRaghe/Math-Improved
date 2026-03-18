@@ -1,3 +1,4 @@
+import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 
 export default function JoinClass(){
@@ -5,16 +6,16 @@ export default function JoinClass(){
     const [teacher,setTeacher] = useState()
     const [name, setName] = useState()
     const [n, setN] = useState()
-
+    const router = useRouter()
 
     function saveName(){
         window.localStorage.setItem('TeacherName',n)
         setName(n)
+        setTeacher(n)
     }
     
     useEffect(()=>{
         const teach = window.localStorage.getItem('TeacherName')
-        setTeacher(teach)
     },[teacher])
 
     return(
@@ -32,9 +33,9 @@ export default function JoinClass(){
                     zIndex:"100",
                     padding:"5px"
                 }}  
-                    onClick={()=>{close(),saveName()}}>X</button>
+                    onClick={()=>{router.push('Trial'),saveName()}}>X</button>
                  <input
-                     onChange={(e) => setN(e.target.value)} 
+                    onChange={(e) => setN(e.target.value)} 
                     style={{width:"140px", margin:"10px"}} placeholder="Teacher's name"></input>
                 <button style={{height:"20px",position:"relative",top:"10px"}} onClick={saveName}>Enter</button>
                 </div>
