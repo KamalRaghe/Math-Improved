@@ -11,9 +11,16 @@ export default function JoinClass(){
     const router = useRouter()
 
     async function saveName(){
-        window.localStorage.setItem('TeacherName',n)
-        setName(n)
-        setTeacher(n)
+        const getData = async () => {
+  const docRef = doc(db, "Kamal", "teacher") // collection, doc ID
+  const snap = await getDoc(docRef)
+
+  if (snap.exists()) {
+    console.log("Data:", snap.data())
+  } else {
+    console.log("No such document")
+  }
+}
     }
     
     useEffect(()=>{
