@@ -27,9 +27,7 @@ export default function Class({close}){
                  <div className='cancel' style={{width:"100%"}} >
                  <button className='cancel-btn' style={{fontSize:"25px",margin:"0px",position:"relative",left:"6px",bottom:"10px",alignItems:"end",zIndex:"100"}}  onClick={()=>close()}>X</button>
                 </div>
-                 <textarea placeholder="Feedback" onChange={(e)=>{setPost(e.target.value)}} ></textarea>
-                 <br></br>
-                 <button onClick={NewFeedback}>Submit</button>
+                
             </div>
         </div>
     )
