@@ -1,4 +1,5 @@
 import { useRouter } from "next/router"
+import { doc, getDoc } from "firebase/firestore"
 import { useEffect, useState } from "react"
 
 export default function JoinClass(){
@@ -6,9 +7,10 @@ export default function JoinClass(){
     const [teacher,setTeacher] = useState()
     const [name, setName] = useState()
     const [n, setN] = useState()
+    const [Try, seTry] = useState()
     const router = useRouter()
 
-    function saveName(){
+    async function saveName(){
         window.localStorage.setItem('TeacherName',n)
         setName(n)
         setTeacher(n)
