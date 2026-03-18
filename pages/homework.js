@@ -12,6 +12,7 @@ const [hw, setHw] = useState()
 function choose(u,t){
   setUrl(u)
   setTopic(t)
+  setClose(true)
 }
 
 function Close(){
@@ -177,7 +178,7 @@ return(
 
 <div style={{width:"96%"}}>
 
-<TWH close={()=>Close()} ></TWH>
+{close && topic && <TWH close={()=>Close()} topic = {topic} url ={url} ></TWH>}
 
 {topics.map((t)=>(
 <div key={t.id}>

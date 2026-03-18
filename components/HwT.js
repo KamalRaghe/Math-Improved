@@ -3,14 +3,16 @@ import { addDoc, collection, updateDoc,setDoc, doc, getDocs } from "firebase/fir
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 
-export default function TWH({close}){
+export default function TWH({close,topic,url}){
     const router = useRouter()
     const [post, setPost] = useState()
-    const [check, setCheck] = useState(false)
     const [value, setValue] = useState(2);
     const [fade1,setFade1] = useState(1)
     const [fade2,setFade2] = useState(0.6)
     const [help, setHelp] = useState(true) 
+    const [name, setName] = useState()
+    const [n, setN] = useState()
+    const [check, setCheck] = useState(false) 
 
     function on(){
         setFade1(1)
@@ -34,17 +36,12 @@ export default function TWH({close}){
   const [custom, SetCustom] =  useState('just try again')
  
   async function NewFeedback(){
-    const snapshot = await getDocs(collection(db, "11AFeedback"));
-
-    // snapshot.forEach(async (docSnap) => {
-    // await updateDoc(docSnap.ref, {
-    //     active: 'it workes'  });
-    // });
-    const name = window.localStorage.getItem('Name')
-    console.log(name)
+    const snapshot = await getDocs(collection(db, name));
   try {
-    await setDoc(doc(db, "11AFeedback", custom), {
-      person: value
+    await setDoc(doc(db,name, custom), {
+      amount: value,
+      help: help,
+      topic: topic
     });
 
     console.log("created with id:", custom);
@@ -54,6 +51,19 @@ export default function TWH({close}){
     console.log(err);
   }
 }
+
+function saveName(){
+    window.localStorage.setItem('Name',n)
+    setCheck(n)
+    setName(n)
+}
+
+useEffect(()=>{
+    const nam = window.localStorage.getItem('Name')
+    if(nam){
+        setCheck(true)
+    }
+},[])
     
 
     return(
@@ -62,6 +72,19 @@ export default function TWH({close}){
                  <div className='cancel' style={{width:"100%"}} >
                  <button className='cancel-btn' style={{fontSize:"25px",margin:"0px",position:"relative",left:"6px",bottom:"10px",alignItems:"end",zIndex:"100"}}  onClick={()=>close()}>X</button>
                 </div>
+                 <div className="center" ><button className="sub-topic" style={{margin:"0px"}} >{topic}</button></div>   
+                {!(check && name) && <div style={{color:"red",position:"relative", top:"7px"}} >Enter name</div>}
+                {check && name ? <div className="center" style={{margin:"17px",width:"185px",justifyContent:"space-between"}}>
+                    {name}
+                    <button className="help" style={{display:"flex",backgroundColor:"cyan"}}
+                    onClick={()=>setCheck()} >Change</button> 
+                    </div>:
+                     <div>
+                        <input
+                            onChange={(e) => setN(e.target.value)} 
+                            style={{width:"140px", margin:"10px"}} placeholder="name"></input>
+                        <button onClick={saveName}>Enter</button>
+                    </div> }
                 <div className="center">
                         <div style={{margin:'0px 10px'}} >Homework:</div>
                         <button
@@ -111,10 +134,12 @@ export default function TWH({close}){
                      Help: 
                      <button className="help" 
                      style={{margin:"20px 10px 20px 35px",opacity:fade1}}
-                     onClick={()=>{on();NewFeedback()}} >On</button>
+                     onClick={()=>{on()}} >On</button>
                      <button className="help green" style={{opacity:fade2}}
                      onClick={off}>Off</button>
                 </div>
+                <button onClick={NewFeedback}>Assign Homework</button>
+
             </div>
         </div>
     )
