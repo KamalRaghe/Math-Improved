@@ -19,25 +19,26 @@ export default function JoinClass(){
 
     return(
         <div className="center">
-            <div className=" column center" 
-            style={{borderRadius:"20px",padding:"20px",
-            border:'2px solid brown',backgroundColor:"beige"}}></div>
-            {!teacher && <div className='cancel' style={{width:"100%"}} >
+            <div className=" column center" style={{borderRadius:"20px",padding:"20px",border:'2px solid brown',backgroundColor:"beige"}}>
+                 {!teacher && <div className='cancel' style={{width:"100%"}} >
                  <button className='cancel-btn' 
                  style={{
                     fontSize:"25px",
                     margin:"0px",
                     position:"relative",
-                    left:"6px",
+                    left:"0px",
                     bottom:"10px",
                     alignItems:"end",
-                    zIndex:"100"}}  
+                    zIndex:"100",
+                    padding:"5px"
+                }}  
                     onClick={()=>close()}>X</button>
                  <input
                      onChange={(e) => setN(e.target.value)} 
                     style={{width:"140px", margin:"10px"}} placeholder="Teacher's name"></input>
-                <button onClick={saveName}>Enter</button>
+                <button style={{height:"20px",position:"relative",top:"10px"}} onClick={saveName}>Enter</button>
                 </div>}
+            </div>
         </div>
     )
 }
