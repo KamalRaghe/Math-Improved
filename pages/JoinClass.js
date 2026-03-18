@@ -19,7 +19,7 @@ export default function JoinClass(){
 
     return(
         <div className="center">
-            {!teacher && <div className=" column center" style={{borderRadius:"20px",padding:"20px",border:'2px solid brown',backgroundColor:"beige"}}>
+            {!teacher ? <div className=" column center" style={{borderRadius:"20px",padding:"20px",border:'2px solid brown',backgroundColor:"beige"}}>
                  <div className='cancel' style={{width:"100%"}} >
                  <button className='cancel-btn' 
                  style={{
@@ -38,6 +38,8 @@ export default function JoinClass(){
                     style={{width:"140px", margin:"10px"}} placeholder="Teacher's name"></input>
                 <button style={{height:"20px",position:"relative",top:"10px"}} onClick={saveName}>Enter</button>
                 </div>
+            </div>:<div>
+                {teacher}
             </div>}
         </div>
     )
