@@ -59,7 +59,7 @@ export default function JoinClass(){
                  <input
                     onChange={(e) => setN(e.target.value)} 
                     style={{width:"140px", margin:"10px"}} placeholder="Teacher's name"></input>
-                <button style={{height:"20px"} onClick={saveName}>Enter</button>
+                <button style={{height:"20px"}} onClick={saveName}>Enter</button>
                 </div> 
             </div>:<div>{ !time && <div className="center double column">
                Class: {teacher}
