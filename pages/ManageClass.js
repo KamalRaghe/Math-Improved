@@ -10,7 +10,7 @@ export default function Manage(){
     const [data, setData] = useState()
     const router = useRouter()
 
-    async function saveName(){
+    function saveName(){
         window.localStorage.setItem('Name',n)
         setName(n)
        
