@@ -25,15 +25,6 @@ export default function View(){
     return(
         <div>
             <div className="double" >{name}'s Class</div>
-            <div className="center" >
-                <span style={{position:"relative",left:"110px"}} className="double">Name</span>
-                <button style={{marginLeft:"212px"}} className="choice green" >
-                    state
-                </button> 
-                <button className="choice red" >
-                    mistake
-                </button>
-            </div>
             {data && <div>
                 {data.map((item) => (
                 <div className=" center" key={item.id}>
