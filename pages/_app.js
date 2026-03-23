@@ -12,6 +12,7 @@ export default function App({ Component, pageProps }) {
   const [check, setCHeck] = useState()
   const [Link, setLink] = useState()
   const [count, setCount] = useState(0)
+  const [done, setDone] = useState()
   const router = useRouter()
 
   useEffect(()=>{
@@ -22,6 +23,9 @@ export default function App({ Component, pageProps }) {
       setCount(counting)
     } 
     setAmount(total)
+    if(counting >= total){
+      setDone(true)
+    }
     setHw(url)
     const last = router.asPath.split("/").pop()
     setCHeck(last)
@@ -38,11 +42,11 @@ export default function App({ Component, pageProps }) {
 
       {/* Page content */}
       <main className="content">
-        {hw && <div className="center column" style={{justifyContent:"end",alignItems:"end",width:"95%",margin:"10px"}} >
+        {count < amount && !done && <div className="center column" style={{justifyContent:"end",alignItems:"end",width:"95%",margin:"10px"}} >
           <button className=" choice help" onClick={()=>{router.push(`/MIT/${hw}`)}} style={{width:"170px",color:"black"}} >Homework {count}/{amount}</button>
           <div style={{width:"185px",color:"black",position:"relative",bottom:"5px"}} >click button</div>
         </div>}
-        <Done></Done>
+        {done && <Done close={()=>setDone()} ></Done>}
         <Component {...pageProps} />
       </main>
     </>

@@ -8,6 +8,7 @@ function Choice({value, answer, doSomething, Correct, Wrong,big, size ,title}){
       const [check, setCHeck] = useState()
       const [Link, setLink] = useState()
       const [count, setCount] = useState(0)
+      const [Mcount, setMCount] = useState(0)
       const router = useRouter()
     
       function counter(){
@@ -20,7 +21,10 @@ function Choice({value, answer, doSomething, Correct, Wrong,big, size ,title}){
             }, 1400);
         }
       }
-
+      function Mistake(){
+        setMCount(Mcount+1)
+        window.localStorage.setItem('HwMistake', Mcount+1)
+      }
        useEffect(() =>{
          if(count > 0){
              window.localStorage.setItem(`HwCount`, count)
@@ -30,6 +34,8 @@ function Choice({value, answer, doSomething, Correct, Wrong,big, size ,title}){
         const url  = window.localStorage.getItem('HwLink')
         const total  = window.localStorage.getItem('HwAmount')
         const counting = window.localStorage.getItem('HwCount')
+        const mistake = window.localStorage.getItem('HwMistake')
+        setMCount(mistake)
         if(counting){
           setCount(counting)
         } 
@@ -47,6 +53,7 @@ function Choice({value, answer, doSomething, Correct, Wrong,big, size ,title}){
         }
         else{
             Wrong()
+            Mistake()
         }
     }
     return(
