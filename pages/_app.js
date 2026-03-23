@@ -1,6 +1,7 @@
 import FeedBack from "@/components/Homework";
 import "@/styles/globals.css";
 import { useRouter } from "next/router";
+import Done from "@/components/YourDdne";
 
 import { useEffect, useReducer, useState } from "react";
 
@@ -41,6 +42,7 @@ export default function App({ Component, pageProps }) {
           <button className=" choice help" onClick={()=>{router.push(`/MIT/${hw}`)}} style={{width:"170px",color:"black"}} >Homework {count}/{amount}</button>
           <div style={{width:"185px",color:"black",position:"relative",bottom:"5px"}} >click button</div>
         </div>}
+        <Done></Done>
         <Component {...pageProps} />
       </main>
     </>
