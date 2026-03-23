@@ -39,7 +39,7 @@ export default function App({ Component, pageProps }) {
       <main className="content">
         {hw && <div className="center column" style={{justifyContent:"end",alignItems:"end",width:"95%",margin:"10px"}} >
           <button className=" choice help" onClick={()=>{router.push(`/MIT/${hw}`)}} style={{width:"170px",color:"black"}} >Homework {count}/{amount}</button>
-          <div>click button</div>
+          <div style={{width:"170px",color:"black"}} >click button</div>
         </div>}
         <Component {...pageProps} />
       </main>
