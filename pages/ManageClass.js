@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { getDocs, collection } from "firebase/firestore"
 import { db } from "@/firebase"
 import { useRouter } from "next/router"
@@ -21,6 +21,11 @@ export default function Manage(){
         });
     }
 
+    useEffect(()=>{
+        let nam = window.localStorage.getItem("Name")
+        setName(nam)
+    },[])
+
     return(
         <>
             {!name ? <div className="center column">
@@ -29,12 +34,20 @@ export default function Manage(){
                     <input placeholder="Name" onChange={(e)=>{setN(e.target.value)}} ></input> <button onClick={saveName} >Enter</button>
                 </div>
             </div>:<div>
-                <div>
-                    <h2>Name: {name}</h2>
-                    <button className="choice help" style={{width:"230px"}} 
+                <div className="center column" >
+                    <div className="center" >
+                        <h2>Name: {name}</h2> 
+                        <button 
+                        style={{marginLeft:"20px",
+                        backgroundColor:"cyan",
+                        borderRadius:"15px"}}
+                        onClick={()=>{setName()}} 
+                        >Change</button>
+                    </div>
+                    <button className="choice green" style={{width:"230px"}} 
                     onClick={()=>{router.push('/homework')}} >Assign Homework</button>
-                    <button className="choice help" style={{color:"black",width:"230px"}} 
-                    onClick={()=>{router.push('/homework')}} >Assign Homework</button>
+                    <button className="choice help" style={{color:"black",width:"200px"}} 
+                    onClick={()=>{router.push('/ViewClass')}} >View Class</button>
                 </div>
             </div>}
         </>
