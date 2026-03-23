@@ -29,8 +29,10 @@ export default function Manage(){
                     <input placeholder="Name" onChange={(e)=>{setN(e.target.value)}} ></input> <button onClick={saveName} >Enter</button>
                 </div>
             </div>:<div>
-                <div className="center">
+                <div>
                     <h2>Name: {name}</h2>
+                    <button className="choice help" style={{width:"230px"}} 
+                    onClick={()=>{router.push('/homework')}} >Assign Homework</button>
                     <button className="choice help" style={{color:"black",width:"230px"}} 
                     onClick={()=>{router.push('/homework')}} >Assign Homework</button>
                 </div>
