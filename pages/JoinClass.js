@@ -53,13 +53,13 @@ export default function JoinClass(){
                     padding:"5px"
                 }}  
                     onClick={()=>{router.push('Trial')}}>X</button>
-                    <div style={{position:"relative",bottom:"30px"}} ><div className="double" >Enter class</div>
+                    <div style={{position:"relative",bottom:"30px"}} ><div className="double">Enter class</div>
                  <div className='cancel' style={{width:"100%"}} >
                  {Try && <div style={{color:"red"}} >{Try}</div>}</div>
                  <input
                     onChange={(e) => setN(e.target.value)} 
                     style={{width:"140px", margin:"10px"}} placeholder="Teacher's name"></input>
-                <button style={{height:"20px",position:"relative",top:"10px"}} onClick={saveName}>Enter</button>
+                <button style={{height:"20px"} onClick={saveName}>Enter</button>
                 </div> 
             </div>:<div>{ !time && <div className="center double column">
                Class: {teacher}

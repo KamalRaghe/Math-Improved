@@ -35,7 +35,7 @@ function Choice({value, answer, doSomething, Correct, Wrong,big, size ,title}){
         const total  = window.localStorage.getItem('HwAmount')
         const counting = window.localStorage.getItem('HwCount')
         const mistake = window.localStorage.getItem('HwMistake')
-        setMCount(mistake)
+        setMCount(Number(mistake))
         if(counting){
           setCount(counting)
         } 
