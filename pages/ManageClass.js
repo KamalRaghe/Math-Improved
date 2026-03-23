@@ -12,8 +12,7 @@ export default function Manage(){
 
     function saveName(){
         window.localStorage.setItem('Name',n)
-        setName(n)
-       
+        setName(n)   
     }
 
     useEffect(()=>{
@@ -42,7 +41,7 @@ export default function Manage(){
                     <button className="choice green" style={{width:"230px"}} 
                     onClick={()=>{router.push('/homework')}} >Assign Homework</button>
                     <button className="choice help" style={{color:"black",width:"200px"}} 
-                    onClick={()=>{router.push('/ViewClass')}} >View Class</button>
+                    onClick={()=>{router.push('/viewClass')}} >View Class</button>
                 </div>
             </div>}
         </>
