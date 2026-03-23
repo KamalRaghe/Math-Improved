@@ -11,6 +11,13 @@ export default function JoinClass(){
     const [Try, setTry] = useState()
     const [data, setData] = useState()
     const router = useRouter()
+    const [time, setTime] = useState()
+
+    function Start(){
+        window.localStorage.setItem('HwLink', data.url)
+        window.localStorage.setItem('HwAmount', data.amount)
+        router.push(`/MIT/${data.url}`)
+    }
 
     async function saveName(){
         const ref = doc(db,n,"teacher")
@@ -32,33 +39,36 @@ export default function JoinClass(){
 
     return(
         <div className="center">
-            {!teacher ? <div className=" column center" style={{borderRadius:"20px",padding:"20px",border:'2px solid brown',backgroundColor:"beige"}}>
-                 <div className='cancel' style={{width:"100%"}} >
-                 <button className='cancel-btn' 
+            {!teacher ? <div className=" column center" style={{borderRadius:"20px",padding:"10px",border:'2px solid brown',backgroundColor:"beige"}}>
+                    <button className='cancel-btn' 
                  style={{
                     fontSize:"25px",
-                    margin:"0px",
                     position:"relative",
                     bottom:"10px",
-                    alignItems:"end",
+                    right:"5px",
+                    display: "flex",
+                    width:"100%",
+                    justifyContent:"end",
                     zIndex:"100",
                     padding:"5px"
                 }}  
                     onClick={()=>{router.push('Trial')}}>X</button>
+                    <div style={{position:"relative",bottom:"30px"}} ><div className="double" >Enter class</div>
+                 <div className='cancel' style={{width:"100%"}} >
+                 {Try && <div style={{color:"red"}} >{Try}</div>}</div>
                  <input
                     onChange={(e) => setN(e.target.value)} 
                     style={{width:"140px", margin:"10px"}} placeholder="Teacher's name"></input>
                 <button style={{height:"20px",position:"relative",top:"10px"}} onClick={saveName}>Enter</button>
                 </div> 
-                {Try && <div style={{color:"red"}} >{Try}</div>}
-            </div>:<div className="center double column">
+            </div>:<div>{ !time && <div className="center double column">
                Class: {teacher}
                <br></br>
                Topic: {data.topic}
                <br></br>
                amount: {data.amount}
-                <button className="choice green" onClick={()=>{router.push(`/MIT/${data.url}`)}} >Start</button>
-            </div>}
+                <button className="choice green" onClick={Start} >Start</button>
+            </div>}</div>}
         </div>
     )
 }

@@ -41,7 +41,8 @@ export default function TWH({close,topic,url}){
       amount: value,
       help: help,
       topic: topic,
-      url: url
+      url: url,
+      time: Date.now()
     });
     close();
 
@@ -129,14 +130,15 @@ useEffect(()=>{
                         →
                     </button>
                 </div>
-                <div className="center" >
+                {/* <div className="center" >
                      Help: 
                      <button className="help" 
                      style={{margin:"20px 10px 20px 35px",opacity:fade1}}
                      onClick={()=>{on()}} >On</button>
                      <button className="help green" style={{opacity:fade2}}
                      onClick={off}>Off</button>
-                </div>
+                </div> */}
+                <br></br>
                 <button onClick={NewFeedback}>Assign Homework</button>
 
             </div>

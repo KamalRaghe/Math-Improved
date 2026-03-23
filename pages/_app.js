@@ -1,14 +1,30 @@
+import FeedBack from "@/components/Homework";
 import "@/styles/globals.css";
-import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+
+import { useEffect, useReducer, useState } from "react";
 
 export default function App({ Component, pageProps }) {
   
   const [hw, setHw] = useState('h')
+  const [amount, setAmount] = useState('h')
+  const [check, setCHeck] = useState()
+  const [Link, setLink] = useState()
+  const [count, setCount] = useState(0)
+  const router = useRouter()
 
-  // useEffect(()=>{
-  //   const homework = window.localStorage.getItem('HwLink')
-  //   setHw(homework)
-  // },[])
+  useEffect(()=>{
+    const url  = window.localStorage.getItem('HwLink')
+    const total  = window.localStorage.getItem('HwAmount')
+    const counting = window.localStorage.getItem('HwCount')
+    if(counting){
+      setCount(counting)
+    } 
+    setAmount(total)
+    setHw(url)
+    const last = router.asPath.split("/").pop()
+    setCHeck(last)
+  },[])
   return (
     <>
       {/* Sky background (always rendered) */}
@@ -21,8 +37,9 @@ export default function App({ Component, pageProps }) {
 
       {/* Page content */}
       <main className="content">
-        {hw && <div className="center" style={{justifyContent:"end",width:"95%"}} >
-          <button className="help">Homework</button>
+        {hw && <div className="center column" style={{justifyContent:"end",alignItems:"end",width:"95%",margin:"10px"}} >
+          <button className=" choice help" onClick={()=>{router.push(`/MIT/${hw}`)}} style={{width:"170px",color:"black"}} >Homework {count}/{amount}</button>
+          <div>click button</div>
         </div>}
         <Component {...pageProps} />
       </main>
