@@ -23,7 +23,15 @@ export default function View(){
     },[])
     return(
         <div>
-
+            {data && <div>
+                {data.map((item) => (
+                <div className=" center" key={item.id}>
+                    <span className='double' style={{width:"300px"}} >{item.name} {item.last}</span> 
+                    <button className="choice green" >{item.state}</button> 
+                    <button className="choice red" >{item.mistake}</button>
+                </div>
+                ))}
+            </div>}
         </div>
     )
 }
