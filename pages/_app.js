@@ -46,7 +46,7 @@ export default function App({ Component, pageProps }) {
           <button className=" choice help" onClick={()=>{router.push(`/MIT/${hw}`)}} style={{width:"170px",color:"black"}} >Homework {count}/{amount}</button>
           <div style={{width:"185px",color:"black",position:"relative",bottom:"5px"}} >click button</div>
         </div>}
-        {done && <Done close={()=>setDone()} ></Done>}
+       
         <Component {...pageProps} />
       </main>
     </>
