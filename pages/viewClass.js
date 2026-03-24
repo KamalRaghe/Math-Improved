@@ -6,6 +6,13 @@ import { useRouter } from "next/router"
 export default function View(){
     const [data, setData] = useState()
     const [name, setName] = useState()
+    const router = useRouter()
+
+    function Wrong(){
+        window.localStorage.setItem('Name', '' )
+        router.push('/ManageClass')
+    }
+
     async function Name(n){
         const querySnapshot = await getDocs(collection(db, n));
         const list = querySnapshot.docs.map((doc) => ({
@@ -40,6 +47,7 @@ export default function View(){
                 </div>
                 ))}
             </div>}
+            <div className="center" ><button className="choice red" onClick={Wrong} style={{width:"180px"}}>Wrong Class</button></div>
         </div>
     )
 }
