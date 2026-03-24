@@ -30,6 +30,7 @@ export default function Done({close,mistake}){
             window.localStorage.setItem('HwCount',0)
             window.localStorage.setItem('HwMistake',0)
             window.localStorage.setItem('HwCount',0)
+             window.localStorage.setItem('HwAmount',1)
             close()
             router.push('/Trial')
         
