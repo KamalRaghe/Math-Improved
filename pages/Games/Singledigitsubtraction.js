@@ -87,21 +87,22 @@ export default function DoubleAdd(){
         setScore(score+1)
         setTimeout(() => {
             setCorrect(false) 
-        }, 1200);
+        }, 500);
       }
   
       function WrongA(){ 
         setWrong(true)
         setTimeout(() => {
             setWrong(false) 
-        }, 1200);
+        }, 500);
       } 
     function Add(){
+        if(!wrong && !correct){
         setTimeout(() => {
             setNum1(Math.ceil(Math.random()*9))
             mix()
             setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5)) 
-        }, 1200)
+        }, 500)}
     }
 
     const [score, setScore] =useState(0)
@@ -133,7 +134,7 @@ export default function DoubleAdd(){
                 {loaded && <button className="help" onClick={open}>help</button>}
             </div>
             {help && <HelpMinus num1 ={num1} num2={num2} close={close}/>}
-             {!wrong && !correct && <div className="box column">
+             {<div className="box column">
                <div className="row ">
                     { loaded && <Choice value ={num1-num2+num3[0]} answer ={num1-num2} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
                     { loaded && <Choice value ={num1-num2+num3[1]} answer ={num1-num2} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}

@@ -53,7 +53,7 @@ export default function DoubleAdd(){
         setTimeout(() => {
             setCorrect(false)
             setReady(true) 
-        }, 1200);
+        }, 500);
       }
       
       function WrongA(){ 
@@ -61,7 +61,7 @@ export default function DoubleAdd(){
         setTimeout(() => {
             setReady(true)
             setWrong(false) 
-        }, 1200);
+        }, 500);
       } 
     function Add(){
         if(!wrong && !correct){
@@ -70,7 +70,7 @@ export default function DoubleAdd(){
             setNum2(Math.ceil(Math.random()*9))
             mix()
             setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5)) 
-        }, 1200)
+        }, 500)
     }
     }
 
