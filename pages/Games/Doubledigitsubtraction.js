@@ -81,23 +81,24 @@ export default function DoubleAdd(){
         setScore(score+1)
         setTimeout(() => {
             setCorrect(false) 
-        }, 1200);
+        }, 500);
       }
   
       function WrongA(){ 
         setWrong(true)
         setTimeout(() => {
             setWrong(false) 
-        }, 1200);
+        }, 500);
       } 
     function Add(){
+        if(!wrong && !correct){
         setTimeout(() => {
             setNum1(Math.floor(Math.random()*50+50))
             setNum2(Math.floor(Math.random()*40+10))
             mix()
             setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5)) 
-        }, 1200)
-    }
+        }, 500)
+    }}
 
     useEffect(() =>{
         mix()
