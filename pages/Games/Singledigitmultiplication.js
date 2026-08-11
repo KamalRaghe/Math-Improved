@@ -64,12 +64,14 @@ export default function DoubleAdd(){
         }, 1200);
       } 
     function Add(){
+        if(!wrong && !correct){
         setTimeout(() => {
             setNum1(Math.ceil(Math.random()*9))
             setNum2(Math.ceil(Math.random()*9))
             mix()
             setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5)) 
         }, 1200)
+    }
     }
 
     function updateList(){
@@ -135,7 +137,7 @@ export default function DoubleAdd(){
                 {<div className="countStart" >{start}</div>}
                 {loaded && <button className="help" style={{zIndex:"20"}} onClick={open}>help</button>}
                 <div style={{height:"30px"}} ></div>
-                 {!wrong && !correct && <div className="box column">
+                 {<div className="box column">
                 <div className="row ">
                         { loaded && <Choice value ={num1*num2+num3[0]} answer ={num1*num2} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
                         { loaded && <Choice value ={num1*num2+num3[1]} answer ={num1*num2} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
