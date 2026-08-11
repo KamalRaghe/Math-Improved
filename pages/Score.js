@@ -124,7 +124,7 @@ return(
         {add && 
             <div className="center" >
                 <button onClick={Again} className="green" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}} >Play Again</button>
-                <button onClick={Leave} className="red" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}} >Leave</button>
+                <button onClick={()=>{router.push('/')}} className="red" style={{fontSize:"20px",margin:"10px",fontWeight:"bold",padding:"8px",borderRadius:"18px"}} >Leave</button>
             </div>
         }
     </div>
