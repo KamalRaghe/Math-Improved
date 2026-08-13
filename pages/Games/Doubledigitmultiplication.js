@@ -129,7 +129,7 @@ export default function DoubleAdd(){
             </div>}
             {help && <StepTimes num1 ={num1} num2={num2} close={close}/>}
            
-            {<iv className="box column">
+            {<div className="box column">
                <div className="row ">
                     { loaded && <Choice value ={num1*num2+num3[0]} answer ={num1*num2} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
                     { loaded && <Choice value ={num1*num2+num3[1]} answer ={num1*num2} doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
