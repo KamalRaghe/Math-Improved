@@ -42,12 +42,12 @@ export default function TwoVar({num1,num2,num4,num5,num6,num7,close}){
             {extra && sign === '÷' && <HelpDiv close={Extra} num1 ={Q1} num2 = {Q2}/>}
             <div className='cancel'><button className='cancel-btn' onClick = {close}>X</button></div>
             <div className="column ">
-                <div className="double"> {num2}𝑥 + {num1}y = {(num2*num6)+(num1*num7)}</div>
-                <div className="double"> {num4}𝑥 + {num5}y = {(num4*num6)+(num5*num7)}</div>
+                <div className="double"> {step != 0 ? num2 : <button onClick={()=>{setStep(1)}} className = 'carry Green' >{num2}</button>}𝑥 + {step != 0 ? num1 : <button onClick={()=>{setStep(1)}} className = 'carry Green' >{num1}</button>}y = {(num2*num6)+(num1*num7)}</div>
+                <div className="double"> {step != 0 ? num4 : <button onClick={()=>{setStep(1)}} className = 'carry Green' >{num4}</button>}𝑥 + {step != 0 ? num5 : <button onClick={()=>{setStep(1)}} className = 'carry Green' >{num5}</button>}y = {(num4*num6)+(num5*num7)}</div>
             </div>
 
-                {!done&& !step4 && <div className=" double center Green absolute StepQuestion">{Q1} {sign} {Q2} = </div>}
-               {!done && !step4 &&<div className='center wrap absolute StepAnswer'>
+                {!done && <div className=" double center Green absolute StepQuestion">{Q1} {sign} {Q2} = </div>}
+               {!done && <div className='center wrap absolute StepAnswer'>
                    <Step value = {step4 ? "y"+"="+ (answer+arr[0]) :answer+arr[0]}  answer={ step4 ? "y"+"="+answer :answer} Count ={Count} done = {done} mistake={Nothing}/>
                    <Step value = {step4 ? 'y'+'='+ (answer+arr[2]) : answer+arr[2]}  answer={ step4 ? "y"+"="+answer :answer} Count ={Count} done = {done} mistake={Nothing}/>
                    <Step value = {step4 ? 'y'+'='+ (answer+arr[3]) : answer+arr[3]}  answer={ step4 ? "y"+"="+answer :answer} Count ={Count} done = {done} mistake={Nothing}/>

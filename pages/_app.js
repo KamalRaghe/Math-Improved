@@ -50,7 +50,7 @@ export default function App({ Component, pageProps }) {
     const user = window.localStorage.getItem('ID')
     const cheatID = window.localStorage.getItem('cheatID')
     const mistake = window.localStorage.getItem('cheat')  
-    if(mistake >= 2 && user == cheatID){
+    if(mistake >= 3 && user == cheatID){
         setCheat(mistake)
       }
     if(mistake <= 0){
