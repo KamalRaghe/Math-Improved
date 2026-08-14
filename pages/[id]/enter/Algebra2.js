@@ -115,7 +115,7 @@ export default function DoubleAdd(){
                 { loaded && <div className="double"> {num4}𝑥 + {num5}y = {loaded && (num4*num6)+(num5*num7)}</div>}
             </div>
             <div className="box">
-                <button className="help" style={{opacity:"0.3"}} onClick={open}>help</button>
+                <button className="help" onClick={open}>help</button>
             </div>
             {help && <TwoVar num1 ={num1} num2={num2} num4={num4} num5 ={num5} num6={num6} num7={num7} close={close}/>}
             {loaded && correct && <Correct></Correct>}
