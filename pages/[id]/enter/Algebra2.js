@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "@/firebase";
+import TwoVar from "@/Algebra/twoVar";
 
 
 
@@ -116,7 +117,7 @@ export default function DoubleAdd(){
             <div className="box">
                 <button className="help" style={{opacity:"0.3"}} onClick={open}>help</button>
             </div>
-            {/* {help && <TwoVar num1 ={num1} num2={num2} num4={num4} num5 ={num5} num6={num6} num7={num7} close={close}/>} */}
+            {help && <TwoVar num1 ={num1} num2={num2} num4={num4} num5 ={num5} num6={num6} num7={num7} close={close}/>}
             {loaded && correct && <Correct></Correct>}
             {loaded && wrong && <Wrong/> }
             <div className="box column">
