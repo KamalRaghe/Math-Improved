@@ -17,13 +17,67 @@ export default function TwoVar({num1,num2,num4,num5,num6,num7,close}){
     const[Q2, setQ2] = useState(num2)
     const [sign, setSign] = useState('+')
     const [step, setStep] = useState(0) 
+    const [step4, setStep4] = useState(0)
+    const [C1, setC1] = useState()
+    const [C2, setC2] = useState()
 
     function Extra(){
         setExtra(false)
    }
+   
+   function gcd(a, b) {
+    while (b !== 0) {
+        let temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
 
-    function Count(){
+function lcm(a, b) {
+    return Math.abs(a * b) / gcd(a, b);
+}
+
+    function Count(Var){
         setArr(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
+        if(step === 0){
+            setStep(1)
+            setDone(false)
+            if(Var == 'x'){
+                setQ1(num2)
+                setQ2(num4)
+                setAnswers(lcm(num2,num4))
+            }else{
+                setQ1(num1)
+                setQ2(num5)
+                setAnswers(lcm(num1,num5))
+            }
+            setSign('and')
+        }
+        if(step == 1){
+            setStep(2)
+            setQ1(answer)
+            if(Var == 'x'){
+                setQ2(num2)
+            }else{
+                setQ2(num1)
+            }
+            setSign('÷')
+            setAnswers(answer/num2)
+            setC1(answer/num2)
+        }
+         if(step == 2){
+            setStep(3)
+            setQ1(answer)
+            if(Var == 'x'){
+                setQ2(num4)
+            }else{
+                setQ2(num5)
+            }
+            setSign('÷')
+            setAnswers(answer/num4)
+            setC2(answer/num4)
+        }
     }
 
     useEffect(()=>{
@@ -45,25 +99,25 @@ export default function TwoVar({num1,num2,num4,num5,num6,num7,close}){
                 <div className="double">
                      <span>{'('}</span>
                      {step != 0 ? num2 : 
-                     <button onClick={()=>{setStep(1)}} 
+                     <button onClick={()=>{Count('x')}} 
                         className = 'carry Green' >{num2}</button>}
                         𝑥 + {step != 0 ? num1 : 
-                        <button onClick={()=>{setStep(1)}} className = 'carry Green' >
+                        <button onClick={()=>{Count('y')}} className = 'carry Green' >
                             {num1}</button>}y = {(num2*num6)+(num1*num7)}
                         <span>{')'}</span>
                     </div>
                 <div className="double">
                     <span>{'('}</span>
                      {step != 0 ? num4 : 
-                     <button onClick={()=>{setStep(1)}} 
+                     <button onClick={()=>{Count('x')}} 
                         className = 'carry Green' >{num4}</button>}
                         𝑥 + {step != 0 ? num5 : 
-                        <button onClick={()=>{setStep(1)}} className = 'carry Green' >
+                        <button onClick={()=>{Count('y')}} className = 'carry Green' >
                             {num5}</button>}y = {(num4*num6)+(num5*num7)}
                         <span>{')'}</span>
                     </div>
             </div>
-
+                {step == 1 && <div className="double Green" style={{position:"relative",top:'70px'}} >What is the Lcm of</div>}
                 {!done && <div className=" double center Green absolute StepQuestion">{Q1} {sign} {Q2} = </div>}
                {!done && <div className='center wrap absolute StepAnswer'>
                    <Step value = {step4 ? "y"+"="+ (answer+arr[0]) :answer+arr[0]}  answer={ step4 ? "y"+"="+answer :answer} Count ={Count} done = {done} mistake={Nothing}/>
