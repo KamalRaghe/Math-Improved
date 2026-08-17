@@ -63,14 +63,14 @@ function lcm(a, b) {
                  setC1(answer/num2)
             }else{
                 setQ2(num4)
-                 setAnswers(answer/num4)
-                 setC1(answer/num4)
+                 setAnswers(answer/num1)
+                 setC1(answer/num1)
             }
             setSign('÷')
         }
          if(step == 2){
             setStep(3)
-            setQ1(answer)
+            setQ1(lcm(num1,num5))
             if(Var == 'x'){
                 setQ2(num1)
                  setAnswers(answer/num1)
