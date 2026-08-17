@@ -42,8 +42,26 @@ export default function TwoVar({num1,num2,num4,num5,num6,num7,close}){
             {extra && sign === '÷' && <HelpDiv close={Extra} num1 ={Q1} num2 = {Q2}/>}
             <div className='cancel'><button className='cancel-btn' onClick = {close}>X</button></div>
             <div className="column ">
-                <div className="double"> {step != 0 ? num2 : <button onClick={()=>{setStep(1)}} className = 'carry Green' >{num2}</button>}𝑥 + {step != 0 ? num1 : <button onClick={()=>{setStep(1)}} className = 'carry Green' >{num1}</button>}y = {(num2*num6)+(num1*num7)}</div>
-                <div className="double"> {step != 0 ? num4 : <button onClick={()=>{setStep(1)}} className = 'carry Green' >{num4}</button>}𝑥 + {step != 0 ? num5 : <button onClick={()=>{setStep(1)}} className = 'carry Green' >{num5}</button>}y = {(num4*num6)+(num5*num7)}</div>
+                <div className="double">
+                     <span>{'('}</span>
+                     {step != 0 ? num2 : 
+                     <button onClick={()=>{setStep(1)}} 
+                        className = 'carry Green' >{num2}</button>}
+                        𝑥 + {step != 0 ? num1 : 
+                        <button onClick={()=>{setStep(1)}} className = 'carry Green' >
+                            {num1}</button>}y = {(num2*num6)+(num1*num7)}
+                        <span>{')'}</span>
+                    </div>
+                <div className="double">
+                    <span>{'('}</span>
+                     {step != 0 ? num4 : 
+                     <button onClick={()=>{setStep(1)}} 
+                        className = 'carry Green' >{num4}</button>}
+                        𝑥 + {step != 0 ? num5 : 
+                        <button onClick={()=>{setStep(1)}} className = 'carry Green' >
+                            {num5}</button>}y = {(num4*num6)+(num5*num7)}
+                        <span>{')'}</span>
+                    </div>
             </div>
 
                 {!done && <div className=" double center Green absolute StepQuestion">{Q1} {sign} {Q2} = </div>}
