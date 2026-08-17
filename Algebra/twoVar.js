@@ -59,24 +59,28 @@ function lcm(a, b) {
             setQ1(answer)
             if(Var == 'x'){
                 setQ2(num2)
+                 setAnswers(answer/num2)
+                 setC1(answer/num2)
             }else{
-                setQ2(num1)
+                setQ2(num4)
+                 setAnswers(answer/num4)
+                 setC1(answer/num4)
             }
             setSign('÷')
-            setAnswers(answer/num2)
-            setC1(answer/num2)
         }
          if(step == 2){
             setStep(3)
             setQ1(answer)
             if(Var == 'x'){
-                setQ2(num4)
+                setQ2(num1)
+                 setAnswers(answer/num1)
+                 setC2(answer/num1)
             }else{
                 setQ2(num5)
+                 setAnswers(answer/num5)
+                 setC2(answer/num5)
             }
             setSign('÷')
-            setAnswers(answer/num4)
-            setC2(answer/num4)
         }
     }
 
