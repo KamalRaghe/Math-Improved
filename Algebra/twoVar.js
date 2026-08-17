@@ -12,14 +12,15 @@ export default function TwoVar({num1,num2,num4,num5,num6,num7,close}){
     const [done,setDone] = useState(true)
     const [extra, setExtra] = useState(false)
     const [arr, setArr] = useState([0,Math.floor(Math.random()*1+2)+1,1,Math.floor(Math.random()*3)-4])
-    const [answer, setAnswers] = useState(num1+num2)
-    const[Q1, setQ1] = useState(num1) 
-    const[Q2, setQ2] = useState(num2)
+    const [answer, setAnswers] = useState()
+    const[Q1, setQ1] = useState() 
+    const[Q2, setQ2] = useState()
     const [sign, setSign] = useState('+')
     const [step, setStep] = useState(0) 
     const [step4, setStep4] = useState(0)
-    const [C1, setC1] = useState()
-    const [C2, setC2] = useState()
+    const [C1, setC1] = useState(null)
+    const [C2, setC2] = useState(null)
+    const [V, setV] = useState()
 
     function Extra(){
         setExtra(false)
@@ -38,12 +39,13 @@ function lcm(a, b) {
     return Math.abs(a * b) / gcd(a, b);
 }
 
-    function Count(Var){
+    function Count(){
+        console.log(V)
         setArr(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
         if(step === 0){
             setStep(1)
             setDone(false)
-            if(Var == 'x'){
+            if(V == 'x'){
                 setQ1(num2)
                 setQ2(num4)
                 setAnswers(lcm(num2,num4))
@@ -57,36 +59,44 @@ function lcm(a, b) {
         if(step == 1){
             setStep(2)
             setQ1(answer)
-            if(Var == 'x'){
+            if(V == 'x'){
                 setQ2(num2)
-                 setAnswers(answer/num2)
-                 setC1(answer/num2)
+                 setAnswers(answer/num2)      
             }else{
-                setQ2(num4)
+                setQ2(num1)
                  setAnswers(answer/num1)
-                 setC1(answer/num1)
             }
             setSign('÷')
         }
          if(step == 2){
             setStep(3)
-            setQ1(lcm(num1,num5))
-            if(Var == 'x'){
-                setQ2(num1)
-                 setAnswers(answer/num1)
-                 setC2(answer/num1)
+            setC1(answer)   
+            if(V == 'x'){
+                setQ1(lcm(num2,num4))
+                setQ2(num4)
+                 setAnswers(lcm(num2,num4)/num4)
+                 
             }else{
+                setQ1(lcm(num1,num5))
                 setQ2(num5)
-                 setAnswers(answer/num5)
-                 setC2(answer/num5)
+                 setAnswers(lcm(num1,num5)/num5)
+                 
             }
-            setSign('÷')
+        } if(step == 3){
+            setStep(4)
+            setC2(answer)
         }
     }
 
     useEffect(()=>{
         setArr(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
      },[])
+
+      useEffect(()=>{
+        if(V){
+            Count()
+        }
+     },V)
 
     function Nothing(){}
     return (
@@ -101,24 +111,24 @@ function lcm(a, b) {
             <div className='cancel'><button className='cancel-btn' onClick = {close}>X</button></div>
             <div className="column ">
                 <div className="double">
-                     <span>{'('}</span>
+                     <span>{C1 && `${C1} (`}</span>
                      {step != 0 ? num2 : 
-                     <button onClick={()=>{Count('x')}} 
+                     <button onClick={()=>{setV('x')}} 
                         className = 'carry Green' >{num2}</button>}
                         𝑥 + {step != 0 ? num1 : 
-                        <button onClick={()=>{Count('y')}} className = 'carry Green' >
+                        <button onClick={()=>{Count()}} className = 'carry Green' >
                             {num1}</button>}y = {(num2*num6)+(num1*num7)}
-                        <span>{')'}</span>
+                        <span>{C1 && ')'}</span>
                     </div>
                 <div className="double">
-                    <span>{'('}</span>
+                     <span>{C2 && `${C2} (`}</span>
                      {step != 0 ? num4 : 
-                     <button onClick={()=>{Count('x')}} 
+                     <button onClick={()=>{setV('x')}} 
                         className = 'carry Green' >{num4}</button>}
                         𝑥 + {step != 0 ? num5 : 
-                        <button onClick={()=>{Count('y')}} className = 'carry Green' >
+                        <button onClick={()=>{Count()}} className = 'carry Green' >
                             {num5}</button>}y = {(num4*num6)+(num5*num7)}
-                        <span>{')'}</span>
+                        <span>{C2 && ')'}</span>
                     </div>
             </div>
                 {step == 1 && <div className="double Green" style={{position:"relative",top:'70px'}} >What is the Lcm of</div>}
