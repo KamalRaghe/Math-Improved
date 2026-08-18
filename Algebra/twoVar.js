@@ -156,12 +156,16 @@ function lcm(a, b) {
             setStep(15) 
             setSign('=')
             if(V == 'x'){
-                setAnswers(((num2*num6)+(num1*num7))-((num1*num7)))
+                setAnswers(num6)
             }else{
-                setAnswers(((num2*num6)+(num1*num7))-((num2*num6)))
-            }
-    }
 
+                setAnswers(num7)
+            }
+        }if(step == 15){
+            setStep(16)
+            setDone(true)
+        }
+    }
     useEffect(()=>{
         setArr(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
      },[])
@@ -225,9 +229,13 @@ function lcm(a, b) {
                 {step == 15 && V != 'x'  && <div className="double">
                     {`${num2*num6}`} + {num1}y  = {(num2*num6)+(num1*num7)}
                 </div>}
+                {step == 16 && <div className="center double Green " >
+                     x = {num6} 
+                  <div className="center double Green " style={{margin:'25px'}}  >  y = {num7} </div>
+                </div>}
             </div>
                 {step == 1 && <div className="double Green" style={{position:"relative",top:'70px'}} >What is the Lcm of</div>}
-                {!done && step != 13 && step >= 15 &&<div className=" double center Green absolute StepQuestion">{Q1} {sign} {Q2} = </div>}
+                {!done && step != 13 && step != 15 &&<div className=" double center Green absolute StepQuestion">{Q1} {sign} {Q2} = </div>}
                 {!done && step == 13 &&<div className=" double center Green absolute StepQuestion" style={{right:'10px'}}> {V == 'x' ? 'y =' : 'x ='}</div>}
                 {!done && step == 15 &&<div className=" double center Green absolute StepQuestion" style={{right:'10px'}}> {V == 'x' ? 'x =' : 'y ='}</div>}
 
