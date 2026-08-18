@@ -85,15 +85,31 @@ function lcm(a, b) {
         } if(step == 3){
             setStep(4)
             setC2(answer)
-            setQ1(num2)
-            setQ2(C1)
+            setQ2(num2)
+            setQ1(C1)
             setSign('x')
             setAnswers(num2*C1)
         }if(step == 4){
             setStep(5)
-            setQ1(num4)
-            setQ2(C1)
-            setAnswers(num4*C1)
+            setQ2(num1)
+            setAnswers(num1*C1)
+        }if(step == 5){
+            setStep(6)
+            setQ2((num2*num6)+(num1*num7))
+            setAnswers(((num2*num6)+(num1*num7))*C1)
+        }if(step == 6){
+            setStep(7)
+            setQ2(num4)
+            setQ1(C2)
+            setAnswers(num4*C2)
+        }if(step == 7){
+            setStep(8)
+            setQ2(num5)
+            setAnswers(num5*C2)
+        }if(step == 8){
+            setStep(9)
+            setQ2((num4*num6)+(num5*num7))
+            setAnswers(((num4*num6)+(num5*num7))*C2)
         }
     }
 
@@ -119,7 +135,7 @@ function lcm(a, b) {
             {extra && sign === '÷' && <HelpDiv close={Extra} num1 ={Q1} num2 = {Q2}/>}
             <div className='cancel'><button className='cancel-btn' onClick = {close}>X</button></div>
             <div className="column ">
-                {/* <div className="double">
+                <div className="double">
                      <span className="Green">{C1 && `${C1} (`}</span>
                      {step != 0 ? num2 : 
                      <button onClick={()=>{setV('x')}} 
@@ -138,9 +154,9 @@ function lcm(a, b) {
                         <button onClick={()=>{Count()}} className = 'carry Green' >
                             {num5}</button>}y = {(num4*num6)+(num5*num7)}
                         <span className="Green">{C2 && ')'}</span>
-                </div> */}
+                </div>
                 <div className="double">
-                     {/* {step < 4 && C1*num2}𝑥 + {step < 5 && C1*num1}𝑦 = {step < 6 && C1*((num2*num6)+(num1*num7))} */}
+                     {step > 4 && C1*num2+'𝑥'} {step > 4 && '+'} {step > 5 && C1*num1+'y'} {step > 5 && '='} {step > 6 && C1*((num2*num6)+(num1*num7))}
                 </div>
                 
                 
