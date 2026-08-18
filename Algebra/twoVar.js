@@ -130,8 +130,8 @@ function lcm(a, b) {
             {extra && sign === '+' && (Q1 >= 10 || Q2 >= 10) && <StepAdd close={Extra} num1 ={Q1} num2 = {Q2}/>}
             {extra && sign === 'x' && Q1 < 10 && Q2 < 10 && <HelpTimes close={Extra} num1 ={Q1} num2 = {Q2}/>}
             {extra && sign === 'x' && (Q1 >= 10 || Q2 >= 10) && <StepTimes close={Extra} num1 ={Q1} num2 = {Q2}/>}
-            {extra && sign === '-' && Q1 < 10 && Q2 < 10 && <HelpMinus close={Extra} num1 ={Q1} num2 = {Q2}/>}
-            {extra && sign === '-' && (Q1 >= 10 || Q2 >= 10) && <StepMinus close={Extra} num1 ={Q1} num2 = {Q2}/>}
+            {extra && sign === '-' && Q1 < 10 && Q2 < 10 && <HelpMinus close={Extra} num1 ={Q1 > Q2 ? Q1 : Q2} num2 = {Q1 > Q2 ? Q2 : Q1}/>}
+            {extra && sign === '-' && (Q1 >= 10 || Q2 >= 10) && <StepMinus close={Extra} num1 ={Q1 > Q2 ? Q1 : Q2} num2 = {Q1 > Q2 ? Q2 : Q1}/>}
             {extra && sign === '÷' && <HelpDiv close={Extra} num1 ={Q1} num2 = {Q2}/>}
             <div className='cancel'><button className='cancel-btn' onClick = {close}>X</button></div>
             <div className="column ">
@@ -156,18 +156,10 @@ function lcm(a, b) {
                         <span className="Green">{C2 && ')'}</span>
                 </div>
                 <div className="double">
-                     {step > 4 && C1*num2+'𝑥'} 
-                     {step > 4 && '+'} 
-                     {step > 5 && C1*num1+'y'} 
-                     {step > 5 && '='} 
-                     {step > 6 && C1*((num2*num6)+(num1*num7))}
+                     {step > 4 && C1*num2+'𝑥'} {step > 4 && '+'} {step > 5 && C1*num1+'y'} {step > 5 && '='} {step > 6 && C1*((num2*num6)+(num1*num7))}
                 </div>
                 <div className="double">
-                     {step > 7 && C1*num4+'𝑥'} 
-                     {step > 7 && '+'} 
-                     {step > 8 && C1*num5+'y'} 
-                     {step > 8 && '='} 
-                     {step > 9 && C1*((num4*num6)+(num5*num7))}
+                     {step > 7 && C2*num4+'𝑥'} {step > 7 && '+'}  {step > 8 && C2*num5+'y'} {step > 8 && '='} {step > 9 && C2*((num4*num6)+(num5*num7))}
                 </div>
                 
             </div>
