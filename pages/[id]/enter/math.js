@@ -93,7 +93,7 @@ export default function Math(){
                  <h1 style={{borderBottom: '2px solid black',width: '125px'}} >Practice</h1>
                 <span onClick={()=>{setCheck(true)}} style={{display:'flex',justifyContent:'start',position:"relative",left:"62px",top:"-10px",zIndex:1000,cursor:"pointer"}} >Feedback</span > 
                 <div style={{color:"navy",display:"flex",justifyContent:"start",color:"navy",cursor:"pointer"}} onClick={()=>{setOpen(true)}} >
-                    View Recommended Topic0
+                    View Recommended Topic
                 </div>
             </div>
             {open && <div><ReccomedList close={()=>setOpen(false)} /></div>}

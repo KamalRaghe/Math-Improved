@@ -9,7 +9,7 @@ export default function ReccomedList({close}){
     const {id} = router.query 
 
     return (
-        <div className="center" style={{height: "75vh",position: "fixed",width: "100vw"}}>
+        <div className="center" style={{height: "20vh",position: "fixed",width: "100vw"}}>
             <div className="Help" >
                 <div className='double' style={{position:"fixed",fontSize:"28px",top:"10%"}} >Recommended List</div>
                 <div className='cancel'><button className='cancel-btn' onClick = {()=>close()}>X</button></div>
