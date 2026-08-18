@@ -108,6 +108,10 @@ export default function DoubleAdd(){
         }
     })
 
+     useEffect(()=>{
+            window.localStorage.setItem('cheat', 0)
+        })
+
     return(
         <div className="beige container column">
              <div className="Test sb" style={{alignItems:"end"}}><div className="double" >

@@ -87,6 +87,9 @@ export default function DoubleAdd(){
         })
     }
 
+     useEffect(()=>{
+            window.localStorage.setItem('cheat', 0)
+        })
     
     useEffect(() =>{
         let timer = window.localStorage.getItem('Timer')

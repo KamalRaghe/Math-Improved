@@ -107,7 +107,10 @@ export default function DoubleAdd(){
      },[num1])
 
      const [score, setScore] =useState(0)
-    
+     
+     useEffect(()=>{
+            window.localStorage.setItem('cheat', 0)
+        })
 
     return(
         <div className="beige container column">

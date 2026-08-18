@@ -106,6 +106,10 @@ export default function DoubleAdd(){
         }, 500)}
     }
 
+     useEffect(()=>{
+            window.localStorage.setItem('cheat', 0)
+        })
+
     const [score, setScore] =useState(0)
     const [count, setCount] =useState(0)    
 

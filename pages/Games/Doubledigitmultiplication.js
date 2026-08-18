@@ -83,6 +83,10 @@ export default function DoubleAdd(){
         setNum3(prevChange => prevChange.sort((a,b)=>Math.random()-0.5))
      },[num1])
 
+      useEffect(()=>{
+            window.localStorage.setItem('cheat', 0)
+        })
+
      const [score, setScore] =useState(0)
      useEffect(() =>{
         let timer = window.localStorage.getItem('Timer')
