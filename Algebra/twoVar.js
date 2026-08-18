@@ -156,9 +156,19 @@ function lcm(a, b) {
                         <span className="Green">{C2 && ')'}</span>
                 </div>
                 <div className="double">
-                     {step > 4 && C1*num2+'𝑥'} {step > 4 && '+'} {step > 5 && C1*num1+'y'} {step > 5 && '='} {step > 6 && C1*((num2*num6)+(num1*num7))}
+                     {step > 4 && C1*num2+'𝑥'} 
+                     {step > 4 && '+'} 
+                     {step > 5 && C1*num1+'y'} 
+                     {step > 5 && '='} 
+                     {step > 6 && C1*((num2*num6)+(num1*num7))}
                 </div>
-                
+                <div className="double">
+                     {step > 7 && C1*num4+'𝑥'} 
+                     {step > 7 && '+'} 
+                     {step > 8 && C1*num5+'y'} 
+                     {step > 8 && '='} 
+                     {step > 9 && C1*((num4*num6)+(num5*num7))}
+                </div>
                 
             </div>
                 {step == 1 && <div className="double Green" style={{position:"relative",top:'70px'}} >What is the Lcm of</div>}
