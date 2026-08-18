@@ -129,6 +129,19 @@ function lcm(a, b) {
             setQ2(C2*((num4*num6)+(num5*num7)))
             setAnswers((C1*((num2*num6)+(num1*num7)))-(C2*((num4*num6)+(num5*num7))))
 
+        }if(step == 12){
+            setStep(13)
+            setSign('=')
+            setQ2(((C1*((num2*num6)+(num1*num7)))-(C2*((num4*num6)+(num5*num7)))))
+            if(V == 'x'){
+                setQ1(((C1*num1)-(C2*num5))+'y')
+                setAnswers(((C1*((num2*num6)+(num1*num7)))-(C2*((num4*num6)+(num5*num7))))/((C1*num1)-(C2*num5)))
+            }else{
+                setQ1(((C1*num2)-(C2*num4))+'𝑥')
+                setAnswers(((C1*((num2*num6)+(num1*num7)))-(C2*((num4*num6)+(num5*num7))))/((C1*num2)-(C2*num4)))
+            }
+        }if(step == 13){
+            setStep(14)
         }
     }
 
@@ -154,7 +167,7 @@ function lcm(a, b) {
             {extra && sign === '÷' && <HelpDiv close={Extra} num1 ={Q1} num2 = {Q2}/>}
             <div className='cancel'><button className='cancel-btn' onClick = {close}>X</button></div>
             <div className="column ">
-                {step < 9 && <div className="double">
+                {step < 10 && <div className="double">
                      <span className="Green">{C1 && `${C1} (`}</span>
                      {step != 0 ? num2 : 
                      <button onClick={()=>{setV('x')}} 
@@ -164,7 +177,7 @@ function lcm(a, b) {
                             {num1}</button>}y = {(num2*num6)+(num1*num7)}
                         <span className="Green">{C1 && ')'}</span>
                 </div>}
-                { step < 9 && <div className="double">
+                { step < 10 && <div className="double">
                      <span className="Green">{C2 && `${C2} (`}</span>
                      {step != 0 ? num4 : 
                      <button onClick={()=>{setV('x')}} 
@@ -174,18 +187,20 @@ function lcm(a, b) {
                             {num5}</button>}y = {(num4*num6)+(num5*num7)}
                         <span className="Green">{C2 && ')'}</span>
                 </div>}
-                <div className="double">
+                { step < 13 &&<div className="double">
                      {step > 4 && C1*num2+'𝑥'} {step > 4 && '+'} {step > 5 && C1*num1+'y'} {step > 5 && '='} {step > 6 && C1*((num2*num6)+(num1*num7))}
-                </div>
-                <div className="double">
+                </div>}
+                { step < 13 &&<div className="double">
                      {step > 7 && C2*num4+'𝑥'} {step > 7 && '+'}  {step > 8 && C2*num5+'y'} {step > 8 && '='} {step > 9 && C2*((num4*num6)+(num5*num7))}
-                </div>
-                <div>
+                </div>}
+                { step < 13 &&<div className="double">
                     {step > 10 && ((C1*num2)-(C2*num4))+'𝑥'} {step > 10 && '+'} {step > 11 && ((C1*num1)-(C2*num5))+'y'} {step > 11 && '='} {step > 12 && ((C1*((num2*num6)+(num1*num7)))-(C2*((num4*num6)+(num5*num7))))}
-                </div>
+                </div>}
             </div>
                 {step == 1 && <div className="double Green" style={{position:"relative",top:'70px'}} >What is the Lcm of</div>}
-                {!done && <div className=" double center Green absolute StepQuestion">{Q1} {sign} {Q2} = </div>}
+                {!done && step != 13 &&<div className=" double center Green absolute StepQuestion">{Q1} {sign} {Q2} = </div>}
+                {!done && step == 13 &&<div className=" double center Green absolute StepQuestion" style={{right:'10px'}}> {V == 'x' ? 'y =' : 'x ='}</div>}
+
                {!done && <div className='center wrap absolute StepAnswer'>
                    <Step value = {step4 ? "y"+"="+ (answer+arr[0]) :answer+arr[0]}  answer={ step4 ? "y"+"="+answer :answer} Count ={Count} done = {done} mistake={Nothing}/>
                    <Step value = {step4 ? 'y'+'='+ (answer+arr[2]) : answer+arr[2]}  answer={ step4 ? "y"+"="+answer :answer} Count ={Count} done = {done} mistake={Nothing}/>
