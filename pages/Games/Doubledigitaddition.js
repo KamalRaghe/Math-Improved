@@ -60,6 +60,7 @@ export default function DoubleAdd(){
       }
   
       function WrongA(){ 
+        window.localStorage.setItem('cheat', 0)
         setWrong(true)
         setTimeout(() => {
             setWrong(false) 
