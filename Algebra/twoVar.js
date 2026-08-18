@@ -85,6 +85,15 @@ function lcm(a, b) {
         } if(step == 3){
             setStep(4)
             setC2(answer)
+            setQ1(num2)
+            setQ2(C1)
+            setSign('x')
+            setAnswers(num2*C1)
+        }if(step == 4){
+            setStep(5)
+            setQ1(num4)
+            setQ2(C1)
+            setAnswers(num4*C1)
         }
     }
 
@@ -110,26 +119,31 @@ function lcm(a, b) {
             {extra && sign === '÷' && <HelpDiv close={Extra} num1 ={Q1} num2 = {Q2}/>}
             <div className='cancel'><button className='cancel-btn' onClick = {close}>X</button></div>
             <div className="column ">
-                <div className="double">
-                     <span>{C1 && `${C1} (`}</span>
+                {/* <div className="double">
+                     <span className="Green">{C1 && `${C1} (`}</span>
                      {step != 0 ? num2 : 
                      <button onClick={()=>{setV('x')}} 
                         className = 'carry Green' >{num2}</button>}
                         𝑥 + {step != 0 ? num1 : 
                         <button onClick={()=>{Count()}} className = 'carry Green' >
                             {num1}</button>}y = {(num2*num6)+(num1*num7)}
-                        <span>{C1 && ')'}</span>
-                    </div>
+                        <span className="Green">{C1 && ')'}</span>
+                </div>
                 <div className="double">
-                     <span>{C2 && `${C2} (`}</span>
+                     <span className="Green">{C2 && `${C2} (`}</span>
                      {step != 0 ? num4 : 
                      <button onClick={()=>{setV('x')}} 
                         className = 'carry Green' >{num4}</button>}
                         𝑥 + {step != 0 ? num5 : 
                         <button onClick={()=>{Count()}} className = 'carry Green' >
                             {num5}</button>}y = {(num4*num6)+(num5*num7)}
-                        <span>{C2 && ')'}</span>
-                    </div>
+                        <span className="Green">{C2 && ')'}</span>
+                </div> */}
+                <div className="double">
+                     {/* {step < 4 && C1*num2}𝑥 + {step < 5 && C1*num1}𝑦 = {step < 6 && C1*((num2*num6)+(num1*num7))} */}
+                </div>
+                
+                
             </div>
                 {step == 1 && <div className="double Green" style={{position:"relative",top:'70px'}} >What is the Lcm of</div>}
                 {!done && <div className=" double center Green absolute StepQuestion">{Q1} {sign} {Q2} = </div>}
