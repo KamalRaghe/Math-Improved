@@ -7,6 +7,9 @@ import StepTimes from "@/components/stepTimes"
 import HelpMinus from "@/components/HelpMinus"
 import StepAdd from "@/components/StepAdd"
 import StepMinus from "@/components/StepMinus"
+import Algebra2y from "./Algebra2y"
+import Algebra4 from "./Algebra4"
+import Algebra from "./Algebra"
 
 export default function TwoVar({num1,num2,num4,num5,num6,num7,close}){  
     const [done,setDone] = useState(true)
