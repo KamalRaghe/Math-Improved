@@ -14,7 +14,7 @@ export default function Home() {
   const slides = [
     {
       title: "Learn Any Math Topic",
-      text: " MathImprove helps students learn independently while automatically filling in missing foundations. Instead of sending students back through entire grades,MathImprove provides support exactly when it's needed.",
+      text: " MathImprove helps students learn independently while automatically filling in missing gaps. Instead of sending students back through entire grades, MathImprove provides support exactly when it's needed.",
     },
     {
       title: "Learn Beyond Your Grade Level",
