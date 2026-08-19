@@ -7,7 +7,6 @@ import StepTimes from "@/components/stepTimes"
 import HelpMinus from "@/components/HelpMinus"
 import StepAdd from "@/components/StepAdd"
 import StepMinus from "@/components/StepMinus"
-import Algebra2y from "./Algebra2y"
 import Algebra4 from "./Algebra4"
 import Algebra from "./Algebra"
 
@@ -189,6 +188,9 @@ function lcm(a, b) {
             {extra && sign === '-' && Q1 < 10 && Q2 < 10 && <HelpMinus close={Extra} num1 ={Q1 > Q2 ? Q1 : Q2} num2 = {Q1 > Q2 ? Q2 : Q1}/>}
             {extra && sign === '-' && (Q1 >= 10 || Q2 >= 10) && <StepMinus close={Extra} num1 ={Q1 > Q2 ? Q1 : Q2} num2 = {Q1 > Q2 ? Q2 : Q1}/>}
             {extra && sign === '÷' && <HelpDiv close={Extra} num1 ={Q1} num2 = {Q2}/>}
+            {extra && sign == '=' && step < 15 && <Algebra close={Extra} num1 ={V != 'x' ? (num2 < num4 ? (C1*num2)-(C2*num4) : (C2*num4)-(C1*num2)) : (num1 > num5 ? ((C1*num1)-(C2*num5)) : ((C2*num5)-(C1*num1)))} num2 = {V != 'x' ? num6 : num7}/>}
+            {extra && sign == '=' && step  >= 15 && <Algebra4 close={Extra} num1 ={V == 'x' ? num1*num7 : num2*num6} num2 = {V == 'x' ? num6 : num7} num5 = {V == 'x' ? num2 : num1}/>}
+
             <div className='cancel'><button className='cancel-btn' onClick = {close}>X</button></div>
             <div className="column ">
                 {step < 10 && <div className="double">
