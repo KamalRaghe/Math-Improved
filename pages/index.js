@@ -61,9 +61,9 @@ export default function Home() {
 
         <div className="mi-slide">
           <div style={{ display: "flex", justifyContent: "start"}}>
-            <button onClick={prevSlide} className="mi-arrow">
+            {/* <button onClick={prevSlide} className="mi-arrow">
               ←
-            </button>
+            </button> */}
           </div>
           <h2>{slides[current].title}</h2>
           <p>{slides[current].text}</p>
