@@ -66,7 +66,7 @@ export default function Home() {
                 ← 
               </button>
             </div> */}
-            <div>
+            <div style={{position:'relative', left:'20px'}}>
               <button onClick={nextSlide} className="mi-arrow" >
                 →
               </button>
