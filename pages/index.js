@@ -1,112 +1,107 @@
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [free,setFree] = useState(true)
-  useEffect(()=> {
-    let letIn = window.localStorage.getItem('User')
-    if(!letIn){
-      setFree(false)
+  const [free, setFree] = useState(true);
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    let letIn = window.localStorage.getItem("User");
+    if (!letIn) {
+      setFree(false);
     }
-  },[])
-return ( 
-<main className="mi-wrapper">
-  {/* Navigation */}
-  <header className="mi-nav">
-    <div className="mi-logo">MathImprove</div>
-    <a href="/Trial" className="mi-nav-btn">
-      {free ? 'Start Free Trial' : 'Start Learning'}
-    </a>
-  </header>
+  }, []);
 
-  {/* Hero Section */}
-  <section className="mi-hero">
-    <h1>
-      Learn Any Math Topic Without Falling Behind 
-    </h1>
+  const slides = [
+    {
+      title: "Learn Any Math Topic",
+      text: " MathImprove helps students learn independently while automatically filling in missing foundations. Instead of sending students back through entire grades,MathImprove provides support exactly when it's needed.",
+    },
+    {
+      title: " Learn Beyond Your Grade Level",
+      text: "Curious learners should not be limited by age or grade. Students can explore advanced topics such as algebra, exponents, and functions through a structured pathway designed to build true understanding.",
+    },
+    {
+      title: "Connected Like Puzzle Pieces",
+      text: "Every topic connects to what comes before and after it. Students can see how concepts fit together, creating a stronger understanding of mathematics as a whole.",
+    },
+    {
+      title: "Fix Math Gaps Without Losing Progress",
+      text: "Small gaps in understanding can grow into major obstacles. MathImprove identifies missing concepts and provides targeted support so students can continue moving forward with confidence.",
+    },
+    {
+      title: "Building Thinkers, Not Just Test Takers",
+      text: "Beyond memorization, MathImprove develops reasoning, problem-solving, pattern recognition, and critical thinking skills that help students understand math more deeply and build the confidence they need for long-term success.",
+    },
+  ];
 
-    <p>
-      MathImprove helps students learn independently while
-      automatically filling in missing foundations. Instead of
-      sending students back through entire grades, MathImprove
-      provides support exactly when it's needed.
-    </p>
+  const nextSlide = () => {
+    setCurrent((prev) => (prev + 1) % slides.length);
+  };
 
-    <a href="/Trial" className="mi-primary-btn">
-      {free ? 'Start Free Trial' : 'Start Learning'}
-    </a>
-  </section>
+  const prevSlide = () => {
+    setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
+  };
 
-  {/* Gap Section */}
-  <section className="mi-section">
-    <h2>Fix Math Gaps Without Losing Progress</h2>
-    <p>
-      Small gaps in understanding can grow into major obstacles.
-      MathImprove identifies missing concepts and provides
-      targeted support so students can continue moving forward
-      with confidence.
-    </p>
-  </section>
+  return (
+    <main className="mi-wrapper">
+      {/* Navigation */}
+      <header className="mi-nav">
+        <div className="mi-logo">MathImprove</div>
 
-  {/* Advanced Learning */}
-  <section className="mi-section">
-    <h2>Students Can Learn Beyond Their Grade Level</h2>
-    <p>
-      Curious learners should not be limited by age or grade.
-      Students can explore advanced topics such as algebra,
-      exponents, and functions through a structured pathway
-      designed to build true understanding.
-    </p>
-  </section>
+        <a href="/Trial" className="mi-nav-btn">
+          {free ? "Start Free Trial" : "Start Learning"}
+        </a>
+      </header>
 
-  {/* Curriculum */}
-  <section className="mi-section">
-    <h2>A Curriculum Connected Like Puzzle Pieces</h2>
-    <p>
-      Every topic connects to what comes before and after it.
-      Students can see how concepts fit together, creating a
-      stronger understanding of mathematics as a whole.
-    </p>
-  </section>
+      {/* Hero */}
+      
 
-  {/* Thinking Skills */}
-  <section className="mi-section mi-highlight">
-    <h2>Building Thinkers, Not Just Test Takers</h2>
-    <p>
-      Beyond memorization, MathImprove develops reasoning,
-      problem-solving, pattern recognition, and critical
-      thinking skills that support long-term success.
-    </p>
-  </section>
+      {/* Carousel */}
+      <section className="mi-carousel">
+        <button onClick={prevSlide} className="mi-arrow">
+          ←
+        </button>
 
-  {/* Credibility */}
-  <section className="mi-section">
-    <h2>Created by a Math Tutor</h2>
-    <p>
-      MathImprove was built from real tutoring experience helping
-      students overcome learning gaps, gain confidence, and
-      develop a deeper understanding of mathematics.
-    </p>
-  </section>
+        <div className="mi-slide">
+          <h2>{slides[current].title}</h2>
+          <p>{slides[current].text}</p>
+        </div>
 
-  {/* Final CTA */}
-  <section className="mi-cta">
-    <h2>Ready to Build Math Confidence?</h2>
-    <p>
-      {free && 'Start your free trial today and discover a smarter way to learn math.'}
-    </p>
+        <button onClick={nextSlide} className="mi-arrow">
+          →
+        </button>
+      </section>
 
-    <a href="/Trial" className="mi-primary-btn">
-      {free ? 'Start Free Trial' : 'Start Learning'}
-    </a>
-  </section>
+      {/* Dots */}
+      <div className="mi-dots">
+        {slides.map((_, index) => (
+          <span
+            key={index}
+            className={`mi-dot ${
+              current === index ? "active" : ""
+            }`}
+            onClick={() => setCurrent(index)}
+          />
+        ))}
+      </div>
 
-  {/* Footer */}
-  <footer className="mi-footer">
-    © 2026 MathImprove.com — Online Math Platform
-  </footer>
+      {/* Final CTA */}
+      <section className="mi-cta">
+        <h2>Ready to Build Math Confidence?</h2>
 
-</main>
+        <p>
+          {free &&
+            "Start your free trial today and discover a smarter way to learn math."}
+        </p>
 
+        <a href="/Trial" className="mi-primary-btn">
+          {free ? "Start Free Trial" : "Start Learning"}
+        </a>
+      </section>
 
-);
+      <footer className="mi-footer">
+        © 2026 MathImprove.com — Online Math Platform
+      </footer>
+    </main>
+  );
 }

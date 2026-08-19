@@ -16,7 +16,69 @@
   --cloud-svg-3: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1000' height='260' viewBox='0 0 1000 260'><g fill='%23ffffff'><path opacity='.9' d='M80 180a42 42 0 1 1 84 0h18a30 30 0 1 1 0 60H42a34 34 0 1 1 38-60z'/><path opacity='.85' d='M360 150a50 50 0 1 1 100 0h20a34 34 0 1 1 0 68H300a40 40 0 1 1 60-68z'/><path opacity='.9' d='M700 170a48 48 0 1 1 96 0h20a32 32 0 1 1 0 64H640a38 38 0 1 1 60-64z'/></g></svg>");
 
 }
+.mi-carousel{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:30px;
+  max-width:900px;
+  margin:80px auto 30px;
+}
 
+.mi-slide{
+  flex:1;
+  background:#fff;
+  border-radius:24px;
+  padding:50px;
+  text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,.08);
+}
+
+.mi-slide h2{
+  font-size:2rem;
+  margin-bottom:20px;
+}
+
+.mi-slide p{
+  font-size:1.1rem;
+  line-height:1.8;
+  color:#555;
+}
+
+.mi-arrow{
+  width:55px;
+  height:55px;
+  border:none;
+  border-radius:50%;
+  background:#2563eb;
+  color:white;
+  font-size:1.6rem;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.mi-arrow:hover{
+  background:#1d4ed8;
+}
+
+.mi-dots{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin-bottom:70px;
+}
+
+.mi-dot{
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:#cbd5e1;
+  cursor:pointer;
+}
+
+.mi-dot.active{
+  background:#2563eb;
+}
 html, body {
   height: 100%;
   margin: 0;
