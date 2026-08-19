@@ -58,18 +58,21 @@ export default function Home() {
 
       {/* Carousel */}
       <section className="mi-carousel">
-        <button onClick={prevSlide} className="mi-arrow">
-          ←
-        </button>
 
         <div className="mi-slide">
+          <div style={{ display: "flex", justifyContent: "start"}}>
+            <button onClick={prevSlide} className="mi-arrow">
+              ←
+            </button>
+          </div>
           <h2>{slides[current].title}</h2>
           <p>{slides[current].text}</p>
+          <div style={{ display: "flex", justifyContent: "end"}}>
+            <button onClick={nextSlide} className="mi-arrow" >
+            →
+          </button>
         </div>
-
-        <button onClick={nextSlide} className="mi-arrow">
-          →
-        </button>
+        </div>
       </section>
 
       {/* Dots */}
