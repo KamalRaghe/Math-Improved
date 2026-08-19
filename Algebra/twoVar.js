@@ -239,7 +239,7 @@ function lcm(a, b) {
                   <div className="center double Green " style={{margin:'25px'}}  >  y = {num7} </div>
                 </div>}
             </div>
-                {step == 1 && <div className="double Green" style={{position:"relative",top:'60px'}} >What is the Lcm of</div>}
+                {step == 1 && <div className="double Green" style={{position:"relative",top:'50px'}} >What is the Lcm of</div>}
                 {!done && step != 13 && step != 15 &&<div className=" double center Green absolute StepQuestion">{Q1} {sign} {Q2} = </div>}
                 {!done && step == 13 &&<div className=" double center Green absolute StepQuestion" style={{right:'10px'}}> {V == 'x' ? 'y =' : 'x ='}</div>}
                 {!done && step == 15 &&<div className=" double center Green absolute StepQuestion" style={{right:'10px'}}> {V == 'x' ? 'x =' : 'y ='}</div>}
