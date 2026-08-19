@@ -17,7 +17,7 @@ export default function Home() {
       text: " MathImprove helps students learn independently while automatically filling in missing foundations. Instead of sending students back through entire grades,MathImprove provides support exactly when it's needed.",
     },
     {
-      title: " Learn Beyond Your Grade Level",
+      title: "Learn Beyond Your Grade Level",
       text: "Curious learners should not be limited by age or grade. Students can explore advanced topics such as algebra, exponents, and functions through a structured pathway designed to build true understanding.",
     },
     {
@@ -60,17 +60,22 @@ export default function Home() {
       <section className="mi-carousel">
 
         <div className="mi-slide">
-          <div style={{ display: "flex", justifyContent: "start"}}>
-            {/* <button onClick={prevSlide} className="mi-arrow">
-              ←
-            </button> */}
-          </div>
-          <h2>{slides[current].title}</h2>
-          <p>{slides[current].text}</p>
-          <div style={{ display: "flex", justifyContent: "end"}}>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <button onClick={prevSlide} className="mi-arrow">
+              ← 
+            </button>
             <button onClick={nextSlide} className="mi-arrow" >
             →
           </button>
+          </div>
+          <h2>{slides[current].title}</h2>
+          <p>{slides[current].text}</p>
+          
+          <div style={{ display: "flex", justifyContent: "center"}}>
+            <a href="/Trial" className="mi-primary-btn">
+              {free ? "Start Free Trial" : "Start Learning"}
+            </a>
+            
         </div>
         </div>
       </section>
@@ -90,16 +95,6 @@ export default function Home() {
 
       {/* Final CTA */}
       <section className="mi-cta">
-        <h2>Ready to Build Math Confidence?</h2>
-
-        <p>
-          {free &&
-            "Start your free trial today and discover a smarter way to learn math."}
-        </p>
-
-        <a href="/Trial" className="mi-primary-btn">
-          {free ? "Start Free Trial" : "Start Learning"}
-        </a>
       </section>
 
       <footer className="mi-footer">
