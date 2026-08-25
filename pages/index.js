@@ -4,8 +4,13 @@ export default function Home() {
   const [free, setFree] = useState(true);
   const [current, setCurrent] = useState(0);
 
+  // Swipe states
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+
   useEffect(() => {
     let letIn = window.localStorage.getItem("User");
+
     if (!letIn) {
       setFree(false);
     }
@@ -14,7 +19,7 @@ export default function Home() {
   const slides = [
     {
       title: "Learn Any Math Topic",
-      text: " MathImprove helps students learn independently while automatically filling in missing gaps. Instead of sending students back through entire grades, MathImprove provides support exactly when it's needed.",
+      text: "MathImprove helps students learn independently while automatically filling in missing gaps. Instead of sending students back through entire grades, MathImprove provides support exactly when it's needed.",
     },
     {
       title: "Learn Beyond Your Grade Level",
@@ -42,46 +47,111 @@ export default function Home() {
     setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
+  // =========================
+  // SWIPE FUNCTIONS
+  // =========================
+
+  const minSwipeDistance = 50;
+
+  const handleTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+
+    // Swipe left → next slide
+    if (distance > minSwipeDistance) {
+      nextSlide();
+    }
+
+    // Swipe right → previous slide
+    if (distance < -minSwipeDistance) {
+      prevSlide();
+    }
+
+    setTouchStart(null);
+    setTouchEnd(null);
+  };
+
   return (
     <main className="mi-wrapper">
+
       {/* Navigation */}
       <header className="mi-nav">
-        <div className="mi-logo">MathImprove</div>
+        <div className="mi-logo">
+          MathImprove
+        </div>
 
         <a href="/Trial" className="mi-nav-btn">
           {free ? "Start Free Trial" : "Start Learning"}
         </a>
       </header>
 
-      {/* Hero */}
-      
-
       {/* Carousel */}
-      <section className="mi-carousel">
+      <section
+        className="mi-carousel"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
 
         <div className="mi-slide">
-          <div style={{ display: "flex", justifyContent: "end", width: "100%" }}>
-            {/* <div style={{position:'relative', left:'-30px'}}>
-              <button onClick={prevSlide} className="mi-arrow">
-                ← 
-              </button>
-            </div> */}
-            <div style={{position:'relative', left:'20px'}}>
-              <button onClick={nextSlide} className="mi-arrow" >
+
+          {/* Arrow */}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "end",
+              width: "100%",
+            }}
+          >
+            <div
+              style={{
+                position: "relative",
+                left: "20px",
+              }}
+            >
+              <button
+                onClick={nextSlide}
+                className="mi-arrow"
+              >
                 →
               </button>
             </div>
-            
           </div>
-          <h2>{slides[current].title}</h2>
-          <p>{slides[current].text}</p>
-          
-          <div style={{ display: "flex", justifyContent: "center"}}>
-            <a href="/Trial" className="mi-primary-btn">
+
+          {/* Slide Content */}
+          <h2>
+            {slides[current].title}
+          </h2>
+
+          <p>
+            {slides[current].text}
+          </p>
+
+          {/* CTA */}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <a
+              href="/Trial"
+              className="mi-primary-btn"
+            >
               {free ? "Start Free Trial" : "Start Learning"}
             </a>
-            
-        </div>
+          </div>
+
         </div>
       </section>
 
@@ -102,9 +172,11 @@ export default function Home() {
       <section className="mi-cta">
       </section>
 
+      {/* Footer */}
       <footer className="mi-footer">
         © 2026 MathImprove.com — Online Math Platform
       </footer>
+
     </main>
   );
 }
