@@ -92,8 +92,6 @@ export default function App({ Component, pageProps }) {
 
       {/* Page content */}
       <main className="content">
-        {cheat > 0  && on == 'on' && <div className="Red" style={{fontSize:"100px",width:"100%",backgroundColor:"#7BCDFF",position:"fixed",left:"50%",top:"1%",transform:'translate(-50%)'}} >Cheater</div>}
-        {cheat > 0  && on == 'on' && <div className="Red" style={{fontSize:"16px",width:"100%",backgroundColor:"#7BCDFF",position:"fixed",left:"50%",top:"15%",transform:'translate(-50%)'}} >Turn off cheat detection if user is discouraged. </div>}
         {hw !== 'false' && count <= amount && !done && count && amount &&
         <div className="center column" 
         style={{justifyContent:"end",alignItems:"end",width:"95%",margin:"10px"}} >
@@ -104,27 +102,7 @@ export default function App({ Component, pageProps }) {
         <Component {...pageProps} />
         <div className="center column" 
         style={{width:"100vw",justifyContent:"end",position:"relative",left:"8px",bottom:"20px",zIndex:"20"}} >
-          <div className="center" style={{fontSize:"28px"}} >
-            <br></br>
-            {id && <span>Cheat Detection:</span>}
-            {on == 'on' ? 
-            <div>{id && <button className="choice green" onClick={()=>{setON('off')}}>{on}</button>}</div>:
-            <div>{id && <button className="choice red" onClick={()=>{setON('on')}}>{on}</button>}</div>} 
-          </div>
-          {on == 'on' && id && !see && <div className="center" >
-            <button className="choice green" onClick={letSee} >check</button>
-          </div> }
-          {on == 'on' && id && date && see && <div className="center" 
-          style={{fontSize:"20px"}} >
-            Active since: {date.toLocaleString(undefined, {
-                            year: "numeric",
-                            month: "short",
-                            day: "numeric",
-                            hour: "2-digit",
-                            minute: "2-digit",
-                            second: "2-digit",
-                          })}
-          </div>}
+
         </div>
       </main>
     </div>
