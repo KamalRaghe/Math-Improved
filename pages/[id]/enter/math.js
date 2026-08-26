@@ -81,7 +81,7 @@ export default function Math(){
                 <h1 style={{padding:'5px',paddingTop:'15px', borderBottom: '2px solid black',width: '10Opx',height:"37px",position:"relative",bottom:"-10px"}}>Match</h1><div>
                 </div>
                 <div>
-                    <button className="sub-topic " onClick={()=>{setCheck(true)}} style={{marginRight:"5px",zIndex:1000,color:'transparent',backgroundColor:'transparent',border:'none'}} >Feedback</button>
+                    <button className="sub-topic " onClick={()=>{setCheck(true)}} style={{marginRight:"5px",zIndex:1000}} >Feedback</button>
                     <button className="sub-topic" onClick={()=>{setCheck(true)}} style={{marginRight:"5px",position:"relative",left:"6px",color:'transparent',backgroundColor:'transparent',border:'none'}} >Session</button>
          </div>
             </div>
@@ -89,9 +89,9 @@ export default function Math(){
             <button onClick={()=>{router.push('/Enter')}} className="sub-topic green" style={{padding:"8px 43px",position:"relative",bottom:"55px"}} >Join</button>
             
             <div style={{position:"relative",bottom:"55px"}} >
-            <div style={{paddingBottom:"10px",margin:"0px"}} >
+            <div style={{paddingBottom:"0px",margin:"0px"}} >
                  <h1 style={{borderBottom: '2px solid black',width: '125px'}} >Practice</h1>
-                <span onClick={()=>{setCheck(true)}} style={{display:'flex',justifyContent:'start',position:"relative",left:"62px",top:"-10px",zIndex:1000,cursor:"pointer"}} >Feedback</span > 
+                {/* <span onClick={()=>{setCheck(true)}} style={{display:'flex',justifyContent:'start',position:"relative",left:"62px",top:"-10px",zIndex:1000,cursor:"pointer"}} >Feedback</span >  */}
                 <div style={{color:"navy",display:"flex",justifyContent:"start",color:"navy",cursor:"pointer"}} onClick={()=>{setOpen(true)}} >
                     View Recommended Topic
                 </div>
