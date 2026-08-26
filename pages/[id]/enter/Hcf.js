@@ -38,6 +38,7 @@ function Hcf(){
       setWrong(true)
       setTimeout(() => {
         setWrong(false) 
+        setOpen(true)
     }, 1900);
     }
 

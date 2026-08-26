@@ -45,6 +45,7 @@ export default function DoubleAdd(){
         setWrong(true)
         setTimeout(() => {
             setWrong(false) 
+            sertHelp(true)
         }, 1900);
       } 
     function Add(){

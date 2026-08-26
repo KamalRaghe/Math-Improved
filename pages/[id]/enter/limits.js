@@ -80,7 +80,9 @@ export default function LimitDiffExp() {
 
   function WrongA() {
     setWrong(true);
-    setTimeout(() => setWrong(false), 1200);
+    setTimeout(() => {setWrong(false)
+      setHelp(true)
+    }, 1200);
   }
 
   function nextQuestion() {

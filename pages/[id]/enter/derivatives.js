@@ -88,7 +88,9 @@ export default function DerivativeDiffExp() {
 
   function WrongA() {
     setWrong(true);
-    setTimeout(() => setWrong(false), 1200);
+    setTimeout(() =>{ 
+      setHelp(true)
+      setWrong(false)}, 1200);
   }
 
   function nextQuestion() {

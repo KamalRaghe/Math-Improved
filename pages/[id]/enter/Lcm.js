@@ -46,7 +46,8 @@ function Lcm(){
     function WrongA(){
       setWrong(true)
       setTimeout(() => {
-        setWrong(false) 
+        setWrong(false)
+        setHelp(true) 
     }, 1900);
     }
 

@@ -45,7 +45,7 @@ export default function DoubleAdd(){
         setWrong(true)
         setTimeout(() => {
             setWrong(false)
-            setNum1(Math.ceil(Math.random()*11))
+            setHelp(true)
         }, 1900);
       } 
     function Add(){

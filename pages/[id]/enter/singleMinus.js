@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "@/firebase";
+import { set } from "firebase/database";
 
 export default function DoubleAdd(){
 
@@ -49,6 +50,7 @@ export default function DoubleAdd(){
         setWrong(true)
         setTimeout(() => {
             setWrong(false) 
+            set
         }, 1900);
       } 
     function Add(){
