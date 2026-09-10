@@ -11,9 +11,8 @@ export default function WrongRoom({code,close,remove}){
     })
     return(
         <div className="center zoom" style={{zIndex:"200",width:"100%",height:"100%",position:"absolute"}} >
-            <div className=" column center" style={{borderRadius:"20px",padding:"20px",border:'2px solid brown'}}>
-                <div style={{marginBottom:"5px"}} >Is this the Code</div>
-                <div className="double" >{code}</div>
+            <div className=" column center" style={{borderRadius:"20px",padding:"20px",border:'2px solid brown',backgroundColor:"white",width:"300px",height:"150px"}} >
+                <div style={{marginBottom:"5px"}} >Do you want to leave the room?</div>
                 <div className="center" >
                     <button className="green choice" onClick={close} >Yes</button>
                     <button className="red choice" onClick={remove} >No</button>
