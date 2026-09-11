@@ -1,7 +1,7 @@
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 
-export default function WrongRoom({code,close,remove}){
+export default function WrongRoom({close,remove}){
     const router = useRouter()
     const [free, setFree] = useState(false)
     const [check, setCheck] = useState(false)
