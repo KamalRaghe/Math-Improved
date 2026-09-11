@@ -46,7 +46,7 @@ return(
          <div className="double WaitScreen" >Waiting for host</div>
          <div style={{margin:"20px",fontSize:"20px"}}>Code: {user}</div>
          <button onClick={()=>{setWrong(true)}} className="red choice" style={{padding:"5px",width:"150px"}} >Leave room</button>
-         {wrong && <WrongRoom code={user} remove={Remove} close={()=>{setWrong(false)}} ></WrongRoom>}
+         {wrong && <WrongRoom remove={Remove} close={()=>{setWrong(false)}} ></WrongRoom>}
     </div>
 
 )
