@@ -11,16 +11,16 @@ function App() {
  const router = useRouter()
  const [array, setArray] = useState(['a','b','c','d','e',
     'f','g','h','i','j',
-    'k','l','m','n','o',
+    'k','m','n','o',
     'p','q','r','s','t',
     'u','v','w','x','y','z'
 ])
  const [num1, setNum1] = useState(Math.ceil(Math.random()*9))
  const [num2, setNum2] = useState(Math.ceil(Math.random()*9))
  const [num3, setNum3] = useState(Math.ceil(Math.random()*9))
- const [num4, setNum4] = useState(Math.floor(Math.random()*26))
- const [num5, setNum5] = useState(Math.floor(Math.random()*26))
- const [num6, setNum6] = useState(Math.floor(Math.random()*26))
+ const [num4, setNum4] = useState(Math.floor(Math.random()*25))
+ const [num5, setNum5] = useState(Math.floor(Math.random()*25))
+ const [num6, setNum6] = useState(Math.floor(Math.random()*25))
  const [code ,setCode] = useState([array[num4],num1,array[num5],num2,array[num6],num3])
  const [account, setAccount] = useState({
     title:""
