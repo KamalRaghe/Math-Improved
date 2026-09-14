@@ -29,7 +29,8 @@ export default function FeedBack({close}){
                 </div>
                  <textarea placeholder="Feedback" onChange={(e)=>{setPost(e.target.value)}} ></textarea>
                  <br></br>
-                 <button onClick={NewFeedback}>Submit</button>
+                 <button style={{marginBottom:"3px"}} onClick={NewFeedback}>Submit</button>
+                 or
                  <br></br>
                  <div>Email: customersupport.mi@gmail.com</div>
             </div>
