@@ -13,7 +13,7 @@ function App() {
     function Remove(){
         let room = window.localStorage.getItem('GameRoom')
         let id = window.localStorage.getItem('GameId')
-        router.push('/Enter')
+        router.push('/')
         remove(ref(rdb, `${room}/`+ id))
     }
 
