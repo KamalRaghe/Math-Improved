@@ -30,6 +30,8 @@ export default function FeedBack({close}){
                  <textarea placeholder="Feedback" onChange={(e)=>{setPost(e.target.value)}} ></textarea>
                  <br></br>
                  <button onClick={NewFeedback}>Submit</button>
+                 <br></br>
+                 <div>Email: customersupport.mi@gmail.com</div>
             </div>
         </div>
     )
