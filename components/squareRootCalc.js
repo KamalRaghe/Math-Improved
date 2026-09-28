@@ -1,13 +1,12 @@
 import { useState } from "react";
 
-export default function AddCalculator({close}) {
+export default function SqrtCalculator({close}) {
   const [base, setBase] = useState("");
-  const [exponent, setExponent] = useState("");
   const [result, setResult] = useState(null);
 
   function calculate() {
-    if (base === "" || exponent === "") return;
-    const res = (Number(base)-Number(exponent));
+    if (base === "") return;
+    const res = Math.sqrt(Number(base));
     setResult(res);
   }
 
@@ -29,18 +28,11 @@ export default function AddCalculator({close}) {
       
       
       <div style={{ display: "flex", justifyContent: "center", gap: "8px" }}>
+        <span style={{ fontSize: "22px", position: "relative", top: "4px" }}>√</span>
         <input
           type="number"
           value={base}
           onChange={(e) => setBase(e.target.value)}
-          placeholder=""
-          style={{ width: "70px", padding: "6px", textAlign: "center" }}
-        />
-        <span style={{ fontSize: "22px", position: "relative", top: "4px" }}>-</span>
-        <input
-          type="number"
-          value={exponent}
-          onChange={(e) => setExponent(e.target.value)}
           placeholder=""
           style={{ width: "70px", padding: "6px", textAlign: "center" }}
         />

@@ -5,6 +5,7 @@ import StepAdd from "@/components/StepAdd"
 import HelpTimes from "@/components/HelpTimes"
 import StepTimes from "@/components/stepTimes"
 import PythagorasTriangle from "@/components/PythagorasTriangle"
+import SqrtCalculator from "./squareRootCalc"
 
 function shuffle(arr) {
     const a = [...arr]
@@ -53,6 +54,8 @@ export default function HelpPythagoras({ a, b, close }) {
             {extra && sign === '+' && (Q1 >= 10 || Q2 >= 10) && <StepAdd close={Extra} num1={Q1} num2={Q2} />}
             {extra && sign === 'x' && Q1 < 10 && Q2 < 10 && <HelpTimes close={Extra} num1={Q1} num2={Q2} />}
             {extra && sign === 'x' && (Q1 >= 10 || Q2 >= 10) && <StepTimes close={Extra} num1={Q1} num2={Q2} />}
+            {extra && sign === '√' && (Q1 >= 10 || Q2 >= 10) && <SqrtCalculator />}
+            
             <div className='cancel'><button className='cancel-btn' onClick = {close}>X</button></div>
 
             <div style={{position: 'relative',bottom: '40px',right:"-20px"}} >
@@ -71,7 +74,7 @@ export default function HelpPythagoras({ a, b, close }) {
                 <Step value={answer + arr[1]} answer={answer} Count={Count} done={done} mistake={Nothing} />
                 <Step value={answer + arr[3]} answer={answer} Count={Count} done={done} mistake={Nothing} />
                 <Step value={answer + arr[0]} answer={answer} Count={Count} done={done} mistake={Nothing} />
-                {sign !== '√' && <button className="choice" style={{ backgroundColor: 'yellow', color: 'black' }} onClick={() => setExtra(true)}>help</button>}
+                {<button className="choice" style={{ backgroundColor: 'yellow', color: 'black' }} onClick={() => setExtra(true)}>help</button>}
                 <Step value={answer + arr[2]} answer={answer} Count={Count} done={done} mistake={Nothing} />
                 <button className="choice red" onClick={close}>Close</button>
             </div>}
