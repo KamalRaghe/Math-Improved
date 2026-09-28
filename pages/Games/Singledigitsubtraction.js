@@ -98,7 +98,7 @@ export default function DoubleAdd(){
         }, 500);
       } 
     function Add(){
-        if(!wrong && !correct){
+        if(!(wrong && correct)){
         setTimeout(() => {
             setNum1(Math.ceil(Math.random()*9))
             mix()

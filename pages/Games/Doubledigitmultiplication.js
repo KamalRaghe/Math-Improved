@@ -69,7 +69,7 @@ export default function DoubleAdd(){
         }, 500);
       } 
     function Add(){
-        if(!wrong && !correct){
+        if(!(wrong || correct)){
         setTimeout(() => {
             setNum1(Math.floor(Math.random()*90+10))
             setNum2(Math.floor(Math.random()*90+10))
