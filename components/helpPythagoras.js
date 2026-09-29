@@ -4,7 +4,7 @@ import HelpAdd from "@/components/HelpAdd"
 import StepAdd from "@/components/StepAdd"
 import HelpTimes from "@/components/HelpTimes"
 import StepTimes from "@/components/stepTimes"
-import PythagorasTriangle from "@/components/PythagorasTriangle"
+import PythagorasTriangle from "./pythagorasTriangle"
 import SqrtCalculator from "./squareRootCalc"
 
 function shuffle(arr) {

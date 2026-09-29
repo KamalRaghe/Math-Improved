@@ -149,6 +149,12 @@ export default function Math(){
             {  count === 'fraction' && <Link href= {`/${id}/enter/DPF`}><button className="sub-topic zoom">Division (Proper Fractions)</button></Link>}            
             {  count === 'fraction' && <Link href= {`/${id}/enter/DMF`}><button className="sub-topic zoom">Division (Mixed Fractions)</button></Link>}                        
 
+            { loaded && <button onClick={() => {setCount('deci')}} className="topic" >Decimals</button>}
+            { count === 'deci' && <Link href= {`/${id}/enter/DeciAdd`}><button className="sub-topic zoom">Addition</button></Link>}
+            { count === 'deci' && <Link href= {`/${id}/enter/DeciMinus`}><button className="sub-topic zoom">Subtraction</button></Link>}
+            { count === 'deci' && <Link href= {`/${id}/enter/DeciTimes`}><button className="sub-topic zoom">Multiplication</button></Link>}
+            
+            
             { loaded && <button onClick={() => {setCount('in')}} className="topic" >Inequality</button>}
             { count === 'in' && <Link href= {`/${id}/enter/Gl`}><button className="sub-topic zoom">Greater than less than</button></Link>}
 
