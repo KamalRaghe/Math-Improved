@@ -3,7 +3,7 @@ import Choice from "@/components/choice";
 import Correct from "@/components/correct";
 import Wrong from "@/components/wrong";
 import HelpPythagoras from "@/components/helpPythagoras";
-import PythagorasTriangle from "@/components/pythagorasTriangle";
+import PythagorasTriangle from "@/components/Pythagoras";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
