@@ -147,7 +147,7 @@ function Count(){
         setDone(false)
         setNumber4(num1*((num2-(num2%10))/10)*10)
         setMove('0px')
-        setMove1('292px')
+        setMove1('310px')
         setSign3('+')
         setZero(false)
     }else if(step5 === true){
@@ -213,7 +213,7 @@ function Extra(){
                 {step6 && add ? <span className='lower-number'>{(Math.floor(number3/100))%10}<span className='Green'>{(Math.floor(number3/10))%10}</span>{number3%10}</span>:null}
                 {step5 && add ? <span className='lower-number'>{(Math.floor(number3/100))%10}{(Math.floor(number3/10))%10}<span className='Green'>{number3%10}</span></span>:null}
             </div>
-            <div className='double center' style={{paddingTop:'10px',width: move1,left: move}}>
+            <div className='double center' style={{paddingTop:'10px',width: move1,}}>
                 {number4 < 1000 && (step5 || step6 || step7 || step8) && <span className='hide'>0</span>}
                 {!add ? <span className='lower-number' >{number4}</span>:<span></span>}
                 {step8 && add ?  <span style={{borderBottom: '2px solid black'}} >+ <span>{(Math.floor(number4/100))}</span>{(Math.floor(number4/10))%10}{number4%10}</span>:null}
@@ -230,7 +230,13 @@ function Extra(){
                     {number3+number4 < 1000 && <span className='hide'>0</span>}
                     {(number3+number4) / Math.pow(10, placed)}
                     <br></br>
-                    <button className='carry Green' onClick={placeDecimal}>{placed == 0 ? 'Click' : 'Click Again'}</button>
+                    { placed == 0 ? 
+                    <button className='carry Green' 
+                    style={{position: 'relative', left: '110px',top:'-210px'}} 
+                    onClick={placeDecimal}>Click</button> : 
+                    <button className='carry Green' 
+                    style={{position: 'relative', left: '110px',top:'-170px'}} 
+                    onClick={placeDecimal}>Click</button> }
                     
                 </div>
             ) : null}
