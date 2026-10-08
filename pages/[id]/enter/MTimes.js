@@ -16,7 +16,7 @@ export default function Home() {
     <div style={{ maxWidth: "320px", margin: "40px auto", textAlign: "center" }}>
       {/* List 1–9 */}
       <ul style={{ listStyle: "none", padding: 0 }}>
-        {Array.from({ length: 9 }, (_, i) => {
+        {Array.from({ length: 12}, (_, i) => {
           const n = i + 1;
           return (
             <li
