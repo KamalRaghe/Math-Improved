@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export default function Home() {
   const [page, setPage] = useState(1);
-  const maxPage = 9;
+  const maxPage = 12;
 
   const nextPage = () => {
     if (page < maxPage) setPage(page + 1);
