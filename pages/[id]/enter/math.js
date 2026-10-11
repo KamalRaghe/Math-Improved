@@ -153,6 +153,9 @@ export default function Math(){
             { count === 'deci' && <Link href= {`/${id}/enter/DeciAdd`}><button className="sub-topic zoom">Addition</button></Link>}
             { count === 'deci' && <Link href= {`/${id}/enter/DeciMinus`}><button className="sub-topic zoom">Subtraction</button></Link>}
             { count === 'deci' && <Link href= {`/${id}/enter/DeciTimes`}><button className="sub-topic zoom">Multiplication</button></Link>}
+
+            { loaded && <button onClick={() => {setCount('percent')}} className="topic" >Percentages</button>}
+            { count === 'percent' && <Link href= {`/${id}/enter/Percent`}><button className="sub-topic zoom">Percent of a Number</button></Link>}
             
             
             { loaded && <button onClick={() => {setCount('in')}} className="topic" >Inequality</button>}

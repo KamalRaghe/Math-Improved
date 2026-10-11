@@ -61,7 +61,7 @@ export default function HelpPercent({percent, base, close}){
     const isDiv = q && q.sign === '÷'
     const perfect = isDiv && q.ans >= 1 && q.ans <= 9
     const longDiv = isDiv && !perfect && q.Q1 > 99 && q.Q2 < 10
-    const shortDiv = isDiv && !perfect && q.Q1 > 99 && q.Q2 >= 10
+    const shortDiv = isDiv && !perfect && !longDiv 
 
     // the help button only shows when one of your helpers can handle the question
     let canHelp = false
