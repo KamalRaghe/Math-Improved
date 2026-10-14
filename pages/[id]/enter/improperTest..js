@@ -160,15 +160,15 @@ export default function DoubleAdd(){
             { time - Date.now() < 0 && <Timeout again ={Again}/>}
             {mistake === 3 && <Mistake again={Again}></Mistake>}
             {count === 25 && <Pass time ={600000 -(time-Date.now())}/>}
-            <div className="box column">
-            <div className="row ">
-                    { loaded && <Choice beginning={true}  whole2={1} whole={num2-num3[0]} value1 ={num4+num3[0]} answer1 ={num4}  value2={num1}  answer2={num1}  doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-                    { loaded && <Choice beginning={true}  whole2={1} whole={num2-num3[1]} value1 ={num4+num3[1]} answer1 ={num4}  value2={num1}  answer2={num1}  doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-                    { loaded && <Choice beginning={true}  whole2={1} whole={num2-num3[2]} value1 ={num4+num3[2]} answer1 ={num4}  value2={num1}  answer2={num1}  doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+             <div className="box column">
+               <div className="row ">
+                    { loaded && <Choice whole2={1} whole={num2-num3[0]} value1 ={num4+num3[0]} answer1 ={num4}  value2={num1}  answer2={num1}  doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && <Choice whole2={1} whole={num2-num3[1]} value1 ={num4+num3[1]} answer1 ={num4}  value2={num1}  answer2={num1}  doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && <Choice whole2={1} whole={num2-num3[2]} value1 ={num4+num3[2]} answer1 ={num4}  value2={num1}  answer2={num1}  doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
                </div>
                <div className="row">
-                    { loaded && <Choice beginning={true}  whole2={1} whole={num2-num3[3]} value1 ={num4+num3[3]} answer1 ={num4}  value2={num1}  answer2={num1}  doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
-                    { loaded && <Choice beginning={true}  whole2={1} whole={num2-num3[4]} value1 ={num4+num3[4]} answer1 ={num4}  value2={num1}  answer2={num1}  doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && <Choice whole2={1} whole={num2-num3[3]} value1 ={num4+num3[3]} answer1 ={num4}  value2={num1}  answer2={num1}  doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
+                    { loaded && <Choice whole2={1} whole={num2-num3[4]} value1 ={num4+num3[4]} answer1 ={num4}  value2={num1}  answer2={num1}  doSomething = {Add} Correct={CorrectA} Wrong={WrongA}/>}
                </div>
             </div>
         </div>
