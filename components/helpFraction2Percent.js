@@ -53,7 +53,7 @@ export default function HelpFraction2Percent({ num, den, close }) {
 
             <div className="double center">
                 <div className="column center">
-                    <div className="center" style={{ borderBottom: '2px solid black', width: '120px' }}>
+                    <div className="center" style={{ borderBottom: '2px solid black', width: '150px' }}>
                         {step === 1 && num}
                         {step === 2 && `${num} x ${k}`}
                         {done && num * k}
