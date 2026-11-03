@@ -145,7 +145,7 @@ function Count(){
         setDone(false)
         setNumber4(num1*((num2-(num2%10))/10)*10)
         setMove('0px')
-        setMove1('292px')
+        setMove1('309px')
         setSign3('+')
         setZero(false)
     }else if(step5 === true){

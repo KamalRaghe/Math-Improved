@@ -305,7 +305,7 @@ useEffect(()=>{
                     <span style={{fontSize:'30px'}}>{num1 > 9 && <span className="hide" >0.</span>}
                     {answer3}</span>
                 </div>}
-                   
+                   {done && !remainder  && <div className="double fixed" style={{width:"250px"}} >Pick a number</div>}
                    {done && !remainder && <div style={{display:'flex', justifyContent:'center', alignItems:'end', height:'250px'  }}>
                         <button className="choice-stretch" onClick = {() => {setDone(false);setNumber4(1) }}>{1}</button>
                         <button className="choice-stretch" onClick = {() => {setDone(false);setNumber4(2) }}>{2}</button>
