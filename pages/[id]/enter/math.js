@@ -159,6 +159,7 @@ export default function Math(){
 
             { loaded && <button onClick={() => {setCount('convert')}} className="topic" >Convert</button>}
             { count === 'convert' && <Link href= {`/${id}/enter/Fraction2percent`}><button className="sub-topic zoom">Fractions to Percentages</button></Link>}
+            { count === 'convert' && <Link href= {`/${id}/enter/Fraction2decimal`}><button className="sub-topic zoom">Fractions to Decimals</button></Link>}
             
             
             { loaded && <button onClick={() => {setCount('in')}} className="topic" >Inequality</button>}
