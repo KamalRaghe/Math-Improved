@@ -88,7 +88,7 @@ export default function Decimal2FractionTest() {
             setCorrect(false)
             setWrong(false)
             setQ(makeQuestion())
-        }, 1500)
+        }, 500)
     }
 
     function CorrectA() {
